@@ -10,7 +10,7 @@ const alexandria = Alexandria({
 
 export const metadata: Metadata = {
   title: 'يماس العربية للمقاولات | Yamas Construction',
-  description: 'شركة يماس العربية للمقاولات - متخصصون في مشاريع الإسكان والبنية التحتية',
+  description: 'شركة يماس العربية للمقاولات - متخصصون في مشاريع الإسكان ',
 };
 
 export default function RootLayout({

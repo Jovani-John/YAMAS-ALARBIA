@@ -1,15 +1,18 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp, FaSnapchat, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp, FaSnapchat, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { useParams } from 'next/navigation';
 
 const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/yamasarabia/",
-  facebook: "https://www.facebook.com/yamasarabia/",
+  instagram: "https://www.instagram.com/yamas_alarabia?igsh=Z3lnNXJqNnp4emJq&utm_source=qr&fbclid=IwY2xjawO-GklleHRuA2FlbQIxMABicmlkETE3SGs0dXJQWTk0a2E1QkJRc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHo4uL1c-vbdmMjHUKOiuQ60Wlx9QTBtFNgcgpU7-BM4HPwoEsh1zFWlNX5OY_aem_-fuvmKJoPJJVMFaRTzAq8A",
+  facebook: "https://www.facebook.com/profile.php?id=61555224520417&mibextid=wwXIfr&rdid=hdD5tmeJzmvwDhev&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16fV4rZJGS%2F%3Fmibextid%3DwwXIfr#",
+  x: "https://x.com/yamasalarabia",
   linkedin: "https://www.linkedin.com/company/yamasarabia/",
   whatsapp: "https://wa.me/966500029933",
-  snapchat: "https://www.snapchat.com/add/yamasarabia",
+  tiktok: "https://www.tiktok.com/@yamasalarabia",
+  snapchat: "https://www.snapchat.com/@yamasalarabia?fbclid=IwY2xjawO-Gp9leHRuA2FlbQIxMABicmlkETE3SGs0dXJQWTk0a2E1QkJRc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpc7sMPrIlQaFzzJC7yE6JX-3BQoxnVUayaV89T2FrAY-OrPHNJXzUaH5kvI_aem_Y5uTiohxm1D1Qwjke7cVSg",
 } as const;
 
 export default function Footer() {
@@ -23,7 +26,8 @@ export default function Footer() {
       
       // Main Contact Info
       ourPhone: "هاتفنا",
-      phone: "+966 50 002 9933",
+      phone1: "+966 56 419 1000",
+      phone2: "+966 50 002 9933",
       crNumber: "سجل تجاري",
       cr: "1010806346",
       ourEmail: "بريدنا الإلكتروني",
@@ -34,22 +38,21 @@ export default function Footer() {
       // Offices
       offices: "مكاتبنا",
       office1: {
-        title: "المكتب الرئيسي - الرياض",
-        address: "2930 طريق الدائري الشمالي، تقاطع طريق أبو بكر الصديق - حي الوادي - الرياض 13313، 6137 - المربع 6 - الدور الثاني - مكتب 93"
+        title: "فرع الرياض",
+        address: "RAWA2938، طريق الدائري الشمالي تقاطع أبو بكر الصديق، حي الوادي، الرياض | المربع 6 - الدور الأول - مكتب 93"
       },
       office2: {
-        title: "المكتب الثاني - الخبر",
-        address: "2776 طريق الملك فهد بن عبدالعزيز - الرقة الجنوبية - الخبر 13313، 7575 - برج ناصر الحجري NSH - الدور السادس - مكتب 604"
+        title: "فرع الخبر",
+        address: "EAD6389، طريق الملك فهد بن عبدالعزيز، الرقة الجنوبية، الخبر | برج ناصر الحجري - الدور السادس - مكتب 604"
       },
       office3: {
-        title: "مكتب البحرين",
-        address: "الوحدة 2341، الطريق 735، المجمع 907، الرفاع الشرقي، البحرين"
+        title: "فرع البحرين",
+        address: "الطريق 735، المجمع 907، الرفاع الشرقي، مملكة البحرين"
       },
       office4: {
-        title: "مكتب مصر",
-        address: "مبنى 477، مباني النرجس، التجمع الخامس، القاهرة الجديدة، القاهرة، مصر"
+        title: "فرع مصر - القاهرة",
+        address: "مباني النرجس، التجمع الخامس، القاهرة الجديدة، جمهورية مصر العربية"
       },
-      
       quickLinks: "روابط سريعة",
       links: {
         home: "الرئيسية",
@@ -71,7 +74,8 @@ export default function Footer() {
       
       // Main Contact Info
       ourPhone: "Our Phone",
-      phone: "+966 50 002 9933",
+      phone1: "+966 56 419 1000",
+      phone2: "+966 50 002 9933",
       crNumber: "C.R",
       cr: "1010806346",
       ourEmail: "Our Email",
@@ -82,20 +86,20 @@ export default function Footer() {
       // Offices
       offices: "Our Offices",
       office1: {
-        title: "Main Office - Riyadh",
-        address: "2930 Northern Ring Road, Abu Bakr Al Siddiq Road Intersection - Al Wadi Dist. - Riyadh 13313, 6137 - Square 6 - 2nd Floor - Office 93"
+        title: "Riyadh Branch",
+        address: "RAWA2938, Northern Ring Branch Cross Abu Bakr Al Siddiq Road, Al Wadi Dist., Riyadh | Square 6 - 1st Floor - Office 93"
       },
       office2: {
-        title: "Second Office - Khobar",
-        address: "2776 King Fahd Bin Abdulaziz Road - Southern Rakah - Al Khobar 13313, 7575 - Nasser Al Hajri Tower NSH - 6th Floor - Office 604"
+        title: "Khobar Branch",
+        address: "EAD6389, King Fahad Ibn Abdulaziz Saud, Al Rakah Al Janubiyah Dist., Al Khobar | Nasser Al Hajri Tower NSH - 6th Floor - Office 604"
       },
       office3: {
-        title: "Bahrain Office",
-        address: "Unit 2341, Road 735, Block 907, East Riffa, Bahrain"
+        title: "Bahrain Branch",
+        address: "Road 735, Block 907, East Riffa, Kingdom of Bahrain"
       },
       office4: {
-        title: "Egypt Office",
-        address: "Building 477, Al Narges Buildings, Fifth Settlement, New Cairo, Cairo, Egypt"
+        title: "Egypt Branch - Cairo",
+        address: "Al Narges Buildings, Fifth Settlement, New Cairo, Arab Republic of Egypt"
       },
       
       quickLinks: "Quick Links",
@@ -242,8 +246,10 @@ export default function Footer() {
                 const socialConfig = {
                   instagram: { Icon: FaInstagram, color: '#E4405F', bg: 'bg-[#E4405F]' },
                   facebook: { Icon: FaFacebook, color: '#1877F2', bg: 'bg-[#1877F2]' },
+                  x: { Icon: FaXTwitter, color: '#000000', bg: 'bg-[#000000]' },
                   linkedin: { Icon: FaLinkedin, color: '#0A66C2', bg: 'bg-[#0A66C2]' },
                   whatsapp: { Icon: FaWhatsapp, color: '#25D366', bg: 'bg-[#25D366]' },
+                  tiktok: { Icon: FaTiktok, color: '#000000', bg: 'bg-[#000000]' },
                   snapchat: { Icon: FaSnapchat, color: '#FFFC00', bg: 'bg-[#FFFC00]' },
                 }[platform as keyof typeof SOCIAL_LINKS];
 
@@ -267,7 +273,7 @@ export default function Footer() {
                     className={`w-12 h-12 rounded-lg ${bg} flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}
                     aria-label={platform.charAt(0).toUpperCase() + platform.slice(1)}
                   >
-                    <Icon className="text-white text-xl" />
+                    <Icon className={`text-xl ${platform === 'snapchat' ? 'text-black' : 'text-white'}`} />
                   </motion.a>
                 );
               })}
@@ -322,7 +328,7 @@ export default function Footer() {
             <div className="w-10 h-0.5 bg-gray-900 rounded-full mb-4" />
             
             <div className="space-y-3">
-              {/* Phone */}
+              {/* Phone 1 */}
               <motion.div 
                 custom={0}
                 initial="hidden"
@@ -336,8 +342,11 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 text-sm mb-0.5">{currentContent.ourPhone}</p>
-                  <a href={`tel:${currentContent.phone.replace(/\s/g, '')}`} className="text-gray-800 hover:text-gray-900 transition-colors text-sm" dir="ltr">
-                    {currentContent.phone}
+                  <a href={`tel:${currentContent.phone1.replace(/\s/g, '')}`} className="text-gray-800 hover:text-gray-900 transition-colors text-sm block" dir="ltr">
+                    {currentContent.phone1}
+                  </a>
+                  <a href={`tel:${currentContent.phone2.replace(/\s/g, '')}`} className="text-gray-800 hover:text-gray-900 transition-colors text-sm block mt-1" dir="ltr">
+                    {currentContent.phone2}
                   </a>
                 </div>
               </motion.div>
@@ -488,41 +497,6 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* CTA Box - Full Width */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ scale: 1.01, y: -3 }}
-          className="bg-gradient-to-br from-[#1f4d46] via-[#2d6b61] to-[#1f4d46] p-6 rounded-xl shadow-2xl border border-white/20 relative overflow-hidden group mb-8"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent_70%)]" />
-          
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-              <p className="text-2xl font-bold mb-1 text-white drop-shadow-sm">{currentContent.haveProject}</p>
-              <p className="text-white/95 text-base">{currentContent.helpYou}</p>
-            </div>
-            <motion.a
-              href={`/${currentLang}/contact`}
-              whileHover={{ x: isRTL ? -5 : 5 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-white text-[#1f4d46] px-8 py-4 rounded-lg font-bold hover:bg-white/95 transition-all text-base shadow-lg whitespace-nowrap hover:shadow-xl"
-            >
-              {currentContent.contactNow}
-              <motion.span
-                animate={{ x: isRTL ? [-2, 0] : [0, 2] }}
-                transition={{ repeat: Infinity, duration: 0.8, repeatType: "reverse" }}
-                className="text-lg"
-              >
-                {isRTL ? '←' : '→'}
-              </motion.span>
-            </motion.a>
-          </div>
-        </motion.div>
-
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -534,22 +508,6 @@ export default function Footer() {
           <p className="text-gray-900 text-center md:text-left font-medium">
             {currentContent.rights}
           </p>
-          <nav className="flex gap-5" aria-label="Footer navigation">
-            <motion.a 
-              href="#" 
-              whileHover={{ y: -2 }}
-              className="text-gray-800 hover:text-gray-900 transition-colors font-medium"
-            >
-              {currentContent.privacy}
-            </motion.a>
-            <motion.a 
-              href="#" 
-              whileHover={{ y: -2 }}
-              className="text-gray-800 hover:text-gray-900 transition-colors font-medium"
-            >
-              {currentContent.terms}
-            </motion.a>
-          </nav>
         </motion.div>
       </div>
     </footer>

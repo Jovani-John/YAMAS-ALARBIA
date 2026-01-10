@@ -1,21 +1,49 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { useParams } from 'next/navigation';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
+
+// Memoized Stats Component
+const StatsSection = memo(({ currentLang }: { currentLang: string }) => {
+  const stats = [
+    // { number: '20+', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
+    // { number: '15+', label: currentLang === 'ar' ? 'سنة خبرة' : 'Years Experience' },
+    // { number: '100%', label: currentLang === 'ar' ? 'رضا الشركات' : 'Business Client Satisfaction' },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.9, duration: 0.6 }}
+      className="mt-16 grid grid-cols-3 gap-8 md:gap-12"
+    >
+      {stats.map((stat, index) => (
+        <div key={index} className="text-center">
+          <div className="text-3xl md:text-4xl font-bold text-white mb-1">
+            {stat.number}
+          </div>
+          <div className="text-sm md:text-base text-white/80">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </motion.div>
+  );
+});
+
+StatsSection.displayName = 'StatsSection';
 
 export default function HeroSection() {
   const params = useParams();
-  
-  // استخراج اللغة من الـ params (من الـ URL مباشرة)
   const currentLang = (params?.lang as string) || 'ar';
   
-  // النصوص العربية والإنجليزية
   const texts = {
     ar: [
       'نبني المستقبل بأيدٍ سعودية',
-      'رواد في مشاريع الإسكان والبنية التحتية',
+      'رواد في مشاريع الإسكان',
       'جودة لا تُضاهى في كل مشروع',
       'شريكك الموثوق في التطوير العمراني',
     ],
@@ -28,64 +56,57 @@ export default function HeroSection() {
   };
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   
   const heroPlaceholderRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   
+  // Initialize useScroll only after mount to avoid hydration issues
   const { scrollYProgress } = useScroll({
-    target: heroPlaceholderRef,
+    target: isMounted ? heroPlaceholderRef : undefined,
     offset: ["start start", "end start"]
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
-  // Typewriter Effect
+  // Text rotation - الجملة كاملة بتظهر وتختفي
   useEffect(() => {
-    const currentTexts = texts[currentLang as keyof typeof texts];
-    const currentFullText = currentTexts[currentTextIndex];
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
     
-    const typingSpeed = isDeleting ? 30 : 80;
-    const pauseBeforeDelete = 2000;
-    const pauseBeforeNext = 500;
+    const currentTexts = texts[currentLang as keyof typeof texts];
+    
+    // مدة بقاء كل جملة: 3.5 ثانية
+    const displayDuration = 3500;
+    
+    // Clear any existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    intervalRef.current = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % currentTexts.length);
+    }, displayDuration);
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        // Typing
-        if (displayedText.length < currentFullText.length) {
-          setDisplayedText(currentFullText.slice(0, displayedText.length + 1));
-        } else {
-          // Pause before deleting
-          setTimeout(() => setIsDeleting(true), pauseBeforeDelete);
-        }
-      } else {
-        // Deleting
-        if (displayedText.length > 0) {
-          setDisplayedText(currentFullText.slice(0, displayedText.length - 1));
-        } else {
-          setIsDeleting(false);
-          // Move to next text
-          setTimeout(() => {
-            setCurrentTextIndex((prev) => (prev + 1) % currentTexts.length);
-          }, pauseBeforeNext);
-        }
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
       }
-    }, typingSpeed);
+    };
+  }, [currentLang, isMounted]);
 
-    return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, currentTextIndex, currentLang, texts]);
-
-  // Reset text when language changes
+  // Reset when language changes
   useEffect(() => {
-    setDisplayedText('');
     setCurrentTextIndex(0);
-    setIsDeleting(false);
   }, [currentLang]);
 
-  // Lazy load video
+  // Optimized lazy load video
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -109,6 +130,7 @@ export default function HeroSection() {
   }, [videoLoaded]);
 
   const isRTL = currentLang === 'ar';
+  const currentTexts = texts[currentLang as keyof typeof texts];
 
   return (
     <>
@@ -130,6 +152,7 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
             style={{ 
               transform: 'translateZ(0)',
+              willChange: 'auto',
             }}
           />
         </div>
@@ -156,17 +179,26 @@ export default function HeroSection() {
             <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#49A799] to-transparent mx-auto" />
           </motion.div>
 
-          {/* Typewriter Text */}
+          {/* Animated Text - الجملة كاملة */}
           <div className="min-h-[160px] md:min-h-[200px] flex items-center justify-center">
-            <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-              style={{ 
-                textShadow: '0 4px 12px rgba(0,0,0,0.5)',
-              }}
-            >
-              {displayedText}
-              <span className="animate-pulse text-[#49A799]">|</span>
-            </h1>
+            {isMounted && (
+              <motion.h1
+                key={currentTextIndex}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ 
+                  duration: 0.7, 
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                style={{ 
+                  textShadow: '0 4px 12px rgba(0,0,0,0.5)',
+                }}
+              >
+                {currentTexts[currentTextIndex]}
+              </motion.h1>
+            )}
           </div>
 
           {/* CTA Buttons */}
@@ -194,28 +226,8 @@ export default function HeroSection() {
             </a>
           </motion.div>
 
-          {/* Stats - Quick Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="mt-16 grid grid-cols-3 gap-8 md:gap-12"
-          >
-            {[
-              { number: '20+', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
-              { number: '15+', label: currentLang === 'ar' ? 'سنة خبرة' : 'Years Experience' },
-              { number: '100%', label: currentLang === 'ar' ? 'رضا العملاء' : 'Client Satisfaction' },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-white/80">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+          {/* Stats */}
+          <StatsSection currentLang={currentLang} />
 
           {/* Scroll Indicator */}
           <motion.div

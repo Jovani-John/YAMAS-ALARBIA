@@ -60,14 +60,14 @@ const StatCard = memo(({ stat, index }: { stat: StatType; index: number }) => {
       <div className="relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden">
         {/* Gradient overlay on hover */}
         <motion.div
-          className="absolute inset-0 bg-linear-to-br from-[#49A799]/5 to-[#49A799]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          className="absolute inset-0 bg-gradient-to-br from-[#49A799]/5 to-[#49A799]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={false}
         />
         
         <div className="relative z-10 flex flex-col items-center">
           {/* Icon with rotation effect */}
           <motion.div
-            className="w-16 h-16 bg-linear-to-br from-[#49A799] to-[#3A8A7E] rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+            className="w-16 h-16 bg-gradient-to-br from-[#49A799] to-[#3A8A7E] rounded-2xl flex items-center justify-center mb-4 shadow-lg"
             whileHover={{ 
               rotate: [0, -10, 10, -10, 0],
               scale: 1.1
@@ -89,7 +89,7 @@ const StatCard = memo(({ stat, index }: { stat: StatType; index: number }) => {
         </div>
 
         {/* Decorative corner */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-linear-to-br from-[#49A799]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#49A799]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
     </motion.div>
   );
@@ -108,7 +108,7 @@ const FeatureItem = memo(({ feature, index }: { feature: string; index: number }
       className="group flex items-start gap-4 p-4 rounded-xl hover:bg-white hover:shadow-md transition-all duration-300"
     >
       <motion.div
-        className="shrink-0 w-8 h-8 bg-linear-to-br from-[#49A799] to-[#3A8A7E] rounded-lg flex items-center justify-center shadow-md"
+        className="shrink-0 w-8 h-8 bg-gradient-to-br from-[#49A799] to-[#3A8A7E] rounded-lg flex items-center justify-center shadow-md"
         whileHover={{ 
           scale: 1.2,
           rotate: 360
@@ -168,9 +168,9 @@ export default function AboutSection() {
       cta: 'اكتشف المزيد',
       stats: [
         { icon: HiOfficeBuilding, number: '20+', label: 'مشروع منجز' },
-        { icon: HiUserGroup, number: '15+', label: 'سنة خبرة' },
+        { icon: HiUserGroup, number: '24/7', label: 'دعم مستمر' },
         { icon: HiGlobe, number: '4', label: 'فروع دولية' },
-        { icon: HiCheckCircle, number: '100%', label: 'رضا العملاء' },
+        { icon: HiCheckCircle, number: '10+', label: 'المشاريع التنفيزية' },
       ],
       features: [
         'معايير جودة عالمية معتمدة من ISO',
@@ -189,7 +189,7 @@ export default function AboutSection() {
         { icon: HiOfficeBuilding, number: '20+', label: 'Completed Projects' },
         { icon: HiUserGroup, number: '15+', label: 'Years Experience' },
         { icon: HiGlobe, number: '4', label: 'International Branches' },
-        { icon: HiCheckCircle, number: '100%', label: 'Client Satisfaction' },
+        { icon: HiCheckCircle, number: '100%', label: 'Business Client Satisfaction' },
       ],
       features: [
         'ISO-Certified International Quality Standards',
@@ -205,7 +205,7 @@ export default function AboutSection() {
   return (
     <section 
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden bg-linear-to-br from-gray-50 via-white to-gray-50"
+      className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50"
       dir={isRTL ? 'rtl' : 'ltr'}
       aria-labelledby="about-heading"
     >
@@ -214,15 +214,15 @@ export default function AboutSection() {
         {/* Gradient Orbs */}
         <motion.div 
           style={{ y: y1 }}
-          className="absolute top-0 left-0 w-96 h-96 bg-linear-to-br from-[#49A799]/20 to-transparent rounded-full blur-3xl"
+          className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#49A799]/20 to-transparent rounded-full blur-3xl"
         />
         <motion.div 
           style={{ y: y2 }}
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-linear-to-tl from-[#49A799]/20 to-transparent rounded-full blur-3xl"
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-[#49A799]/20 to-transparent rounded-full blur-3xl"
         />
         
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[64px_64px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:64px_64px]" />
         
         {/* Floating Dots */}
         {[...Array(8)].map((_, i) => (
@@ -266,7 +266,7 @@ export default function AboutSection() {
           </motion.span>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start lg:items-center">
           
           {/* Left Side - Content */}
           <motion.div
@@ -274,12 +274,13 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, type: 'spring' }}
+            className="flex flex-col justify-center order-2 lg:order-1 lg:-mt-32"
           >
             {/* Title with gradient */}
             <h2 
               ref={titleRef}
               id="about-heading"
-              className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 lg:mb-6"
             >
               <motion.span 
                 className="block text-gray-900"
@@ -291,7 +292,7 @@ export default function AboutSection() {
                 {data.title}
               </motion.span>
               <motion.span 
-                className="block bg-linear-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -303,7 +304,7 @@ export default function AboutSection() {
 
             {/* Description */}
             <motion.p 
-              className="text-lg text-gray-600 leading-relaxed mb-8"
+              className="text-base lg:text-lg text-gray-600 leading-relaxed mb-6 lg:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -313,7 +314,7 @@ export default function AboutSection() {
             </motion.p>
 
             {/* Features Grid */}
-            <div className="space-y-2 mb-10">
+            <div className="space-y-2 mb-8 lg:mb-10">
               {data.features.map((feature, index) => (
                 <FeatureItem key={index} feature={feature} index={index} />
               ))}
@@ -328,12 +329,12 @@ export default function AboutSection() {
             >
               <motion.a
                 href={`/${currentLang}/about`}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                className="group inline-flex items-center gap-3 px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-full font-bold text-base lg:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.span
-                  className="absolute inset-0 bg-linear-to-r from-[#3A8A7E] to-[#49A799]"
+                  className="absolute inset-0 bg-gradient-to-r from-[#3A8A7E] to-[#49A799]"
                   initial={{ x: '100%' }}
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
@@ -350,32 +351,34 @@ export default function AboutSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image & Stats */}
+          {/* Right Side - Video & Stats */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative order-1 lg:order-2"
           >
-            {/* Main Image Card */}
+            {/* Main Video Card */}
             <motion.div 
               className="relative rounded-3xl overflow-hidden shadow-2xl group"
               style={{ scale }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative h-[500px] w-full">
+              <div className="relative aspect-[4/3] w-full">
                 <video
                   src="/videos/About.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ willChange: 'transform' }}
                 />
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 
                 {/* Decorative Border */}
                 <div className="absolute inset-0 border-4 border-[#49A799]/0 group-hover:border-[#49A799]/50 rounded-3xl transition-all duration-300" />
@@ -393,13 +396,20 @@ export default function AboutSection() {
               </motion.div>
             </motion.div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-8">
+            {/* Stats Grid - Hidden on mobile, shown on desktop */}
+            <div className="hidden lg:grid grid-cols-2 gap-4 mt-6">
               {data.stats.map((stat, index) => (
                 <StatCard key={index} stat={stat} index={index} />
               ))}
             </div>
           </motion.div>
+        </div>
+
+        {/* Stats Grid - Shown on mobile below content */}
+        <div className="grid grid-cols-2 gap-4 mt-12 lg:hidden">
+          {data.stats.map((stat, index) => (
+            <StatCard key={index} stat={stat} index={index} />
+          ))}
         </div>
       </motion.div>
     </section>

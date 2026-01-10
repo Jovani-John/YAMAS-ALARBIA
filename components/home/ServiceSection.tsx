@@ -21,8 +21,8 @@ export default function ServicesTabsSection() {
       ctaButton: 'اطلب عرض سعر مجاني',
       stats: {
         projects: 'مشروع',
-        years: 'سنة خبرة',
-        clients: 'عميل'
+        years: 'دعم مستمر',
+        clients: 'شركة'
       },
       services: [
         {
@@ -36,7 +36,7 @@ export default function ServicesTabsSection() {
             { title: 'المصانع والمستودعات', desc: 'بنية تحتية صناعية قوية' },
             { title: 'مشاريع البنية التحتية', desc: 'حلول مبتكرة للمشاريع الكبرى' }
           ],
-          stats: { projects: '150+', years: '15+', clients: '200+' },
+          stats: {  },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
         },
@@ -51,8 +51,8 @@ export default function ServicesTabsSection() {
             { title: 'المطارات ومحطات النقل', desc: 'مشاريع نقل عملاقة' },
             { title: 'المرافق الرياضية', desc: 'ملاعب واستادات حديثة' }
           ],
-          stats: { projects: '50+', years: '20+', clients: '100+' },
-          gradient: 'from-blue-600 to-blue-700',
+          stats: { },
+          gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
         },
         {
@@ -66,8 +66,8 @@ export default function ServicesTabsSection() {
             { title: 'الجبس والأسقف المعلقة', desc: 'أسقف ديكورية مبهرة' },
             { title: 'التكييف المركزي', desc: 'أنظمة تبريد حديثة' }
           ],
-          stats: { projects: '300+', years: '12+', clients: '400+' },
-          gradient: 'from-red-600 to-red-700',
+          stats: { },
+          gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
         },
         {
@@ -81,8 +81,8 @@ export default function ServicesTabsSection() {
             { title: 'أنظمة مكافحة الحريق', desc: 'سلامة قصوى' },
             { title: 'المصاعد والتيارات الخفيفة', desc: 'تكنولوجيا ذكية' }
           ],
-          stats: { projects: '250+', years: '18+', clients: '350+' },
-          gradient: 'from-amber-500 to-orange-600',
+          stats: { },
+          gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
         }
       ]
@@ -94,8 +94,8 @@ export default function ServicesTabsSection() {
       ctaButton: 'Request Free Quote',
       stats: {
         projects: 'Projects',
-        years: 'Years Experience',
-        clients: 'Clients'
+        years: 'Outgoing Support',
+        clients: 'Company'
       },
       services: [
         {
@@ -109,7 +109,7 @@ export default function ServicesTabsSection() {
             { title: 'Factories & Warehouses', desc: 'Strong industrial infrastructure' },
             { title: 'Infrastructure Projects', desc: 'Innovative solutions for major projects' }
           ],
-          stats: { projects: '150+', years: '15+', clients: '200+' },
+          stats: {  },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
         },
@@ -124,8 +124,8 @@ export default function ServicesTabsSection() {
             { title: 'Airports & Transport Stations', desc: 'Giant transportation projects' },
             { title: 'Sports Facilities', desc: 'Modern stadiums and arenas' }
           ],
-          stats: { projects: '50+', years: '20+', clients: '100+' },
-          gradient: 'from-blue-600 to-blue-700',
+          stats: { },
+          gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
         },
         {
@@ -139,8 +139,8 @@ export default function ServicesTabsSection() {
             { title: 'Gypsum & False Ceilings', desc: 'Stunning decorative ceilings' },
             { title: 'Central Air Conditioning', desc: 'Modern cooling systems' }
           ],
-          stats: { projects: '300+', years: '12+', clients: '400+' },
-          gradient: 'from-red-600 to-red-700',
+          stats: { },
+          gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
         },
         {
@@ -154,8 +154,8 @@ export default function ServicesTabsSection() {
             { title: 'Fire Fighting Systems', desc: 'Maximum safety' },
             { title: 'Elevators & Low Current', desc: 'Smart technology' }
           ],
-          stats: { projects: '250+', years: '18+', clients: '350+' },
-          gradient: 'from-amber-500 to-orange-600',
+          stats: {  },
+          gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
         }
       ]
@@ -165,12 +165,12 @@ export default function ServicesTabsSection() {
   const currentContent = content[currentLang as keyof typeof content];
   const services = currentContent.services;
 
-  // Auto slide every 15 seconds (5s * 3 for smoother transitions)
+  // Auto slide every 15 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);
       setActiveTab((prev) => (prev + 1) % services.length);
-    }, 15000); // Changed from 8000 to 15000
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [services.length]);
@@ -345,7 +345,7 @@ export default function ServicesTabsSection() {
           </div>
         </motion.div>
 
-        {/* Content Area - Fixed Height Issue */}
+        {/* Content Area */}
         <div className="relative" role="region" aria-live="polite">
           <AnimatePresence initial={false} custom={direction} mode="wait">
             <motion.div
@@ -369,7 +369,7 @@ export default function ServicesTabsSection() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 
-                {/* Image & Stats - Better Mobile Layout */}
+                {/* Image & Stats */}
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.85, rotateY: -30 }}
                   animate={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -386,7 +386,7 @@ export default function ServicesTabsSection() {
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${services[activeTab].gradient} opacity-50 group-hover:opacity-60 transition-opacity duration-500`} />
                     
-                    {/* Stats Overlay - Better Positioning */}
+                    {/* Stats Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
                       <div className="grid grid-cols-3 gap-4 text-white">
                         {Object.entries(services[activeTab].stats).map(([key, value], i) => (
@@ -417,7 +417,7 @@ export default function ServicesTabsSection() {
                   </div>
                 </motion.div>
 
-                {/* Content - Better Spacing */}
+                {/* Content */}
                 <div className="flex flex-col justify-center order-1 lg:order-2 space-y-6">
                   <motion.div
                     initial={{ opacity: 0, x: isRTL ? -70 : 70 }}
@@ -449,7 +449,7 @@ export default function ServicesTabsSection() {
                       {services[activeTab].description}
                     </motion.p>
 
-                    {/* Features List - Better Mobile Layout */}
+                    {/* Features List */}
                     <div className="space-y-3 mb-8">
                       {services[activeTab].features.map((feature, idx) => (
                         <motion.div
@@ -501,7 +501,7 @@ export default function ServicesTabsSection() {
           </AnimatePresence>
         </div>
 
-        {/* Progress Indicator - Better Mobile */}
+        {/* Progress Indicator */}
         <motion.div 
           className="flex justify-center gap-3 mt-12 md:mt-16"
           initial={{ opacity: 0 }}
@@ -532,7 +532,7 @@ export default function ServicesTabsSection() {
         </motion.div>
       </div>
 
-      {/* Add custom scrollbar hide and performance optimizations */}
+      {/* Performance optimizations */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -542,7 +542,6 @@ export default function ServicesTabsSection() {
           scrollbar-width: none;
         }
         
-        /* Performance optimizations */
         @media (prefers-reduced-motion: reduce) {
           * {
             animation-duration: 0.01ms !important;

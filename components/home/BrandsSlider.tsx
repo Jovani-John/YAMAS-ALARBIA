@@ -119,7 +119,7 @@ export default function BrandsSlider() {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-w-full max-h-full object-contain transition-all duration-300 will-change-transform pointer-events-none select-none filter grayscale hover:grayscale-0"
+                  className="max-w-full max-h-full object-contain transition-all duration-300 will-change-transform pointer-events-none select-none"
                   draggable="false"
                   loading="lazy"
                   onError={(e) => {

@@ -24,7 +24,7 @@ export const aboutContent = {
       badge: '✦ من نحن',
       title: 'نحن يماس نبني المستقبل ',
       highlight: 'بخبرة وثقة',
-      subtitle: 'رواد في مجال الإنشاءات والمقاولات منذ عام 2009',
+      subtitle: 'رواد في مجال الإنشاءات والمقاولات ',
       cta: ' ثق بنا',
     },
     management: {
@@ -32,24 +32,24 @@ export const aboutContent = {
       subtitle: 'رؤية قيادية نحو التميز',
       messages: [
         {
-          name: 'معاذ',
+          name: 'أ.معاذ',
           title: 'المدير العام',
-          message: 'في يماس العربية للمقاولات، نؤمن بأن كل مشروع هو بصمة نتركها للأجيال القادمة. نحن لا نبني مبانٍ فحسب، بل نبني أحلام وطموحات عملائنا. التزامنا بالجودة والابتكار هو ما يميزنا، ونسعى دائماً لتقديم حلول إنشائية متكاملة تتجاوز التوقعات.',
-          image: '',
+          message:'في شركة يماس العربية للمقاولات، نؤمن بأن التميّز في قطاع المقاولات لا يتحقق فقط بتنفيذ المشاريع، بل ببناء الثقة، وتحقيق الجودة، والوفاء بالالتزامات.منذ تأسيس الشركة، وضعنا نصب أعيننا أن نكون شريكًا موثوقًا في التنمية، ومساهمًا فاعلًا في بناء مستقبل عمراني يليق بطموحات وطننا.',
+          image: '/images/team/1.JPG',
         },
         {
           name: 'مهندس أحمد',
           title: 'المدير التنفيذي',
           message: 'التميز في التنفيذ ليس خياراً، بل هو التزام نعيشه كل يوم. نحن نجمع بين الخبرة الهندسية العميقة والتقنيات الحديثة لضمان تسليم مشاريع بأعلى معايير الجودة والسلامة. فريقنا المتخصص يعمل بشغف لتحويل كل تصميم إلى واقع ملموس يفوق التوقعات.',
-          image: '',
+          image: '/images/team/1.JPG',
         },
       ],
     },
     stats: [
-      { icon: HiOfficeBuilding, number: '200+', label: 'مشروع منجز' },
-      { icon: HiUserGroup, number: '15+', label: 'سنة خبرة' },
+      { icon: HiOfficeBuilding, number: '30+', label: 'مشروع منجز' },
+      { icon: HiUserGroup, number: '24 ساعه', label: ' دعم مستمر' },
       { icon: HiGlobe, number: '4', label: 'فروع دولية' },
-      { icon: HiCheckCircle, number: '100%', label: 'رضا العملاء' },
+      { icon: HiCheckCircle, number: '100%', label: 'المشاريع قيد التنفيذ' },
     ],
     story: {
       title: 'قصتنا',
@@ -57,7 +57,7 @@ export const aboutContent = {
       description:
         'بدأت يماس العربية للمقاولات رحلتها في عام 2009 برؤية واضحة: أن نكون الشريك الأكثر موثوقية في تحويل الأحلام إلى واقع ملموس. على مدار أكثر من 15 عامًا من العمل الدؤوب، نجحنا في بناء سمعة قوية تقوم على الجودة والابتكار والالتزام.',
       description2:
-        'اليوم، نفخر بأننا أحد أبرز الشركات الرائدة في مجال المقاولات والإنشاءات، مع محفظة مشاريع متنوعة تشمل المشاريع السكنية والتجارية والصناعية. نحن نؤمن بأن كل مشروع هو فرصة لتقديم قيمة استثنائية لعملائنا وللمجتمع.',
+        'اليوم، نفخر بأننا أحد أبرز الشركات الرائدة في مجال المقاولات والإنشاءات، مع محفظة مشاريع متنوعة تشمل المشاريع السكانية و التجارية و الصناعية و الطبية و تشيد الابراج. نحن نؤمن بأن كل مشروع هو فرصة لتقديم قيمة استثنائية لعملائنا وللمجتمع.',
     },
     values: {
       title: 'قيمنا الجوهرية',
@@ -77,7 +77,7 @@ export const aboutContent = {
         },
         {
           icon: HiHeart,
-          title: 'العملاء أولاً',
+          title: 'اولا الشركات',
           description:
             'رضا عملائنا هو هدفنا الأسمى، ونسعى دائمًا لتجاوز توقعاتهم',
         },
@@ -126,7 +126,7 @@ export const aboutContent = {
           year: '2024',
           title: 'الريادة والابتكار',
           description:
-            'أصبحنا من أبرز الشركات الرائدة مع أكثر من 200 مشروع ناجح',
+            'أصبحنا من أبرز الشركات الرائدة مع أكثر من 30 مشروع ناجح',
         },
       ],
     },
@@ -234,7 +234,7 @@ export const aboutContent = {
         { number: '6', label: 'شهادات دولية' },
         { number: '100%', label: 'امتثال للمعايير' },
         { number: 'سنوي', label: 'تجديد مستمر' },
-        { number: '24/7', label: 'مراقبة الجودة' },
+        { number: '24 / 7', label: 'مراقبة الجودة' },
       ],
       contactInfo: {
         title: 'لمزيد من المعلومات عن شهاداتنا',
@@ -255,7 +255,7 @@ export const aboutContent = {
       badge: '✦ About Us',
       title: 'We Are Yamas Building the Future',
       highlight: 'with Experience and Trust',
-      subtitle: 'Pioneers in Construction and Contracting since 2009',
+      subtitle: 'Pioneers in Construction and Contracting ',
       cta: 'Trust us',
     },
     management: {
@@ -263,24 +263,24 @@ export const aboutContent = {
       subtitle: 'Leadership Vision Towards Excellence',
       messages: [
         {
-          name: 'Moaz',
+          name: 'MR.Moaz',
           title: 'General Manager',
-          message: 'At Yamas Al Arabia Construction, we believe that every project is a legacy we leave for future generations. We don\'t just build structures; we build our clients\' dreams and aspirations. Our commitment to quality and innovation is what sets us apart, and we always strive to deliver comprehensive construction solutions that exceed expectations.',
-          image: '',
+          message: ' At Yamas Al Arabia Construction, we believe that excellence in the contracting sector is not achieved merely by executing projects, but by building trust, ensuring quality, and fulfilling commitments. Since our founding, we have aspired to be a trusted development partner and an active contributor to creating an urban future that matches our nation ambitions. ',
+          image: '/images/team/1-1.png',
         },
         {
           name: 'Eng. Ahmed',
           title: 'Executive Director',
           message: 'Excellence in execution is not an option, but a commitment we live every day. We combine deep engineering expertise with modern technologies to ensure the delivery of projects with the highest standards of quality and safety. Our specialized team works passionately to transform every design into a tangible reality that surpasses expectations.',
-          image: '',
+          image: '/images/team/1-1.png',
         },
       ],
     },
     stats: [
-      { icon: HiOfficeBuilding, number: '200+', label: 'Completed Projects' },
-      { icon: HiUserGroup, number: '15+', label: 'Years Experience' },
+      { icon: HiOfficeBuilding, number: '30+', label: 'Completed Projects' },
+      { icon: HiUserGroup, number: '24 HOUR', label: 'Outgoing Support' },
       { icon: HiGlobe, number: '4', label: 'International Branches' },
-      { icon: HiCheckCircle, number: '100%', label: 'Client Satisfaction' },
+      { icon: HiCheckCircle, number: '100%', label: 'Ongoing projects' },
     ],
     story: {
       title: 'Our Story',
@@ -358,7 +358,7 @@ export const aboutContent = {
           year: '2024',
           title: 'Leadership & Innovation',
           description:
-            'Became one of the leading companies with more than 200 successful projects',
+            'Became one of the leading companies with more than 30 successful projects',
         },
       ],
     },

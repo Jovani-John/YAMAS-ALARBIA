@@ -224,8 +224,8 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
               whileHover={{ scale: 1.05 }}
               className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-gradient-to-br from-[#49A799] to-[#3A8A7E] text-white px-4 py-3 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl z-20"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-black">{isRTL ? '٢٠+' : '20+'}</div>
-              <div className="text-xs sm:text-sm font-medium">{isRTL ? 'سنة خبرة' : 'Years Experience'}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-black">{isRTL ? '24/7' : '24/7'}</div>
+              <div className="text-xs sm:text-sm font-medium">{isRTL ? 'دعم مستمر' : 'Outgoing Support'}</div>
             </motion.div>
 
             {/* Static Glow Background */}

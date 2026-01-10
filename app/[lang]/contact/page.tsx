@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import { FiPhone, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
-import { FaInstagram, FaWhatsapp, FaSnapchat, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaSnapchat, FaLinkedin, FaFacebook, FaTiktok } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import dynamic from 'next/dynamic';
@@ -27,6 +28,16 @@ const Popup = dynamic(
   { ssr: false }
 );
 
+const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/yamas_alarabia?igsh=Z3lnNXJqNnp4emJq&utm_source=qr&fbclid=IwY2xjawO-GklleHRuA2FlbQIxMABicmlkETE3SGs0dXJQWTk0a2E1QkJRc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHo4uL1c-vbdmMjHUKOiuQ60Wlx9QTBtFNgcgpU7-BM4HPwoEsh1zFWlNX5OY_aem_-fuvmKJoPJJVMFaRTzAq8A",
+  facebook: "https://www.facebook.com/profile.php?id=61555224520417&mibextid=wwXIfr&rdid=hdD5tmeJzmvwDhev&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16fV4rZJGS%2F%3Fmibextid%3DwwXIfr#",
+  x: "https://x.com/yamasalarabia",
+  linkedin: "https://www.linkedin.com/company/yamasarabia/",
+  whatsapp: "https://wa.me/966500029933",
+  tiktok: "https://www.tiktok.com/@yamasalarabia",
+  snapchat: "https://www.snapchat.com/@yamasalarabia?fbclid=IwY2xjawO-Gp9leHRuA2FlbQIxMABicmlkETE3SGs0dXJQWTk0a2E1QkJRc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpc7sMPrIlQaFzzJC7yE6JX-3BQoxnVUayaV89T2FrAY-OrPHNJXzUaH5kvI_aem_Y5uTiohxm1D1Qwjke7cVSg",
+} as const;
+
 export default function ContactPage() {
   const params = useParams();
   const currentLang = (params?.lang as string) || 'ar';
@@ -37,6 +48,7 @@ export default function ContactPage() {
     email: '',
     phone: '',
     subject: '',
+    clientType: '',
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +68,11 @@ export default function ContactPage() {
         email: 'البريد الإلكتروني',
         phone: 'رقم الهاتف',
         subject: 'الموضوع',
+        clientType: 'نوع العميل',
+        selectType: 'اختر نوع العميل',
+        company: 'شركة',
+        institution: 'مؤسسة',
+        businessman: 'رجل أعمال',
         message: 'رسالتك',
         submit: 'إرسال الرسالة',
         sending: 'جاري الإرسال...'
@@ -63,8 +80,13 @@ export default function ContactPage() {
       contactInfo: {
         title: 'معلومات التواصل',
         phone: 'الهاتف',
+        phone1: '+966 56 419 1000',
+        phone2: '+966 50 002 9933',
         email: 'البريد الإلكتروني',
-        address: 'الرياض، المملكة العربية السعودية',
+        emailValue: 'info@yamas.com.sa',
+        address: 'العنوان',
+        riyadhAddress: 'RAWA2938، طريق الدائري الشمالي تقاطع أبو بكر الصديق، حي الوادي، الرياض | المربع 6 - الدور الأول - مكتب 93 ',
+        khobarAddress: 'EAD6389، طريق الملك فهد بن عبدالعزيز، الرقة الجنوبية، الخبر | برج ناصر الحجري - الدور السادس - مكتب 604',
         follow: 'تابعنا على'
       },
       toast: {
@@ -72,7 +94,9 @@ export default function ContactPage() {
         error: 'يرجى ملء جميع الحقول المطلوبة',
         failed: 'فشل في إرسال الرسالة. حاول مرة أخرى.'
       },
-      mapPopup: 'يماس العربية للمقاولات'
+      mapTitle: 'مواقعنا',
+      riyadhBranch: 'فرع الرياض',
+      khobarBranch: 'فرع الخبر'
     },
     en: {
       title: 'Contact Us',
@@ -83,6 +107,11 @@ export default function ContactPage() {
         email: 'Email Address',
         phone: 'Phone Number',
         subject: 'Subject',
+        clientType: 'Client Type',
+        selectType: 'Select Client Type',
+        company: 'Company',
+        institution: 'Institution',
+        businessman: 'Businessman',
         message: 'Your Message',
         submit: 'Send Message',
         sending: 'Sending...'
@@ -90,8 +119,13 @@ export default function ContactPage() {
       contactInfo: {
         title: 'Contact Information',
         phone: 'Phone',
+        phone1: '+966 56 419 1000',
+        phone2: '+966 50 002 9933',
         email: 'Email',
-        address: 'Riyadh, Saudi Arabia',
+        emailValue: 'info@yamas.com.sa',
+        address: 'Address',
+        riyadhAddress: 'RAWA2938, Northern Ring Branch Cross Abu Bakr Al Siddiq Road, Al Wadi Dist., Riyadh',
+        khobarAddress: 'EAD6389, King Fahad Ibn Abdulaziz Saud, Al Rakah Al Janubiyah Dist., Al Khobar',
         follow: 'Follow Us'
       },
       toast: {
@@ -99,7 +133,9 @@ export default function ContactPage() {
         error: 'Please fill in all required fields',
         failed: 'Failed to send message. Please try again.'
       },
-      mapPopup: 'Yamas Al Arabia Construction'
+      mapTitle: 'Our Locations',
+      riyadhBranch: 'Riyadh Branch',
+      khobarBranch: 'Khobar Branch'
     }
   };
 
@@ -120,6 +156,7 @@ export default function ContactPage() {
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('clientType', formData.clientType);
       formDataToSend.append('message', formData.message);
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -136,6 +173,7 @@ export default function ContactPage() {
           email: '',
           phone: '',
           subject: '',
+          clientType: '',
           message: ''
         });
       } else {
@@ -149,7 +187,7 @@ export default function ContactPage() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -419,6 +457,30 @@ export default function ContactPage() {
                   </motion.div>
                 </div>
 
+                {/* Client Type Selection */}
+                <motion.div
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <label className="block text-sm text-gray-700 mb-2 font-medium">
+                    {t.form.clientType}
+                  </label>
+                  <motion.select
+                    name="clientType"
+                    value={formData.clientType}
+                    onChange={handleChange}
+                    onFocus={() => setFocusedField('clientType')}
+                    onBlur={() => setFocusedField(null)}
+                    animate={focusedField === 'clientType' ? { boxShadow: '0 0 0 3px rgba(73, 167, 153, 0.2)' } : {}}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#49A799] focus:outline-none transition-all bg-white"
+                  >
+                    <option value="">{t.form.selectType}</option>
+                    <option value="company">{t.form.company}</option>
+                    <option value="institution">{t.form.institution}</option>
+                    <option value="businessman">{t.form.businessman}</option>
+                  </motion.select>
+                </motion.div>
+
                 <motion.div
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
@@ -497,39 +559,116 @@ export default function ContactPage() {
               </motion.h2>
 
               <div className="space-y-8">
-                {[
-                  { icon: FiPhone, label: t.contactInfo.phone, value: '+966 50 000 0000', href: 'tel:+966500000000' },
-                  { icon: FiMail, label: t.contactInfo.email, value: 'info@yamasarabia.com', href: 'mailto:info@yamasarabia.com' },
-                  { icon: FiMapPin, label: t.contactInfo.address, value: t.contactInfo.address, href: '#' },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ x: isRTL ? -50 : 50, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: isRTL ? 10 : -10, scale: 1.05 }}
-                    className="flex items-start gap-4 cursor-pointer group"
+                {/* Phone */}
+                <motion.div
+                  initial={{ x: isRTL ? -50 : 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0 }}
+                  whileHover={{ x: isRTL ? 10 : -10, scale: 1.05 }}
+                  className="flex items-start gap-4 cursor-pointer group"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg group-hover:bg-white/30 transition-all"
                   >
-                    <motion.div 
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                      className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg group-hover:bg-white/30 transition-all"
-                    >
-                      <item.icon className="w-6 h-6 text-white" />
-                    </motion.div>
-                    <div>
-                      <p className="text-sm text-white/80 mb-1">{item.label}</p>
-                      <a 
-                        href={item.href}
-                        className="text-lg font-semibold hover:text-white/80 transition-colors"
-                        dir={item.icon === FiPhone || item.icon === FiMail ? 'ltr' : undefined}
-                      >
-                        {item.value}
-                      </a>
-                    </div>
+                    <FiPhone className="w-6 h-6 text-white" />
                   </motion.div>
-                ))}
+                  <div>
+                    <p className="text-sm text-white/80 mb-1">{t.contactInfo.phone}</p>
+                    <a 
+                      href={`tel:${t.contactInfo.phone1.replace(/\s/g, '')}`}
+                      className="text-lg font-semibold hover:text-white/80 transition-colors block"
+                      dir="ltr"
+                    >
+                      {t.contactInfo.phone1}
+                    </a>
+                    <a 
+                      href={`tel:${t.contactInfo.phone2.replace(/\s/g, '')}`}
+                      className="text-lg font-semibold hover:text-white/80 transition-colors block mt-1"
+                      dir="ltr"
+                    >
+                      {t.contactInfo.phone2}
+                    </a>
+                  </div>
+                </motion.div>
+
+                {/* Email */}
+                <motion.div
+                  initial={{ x: isRTL ? -50 : 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ x: isRTL ? 10 : -10, scale: 1.05 }}
+                  className="flex items-start gap-4 cursor-pointer group"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg group-hover:bg-white/30 transition-all"
+                  >
+                    <FiMail className="w-6 h-6 text-white" />
+                  </motion.div>
+                  <div>
+                    <p className="text-sm text-white/80 mb-1">{t.contactInfo.email}</p>
+                    <a 
+                      href={`mailto:${t.contactInfo.emailValue}`}
+                      className="text-lg font-semibold hover:text-white/80 transition-colors"
+                      dir="ltr"
+                    >
+                      {t.contactInfo.emailValue}
+                    </a>
+                  </div>
+                </motion.div>
+
+                {/* Address - Riyadh */}
+                <motion.div
+                  initial={{ x: isRTL ? -50 : 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ x: isRTL ? 10 : -10, scale: 1.05 }}
+                  className="flex items-start gap-4 cursor-pointer group"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg group-hover:bg-white/30 transition-all"
+                  >
+                    <FiMapPin className="w-6 h-6 text-white" />
+                  </motion.div>
+                  <div>
+                    <p className="text-sm text-white/80 mb-1">{t.contactInfo.address} - {t.riyadhBranch}</p>
+                    <p className="text-base font-semibold leading-relaxed">
+                      {t.contactInfo.riyadhAddress}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Address - Khobar */}
+                <motion.div
+                  initial={{ x: isRTL ? -50 : 50, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ x: isRTL ? 10 : -10, scale: 1.05 }}
+                  className="flex items-start gap-4 cursor-pointer group"
+                >
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg group-hover:bg-white/30 transition-all"
+                  >
+                    <FiMapPin className="w-6 h-6 text-white" />
+                  </motion.div>
+                  <div>
+                    <p className="text-sm text-white/80 mb-1">{t.contactInfo.address} - {t.khobarBranch}</p>
+                    <p className="text-base font-semibold leading-relaxed">
+                      {t.contactInfo.khobarAddress}
+                    </p>
+                  </div>
+                </motion.div>
               </div>
             </div>
 
@@ -543,62 +682,122 @@ export default function ContactPage() {
             >
               <p className="text-white/80 mb-4 text-sm font-medium">{t.contactInfo.follow}</p>
               <div className="flex gap-3 flex-wrap">
-                {[
-                  { icon: FaInstagram, href: 'https://instagram.com', color: 'from-purple-500 to-pink-500' },
-                  { icon: FaFacebook, href: 'https://facebook.com', color: 'from-blue-600 to-blue-700' },
-                  { icon: FaLinkedin, href: 'https://linkedin.com', color: 'from-blue-700 to-blue-800' },
-                  { icon: FaWhatsapp, href: 'https://wa.me/966500000000', color: 'from-green-500 to-green-600' },
-                  { icon: FaSnapchat, href: 'https://snapchat.com', color: 'from-yellow-400 to-yellow-500' },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 + index * 0.1, type: 'spring' as const, stiffness: 200 }}
-                    whileHover={{ scale: 1.2, rotate: 360, y: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`bg-gradient-to-br ${social.color} rounded-xl p-3 shadow-lg hover:shadow-2xl transition-all`}
-                  >
-                    <social.icon className="w-5 h-5 text-white" />
-                  </motion.a>
-                ))}
+                {Object.entries(SOCIAL_LINKS).map(([platform, url], index) => {
+                  const socialConfig = {
+                    instagram: { Icon: FaInstagram, color: 'from-purple-500 to-pink-500' },
+                    facebook: { Icon: FaFacebook, color: 'from-blue-600 to-blue-700' },
+                    x: { Icon: FaXTwitter, color: 'from-gray-800 to-black' },
+                    linkedin: { Icon: FaLinkedin, color: 'from-blue-700 to-blue-800' },
+                    whatsapp: { Icon: FaWhatsapp, color: 'from-green-500 to-green-600' },
+                    tiktok: { Icon: FaTiktok, color: 'from-gray-900 to-black' },
+                    snapchat: { Icon: FaSnapchat, color: 'from-yellow-400 to-yellow-500' },
+                  }[platform as keyof typeof SOCIAL_LINKS];
+
+                  if (!socialConfig) return null;
+                  const { Icon, color } = socialConfig;
+
+                  return (
+                    <motion.a
+                      key={platform}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + index * 0.1, type: 'spring' as const, stiffness: 200 }}
+                      whileHover={{ scale: 1.2, rotate: 360, y: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                      className={`bg-gradient-to-br ${color} rounded-xl p-3 shadow-lg hover:shadow-2xl transition-all`}
+                    >
+                      <Icon className="w-5 h-5 text-white" />
+                    </motion.a>
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Map Section */}
+      {/* Map Section - Two Maps Side by Side */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="w-full h-96 md:h-[500px] relative overflow-hidden"
+        className="w-full py-16 bg-gray-50"
       >
-        <motion.div
-          initial={{ y: 100 }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="w-full h-full"
-        >
-          <MapContainer
-            center={[24.7136, 46.6753]}
-            zoom={13}
-            scrollWheelZoom={false}
-            style={{ height: '100%', width: '100%' }}
+        <div className="container mx-auto px-4">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900"
           >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[24.7136, 46.6753]}>
-              <Popup>{t.mapPopup}</Popup>
-            </Marker>
-          </MapContainer>
-        </motion.div>
+            {t.mapTitle}
+          </motion.h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
+            {/* Riyadh Map */}
+            <motion.div
+              initial={{ opacity: 0, x: isRTL ? 50 : -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative overflow-hidden rounded-2xl shadow-2xl"
+            >
+              <div className="bg-gradient-to-br from-[#49A799] to-[#3A8A7E] p-4 text-white">
+                <h3 className="text-2xl font-bold flex items-center gap-3">
+                  <FiMapPin className="text-white" />
+                  {t.riyadhBranch}
+                </h3>
+              </div>
+              <div className="h-[400px] md:h-[500px]">
+                <MapContainer
+                  center={[24.7136, 46.6753]}
+                  zoom={13}
+                  scrollWheelZoom={false}
+                  style={{ height: '100%', width: '100%' }}
+                >
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                  <Marker position={[24.7136, 46.6753]}>
+                    <Popup>{t.riyadhBranch}</Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
+            </motion.div>
+
+            {/* Khobar Map */}
+            <motion.div
+              initial={{ opacity: 0, x: isRTL ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="relative overflow-hidden rounded-2xl shadow-2xl"
+            >
+              <div className="bg-gradient-to-br from-[#49A799] to-[#3A8A7E] p-4 text-white">
+                <h3 className="text-2xl font-bold flex items-center gap-3">
+                  <FiMapPin className="text-white" />
+                  {t.khobarBranch}
+                </h3>
+              </div>
+              <div className="h-[400px] md:h-[500px]">
+                <MapContainer
+                  center={[26.2172, 50.1971]}
+                  zoom={13}
+                  scrollWheelZoom={false}
+                  style={{ height: '100%', width: '100%' }}
+                >
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                  <Marker position={[26.2172, 50.1971]}>
+                    <Popup>{t.khobarBranch}</Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
