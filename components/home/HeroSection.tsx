@@ -8,9 +8,9 @@ import { HiArrowDown } from 'react-icons/hi';
 // Memoized Stats Component
 const StatsSection = memo(({ currentLang }: { currentLang: string }) => {
   const stats = [
-    // { number: '20+', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
-    // { number: '15+', label: currentLang === 'ar' ? 'سنة خبرة' : 'Years Experience' },
-    // { number: '100%', label: currentLang === 'ar' ? 'رضا الشركات' : 'Business Client Satisfaction' },
+    { number: '20+', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
+    { number: '24/7', label: currentLang === 'ar' ? 'دعم مستمر' : 'Outgoing Support' },
+    { number: '100%', label: currentLang === 'ar' ? 'رضا الشركات' : 'Business Client Satisfaction' },
   ];
 
   return (
