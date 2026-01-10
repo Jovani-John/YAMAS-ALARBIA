@@ -5,6 +5,42 @@ import { useParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOfficeBuilding, HiCog, HiColorSwatch, HiLightningBolt, HiCheckCircle } from 'react-icons/hi';
 
+// تعريف النوع لـ stats
+interface ServiceStats {
+  projects: number;
+  years: number;
+  clients: number;
+}
+
+interface ServiceFeature {
+  title: string;
+  desc: string;
+}
+
+interface Service {
+  icon: any;
+  title: string;
+  code: string;
+  description: string;
+  features: ServiceFeature[];
+  stats: ServiceStats;
+  gradient: string;
+  image: string;
+}
+
+interface Content {
+  badge: string;
+  title: string;
+  subtitle: string;
+  ctaButton: string;
+  stats: {
+    projects: string;
+    years: string;
+    clients: string;
+  };
+  services: Service[];
+}
+
 export default function ServicesTabsSection() {
   const params = useParams();
   const currentLang = (params?.lang as string) || 'ar';
@@ -13,7 +49,7 @@ export default function ServicesTabsSection() {
   const [activeTab, setActiveTab] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const content = {
+  const content: Record<string, Content> = {
     ar: {
       badge: 'خدماتنا المتكاملة',
       title: 'نحول رؤيتك إلى واقع ملموس',
@@ -36,7 +72,11 @@ export default function ServicesTabsSection() {
             { title: 'المصانع والمستودعات', desc: 'بنية تحتية صناعية قوية' },
             { title: 'مشاريع البنية التحتية', desc: 'حلول مبتكرة للمشاريع الكبرى' }
           ],
-          stats: {  },
+          stats: { 
+            projects: 250,
+            years: 15,
+            clients: 120
+          },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
         },
@@ -51,7 +91,11 @@ export default function ServicesTabsSection() {
             { title: 'المطارات ومحطات النقل', desc: 'مشاريع نقل عملاقة' },
             { title: 'المرافق الرياضية', desc: 'ملاعب واستادات حديثة' }
           ],
-          stats: { },
+          stats: { 
+            projects: 85,
+            years: 10,
+            clients: 45
+          },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
         },
@@ -66,7 +110,11 @@ export default function ServicesTabsSection() {
             { title: 'الجبس والأسقف المعلقة', desc: 'أسقف ديكورية مبهرة' },
             { title: 'التكييف المركزي', desc: 'أنظمة تبريد حديثة' }
           ],
-          stats: { },
+          stats: { 
+            projects: 320,
+            years: 8,
+            clients: 180
+          },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
         },
@@ -81,7 +129,11 @@ export default function ServicesTabsSection() {
             { title: 'أنظمة مكافحة الحريق', desc: 'سلامة قصوى' },
             { title: 'المصاعد والتيارات الخفيفة', desc: 'تكنولوجيا ذكية' }
           ],
-          stats: { },
+          stats: { 
+            projects: 190,
+            years: 12,
+            clients: 95
+          },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
         }
@@ -109,7 +161,11 @@ export default function ServicesTabsSection() {
             { title: 'Factories & Warehouses', desc: 'Strong industrial infrastructure' },
             { title: 'Infrastructure Projects', desc: 'Innovative solutions for major projects' }
           ],
-          stats: {  },
+          stats: { 
+            projects: 250,
+            years: 15,
+            clients: 120
+          },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
         },
@@ -124,7 +180,11 @@ export default function ServicesTabsSection() {
             { title: 'Airports & Transport Stations', desc: 'Giant transportation projects' },
             { title: 'Sports Facilities', desc: 'Modern stadiums and arenas' }
           ],
-          stats: { },
+          stats: { 
+            projects: 85,
+            years: 10,
+            clients: 45
+          },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
         },
@@ -139,7 +199,11 @@ export default function ServicesTabsSection() {
             { title: 'Gypsum & False Ceilings', desc: 'Stunning decorative ceilings' },
             { title: 'Central Air Conditioning', desc: 'Modern cooling systems' }
           ],
-          stats: { },
+          stats: { 
+            projects: 320,
+            years: 8,
+            clients: 180
+          },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
         },
@@ -154,7 +218,11 @@ export default function ServicesTabsSection() {
             { title: 'Fire Fighting Systems', desc: 'Maximum safety' },
             { title: 'Elevators & Low Current', desc: 'Smart technology' }
           ],
-          stats: {  },
+          stats: { 
+            projects: 190,
+            years: 12,
+            clients: 95
+          },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
         }
@@ -162,7 +230,7 @@ export default function ServicesTabsSection() {
     }
   };
 
-  const currentContent = content[currentLang as keyof typeof content];
+  const currentContent = content[currentLang];
   const services = currentContent.services;
 
   // Auto slide every 15 seconds
@@ -228,6 +296,9 @@ export default function ServicesTabsSection() {
       }
     }
   };
+
+  // Extract stats keys for iteration
+  const statsKeys: (keyof ServiceStats)[] = ['projects', 'years', 'clients'];
 
   return (
     <section 
@@ -389,7 +460,7 @@ export default function ServicesTabsSection() {
                     {/* Stats Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
                       <div className="grid grid-cols-3 gap-4 text-white">
-                        {Object.entries(services[activeTab].stats).map(([key, value], i) => (
+                        {statsKeys.map((key, i) => (
                           <motion.div
                             key={key}
                             initial={{ opacity: 0, y: 30, scale: 0.5 }}
@@ -405,10 +476,10 @@ export default function ServicesTabsSection() {
                               className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1"
                               whileHover={{ scale: 1.2, color: '#49A799' }}
                             >
-                              {value}
+                              {services[activeTab].stats[key]}
                             </motion.div>
                             <div className="text-xs md:text-sm text-white/90 font-medium">
-                              {currentContent.stats[key as keyof typeof currentContent.stats]}
+                              {currentContent.stats[key]}
                             </div>
                           </motion.div>
                         ))}
