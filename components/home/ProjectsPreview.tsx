@@ -83,7 +83,7 @@ export default function ProjectsSection() {
           titleEn: "Grand Hyper",
           description: "سوق تجاري ضخم يوفر تجربة تسوق فريدة مع تصميم معماري مبتكر، يشمل مساحات واسعة للمحلات التجارية ومواقف سيارات متعددة الطوابق وأنظمة تكييف وإضاءة حديثة تضمن راحة الزوار.",
           descriptionEn: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
-          image: "/images/projects/Commercial Projects/GrandMall/1.jpeg",
+          image: "/images/projects/Commercial Projects/GrandMall/1.jpg",
           number: "02",
         },
         {
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
           titleEn: "Grand Hyper",
           description: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
           descriptionEn: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
-          image: "/images/projects/Commercial Projects/GrandMall/1.jpeg",
+          image: "/images/projects/Commercial Projects/GrandMall/1.jpg",
           number: "02",
         },
         {
