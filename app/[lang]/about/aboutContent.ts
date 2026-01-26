@@ -32,16 +32,16 @@ export const aboutContent = {
       subtitle: 'رؤية قيادية نحو التميز',
       messages: [
         {
-          name: 'أ.معاذ',
+          name: 'أ.معاذ ال كلثم',
           title: 'المدير العام',
           message:'في شركة يماس العربية للمقاولات، نؤمن بأن التميّز في قطاع المقاولات لا يتحقق فقط بتنفيذ المشاريع، بل ببناء الثقة، وتحقيق الجودة، والوفاء بالالتزامات.منذ تأسيس الشركة، وضعنا نصب أعيننا أن نكون شريكًا موثوقًا في التنمية، ومساهمًا فاعلًا في بناء مستقبل عمراني يليق بطموحات وطننا.',
-          image: '/images/team/1.JPG',
+          image: '/images/team/1-1.png',
         },
         {
-          name: 'مهندس أحمد',
+          name: 'مهندس أحمد النجار',
           title: 'المدير التنفيذي',
           message: 'التميز في التنفيذ ليس خياراً، بل هو التزام نعيشه كل يوم. نحن نجمع بين الخبرة الهندسية العميقة والتقنيات الحديثة لضمان تسليم مشاريع بأعلى معايير الجودة والسلامة. فريقنا المتخصص يعمل بشغف لتحويل كل تصميم إلى واقع ملموس يفوق التوقعات.',
-          image: '/images/team/1.JPG',
+          image: '/images/team/1-2.png',
         },
       ],
     },
@@ -263,16 +263,16 @@ export const aboutContent = {
       subtitle: 'Leadership Vision Towards Excellence',
       messages: [
         {
-          name: 'MR.Moaz',
+          name: 'MR.Moaz EL Kalthm',
           title: 'General Manager',
           message: ' At Yamas Al Arabia Construction, we believe that excellence in the contracting sector is not achieved merely by executing projects, but by building trust, ensuring quality, and fulfilling commitments. Since our founding, we have aspired to be a trusted development partner and an active contributor to creating an urban future that matches our nation ambitions. ',
           image: '/images/team/1-1.png',
         },
         {
-          name: 'Eng. Ahmed',
+          name: 'Eng. Ahmed El Nagar',
           title: 'Executive Director',
           message: 'Excellence in execution is not an option, but a commitment we live every day. We combine deep engineering expertise with modern technologies to ensure the delivery of projects with the highest standards of quality and safety. Our specialized team works passionately to transform every design into a tangible reality that surpasses expectations.',
-          image: '/images/team/1-1.png',
+          image: '/images/team/1-2.png',
         },
       ],
     },

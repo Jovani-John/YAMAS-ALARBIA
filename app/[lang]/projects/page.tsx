@@ -33,7 +33,8 @@ const translations = {
         ongoing: 'مشاريع جارية',
         billion: 'مليار'
       }
-    }
+    },
+    otherProjects: 'مشاريع أخرى'
   },
   en: {
     status: {
@@ -57,8 +58,118 @@ const translations = {
         ongoing: 'Ongoing Projects',
         billion: 'Billion'
       }
-    }
+    },
+    otherProjects: 'Other Projects'
   }
+};
+
+// ===== SIMPLE PROJECTS LIST (للمشاريع بدون صور) =====
+const SimpleProjectsList = ({ 
+  projects, 
+  isRTL,
+  t
+}: { 
+  projects: YamasProject[]; 
+  isRTL: boolean;
+  t: any;
+}) => {
+  const listRef = useRef(null);
+  const isInView = useInView(listRef, { once: true, margin: "-100px" });
+
+  if (projects.length === 0) return null;
+
+  return (
+    <motion.div
+      ref={listRef}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6 }}
+      className="mt-12"
+    >
+      {/* العنوان */}
+      <div className="mb-6">
+        <h3 
+          className="text-2xl font-bold text-gray-800 mb-2"
+          style={{ fontFamily: 'Alexandria, sans-serif' }}
+        >
+          📋 {t.otherProjects}
+        </h3>
+        <div className="h-1 w-20 bg-[#49A799] rounded-full" />
+      </div>
+
+      {/* القائمة */}
+      <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+        <div className="divide-y divide-gray-100">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? 20 : -20 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              className="p-4 hover:bg-gray-50 transition-colors duration-200"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                
+                {/* اسم المشروع */}
+                <div className="flex-1">
+                  <h4 
+                    className="text-lg font-semibold text-gray-900 mb-1"
+                    style={{ fontFamily: 'Alexandria, sans-serif' }}
+                  >
+                    {isRTL ? project.title : project.titleEn}
+                  </h4>
+                  <p 
+                    className="text-sm text-gray-600 line-clamp-1"
+                    style={{ fontFamily: 'Alexandria, sans-serif' }}
+                  >
+                    {isRTL ? project.description : project.descriptionEn}
+                  </p>
+                </div>
+
+                {/* التفاصيل */}
+                <div className="flex flex-wrap items-center gap-3 text-sm">
+                  {/* الموقع */}
+                  <div className="flex items-center gap-1.5 text-gray-600">
+                    <FiMapPin className="text-[#49A799]" />
+                    <span style={{ fontFamily: 'Alexandria, sans-serif' }}>
+                      {isRTL ? project.location : project.locationEn}
+                    </span>
+                  </div>
+
+                  {/* السنة */}
+                  {project.year && (
+                    <div className="flex items-center gap-1.5 text-gray-600">
+                      <FiCalendar className="text-[#49A799]" />
+                      <span>{project.year}</span>
+                    </div>
+                  )}
+
+                  {/* الحالة */}
+                  <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full ${
+                    project.status === 'completed' 
+                      ? 'bg-emerald-50 text-emerald-700' 
+                      : 'bg-amber-50 text-amber-700'
+                  }`}>
+                    {project.status === 'completed' ? (
+                      <FiCheckCircle className="text-sm" />
+                    ) : (
+                      <FiClock className="text-sm" />
+                    )}
+                    <span className="text-xs font-medium">
+                      {project.status === 'completed' 
+                        ? t.status.completed
+                        : t.status.ongoing
+                      }
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 // ===== PROJECT CARD COMPONENT =====
@@ -205,7 +316,7 @@ const ProjectCard = ({
   );
 };
 
-// ===== CATEGORY SECTION COMPONENT =====
+// ===== CATEGORY SECTION COMPONENT (معدل) =====
 const CategorySection = ({ 
   category, 
   index,
@@ -219,6 +330,10 @@ const CategorySection = ({
 }) => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-150px" });
+
+  // فصل المشاريع حسب وجود الصور
+  const projectsWithImages = category.projects.filter(p => p.mainImage && p.mainImage !== '');
+  const projectsWithoutImages = category.projects.filter(p => !p.mainImage || p.mainImage === '');
 
   const stats = {
     total: category.projects.length,
@@ -305,18 +420,27 @@ const CategorySection = ({
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-          {category.projects.map((project, idx) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              index={idx}
-              isRTL={isRTL}
-              t={t}
-            />
-          ))}
-        </div>
+        {/* Projects Grid (المشاريع بصور) */}
+        {projectsWithImages.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+            {projectsWithImages.map((project, idx) => (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                index={idx}
+                isRTL={isRTL}
+                t={t}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Simple List (المشاريع بدون صور) */}
+        <SimpleProjectsList 
+          projects={projectsWithoutImages}
+          isRTL={isRTL}
+          t={t}
+        />
       </div>
     </section>
   );
@@ -394,7 +518,6 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // حساب إجمالي المشاريع والإحصائيات
   const totalStats = {
     projects: projectCategories.reduce((sum, cat) => sum + cat.projects.length, 0),
     completed: projectCategories.reduce((sum, cat) => 
@@ -407,34 +530,25 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
   };
 
   return (
-<section
-  ref={containerRef}
-  className="relative min-h-screen flex items-center justify-center
-             overflow-hidden
-             bg-gradient-to-br from-gray-900 via-gray-800 to-[#49A799]"
->      
-      {/* Background Pattern */}
+    <section
+      ref={containerRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-[#49A799]"
+    >      
       <motion.div 
         style={{ y, opacity }}
         className="absolute inset-0"
       >
-        {/* Overlay لتقليل شدة اللون */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-transparent" />
-        
-        {/* Circles for visual effect */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#49A799]/10 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-gray-700/20 rounded-full blur-3xl" />
         </div>
-        
-        {/* Grid Pattern */}
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, rgba(73, 167, 153, 0.15) 1px, transparent 0)`,
           backgroundSize: '80px 80px'
         }} />
       </motion.div>
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -442,7 +556,6 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Subtitle - مش محتاج animation هنا */}
           <div className="inline-block mb-8">
             <div className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
               <span className="text-white font-semibold text-lg" style={{ fontFamily: 'Alexandria, sans-serif' }}>
@@ -471,7 +584,6 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             {t.hero.description}
           </motion.p>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

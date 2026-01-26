@@ -73,9 +73,9 @@ export default function ServicesTabsSection() {
             { title: 'مشاريع البنية التحتية', desc: 'حلول مبتكرة للمشاريع الكبرى' }
           ],
           stats: { 
-            projects: 250,
-            years: 15,
-            clients: 120
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
@@ -92,9 +92,9 @@ export default function ServicesTabsSection() {
             { title: 'المرافق الرياضية', desc: 'ملاعب واستادات حديثة' }
           ],
           stats: { 
-            projects: 85,
-            years: 10,
-            clients: 45
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
@@ -111,9 +111,9 @@ export default function ServicesTabsSection() {
             { title: 'التكييف المركزي', desc: 'أنظمة تبريد حديثة' }
           ],
           stats: { 
-            projects: 320,
-            years: 8,
-            clients: 180
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
@@ -130,9 +130,9 @@ export default function ServicesTabsSection() {
             { title: 'المصاعد والتيارات الخفيفة', desc: 'تكنولوجيا ذكية' }
           ],
           stats: { 
-            projects: 190,
-            years: 12,
-            clients: 95
+            projects: 6,
+            years: 24,
+            clients: 6
           },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
@@ -162,9 +162,9 @@ export default function ServicesTabsSection() {
             { title: 'Infrastructure Projects', desc: 'Innovative solutions for major projects' }
           ],
           stats: { 
-            projects: 250,
-            years: 15,
-            clients: 120
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80'
@@ -181,9 +181,9 @@ export default function ServicesTabsSection() {
             { title: 'Sports Facilities', desc: 'Modern stadiums and arenas' }
           ],
           stats: { 
-            projects: 85,
-            years: 10,
-            clients: 45
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
@@ -200,9 +200,9 @@ export default function ServicesTabsSection() {
             { title: 'Central Air Conditioning', desc: 'Modern cooling systems' }
           ],
           stats: { 
-            projects: 320,
-            years: 8,
-            clients: 180
+            projects: 33,
+            years: 24,
+            clients: 33
           },
           gradient: 'from-[#49A799] to-[#3A8A7E]',
           image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
@@ -219,9 +219,9 @@ export default function ServicesTabsSection() {
             { title: 'Elevators & Low Current', desc: 'Smart technology' }
           ],
           stats: { 
-            projects: 190,
-            years: 12,
-            clients: 95
+            projects: 6,
+            years: 24,
+            clients: 6
           },
           gradient: 'from-[#16234E] to-[#0d1630]',
           image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80'
@@ -238,7 +238,7 @@ export default function ServicesTabsSection() {
     const interval = setInterval(() => {
       setDirection(1);
       setActiveTab((prev) => (prev + 1) % services.length);
-    }, 15000);
+    }, 25000);
 
     return () => clearInterval(interval);
   }, [services.length]);
