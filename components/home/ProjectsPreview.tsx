@@ -73,7 +73,7 @@ export default function ProjectsSection() {
           titleEn: "RIMA 1",
           description: "مجمع تجاري متكامل يجمع بين التصميم العصري والوظائف المتعددة، يضم محلات تجارية ومكاتب إدارية بمساحات واسعة ومرافق حديثة تلبي احتياجات رواد الأعمال والعملاء على حد سواء.",
           descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities that meet the needs of entrepreneurs and customers alike.",
-          image: "/images/projects/buildings/2.jpg",
+          image: "/images/projects/buildings/Rima1/2.jpg",
           number: "01",
         },
         {
@@ -83,7 +83,7 @@ export default function ProjectsSection() {
           titleEn: "Grand Hyper",
           description: "سوق تجاري ضخم يوفر تجربة تسوق فريدة مع تصميم معماري مبتكر، يشمل مساحات واسعة للمحلات التجارية ومواقف سيارات متعددة الطوابق وأنظمة تكييف وإضاءة حديثة تضمن راحة الزوار.",
           descriptionEn: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
-          image: "/images/projects/Commercial Projects/GrandMall/WhatsApp Image 2025-12-20 at 11.26.38 AM.jpeg",
+          image: "/images/projects/Commercial Projects/GrandMall/1.jpeg",
           number: "02",
         },
         {
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
           titleEn: "RIMA 1",
           description: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities that meet the needs of entrepreneurs and customers alike.",
           descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities that meet the needs of entrepreneurs and customers alike.",
-          image: "/images/projects/buildings/1.jpg",
+          image: "/images/projects/buildings/Rima1/2.jpg",
           number: "01",
         },
         {
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
           titleEn: "Grand Hyper",
           description: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
           descriptionEn: "A massive commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, multi-story parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
-          image: "/images/projects/Commercial Projects/GrandMall/WhatsApp Image 2025-12-20 at 11.26.38 AM.jpeg",
+          image: "/images/projects/Commercial Projects/GrandMall/1.jpeg",
           number: "02",
         },
         {
