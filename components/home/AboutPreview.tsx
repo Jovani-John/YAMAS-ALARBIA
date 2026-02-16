@@ -170,7 +170,7 @@ export default function AboutSection() {
         { icon: HiOfficeBuilding, number: '20+', label: 'مشروع منجز' },
         { icon: HiUserGroup, number: '24/7', label: 'دعم مستمر' },
         { icon: HiGlobe, number: '4', label: 'فروع دولية' },
-        { icon: HiCheckCircle, number: '10+', label: 'المشاريع التنفيزية' },
+        { icon: HiCheckCircle, number: '10+', label: 'المشاريع التنفيذية' },
       ],
       features: [
         'معايير جودة عالمية معتمدة من ISO',
