@@ -394,7 +394,7 @@ const housingProjects: YamasProject[] = [
     clientEn: 'Arceilia',
     location: '',
     locationEn: '',
-    contractValue: '',
+    contractValue: '227,000,000',
     year: '2024',
     status: 'completed',
     mainImage: '/images/projects/Housing Projects/Arceilia/1.png',
