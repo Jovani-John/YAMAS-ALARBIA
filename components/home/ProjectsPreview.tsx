@@ -73,7 +73,7 @@ export default function ProjectsSection() {
           titleEn: "RIMA 1",
           description: "مجمع تجاري متكامل يجمع بين التصميم العصري والوظائف المتعددة، يضم محلات تجارية ومكاتب إدارية بمساحات واسعة ومرافق حديثة تلبي احتياجات رواد الأعمال والعملاء على حد سواء.",
           descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities that meet the needs of entrepreneurs and customers alike.",
-          image: "/images/projects/buildings/Rima1/2.jpg",
+          image: "/images/projects/buildings/Rima1/7.png",
           number: "01",
         },
         {
