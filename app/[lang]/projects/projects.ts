@@ -344,6 +344,94 @@ const healthcareProjects: YamasProject[] = [
 // 🏘️ Housing Projects - المشاريع السكنية
 const housingProjects: YamasProject[] = [
   {
+    id: 'alfulwa-roshn',
+    title: 'الفلوة روشن',
+    titleEn: 'Al Fulwa Roshn',
+    category: 'housing',
+    categoryAr: 'مشاريع سكنية',
+    categoryEn: 'Housing Projects',
+    client: 'روشن - العيوني للاستثمار',
+    clientEn: 'ROSHAN - Aluyouni Investment',
+    location: 'الأحساء، المنطقة الشرقية',
+    locationEn: 'Al-Ahsa, Eastern Area',
+    contractValue: '227,000,000',
+    year: '2024',
+    status: 'completed',
+    mainImage: '/images/projects/Housing Projects/Fulwa/1.png',
+    images: [
+      '/images/projects/Housing Projects/Fulwa/1.png',
+      '/images/projects/Housing Projects/Fulwa/2.png',
+
+    ],
+    description: 'تصميم وإنشاء 439 فيلا فاخرة بدور أرضي وأول وسطح حسب مستوى روشن، بمساحة بناء 153,650 متر مربع',
+    descriptionEn: 'Design and construction of 439 luxury villas with ground, first, and roof floors at Roshen level, 153,650 sqm built-up area',
+    scope: [
+      'تصميم معماري متميز حسب معايير روشن',
+      'تنفيذ البناء والتشطيبات الفاخرة',
+      'أعمال MEP متكاملة',
+      'تنسيق المواقع والحدائق',
+      'الأعمال الخارجية والبنية التحتية'
+    ],
+    scopeEn: [
+      'Distinguished architectural design per Roshen standards',
+      'Construction & luxury finishing execution',
+      'Integrated MEP works',
+      'Site landscaping & gardens',
+      'External works & infrastructure'
+    ],
+    area: '153,650 م²',
+    features: ['439 فيلا', 'مستوى روشن', 'تصميم عصري', '3 أدوار']
+  },
+
+  {
+    id: 'Arceilia',
+    title: 'ارسيليا',
+    titleEn: 'Arceilia',
+    category: 'housing',
+    categoryAr: 'مشاريع سكنية',
+    categoryEn: 'Housing Projects',
+    client: 'ارسيليا',
+    clientEn: 'Arceilia',
+    location: '',
+    locationEn: '',
+    contractValue: '',
+    year: '2024',
+    status: 'completed',
+    mainImage: '/images/projects/Housing Projects/Arceilia/1.png',
+    images: [
+      '/images/projects/Housing Projects/Arceilia/1.png',
+      '/images/projects/Housing Projects/Arceilia/2.png',
+      '/images/projects/Housing Projects/Arceilia/3.png',
+      '/images/projects/Housing Projects/Arceilia/4.png',
+      '/images/projects/Housing Projects/Arceilia/5.png',
+      '/images/projects/Housing Projects/Arceilia/6.png',
+      '/images/projects/Housing Projects/Arceilia/7.png',
+      '/images/projects/Housing Projects/Arceilia/8.png',
+      '/images/projects/Housing Projects/Arceilia/9.png',
+      '/images/projects/Housing Projects/Arceilia/10.png',
+      '/images/projects/Housing Projects/Arceilia/11.png',
+      '/images/projects/Housing Projects/Arceilia/12.png',
+      '/images/projects/Housing Projects/Arceilia/13.png',
+      '/images/projects/Housing Projects/Arceilia/14.png',
+      '/images/projects/Housing Projects/Arceilia/15.png',
+      '/images/projects/Housing Projects/Arceilia/16.png',
+      '/images/projects/Housing Projects/Arceilia/17.png',
+      '/images/projects/Housing Projects/Arceilia/18.png',
+      
+
+    ],
+    description: 'مشروع سكني متكامل',
+    descriptionEn: 'Integrated residential project',
+    scope: [
+
+    ],
+    scopeEn: [
+
+    ],
+    area: '',
+    features: []
+  },
+  {
     id: 'darah-alqamrah',
     title: 'داره قمره',
     titleEn: 'Darah Al Qamrah',
@@ -389,45 +477,7 @@ const housingProjects: YamasProject[] = [
     area: '300,000 م²',
     features: ['220 فيلا', 'مستوى NHC', 'تصميم فاخر', '3 أدوار']
   },
-  {
-    id: 'alfulwa-roshn',
-    title: 'الفلوة روشن',
-    titleEn: 'Al Fulwa Roshn',
-    category: 'housing',
-    categoryAr: 'مشاريع سكنية',
-    categoryEn: 'Housing Projects',
-    client: 'روشن - العيوني للاستثمار',
-    clientEn: 'ROSHAN - Aluyouni Investment',
-    location: 'الأحساء، المنطقة الشرقية',
-    locationEn: 'Al-Ahsa, Eastern Area',
-    contractValue: '227,000,000',
-    year: '2024',
-    status: 'completed',
-    mainImage: '/images/projects/Housing Projects/Fulwa/1.png',
-    images: [
-      '/images/projects/Housing Projects/Fulwa/1.png',
-      '/images/projects/Housing Projects/Fulwa/2.png',
-
-    ],
-    description: 'تصميم وإنشاء 439 فيلا فاخرة بدور أرضي وأول وسطح حسب مستوى روشن، بمساحة بناء 153,650 متر مربع',
-    descriptionEn: 'Design and construction of 439 luxury villas with ground, first, and roof floors at Roshen level, 153,650 sqm built-up area',
-    scope: [
-      'تصميم معماري متميز حسب معايير روشن',
-      'تنفيذ البناء والتشطيبات الفاخرة',
-      'أعمال MEP متكاملة',
-      'تنسيق المواقع والحدائق',
-      'الأعمال الخارجية والبنية التحتية'
-    ],
-    scopeEn: [
-      'Distinguished architectural design per Roshen standards',
-      'Construction & luxury finishing execution',
-      'Integrated MEP works',
-      'Site landscaping & gardens',
-      'External works & infrastructure'
-    ],
-    area: '153,650 م²',
-    features: ['439 فيلا', 'مستوى روشن', 'تصميم عصري', '3 أدوار']
-  },
+  
   // src/data/yamas-projects.ts - PART 2/2
 // تكملة المشاريع السكنية
 
@@ -508,44 +558,7 @@ const housingProjects: YamasProject[] = [
     ],
     features: ['204 فيلا', 'مشروع سكني متكامل']
   },
-  {
-    id: 'abyat-rose',
-    title: 'واجهة الفرسان',
-    titleEn: 'Al-Fursan Facade',
-    category: 'housing',
-    categoryAr: 'مشاريع سكنية',
-    categoryEn: 'Housing Projects',
-    client: 'شركة أبياتنا للتطوير العقاري',
-    clientEn: 'Abyatna Real Estate Development Company (ABYATONA)',
-    location: 'حي الفرسان 3، الرياض',
-    locationEn: 'Al-Fursan 3 District, Riyadh',
-    contractValue: '55,000,125',
-    year: '2025',
-    status: 'ongoing',
-    mainImage: '/images/projects/Housing Projects/Al-FursanFacade/1.png',
-    images: [
-      '/images/projects/Housing Projects/Al-FursanFacade/1.png',
-      '/images/projects/Housing Projects/Al-FursanFacade/2.png',
-      
-    ],
-    description: 'إنشاء 70 فيلا سكنية على مرحلتين في حي الفرسان 3 بالرياض',
-    descriptionEn: 'Construction of 70 residential villas in two phases in Al-Fursan 3 district, Riyadh',
-    scope: [
-      'المرحلة الأولى - 35 فيلا',
-      'المرحلة الثانية - 35 فيلا',
-      'أعمال البناء والتشطيبات',
-      'أنظمة MEP',
-      'البنية التحتية والأعمال الخارجية'
-    ],
-    scopeEn: [
-      'Phase 1 - 35 villas',
-      'Phase 2 - 35 villas',
-      'Construction & finishing works',
-      'MEP systems',
-      'Infrastructure & external works'
-    ],
-    features: ['70 فيلا', 'مرحلتين', 'موقع مميز']
-  },
+
   {
     id: 'argan-plains',
     title: 'مشروع أرجان السهول',
@@ -558,7 +571,7 @@ const housingProjects: YamasProject[] = [
     location: 'الرياض',
     locationEn: 'Riyadh',
     contractValue: '35,000,000',
-    year: '2025',
+    year: '2024',
     status: 'completed',
     mainImage: '/images/projects/Commercial Projects/argan-plains/1.png',
     images: [
@@ -978,11 +991,12 @@ const towersProjects: YamasProject[] = [
     contractValue: '37,000,000',
     year: '2025',
     status: 'ongoing',
-    mainImage: '/images/projects/buildings/Rima1/1.jpg',
+    mainImage: '/images/projects/buildings/Rima1/7.png',
     images: [
       '/images/projects/buildings/Rima1/1.jpg',
       '/images/projects/buildings/Rima1/2.jpg',
       '/images/projects/buildings/Rima1/3.jpg',
+      '/images/projects/buildings/Rima1/7.png',
     ],
     description: 'مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 22,295 متر مربع، يشمل 62 شقة سكنية و100 موقف سيارات',
     descriptionEn: 'Premium residential building of 15 floors with total built-up area of 22,295 sqm, including 62 apartments and 100 parking spaces',
@@ -1344,17 +1358,17 @@ export const projectCategories: ProjectCategory[] = [
     color: '#059669',
     projects: sortProjectsByDate(housingProjects)
   },
-  {
-    id: 'educational',
-    nameAr: 'المشاريع التعليمية',
-    nameEn: 'Educational Projects',
-    description: 'جامعات وكليات ومدارس ومراكز تدريب',
-    descriptionEn: 'Universities, colleges, schools and training centers',
-    icon: '🎓',
-    color: '#2563EB',
-    projects: sortProjectsByDate(educationalProjects)
+    {
+    id: 'towers',
+    nameAr: 'مشاريع الأبراج',
+    nameEn: 'Towers Projects',
+    description: 'أبراج سكنية وتجارية متعددة الأدوار',
+    descriptionEn: 'Multi-story residential and commercial towers',
+    icon: '🏗️',
+    color: '#EC4899',
+    projects: sortProjectsByDate(towersProjects)
   },
-  {
+    {
     id: 'commercial',
     nameAr: 'المشاريع التجارية',
     nameEn: 'Commercial Projects',
@@ -1365,15 +1379,17 @@ export const projectCategories: ProjectCategory[] = [
     projects: sortProjectsByDate(commercialProjects)
   },
   {
-    id: 'towers',
-    nameAr: 'مشاريع الأبراج',
-    nameEn: 'Towers Projects',
-    description: 'أبراج سكنية وتجارية متعددة الأدوار',
-    descriptionEn: 'Multi-story residential and commercial towers',
-    icon: '🏗️',
-    color: '#EC4899',
-    projects: sortProjectsByDate(towersProjects)
+    id: 'educational',
+    nameAr: 'المشاريع التعليمية',
+    nameEn: 'Educational Projects',
+    description: 'جامعات وكليات ومدارس ومراكز تدريب',
+    descriptionEn: 'Universities, colleges, schools and training centers',
+    icon: '🎓',
+    color: '#2563EB',
+    projects: sortProjectsByDate(educationalProjects)
   },
+
+
   {
     id: 'government',
     nameAr: 'المشاريع الحكومية',
