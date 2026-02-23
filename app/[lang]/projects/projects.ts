@@ -394,9 +394,9 @@ const housingProjects: YamasProject[] = [
     clientEn: 'Arceilia',
     location: '',
     locationEn: '',
-    contractValue: '227,000,000',
+    contractValue: '30,000,000',
     year: '2024',
-    status: 'completed',
+    status: 'ongoing',
     mainImage: '/images/projects/Housing Projects/Arceilia/1.png',
     images: [
       '/images/projects/Housing Projects/Arceilia/1.png',
@@ -420,8 +420,8 @@ const housingProjects: YamasProject[] = [
       
 
     ],
-    description: 'مشروع سكني متكامل',
-    descriptionEn: 'Integrated residential project',
+    description: 'مشروع سكني متكامل ، 32 فيلا ب 4 نماذج مختلفة',
+    descriptionEn: 'Integrated residential project , 32 villas in 4 models ',
     scope: [
 
     ],
