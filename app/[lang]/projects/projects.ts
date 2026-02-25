@@ -343,6 +343,47 @@ const healthcareProjects: YamasProject[] = [
 
 // 🏘️ Housing Projects - المشاريع السكنية
 const housingProjects: YamasProject[] = [
+
+  {
+    id: 'Al-Fursan',
+    title: 'الفرسان',
+    titleEn: 'Al-Fursan',
+    category: 'housing',
+    categoryAr: 'مشاريع سكنية',
+    categoryEn: 'Housing Projects',
+    client: 'شركة أبياتنا للتطوير العقاري ',
+    clientEn: 'Abyatna Real Estate Development Company',
+    location: 'الرياض',
+    locationEn: 'Riyadh',
+    contractValue: '55,000,125',
+    year: '2025',
+    status: 'ongoing',
+    mainImage: '/images/projects/Housing Projects/Al-FursanFacade/1.png',
+    images: [
+      '/images/projects/Housing Projects/Al-FursanFacade/1.png',
+      '/images/projects/Housing Projects/Al-FursanFacade/2.png',
+
+    ],
+    description: 'بناء فلل سكنية على مرحلتين في منطقة الفرسان 3، الرياض',
+    descriptionEn: ' Construction of  residential villas in two phases in Al-Fursan 3 district, Riyadh',
+    scope: [
+      'تصميم معماري متميز حسب معايير روشن',
+      'تنفيذ البناء والتشطيبات الفاخرة',
+      'أعمال MEP متكاملة',
+      'تنسيق المواقع والحدائق',
+      'الأعمال الخارجية والبنية التحتية'
+    ],
+    scopeEn: [
+      'Distinguished architectural design per Roshen standards',
+      'Construction & luxury finishing execution',
+      'Integrated MEP works',
+      'Site landscaping & gardens',
+      'External works & infrastructure'
+    ],
+    area: '153,650 م²',
+    features: ['439 فيلا', 'مستوى روشن', 'تصميم عصري', '3 أدوار']
+  },
+
   {
     id: 'alfulwa-roshn',
     title: 'الفلوة روشن',
