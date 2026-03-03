@@ -358,10 +358,11 @@ const housingProjects: YamasProject[] = [
     contractValue: '55,000,125',
     year: '2025',
     status: 'ongoing',
-    mainImage: '/images/projects/Housing Projects/Al-FursanFacade/1.png',
+    mainImage: '/images/projects/Housing Projects/Al-FursanFacade/3.png',
     images: [
       '/images/projects/Housing Projects/Al-FursanFacade/1.png',
       '/images/projects/Housing Projects/Al-FursanFacade/2.png',
+      '/images/projects/Housing Projects/Al-FursanFacade/3.png',
 
     ],
     description: 'بناء فلل سكنية على مرحلتين في منطقة الفرسان 3، الرياض',
