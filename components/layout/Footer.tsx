@@ -26,7 +26,7 @@ export default function Footer() {
       
       // Main Contact Info
       ourPhone: "هاتفنا",
-      phone1: "+966 56 419 1000",
+      phone1: "",
       phone2: "+966 50 002 9933",
       crNumber: "سجل تجاري",
       cr: "1010806346",
@@ -65,7 +65,7 @@ export default function Footer() {
       haveProject: "لديك مشروع؟",
       helpYou: "نحن هنا لمساعدتك في تحويل رؤيتك إلى واقع",
       contactNow: "تواصل معنا الآن",
-      rights: "جميع الحقوق محفوظة © 2025 يماس العربية للمقاولات",
+      rights: "جميع الحقوق محفوظة © 2025 شركة يماس العربية للمقاولات ",
       privacy: "سياسة الخصوصية",
       terms: "الشروط والأحكام"
     },
@@ -74,7 +74,7 @@ export default function Footer() {
       
       // Main Contact Info
       ourPhone: "Our Phone",
-      phone1: "+966 56 419 1000",
+      phone1: "",
       phone2: "+966 50 002 9933",
       crNumber: "C.R",
       cr: "1010806346",

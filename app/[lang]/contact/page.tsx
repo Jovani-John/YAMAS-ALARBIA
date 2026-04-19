@@ -80,7 +80,7 @@ export default function ContactPage() {
       contactInfo: {
         title: 'معلومات التواصل',
         phone: 'الهاتف',
-        phone1: '+966 56 419 1000',
+        phone1: '',
         phone2: '+966 50 002 9933',
         email: 'البريد الإلكتروني',
         emailValue: 'info@yamas.com.sa',
@@ -119,7 +119,7 @@ export default function ContactPage() {
       contactInfo: {
         title: 'Contact Information',
         phone: 'Phone',
-        phone1: '+966 56 419 1000',
+        phone1: '',
         phone2: '+966 50 002 9933',
         email: 'Email',
         emailValue: 'info@yamas.com.sa',

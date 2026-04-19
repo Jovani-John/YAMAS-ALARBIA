@@ -174,7 +174,7 @@ export default function HeroSection() {
             className="mb-6"
           >
             <h2 className="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wider mb-2">
-              {currentLang === 'ar' ? 'يماس العربية للمقاولات' : 'YAMAS CONSTRUCTION'}
+              {currentLang === 'ar' ? 'شركة يماس العربية للمقاولات'  : 'YAMAS CONSTRUCTION'}
             </h2>
             <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#49A799] to-transparent mx-auto" />
           </motion.div>

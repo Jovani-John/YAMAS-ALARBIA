@@ -4,14 +4,12 @@ import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
   MotionValue,
 } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 
-// Define Project interface
 interface Project {
   id: number;
   title: string;
@@ -23,7 +21,6 @@ interface Project {
   number: string;
 }
 
-// Define Content type
 interface ContentType {
   ar: {
     subtitle: string;
@@ -39,7 +36,6 @@ interface ContentType {
   };
 }
 
-// Extended props for ProjectCard
 interface ProjectCardProps {
   project: Project;
   index: number;
@@ -51,7 +47,6 @@ interface ProjectCardProps {
   currentLang: 'ar' | 'en';
 }
 
-// Main Component
 export default function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -81,8 +76,8 @@ export default function ProjectsSection() {
           title: "جراند هايبر",
           subtitle: "مشاريع تجارية",
           titleEn: "Grand Hyper",
-          description: "سوق تجاري  يوفر تجربة تسوق فريدة مع تصميم معماري مبتكر، يشمل مساحات واسعة للمحلات التجارية ومواقف سيارات   وأنظمة تكييف وإضاءة حديثة تضمن راحة الزوار.",
-          descriptionEn: "A  commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas,  parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
+          description: "سوق تجاري يوفر تجربة تسوق فريدة مع تصميم معماري مبتكر، يشمل مساحات واسعة للمحلات التجارية ومواقف سيارات وأنظمة تكييف وإضاءة حديثة تضمن راحة الزوار.",
+          descriptionEn: "A commercial market providing a unique shopping experience with innovative architectural design, including spacious retail areas, parking facilities, and modern air conditioning and lighting systems ensuring visitor comfort.",
           image: "/images/projects/Commercial Projects/GrandMall/1.jpg",
           number: "02",
         },
@@ -161,35 +156,20 @@ export default function ProjectsSection() {
   const projects = data.projects;
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
     checkMobile();
     window.addEventListener("resize", checkMobile);
-    
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
-    const preloadImages = () => {
-      projects.slice(0, 2).forEach((project) => {
-        if (!imagesLoaded.has(project.id)) {
-          const img = document.createElement("img");
-          img.src = project.image;
-          img.onload = () => {
-            setImagesLoaded(prev => new Set(prev).add(project.id));
-          };
-          img.onerror = () => {
-            console.warn(`Failed to preload image: ${project.image}`);
-          };
-        }
-      });
-    };
-    
-    preloadImages();
+    projects.slice(0, 2).forEach((project) => {
+      if (!imagesLoaded.has(project.id)) {
+        const img = document.createElement("img");
+        img.src = project.image;
+        img.onload = () => setImagesLoaded(prev => new Set(prev).add(project.id));
+      }
+    });
   }, [projects, imagesLoaded]);
 
   const { scrollYProgress } = useScroll({
@@ -198,20 +178,18 @@ export default function ProjectsSection() {
   });
 
   const getTitleLines = () => {
-    const fullTitle = data.title;
-
+    const words = data.title.split(" ");
     if (isRTL) {
-      const words = fullTitle.split(" ");
-      const firstLine = words.slice(0, 2).join(" ");
-      const secondLine = words.slice(2).join(" ");
-      return { firstLine, secondLine };
-    } else {
-      const words = fullTitle.split(" ");
-      const midPoint = Math.ceil(words.length / 2);
-      const firstLine = words.slice(0, midPoint).join(" ");
-      const secondLine = words.slice(midPoint).join(" ");
-      return { firstLine, secondLine };
+      return {
+        firstLine: words.slice(0, 2).join(" "),
+        secondLine: words.slice(2).join(" "),
+      };
     }
+    const midPoint = Math.ceil(words.length / 2);
+    return {
+      firstLine: words.slice(0, midPoint).join(" "),
+      secondLine: words.slice(midPoint).join(" "),
+    };
   };
 
   const { firstLine, secondLine } = getTitleLines();
@@ -245,7 +223,9 @@ export default function ProjectsSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <span className="block mb-1 sm:mb-2 lg:mb-3 text-gray-900">{firstLine}</span>
-            <span className="block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent">{secondLine}</span>
+            <span className="block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent">
+              {secondLine}
+            </span>
           </motion.h2>
 
           <motion.div
@@ -286,7 +266,6 @@ export default function ProjectsSection() {
   );
 }
 
-// Project Card Component
 function ProjectCard({
   project,
   index,
@@ -300,66 +279,41 @@ function ProjectCard({
   const router = useRouter();
   const [imageLoaded, setImageLoaded] = useState(isPreloaded);
   const isRTL = currentLang === 'ar';
-  const isLast = index === totalProjects - 1;
-  const isFirst = index === 0;
   const isEven = index % 2 === 0;
+  const isFirst = index === 0;
 
   const fadeInStart = range[0];
-  const fadeInEnd = range[0] + 0.2;
+  const fadeInEnd = range[0] + 0.01;
   const stayStart = fadeInEnd;
-  const stayEnd = range[1] - 0.2;
+  const stayEnd = range[1] - 0.01;
   const fadeOutStart = stayEnd;
   const fadeOutEnd = range[1];
 
   const opacity = useTransform(
     progress,
     [fadeInStart, fadeInEnd, stayStart, stayEnd, fadeOutStart, fadeOutEnd],
-    [0, 1, 1, 1, 1, 0]
+    // المشروع الأول يبدأ ظاهر من الأول
+    isFirst ? [1, 1, 1, 1, 1, 0] : [0, 1, 1, 1, 1, 0]
   );
-
-  const scale = useTransform(
-    progress,
-    [fadeInStart, fadeInEnd, stayEnd, fadeOutEnd],
-    [0.8, 1, 1, 0.8]
-  );
-
-  const smoothScale = useSpring(scale, {
-    stiffness: 100,
-    damping: 30,
-  });
-  
-  const smoothOpacity = useSpring(opacity, {
-    stiffness: 100,
-    damping: 30,
-  });
 
   const getImageOrder = () => {
-    if (isRTL) {
-      return isEven ? "lg:order-2" : "lg:order-1";
-    } else {
-      return isEven ? "lg:order-1" : "lg:order-2";
-    }
+    if (isRTL) return isEven ? "lg:order-2" : "lg:order-1";
+    return isEven ? "lg:order-1" : "lg:order-2";
   };
 
   const getContentOrder = () => {
-    if (isRTL) {
-      return isEven ? "lg:order-1" : "lg:order-2";
-    } else {
-      return isEven ? "lg:order-2" : "lg:order-1";
-    }
+    if (isRTL) return isEven ? "lg:order-1" : "lg:order-2";
+    return isEven ? "lg:order-2" : "lg:order-1";
   };
 
   return (
     <motion.div
       className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
-      style={{
-        opacity: smoothOpacity,
-        scale: smoothScale,
-      }}
+      style={{ opacity }}
     >
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
+
           {/* Image Side */}
           <motion.div
             className={`relative w-full aspect-[4/3] bg-gray-100 overflow-hidden rounded-3xl shadow-2xl group ${getImageOrder()}`}
@@ -367,7 +321,6 @@ function ProjectCard({
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
             )}
-
             <div className="relative w-full h-full">
               <Image
                 src={project.image}
@@ -381,18 +334,14 @@ function ProjectCard({
                 onLoad={() => setImageLoaded(true)}
               />
             </div>
-
             <div className="absolute inset-0 bg-gradient-to-t from-[#49A799]/60 via-transparent to-transparent group-hover:opacity-30 transition-opacity duration-300" />
-            
             <div className="absolute inset-0 border-4 border-[#49A799]/0 group-hover:border-[#49A799]/60 rounded-3xl transition-all duration-300" />
           </motion.div>
 
           {/* Content Side */}
-          <div
-            className={`space-y-4 ${getContentOrder()} ${isRTL ? 'text-right' : 'text-left'}`}
-          >
+          <div className={`space-y-4 ${getContentOrder()} ${isRTL ? 'text-right' : 'text-left'}`}>
             <p className="text-sm sm:text-base uppercase tracking-wider text-[#49A799] font-bold">
-              {isRTL ? project.subtitle : project.subtitle}
+              {project.subtitle}
             </p>
 
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-gray-900">
@@ -410,12 +359,10 @@ function ProjectCard({
                 <span className="text-3xl md:text-4xl font-bold text-[#49A799]">
                   {project.number}
                 </span>
-                <span className="text-2xl font-light text-gray-500">
-                  / 04
-                </span>
+                <span className="text-2xl font-light text-gray-500">/ 04</span>
               </div>
 
-              <button 
+              <button
                 onClick={() => router.push(`/${currentLang}/projects`)}
                 className="group relative w-full sm:w-auto"
               >
@@ -431,6 +378,7 @@ function ProjectCard({
               </button>
             </div>
           </div>
+
         </div>
       </div>
     </motion.div>

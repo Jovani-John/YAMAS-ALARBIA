@@ -101,7 +101,7 @@ const links: NavLink[] = navigation[currentLang as keyof typeof navigation].link
               <a href={`/${currentLang}`} className="flex items-center">
                 <img 
                   src="/images/logo/logo.png"
-                  alt={isRTL ? 'يماس العربية للمقاولات' : 'Yamas Construction'}
+                  alt={isRTL ? 'يماس العربية للمقاولات شركه' : 'Yamas Construction'}
                   className={`h-12 w-auto object-contain ${
                     isScrolled ? '' : 'brightness-0 invert'
                   }`}
