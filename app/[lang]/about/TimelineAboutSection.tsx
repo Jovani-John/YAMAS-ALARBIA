@@ -1,4 +1,3 @@
-// app/[lang]/about/TimelineAboutSection.tsx
 'use client';
 
 import { memo } from 'react';
@@ -6,12 +5,14 @@ import { motion } from 'framer-motion';
 import { 
   HiStar,
   HiShieldCheck,
-  HiDocumentDownload
+  HiDocumentDownload,
+  HiCheckCircle // أيقونة إضافية للخطوات
 } from 'react-icons/hi';
 import { IconType } from 'react-icons';
 
 interface TimelineItem {
-  year: string;
+  // تم إخفاء أو حذف الـ year من الاستخدام في الواجهة
+  year?: string; 
   title: string;
   description: string;
 }
@@ -20,7 +21,8 @@ interface CertificateType {
   id: string;
   name: string;
   standard: string;
-  year: string;
+  // تم إخفاء الـ year هنا أيضاً
+  year?: string; 
   description: string;
   driveLink: string;
   icon?: IconType;
@@ -62,9 +64,13 @@ const TimelineItemComponent = memo(({
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          <span className="inline-block px-4 py-2 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-full text-sm font-bold mb-4">
-            {item.year}
-          </span>
+          {/* تم استبدال السنة بأيقونة أو كلمة "محطة" أو "خطوة" */}
+          <div className={`flex items-center gap-2 mb-4 ${isEven ? 'justify-end' : 'justify-start'}`}>
+            <span className="inline-block px-4 py-1 bg-[#49A799]/10 text-[#49A799] rounded-full text-sm font-bold">
+               {index + 1} المرحلة
+            </span>
+          </div>
+          
           <h3 className="text-2xl font-bold text-gray-900 mb-3">
             {item.title}
           </h3>
@@ -80,7 +86,7 @@ const TimelineItemComponent = memo(({
           whileHover={{ scale: 1.2, rotate: 180 }}
           transition={{ duration: 0.5 }}
         >
-          <HiStar className="w-8 h-8 text-white" />
+          <HiCheckCircle className="w-8 h-8 text-white" />
         </motion.div>
         {!isLast && (
           <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-32 bg-linear-to-b from-[#49A799] to-transparent" />
@@ -94,7 +100,6 @@ const TimelineItemComponent = memo(({
 
 TimelineItemComponent.displayName = 'TimelineItemComponent';
 
-// مكون البطاقة للشهادة
 const CertificateCard = memo(({ 
   certificate, 
   index 
@@ -119,9 +124,7 @@ const CertificateCard = memo(({
             <IconComponent className="w-8 h-8 text-white" />
           </div>
           <div>
-            <span className="inline-block px-3 py-1 bg-[#49A799]/10 text-[#49A799] rounded-full text-xs font-bold mb-2">
-              {certificate.year}
-            </span>
+            {/* تم حذف وسم السنة من هنا */}
             <h3 className="text-xl font-bold text-gray-900">{certificate.name}</h3>
           </div>
         </div>
@@ -129,7 +132,7 @@ const CertificateCard = memo(({
       </div>
       
       <div className="mb-6">
-        <h4 className="text-sm font-semibold text-gray-500 mb-2">المعيار</h4>
+        <h4 className="text-sm font-semibold text-gray-500 mb-2">المعيار الدولي</h4>
         <p className="text-lg font-bold text-gray-900">{certificate.standard}</p>
       </div>
       
@@ -144,7 +147,7 @@ const CertificateCard = memo(({
         className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold group"
       >
         <HiDocumentDownload className="w-5 h-5" />
-        <span>مشاهدة الشهادة</span>
+        <span>عرض وثيقة الاعتماد</span>
       </a>
     </motion.div>
   );
@@ -155,7 +158,6 @@ CertificateCard.displayName = 'CertificateCard';
 const TimelineSection = memo(({ data }: TimelineSectionProps) => {
   return (
     <>
-      {/* قسم الجدول الزمني */}
       <section className="py-24 bg-linear-to-br from-gray-50 to-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4">
           <motion.div
@@ -186,7 +188,6 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
         </div>
       </section>
 
-      {/* قسم الشهادات - إذا كانت موجودة في البيانات */}
       {data.certificates && data.certificates.items && (
         <section className="py-24 bg-linear-to-b from-white to-gray-50 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4">
@@ -198,7 +199,7 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
               className="text-center mb-16"
             >
               <span className="inline-block px-4 py-2 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-full text-sm font-bold mb-4">
-                شهادات ISO
+                الاعتمادات
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
                 شهادات الجودة والاعتمادات الدولية

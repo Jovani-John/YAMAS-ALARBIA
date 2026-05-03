@@ -6,7 +6,6 @@ import { FiMapPin, FiCalendar, FiLayers, FiTrendingUp, FiCheckCircle, FiClock, F
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-// استيراد البيانات من الملف الأصلي
 import { projectCategories, type YamasProject, type ProjectCategory } from '@/app/[lang]/projects/projects';
 
 // ===== مشاريع الترجمة =====
@@ -14,7 +13,8 @@ const translations = {
   ar: {
     status: {
       completed: 'مكتمل',
-      ongoing: 'قيد التنفيذ'
+      ongoing: 'قيد التنفيذ',
+      development: 'قيد التطوير',
     },
     currency: 'ريال سعودي',
     stats: {
@@ -39,7 +39,8 @@ const translations = {
   en: {
     status: {
       completed: 'Completed',
-      ongoing: 'Ongoing'
+      ongoing: 'Ongoing',
+      development: 'Under Development',
     },
     currency: 'SAR',
     stats: {
@@ -63,7 +64,7 @@ const translations = {
   }
 };
 
-// ===== SIMPLE PROJECTS LIST (للمشاريع بدون صور) =====
+// ===== SIMPLE PROJECTS LIST =====
 const SimpleProjectsList = ({ 
   projects, 
   isRTL,
@@ -86,7 +87,6 @@ const SimpleProjectsList = ({
       transition={{ duration: 0.6 }}
       className="mt-12"
     >
-      {/* العنوان */}
       <div className="mb-6">
         <h3 
           className="text-2xl font-bold text-gray-800 mb-2"
@@ -97,7 +97,6 @@ const SimpleProjectsList = ({
         <div className="h-1 w-20 bg-[#49A799] rounded-full" />
       </div>
 
-      {/* القائمة */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
         <div className="divide-y divide-gray-100">
           {projects.map((project, index) => (
@@ -110,7 +109,6 @@ const SimpleProjectsList = ({
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 
-                {/* اسم المشروع */}
                 <div className="flex-1">
                   <h4 
                     className="text-lg font-semibold text-gray-900 mb-1"
@@ -126,9 +124,7 @@ const SimpleProjectsList = ({
                   </p>
                 </div>
 
-                {/* التفاصيل */}
                 <div className="flex flex-wrap items-center gap-3 text-sm">
-                  {/* الموقع */}
                   <div className="flex items-center gap-1.5 text-gray-600">
                     <FiMapPin className="text-[#49A799]" />
                     <span style={{ fontFamily: 'Alexandria, sans-serif' }}>
@@ -136,7 +132,6 @@ const SimpleProjectsList = ({
                     </span>
                   </div>
 
-                  {/* السنة */}
                   {project.year && (
                     <div className="flex items-center gap-1.5 text-gray-600">
                       <FiCalendar className="text-[#49A799]" />
@@ -144,10 +139,11 @@ const SimpleProjectsList = ({
                     </div>
                   )}
 
-                  {/* الحالة */}
                   <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full ${
-                    project.status === 'completed' 
-                      ? 'bg-emerald-50 text-emerald-700' 
+                    project.status === 'completed'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : project.status === 'development'
+                      ? 'bg-blue-50 text-blue-700'
                       : 'bg-amber-50 text-amber-700'
                   }`}>
                     {project.status === 'completed' ? (
@@ -156,8 +152,10 @@ const SimpleProjectsList = ({
                       <FiClock className="text-sm" />
                     )}
                     <span className="text-xs font-medium">
-                      {project.status === 'completed' 
+                      {project.status === 'completed'
                         ? t.status.completed
+                        : project.status === 'development'
+                        ? t.status.development
                         : t.status.ongoing
                       }
                     </span>
@@ -198,7 +196,6 @@ const ProjectCard = ({
       <Link href={`/${isRTL ? 'ar' : 'en'}/projects/${project.id}`}>
         <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
           
-          {/* صورة المشروع */}
           <div className="absolute inset-0">
             <img
               src={project.mainImage}
@@ -215,29 +212,33 @@ const ProjectCard = ({
               animate={{ scale: 1 }}
               transition={{ delay: 0.3 + index * 0.1 }}
               className={`flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md ${
-                project.status === 'completed' 
-                  ? 'bg-emerald-500/20 border border-emerald-400/30' 
+                project.status === 'completed'
+                  ? 'bg-emerald-500/20 border border-emerald-400/30'
+                  : project.status === 'development'
+                  ? 'bg-blue-500/20 border border-blue-400/30'
                   : 'bg-amber-500/20 border border-amber-400/30'
               }`}
             >
               {project.status === 'completed' ? (
                 <FiCheckCircle className="text-emerald-300 text-sm" />
               ) : (
-                <FiClock className="text-amber-300 text-sm" />
+                <FiClock className={`text-sm ${
+                  project.status === 'development' ? 'text-blue-300' : 'text-amber-300'
+                }`} />
               )}
               <span className="text-xs font-medium text-white">
-                {project.status === 'completed' 
+                {project.status === 'completed'
                   ? t.status.completed
+                  : project.status === 'development'
+                  ? t.status.development
                   : t.status.ongoing
                 }
               </span>
             </motion.div>
           </div>
 
-          {/* محتوى البطاقة */}
           <div className="absolute inset-0 p-6 flex flex-col justify-end">
             
-            {/* القيمة التعاقدية */}
             <motion.div
               initial={{ x: isRTL ? -20 : 20, opacity: 0 }}
               animate={isInView ? { x: 0, opacity: 1 } : { x: isRTL ? -20 : 20, opacity: 0 }}
@@ -252,7 +253,6 @@ const ProjectCard = ({
               </div>
             </motion.div>
 
-            {/* العنوان */}
             <motion.h3
               initial={{ y: 20, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
@@ -263,7 +263,6 @@ const ProjectCard = ({
               {isRTL ? project.title : project.titleEn}
             </motion.h3>
 
-            {/* الوصف */}
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
@@ -274,7 +273,6 @@ const ProjectCard = ({
               {isRTL ? project.description : project.descriptionEn}
             </motion.p>
 
-            {/* التفاصيل */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
@@ -299,7 +297,6 @@ const ProjectCard = ({
               )}
             </motion.div>
 
-            {/* خط ديناميكي */}
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: '60px' }}
@@ -308,7 +305,6 @@ const ProjectCard = ({
             />
           </div>
 
-          {/* Overlay عند الـ Hover */}
           <div className="absolute inset-0 bg-[#49A799]/0 group-hover:bg-[#49A799]/10 transition-all duration-500 pointer-events-none" />
         </div>
       </Link>
@@ -316,7 +312,7 @@ const ProjectCard = ({
   );
 };
 
-// ===== CATEGORY SECTION COMPONENT (معدل) =====
+// ===== CATEGORY SECTION COMPONENT =====
 const CategorySection = ({ 
   category, 
   index,
@@ -331,14 +327,13 @@ const CategorySection = ({
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-150px" });
 
-  // فصل المشاريع حسب وجود الصور
   const projectsWithImages = category.projects.filter(p => p.mainImage && p.mainImage !== '');
   const projectsWithoutImages = category.projects.filter(p => !p.mainImage || p.mainImage === '');
 
   const stats = {
     total: category.projects.length,
     completed: category.projects.filter(p => p.status === 'completed').length,
-    ongoing: category.projects.filter(p => p.status === 'ongoing').length,
+    ongoing: category.projects.filter(p => p.status === 'ongoing' || p.status === 'development').length,
     totalValue: category.projects.reduce((sum, p) => 
       sum + parseFloat(p.contractValue.replace(/,/g, '')), 0
     )
@@ -352,7 +347,6 @@ const CategorySection = ({
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Category Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -361,7 +355,6 @@ const CategorySection = ({
         >
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             
-            {/* العنوان والوصف */}
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <h2 
@@ -383,7 +376,6 @@ const CategorySection = ({
               </motion.p>
             </div>
 
-            {/* إحصائيات القسم */}
             <motion.div
               initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
@@ -420,7 +412,6 @@ const CategorySection = ({
           </div>
         </motion.div>
 
-        {/* Projects Grid (المشاريع بصور) */}
         {projectsWithImages.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {projectsWithImages.map((project, idx) => (
@@ -435,7 +426,6 @@ const CategorySection = ({
           </div>
         )}
 
-        {/* Simple List (المشاريع بدون صور) */}
         <SimpleProjectsList 
           projects={projectsWithoutImages}
           isRTL={isRTL}
@@ -523,7 +513,7 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
     completed: projectCategories.reduce((sum, cat) => 
       sum + cat.projects.filter(p => p.status === 'completed').length, 0),
     ongoing: projectCategories.reduce((sum, cat) => 
-      sum + cat.projects.filter(p => p.status === 'ongoing').length, 0),
+      sum + cat.projects.filter(p => p.status === 'ongoing' || p.status === 'development').length, 0),
     totalValue: projectCategories.reduce((sum, cat) => 
       sum + cat.projects.reduce((pSum, p) => 
         pSum + parseFloat(p.contractValue.replace(/,/g, '')), 0), 0)
@@ -638,7 +628,6 @@ export default function YamasProjectsPage() {
   
   const [activeCategory, setActiveCategory] = useState(projectCategories[0]?.id || '');
 
-  // تتبع القسم النشط أثناء التمرير
   useEffect(() => {
     const handleScroll = () => {
       const sections = projectCategories.map(cat => ({
@@ -666,17 +655,14 @@ export default function YamasProjectsPage() {
       className="min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-x-hidden"
       dir={isRTL ? 'rtl' : 'ltr'}
     >
-      {/* Hero Section */}
       <ProjectsHero isRTL={isRTL} t={t} />
 
-      {/* Sticky Navigation */}
       <StickyNav 
         categories={projectCategories} 
         activeCategory={activeCategory}
         isRTL={isRTL}
       />
 
-      {/* Category Sections */}
       {projectCategories.map((category, index) => (
         <CategorySection 
           key={category.id} 
@@ -687,7 +673,6 @@ export default function YamasProjectsPage() {
         />
       ))}
 
-      {/* Footer CTA */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

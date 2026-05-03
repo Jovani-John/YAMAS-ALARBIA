@@ -72,7 +72,7 @@ export default function ContactPage() {
         selectType: 'اختر نوع العميل',
         company: 'شركة',
         institution: 'مؤسسة',
-        businessman: 'رجل أعمال',
+        businessman: '',
         message: 'رسالتك',
         submit: 'إرسال الرسالة',
         sending: 'جاري الإرسال...'
@@ -86,7 +86,7 @@ export default function ContactPage() {
         emailValue: 'info@yamas.com.sa',
         address: 'العنوان',
         riyadhAddress: 'RAWA2938، طريق الدائري الشمالي تقاطع أبو بكر الصديق، حي الوادي، الرياض | المربع 6 - الدور الأول - مكتب 93 ',
-        khobarAddress: 'EAD6389، طريق الملك فهد بن عبدالعزيز، الراكه الجنوبية، الخبر | برج ناصر الحجري - الدور السادس - مكتب 604',
+        khobarAddress: 'EAD6389، طريق الملك فهد بن عبدالعزيز، الراكه الجنوبية، الخبر | برج ناصر الهاجري  - الدور السادس - مكتب 604',
         follow: 'تابعنا على'
       },
       toast: {

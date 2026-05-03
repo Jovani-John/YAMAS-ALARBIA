@@ -8,9 +8,9 @@ import { HiArrowDown } from 'react-icons/hi';
 // Memoized Stats Component
 const StatsSection = memo(({ currentLang }: { currentLang: string }) => {
   const stats = [
-    { number: '20+', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
+    { number: '21', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
     { number: '24/7', label: currentLang === 'ar' ? 'دعم مستمر' : 'Outgoing Support' },
-    { number: '100%', label: currentLang === 'ar' ? 'رضا الشركات' : 'Business Client Satisfaction' },
+    { number: '100%', label: currentLang === 'ar' ? 'ثقة الشركات' : 'Business Client Satisfaction' },
   ];
 
   return (
@@ -173,7 +173,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <h2 className="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wider mb-2">
+            <h2 className="text-lg sm:text-xl md:text-4xl text-white/90 font-light tracking-wider mb-2">
               {currentLang === 'ar' ? 'شركة يماس العربية للمقاولات'  : 'YAMAS CONSTRUCTION'}
             </h2>
             <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#49A799] to-transparent mx-auto" />
