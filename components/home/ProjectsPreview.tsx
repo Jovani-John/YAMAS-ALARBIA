@@ -66,7 +66,7 @@ export default function ProjectsSection() {
           title: "ريما 1",
           subtitle: "مشاريع تجارية",
           titleEn: "RIMA 1",
-          description: "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 22,295 متر مربع، يشمل 62 شقة سكنية و100 موقف سيارات",
+          description: "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة سكنية و100 موقف سيارات",
           descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities.",
           image: "/images/projects/buildings/Rima1/7.png",
           number: "01",
