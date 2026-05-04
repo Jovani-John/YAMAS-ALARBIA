@@ -57,7 +57,7 @@ export default function ProjectsSection() {
 
   const content: ContentType = {
     ar: {
-      subtitle: "مشاريعنا",
+      subtitle: "",
       title: "أحدث المشاريع المعمارية والإنشائية",
       allProjects: "جميع المشاريع",
       projects: [
