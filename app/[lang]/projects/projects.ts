@@ -1023,12 +1023,12 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Rima1/7.png",
     ],
     description:
-      "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة سكنية و100 موقف سيارات",
+      "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة سكنية و",
     descriptionEn:
       "Premium residential building of 15 floors with total built-up area of 22,295 sqm, including 62 apartments and 100 parking spaces",
     scope: [
       "62 شقة سكنية فاخرة",
-      "100 موقف سيارات",
+      "",
       "مرافق متكاملة",
       "تصميم معماري عصري",
       "أنظمة MEP متطورة",
@@ -1041,7 +1041,7 @@ const towersProjects: YamasProject[] = [
       "Advanced MEP systems",
     ],
     area: "18,000 م²",
-    features: ["15 طابق", "62 شقة", "100 موقف", "تصميم عصري"],
+    features: ["15 طابق", "62 شقة", "", "تصميم عصري"],
   },
   {
   id: "shorfa",
@@ -1054,7 +1054,7 @@ const towersProjects: YamasProject[] = [
   clientEn: "Future Homes Investment Co.",
   location: "الرياض، المنطقة الوسطى",
   locationEn: "Riyadh, Central Region",
-  contractValue: "",
+  contractValue: "0",
   year: "2026",
   status: "ongoing",
     mainImage: "/images/projects/Housing Projects/shofa/1.jpg",

@@ -24,7 +24,7 @@ const brands = [
   { name: 'STC', logo: '/images/Brands/11.png' },
   { name: 'Almarai', logo: '/images/Brands/12.png' },
   { name: 'Mobily', logo: '/images/Brands/13.png' },
-  { name: 'Zain', logo: '/images/Brands/14.png' },
+  // { name: 'Zain', logo: '/images/Brands/14.png' },
   { name: 'Saudi Binladin Group', logo: '/images/Brands/15.png' },
   { name: 'Nesma', logo: '/images/Brands/16.png' },
   { name: 'El Seif', logo: '/images/Brands/17.png' },

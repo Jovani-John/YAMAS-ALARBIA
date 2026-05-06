@@ -57,17 +57,17 @@ export default function ProjectsSection() {
 
   const content: ContentType = {
     ar: {
-      subtitle: "",
+      subtitle: "مشاريعنا",
       title: "أحدث المشاريع المعمارية والإنشائية",
       allProjects: "جميع المشاريع",
       projects: [
         {
           id: 1,
           title: "ريما 1",
-          subtitle: "مشاريع تجارية",
+          subtitle: "الأبراج السكنية",
           titleEn: "RIMA 1",
-          description: "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة سكنية و100 موقف سيارات",
-          descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces, featuring retail stores and administrative offices with spacious areas and modern facilities.",
+          description: "برج سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة سكنية",
+          descriptionEn: "A luxury residential tower of 15 floors with a total built-up area of 18,000 square meters, including 62 residential apartments.",
           image: "/images/projects/buildings/Rima1/7.png",
           number: "01",
         },
@@ -83,11 +83,11 @@ export default function ProjectsSection() {
         },
         {
           id: 3,
-          title: "داره القمره",
+          title: "دار القمره",
           subtitle: "مشاريع سكنية",
-          titleEn: "AJDAN",
-          description: "مجمع فلل راقي يوفر بيئة عصرية ومريحة للعائلات، يتميز بتصميمات معمارية فاخرة وحدائق خضراء.",
-          descriptionEn: "An upscale residential complex providing a modern and comfortable environment for families",
+          titleEn: "Dar Al Qamrah",
+          description: "مشروع سكني راقي يتميز بتصميم معماري فريد وموقع متميز، يوفر أعلى معايير الراحة والخصوصية.",
+          descriptionEn: "An upscale residential project featuring a unique architectural design and distinguished location, providing the highest standards of comfort and privacy.",
           image: "/images/projects/Housing Projects/AJDAN/1.jpg",
           number: "03",
         },
@@ -111,10 +111,10 @@ export default function ProjectsSection() {
         {
           id: 1,
           title: "RIMA 1",
-          subtitle: "Commercial Projects",
+          subtitle: "Residential Towers",
           titleEn: "RIMA 1",
-          description: "An integrated commercial complex combining modern design with multifunctional spaces.",
-          descriptionEn: "An integrated commercial complex combining modern design with multifunctional spaces.",
+          description: "A luxury residential tower of 15 floors with a total built-up area of 18,000 square meters, including 62 residential apartments.",
+          descriptionEn: "A luxury residential tower of 15 floors with a total built-up area of 18,000 square meters, including 62 residential apartments.",
           image: "/images/projects/buildings/Rima1/2.jpg",
           number: "01",
         },
@@ -130,11 +130,11 @@ export default function ProjectsSection() {
         },
         {
           id: 3,
-          title: "AJDAN",
-          subtitle: "Housing Projects",
-          titleEn: "AJDAN",
-          description: "An upscale residential complex providing a modern and comfortable environment for families.",
-          descriptionEn: "An upscale residential complex providing a modern and comfortable environment for families.",
+          title: "Dar Al Qamrah",
+          subtitle: "Residential Projects",
+          titleEn: "Dar Al Qamrah",
+          description: "An upscale residential project featuring a unique architectural design and distinguished location, providing the highest standards of comfort and privacy.",
+          descriptionEn: "An upscale residential project featuring a unique architectural design and distinguished location, providing the highest standards of comfort and privacy.",
           image: "/images/projects/Housing Projects/AJDAN/1.jpg",
           number: "03",
         },
@@ -196,8 +196,7 @@ export default function ProjectsSection() {
 
   return (
     <div className="w-full" dir={isRTL ? 'rtl' : 'ltr'}>
-      {/* Title Section - Modified min-h to reduce white space */}
-      <section className="relative py-20 lg:py-32 flex items-center justify-center bg-white">
+      <section className="relative pt-4 pb-3 lg:pt-6 lg:pb-4 flex items-center justify-center bg-white">
         <motion.div
           className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
           initial={{ opacity: 0 }}
@@ -206,7 +205,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-xs sm:text-sm md:text-base uppercase tracking-widest mb-3 sm:mb-4 lg:mb-6 font-bold text-[#49A799]"
+            className="text-xs sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-2 font-bold text-[#49A799]"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -216,20 +215,20 @@ export default function ProjectsSection() {
           </motion.p>
 
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-4 sm:mb-6 lg:mb-8 px-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-1 sm:mb-2 px-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <span className="block mb-1 sm:mb-2 lg:mb-3 text-gray-900">{firstLine}</span>
+            <span className="block mb-1 text-gray-900">{firstLine}</span>
             <span className="block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent">
               {secondLine}
             </span>
           </motion.h2>
 
           <motion.div
-            className="mt-6"
+            className="mt-2"
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -240,7 +239,6 @@ export default function ProjectsSection() {
         </motion.div>
       </section>
 
-      {/* Projects Scroll Section */}
       <section
         ref={containerRef}
         className="relative bg-white w-full"
@@ -279,13 +277,12 @@ function ProjectCard({
   const router = useRouter();
   const [imageLoaded, setImageLoaded] = useState(isPreloaded);
   const isRTL = currentLang === 'ar';
-  const isEven = index % 2 === 0;
   const isFirst = index === 0;
 
   const fadeInStart = range[0];
-  const fadeInEnd = range[0] + 0.05; // Slightly slower fade in for smoother transition
+  const fadeInEnd = range[0] + 0.08; 
   const stayStart = fadeInEnd;
-  const stayEnd = range[1] - 0.05;
+  const stayEnd = range[1] - 0.08; 
   const fadeOutStart = stayEnd;
   const fadeOutEnd = range[1];
 
@@ -295,32 +292,44 @@ function ProjectCard({
     isFirst ? [1, 1, 1, 1, 1, 0] : [0, 1, 1, 1, 1, 0]
   );
 
-  // Added scale effect for better visual feedback
-  const scale = useTransform(
+  const y = useTransform(
     progress,
-    [fadeInStart, fadeInEnd, stayEnd, fadeOutEnd],
-    [0.95, 1, 1, 0.95]
+    [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+    [20, 0, 0, -20]
   );
 
+  const scale = useTransform(
+    progress,
+    [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
+    [0.98, 1, 1, 0.98]
+  );
+
+  // جميع المشاريع: الصورة على اليسار، المحتوى على اليمين
   const getImageOrder = () => {
-    if (isRTL) return isEven ? "lg:order-2" : "lg:order-1";
-    return isEven ? "lg:order-1" : "lg:order-2";
+    return isRTL ? "lg:order-2" : "lg:order-1";
   };
 
   const getContentOrder = () => {
-    if (isRTL) return isEven ? "lg:order-1" : "lg:order-2";
-    return isEven ? "lg:order-2" : "lg:order-1";
+    return isRTL ? "lg:order-1" : "lg:order-2";
+  };
+
+  const handleExploreClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    router.push(`/${currentLang}/projects`);
   };
 
   return (
     <motion.div
-      className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
-      style={{ opacity, scale }}
+      className={`absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8 ${
+        opacity.get() === 0 ? "pointer-events-none" : "pointer-events-auto"
+      }`}
+      style={{ opacity, scale, y }}
     >
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* Image Side */}
+          {/* Image Side - على اليسار */}
           <motion.div
             className={`relative w-full aspect-[4/3] bg-gray-100 overflow-hidden rounded-3xl shadow-2xl group ${getImageOrder()}`}
           >
@@ -343,7 +352,7 @@ function ProjectCard({
             <div className="absolute inset-0 bg-gradient-to-t from-[#49A799]/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300" />
           </motion.div>
 
-          {/* Content Side */}
+          {/* Content Side - على اليمين */}
           <div className={`space-y-4 ${getContentOrder()} ${isRTL ? 'text-right' : 'text-left'}`}>
             <p className="text-sm sm:text-base uppercase tracking-wider text-[#49A799] font-bold">
               {project.subtitle}
@@ -364,19 +373,20 @@ function ProjectCard({
                 <span className="text-3xl md:text-4xl font-bold text-[#49A799]">
                   {project.number}
                 </span>
-                <span className="text-2xl font-light text-gray-500">/ 04</span>
+                <span className="text-2xl font-light text-gray-500">/ {String(totalProjects).padStart(2, '0')}</span>
               </div>
 
               <button
-                onClick={() => router.push(`/${currentLang}/projects`)}
-                className="group relative w-full sm:w-auto"
+                onClick={handleExploreClick}
+                className="group relative w-full sm:w-auto z-50 overflow-hidden rounded-lg shadow-lg"
+                type="button"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-all duration-300 rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="relative border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300"
                 >
-                  <span className="flex items-center justify-center gap-2">
+                  <span className="flex items-center justify-center gap-2 whitespace-nowrap">
                     {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
                   </span>
                 </motion.div>
