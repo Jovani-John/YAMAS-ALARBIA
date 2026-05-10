@@ -1030,7 +1030,7 @@ const towersProjects: YamasProject[] = [
     category: "towers",
     categoryAr: "مشاريع الأبراج",
     categoryEn: "Towers Projects",
-    client: "شركة رعب للتطوير العقاري",
+    client: "شركة رأب للتطوير العقاري",
     clientEn: "Raab Real Estate Development Company",
     location: "الدمام، المنطقة الشرقية",
     locationEn: "Dammam, Eastern Area",
