@@ -85,14 +85,9 @@ export default function ServicesTabsSection() {
             },
             { title: "المصانع والمستودعات", desc: "حلول صناعية متكاملة" },
           ],
-          stats: {
-            projects: 15,
-            years: 24,
-            clients: 15,
-          },
+          stats: { projects: 15, years: 24, clients: 15 },
           gradient: "from-[#49A799] to-[#3A8A7E]",
-          image:
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
         },
         {
           icon: HiCog,
@@ -101,27 +96,13 @@ export default function ServicesTabsSection() {
           description:
             "متخصصون في تنفيذ المشاريع الضخمة والمعقدة بكفاءة عالية وفي الوقت المحدد",
           features: [
-            {
-              title: "الأبراج السكنية والتجارية",
-              desc: "ارتفاعات شاهقة بجودة عالية",
-            },
-            {
-              title: "الجامعات",
-              desc: "مرافق تعليمية متطورة",
-            },
-            {
-              title: "المستشفيات",
-              desc: "مرافق صحية متكاملة",
-            },
+            { title: "الأبراج السكنية والتجارية", desc: "ارتفاعات شاهقة بجودة عالية" },
+            { title: "الجامعات", desc: "مرافق تعليمية متطورة" },
+            { title: "المستشفيات", desc: "مرافق صحية متكاملة" },
           ],
-          stats: {
-            projects: 5,
-            years: 24,
-            clients: 5,
-          },
+          stats: { projects: 5, years: 24, clients: 5 },
           gradient: "from-[#16234E] to-[#0d1630]",
-          image:
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
         },
         {
           icon: HiColorSwatch,
@@ -134,14 +115,9 @@ export default function ServicesTabsSection() {
             { title: "الدهانات والديكورات", desc: "ألوان عصرية وتصاميم فريدة" },
             { title: "الجبس والأسقف المعلقة", desc: "أسقف ديكورية مبهرة" },
           ],
-          stats: {
-            projects: 2,
-            years: 24,
-            clients: 2,
-          },
+          stats: { projects: 2, years: 24, clients: 2 },
           gradient: "from-[#49A799] to-[#3A8A7E]",
-          image:
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
         },
         {
           icon: HiLightningBolt,
@@ -151,19 +127,14 @@ export default function ServicesTabsSection() {
             "أنظمة كهربائية وميكانيكية وصحية متكاملة وفق أحدث التقنيات العالمية",
           features: [
             { title: "الأعمال الكهربائية والإنارة", desc: "حلول طاقة ذكية" },
-            { title: " والصرف الصحي", desc: "أنظمة صحية متطورة" },
+            { title: "والصرف الصحي", desc: "أنظمة صحية متطورة" },
             { title: "أنظمة مكافحة الحريق", desc: "سلامة قصوى" },
             { title: "المصاعد والتيارات الخفيفة", desc: "تكنولوجيا ذكية" },
-             { title: "التكييف المركزي", desc: "أنظمة تبريد حديثة" },
+            { title: "التكييف المركزي", desc: "أنظمة تبريد حديثة" },
           ],
-          stats: {
-            projects: 1,
-            years: 24,
-            clients: 1,
-          },
+          stats: { projects: 1, years: 24, clients: 1 },
           gradient: "from-[#16234E] to-[#0d1630]",
-          image:
-            "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
         },
       ],
     },
@@ -186,27 +157,13 @@ export default function ServicesTabsSection() {
           description:
             "We provide comprehensive construction solutions for residential, commercial and industrial projects with the highest international quality standards",
           features: [
-            {
-              title: "Villas & Residential Compounds",
-              desc: "Modern designs that suit your needs",
-            },
-            {
-              title: "Commercial Buildings & Malls",
-              desc: "Large-scale projects with professional management",
-            },
-            {
-              title: "Factories & Warehouses",
-              desc: "Integrated industrial solutions",
-            },
+            { title: "Villas & Residential Compounds", desc: "Modern designs that suit your needs" },
+            { title: "Commercial Buildings & Malls", desc: "Large-scale projects with professional management" },
+            { title: "Factories & Warehouses", desc: "Integrated industrial solutions" },
           ],
-          stats: {
-            projects: 15,
-            years: 24,
-            clients: 15,
-          },
+          stats: { projects: 15, years: 24, clients: 15 },
           gradient: "from-[#49A799] to-[#3A8A7E]",
-          image:
-            "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
         },
         {
           icon: HiCog,
@@ -215,27 +172,13 @@ export default function ServicesTabsSection() {
           description:
             "Specialized in executing large and complex projects with high efficiency and on schedule",
           features: [
-            {
-              title: "Residential & Commercial Towers",
-              desc: "Towering heights with high quality",
-            },
-            {
-              title: "Universities",
-              desc: "Advanced educational facilities",
-            },
-            {
-              title: "Hospitals",
-              desc: "Integrated healthcare facilities",
-            },
+            { title: "Residential & Commercial Towers", desc: "Towering heights with high quality" },
+            { title: "Universities", desc: "Advanced educational facilities" },
+            { title: "Hospitals", desc: "Integrated healthcare facilities" },
           ],
-          stats: {
-            projects: 5,
-            years: 24,
-            clients: 5,
-          },
+          stats: { projects: 5, years: 24, clients: 5 },
           gradient: "from-[#16234E] to-[#0d1630]",
-          image:
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
         },
         {
           icon: HiColorSwatch,
@@ -244,31 +187,14 @@ export default function ServicesTabsSection() {
           description:
             "Interior and exterior finishes with the finest specifications and modern designs that suit your taste",
           features: [
-            {
-              title: "Flooring & Ceramics",
-              desc: "Finest types of tiles and marble",
-            },
-            {
-              title: "Paints & Decorations",
-              desc: "Modern colors and unique designs",
-            },
-            {
-              title: "Gypsum & False Ceilings",
-              desc: "Stunning decorative ceilings",
-            },
-            {
-              title: "Central Air Conditioning",
-              desc: "Modern cooling systems",
-            },
+            { title: "Flooring & Ceramics", desc: "Finest types of tiles and marble" },
+            { title: "Paints & Decorations", desc: "Modern colors and unique designs" },
+            { title: "Gypsum & False Ceilings", desc: "Stunning decorative ceilings" },
+            
           ],
-          stats: {
-            projects: 2,
-            years: 24,
-            clients: 2,
-          },
+          stats: { projects: 2, years: 24, clients: 2 },
           gradient: "from-[#49A799] to-[#3A8A7E]",
-          image:
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
         },
         {
           icon: HiLightningBolt,
@@ -277,22 +203,15 @@ export default function ServicesTabsSection() {
           description:
             "Integrated electrical, mechanical and plumbing systems according to the latest global technologies",
           features: [
-            {
-              title: "Electrical Works & Lighting",
-              desc: "Smart energy solutions",
-            },
+            { title: "Electrical Works & Lighting", desc: "Smart energy solutions" },
             { title: "Plumbing & Drainage", desc: "Advanced sanitary systems" },
             { title: "Fire Fighting Systems", desc: "Maximum safety" },
             { title: "Elevators & Low Current", desc: "Smart technology" },
+            { title: "Central Air Conditioning", desc: "Modern cooling systems" },
           ],
-          stats: {
-            projects: 1,
-            years: 24,
-            clients: 1,
-          },
+          stats: { projects: 1, years: 24, clients: 1 },
           gradient: "from-[#16234E] to-[#0d1630]",
-          image:
-            "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
+          image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
         },
       ],
     },
@@ -300,8 +219,6 @@ export default function ServicesTabsSection() {
 
   const currentContent = content[currentLang];
   const services = currentContent.services;
-
-  // Auto slide تم إلغاؤه بناءً على طلب العميل
 
   const handleTabClick = (index: number) => {
     setDirection(index > activeTab ? 1 : -1);
@@ -336,10 +253,7 @@ export default function ServicesTabsSection() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
     },
   };
 
@@ -349,15 +263,10 @@ export default function ServicesTabsSection() {
       y: 0,
       opacity: 1,
       scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 12,
-      },
+      transition: { type: "spring" as const, stiffness: 100, damping: 12 },
     },
   };
 
-  // Extract stats keys for iteration
   const statsKeys: (keyof ServiceStats)[] = ["projects", "years", "clients"];
 
   return (
@@ -374,19 +283,11 @@ export default function ServicesTabsSection() {
         transition={{ duration: 1 }}
       >
         <motion.div
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear",
-          }}
+          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, #49A799 1px, transparent 0)",
+            backgroundImage: "radial-gradient(circle at 1px 1px, #49A799 1px, transparent 0)",
             backgroundSize: "50px 50px",
             willChange: "background-position",
           }}
@@ -394,7 +295,7 @@ export default function ServicesTabsSection() {
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header with Stagger Animation */}
+        {/* Header */}
         <motion.div
           className="text-center mb-12 md:mb-16"
           variants={containerVariants}
@@ -424,7 +325,7 @@ export default function ServicesTabsSection() {
           </motion.p>
         </motion.div>
 
-        {/* Tabs Navigation - Grid Layout */}
+        {/* Tabs Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -445,22 +346,19 @@ export default function ServicesTabsSection() {
                     : "bg-white text-gray-700 hover:shadow-xl border-2 border-gray-100 hover:border-[#49A799]/30"
                 }`}
               >
+                {/* ✅ الأيقونة والنص دايمًا من الشمال في الـ tabs */}
                 <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
                   <motion.div
-                    animate={
-                      activeTab === index ? { rotate: 360 } : { rotate: 0 }
-                    }
+                    animate={activeTab === index ? { rotate: 360 } : { rotate: 0 }}
                     transition={{ duration: 0.6 }}
                   >
                     <service.icon className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
                   </motion.div>
-                  <div className="text-center md:text-right w-full">
+                  <div className={`text-center ${isRTL ? "md:text-right" : "md:text-left"} w-full`}>
                     <div className="font-bold text-xs md:text-sm leading-tight">
                       {service.title}
                     </div>
-                    <div
-                      className={`text-[10px] md:text-xs mt-0.5 ${activeTab === index ? "text-white/90" : "text-gray-500"}`}
-                    >
+                    <div className={`text-[10px] md:text-xs mt-0.5 ${activeTab === index ? "text-white/90" : "text-gray-500"}`}>
                       {service.code}
                     </div>
                   </div>
@@ -470,10 +368,7 @@ export default function ServicesTabsSection() {
                   <motion.div
                     layoutId="activeTab"
                     className="absolute inset-0 rounded-2xl"
-                    style={{
-                      background:
-                        "radial-gradient(circle at center, rgba(255,255,255,0.2), transparent)",
-                    }}
+                    style={{ background: "radial-gradient(circle at center, rgba(255,255,255,0.2), transparent)" }}
                     transition={{ type: "spring", bounce: 0.3, duration: 0.8 }}
                   />
                 )}
@@ -499,10 +394,7 @@ export default function ServicesTabsSection() {
                 rotateY: { duration: 0.6 },
                 filter: { duration: 0.4 },
               }}
-              style={{
-                perspective: "2000px",
-                willChange: "transform, opacity",
-              }}
+              style={{ perspective: "2000px", willChange: "transform, opacity" }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* Image & Stats */}
@@ -520,9 +412,7 @@ export default function ServicesTabsSection() {
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-t ${services[activeTab].gradient} opacity-50 group-hover:opacity-60 transition-opacity duration-500`}
-                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${services[activeTab].gradient} opacity-50 group-hover:opacity-60 transition-opacity duration-500`} />
 
                     {/* Stats Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
@@ -532,11 +422,7 @@ export default function ServicesTabsSection() {
                             key={key}
                             initial={{ opacity: 0, y: 30, scale: 0.5 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
-                            transition={{
-                              delay: 0.5 + i * 0.15,
-                              type: "spring",
-                              stiffness: 200,
-                            }}
+                            transition={{ delay: 0.5 + i * 0.15, type: "spring", stiffness: 200 }}
                             className="text-center"
                           >
                             <motion.div
@@ -592,17 +478,9 @@ export default function ServicesTabsSection() {
                       {services[activeTab].features.map((feature, idx) => (
                         <motion.div
                           key={idx}
-                          initial={{
-                            opacity: 0,
-                            x: isRTL ? -60 : 60,
-                            scale: 0.8,
-                          }}
+                          initial={{ opacity: 0, x: isRTL ? -60 : 60, scale: 0.8 }}
                           animate={{ opacity: 1, x: 0, scale: 1 }}
-                          transition={{
-                            delay: 0.6 + idx * 0.12,
-                            type: "spring",
-                            stiffness: 120,
-                          }}
+                          transition={{ delay: 0.6 + idx * 0.12, type: "spring", stiffness: 120 }}
                           whileHover={{
                             scale: 1.03,
                             x: isRTL ? 8 : -8,
@@ -674,12 +552,7 @@ export default function ServicesTabsSection() {
                 }`}
                 animate={
                   activeTab === index
-                    ? {
-                        boxShadow: [
-                          "0 0 0 0 rgba(73, 167, 153, 0.7)",
-                          "0 0 0 10px rgba(73, 167, 153, 0)",
-                        ],
-                      }
+                    ? { boxShadow: ["0 0 0 0 rgba(73, 167, 153, 0.7)", "0 0 0 10px rgba(73, 167, 153, 0)"] }
                     : {}
                 }
                 transition={{ duration: 1.5, repeat: Infinity }}
@@ -689,16 +562,9 @@ export default function ServicesTabsSection() {
         </motion.div>
       </div>
 
-      {/* Performance optimizations */}
       <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         @media (prefers-reduced-motion: reduce) {
           * {
             animation-duration: 0.01ms !important;

@@ -232,7 +232,7 @@ const healthcareProjects: YamasProject[] = [
     "/images/projects/Healthcare/AbhaHospital300Beds/3.png",
     "/images/projects/Healthcare/AbhaHospital300Beds/4.png",
   ],
-  description: "تصميم وإنشاء مركز تطعيم لقاح كورونا بطاقة 300 غرفة تطعيم، بمساحة بناء 1,500 متر مربع على أربعة طوابق في أبها، منطقة عسير.",
+  description: "تصميم وإنشاء مركز تطعيم لقاح كورونا بطاقة 300 غرفة تطعيم، بمساحة بناء 1,500 متر مربع على أربعة طوابير في أبها، منطقة عسير.",
   descriptionEn: "Design and construction of a COVID-19 vaccination center with 300 vaccination rooms, with 1,500 sqm built-up area across four floors in Abha, Asir Region.",
   scope: [
     "أعمال الجبس وإنشاء 300 غرفة تطعيم",
@@ -282,58 +282,6 @@ const healthcareProjects: YamasProject[] = [
       "Medical facilities",
     ],
   },
-  // {
-  //   id: "bisha-hospital-100",
-  //   title: "مستشفى بيشة 100 سرير",
-  //   titleEn: "Construction of Bisha 100 Bed Hospital",
-  //   category: "healthcare",
-  //   categoryAr: "الرعاية الصحية",
-  //   categoryEn: "Healthcare",
-  //   client: "وزارة الصحة",
-  //   clientEn: "Ministry of Health (MOH)",
-  //   location: "بيشة",
-  //   locationEn: "Bisha",
-  //   contractValue: "2,645,377",
-  //   year: "2020",
-  //   status: "completed",
-  //   mainImage: "",
-  //   images: [],
-  //   description: "إنشاء مستشفى بطاقة 100 سرير في مدينة بيشة",
-  //   descriptionEn: "Construction of 100-bed hospital in Bisha city",
-  //   scope: ["مبنى المستشفى", "أقسام طبية", "أنظمة MEP", "المرافق الصحية"],
-  //   scopeEn: [
-  //     "Hospital building",
-  //     "Medical departments",
-  //     "MEP systems",
-  //     "Healthcare facilities",
-  //   ],
-  // },
-  // {
-  //   id: "rafha-hospital-100",
-  //   title: "مستشفى الراكة 100 سرير",
-  //   titleEn: "Construction of RAFHA 100 Bed Hospital",
-  //   category: "healthcare",
-  //   categoryAr: "الرعاية الصحية",
-  //   categoryEn: "Healthcare",
-  //   client: "وزارة الصحة",
-  //   clientEn: "Ministry of Health (MOH)",
-  //   location: "الراكة",
-  //   locationEn: "Rafha",
-  //   contractValue: "2,645,377",
-  //   year: "2020",
-  //   status: "completed",
-  //   mainImage: "",
-  //   images: [],
-  //   description: "إنشاء مستشفى بطاقة 100 سرير في مدينة الراكة",
-  //   descriptionEn: "Construction of 100-bed hospital in Rafha city",
-  //   scope: ["مبنى المستشفى", "أقسام طبية", "أنظمة MEP", "المرافق الصحية"],
-  //   scopeEn: [
-  //     "Hospital building",
-  //     "Medical departments",
-  //     "MEP systems",
-  //     "Healthcare facilities",
-  //   ],
-  // },
 ];
 
 // 🏘️ Housing Projects - المشاريع السكنية
@@ -368,7 +316,7 @@ const housingProjects: YamasProject[] = [
     "الأعمال الخارجية والبنية التحتية"
   ],
   scopeEn: [
-    "Distinguished architectural design per Roshen standards",
+    "Distinguished architectural design per Roshn standards",
     "Construction & luxury finishing execution",
     "Integrated MEP works",
     "Site landscaping & gardens",
@@ -397,7 +345,7 @@ const housingProjects: YamasProject[] = [
     "/images/projects/Housing Projects/Fulwa/2.png",
   ],
   description: "تصميم وإنشاء 439 فيلا فاخرة بدور أرضي وأول وسطح حسب مستوى روشن، بمساحة بناء 153,650 متر مربع في الأحساء، المنطقة الشرقية",
-  descriptionEn: "Design and construction of 439 luxury villas with ground, first, and roof floors at Roshen level, 153,650 sqm built-up area in Al-Ahsa, Eastern Region",
+  descriptionEn: "Design and construction of 439 luxury villas with ground, first, and roof floors at Roshn level, 153,650 sqm built-up area in Al-Ahsa, Eastern Region",
   scope: [
     "تصميم معماري متميز حسب معايير روشن",
     "تنفيذ البناء والتشطيبات الفاخرة",
@@ -405,7 +353,7 @@ const housingProjects: YamasProject[] = [
     "تنسيق المواقع والحدائق"
   ],
   scopeEn: [
-    "Distinguished architectural design per Roshen standards",
+    "Distinguished architectural design per Roshn standards",
     "Construction & luxury finishing execution",
     "Integrated MEP works",
     "Site landscaping & gardens"
@@ -513,9 +461,6 @@ const housingProjects: YamasProject[] = [
   features: ["220 فيلا", "تصميم فاخر", "3 أدوار", "منطقة حيوية"]
 },
 
-  // src/data/yamas-projects.ts - PART 2/2
-  // تكملة المشاريع السكنية
-
   {
     id: "ajyal-dhahran",
     title: "أجيال الظهران - أرامكو",
@@ -530,12 +475,11 @@ const housingProjects: YamasProject[] = [
     contractValue: "149,000,000",
     year: "2021",
     status: "completed",
-mainImage: "",
-images: [],
-    description:
-      "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح حسب مستوى ، بمساحة بناء 59,600 متر مربع",
-    descriptionEn:
-      "Finishing works for 149 luxury villas with ground, first, and roof floors at NHC level, 59,600 sqm built-up area",
+    mainImage: "",
+    images: [],
+    // ✅ إصلاح: إضافة "NHC" للإنجليزي ليطابق العربي
+    description: "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح حسب مستوى ، بمساحة بناء 59,600 متر مربع",
+    descriptionEn: "Finishing works for 149 luxury villas with ground, first, and roof floors at NHC level, 59,600 sqm built-up area",
     scope: [
       "تصميم وتنفيذ أعمال التشطيبات الفاخرة",
       "الأعمال الكهربائية والميكانيكية",
@@ -562,7 +506,8 @@ images: [],
     client: "تمكين",
     clientEn: "Tamkeen",
     location: " الخبر ، المنطقة الشرقية",
-    locationEn: "Al-Ahsa, Eastern Area",
+    // ✅ إصلاح: كان "Al-Ahsa" والصح "Khobar"
+    locationEn: "Khobar, Eastern Area",
     contractValue: "61,520,000",
     year: "2016",
     status: "completed",
@@ -597,7 +542,8 @@ images: [],
     client: "شركة أرجان للمشاريع",
     clientEn: "Argan Projects Company",
     location: "الجبيل ، المنطقة الشرقية  ",
-    locationEn: "Riyadh",
+    // ✅ إصلاح: كان "Riyadh" والصح "Jubail, Eastern Area"
+    locationEn: "Jubail, Eastern Area",
     contractValue: "35,000,000",
     year: "2024",
     status: "development",
@@ -627,28 +573,6 @@ images: [],
     area: "10,000+ م²",
     features: ["18 فيلا", "تشطيبات راقية", "تصميم خاص"],
   },
-
-  // {
-  //   id: "jaddan-life",
-  //   title: "جدان لايف",
-  //   titleEn: "Jaddan Life Project",
-  //   category: "housing",
-  //   categoryAr: "مشاريع سكنية",
-  //   categoryEn: "Housing Projects",
-  //   client: "إنوفست",
-  //   clientEn: "Innovest",
-  //   location: "الأحساء، المنطقة الشرقية",
-  //   locationEn: "Al-Ahsa, Eastern Area",
-  //   contractValue: "72,000,000",
-  //   year: "2015",
-  //   status: "completed",
-  //   mainImage: "/images/projects/Housing Projects/jaddan-life/1.png",
-  //   images: ["/images/projects/Housing Projects/jaddan-life/1.png"],
-  //   description: "مشروع سكني متكامل",
-  //   descriptionEn: "Integrated residential project",
-  //   scope: [],
-  //   scopeEn: [],
-  // },
 ];
 
 // 🎓 Educational Projects - المشاريع التعليمية
@@ -671,17 +595,14 @@ const educationalProjects: YamasProject[] = [
     images: [
       "/images/projects/Education/KingFahdUniversity/1.png",
       "/images/projects/Education/KingFahdUniversity/2.png",
-      // "/images/projects/Education/KingFahdUniversity/3.png",
     ],
     description: "أعمال صيانة لخمسة مباني (مباني القنصلية الأمريكية سابقاً)",
-    descriptionEn:
-      "Maintenance works for five buildings (formerly US Consulate buildings)",
+    descriptionEn: "Maintenance works for five buildings (formerly US Consulate buildings)",
     scope: [
       "أعمال الصيانة الشاملة",
       "ترميم المباني",
       "تحديث الأنظمة الكهربائية والميكانيكية",
       "أعمال التشطيبات",
-      
     ],
     scopeEn: [
       "Comprehensive maintenance",
@@ -701,7 +622,7 @@ const educationalProjects: YamasProject[] = [
     client: "وزارة التعليم",
     clientEn: "Ministry of Education (MOE)",
     location: "جدة ،المنطقة الغربية",
-    locationEn: "Saudi Arabia",
+    locationEn: "Jeddah, Western Area",
     contractValue: "69,988,169",
     year: "2019",
     status: "completed",
@@ -734,15 +655,14 @@ const educationalProjects: YamasProject[] = [
     client: "وزارة التعليم العالي",
     clientEn: "Ministry of Higher Education (MOHE)",
     location: "نجران ،المنطقة الجنوبية ",
-    locationEn: "Najran, South",
+    locationEn: "Najran, Southern Area",
     contractValue: "22,336,554",
     year: "2019",
     status: "completed",
     mainImage: "",
     images: [],
     description: "إنشاء مبنى كلية الطب ",
-    descriptionEn:
-      "Construction of Faculty of Medicine building in Najran city",
+    descriptionEn: "Construction of Faculty of Medicine building in Najran city",
     scope: [
       "المباني التعليمية",
       "المختبرات الطبية",
@@ -768,7 +688,7 @@ const educationalProjects: YamasProject[] = [
     client: "وزارة التعليم",
     clientEn: "Ministry of Education (MOE)",
     location: "نجران ،المنطقة الجنوبية ",
-    locationEn: "Najran, South",
+    locationEn: "Najran, Southern Area",
     contractValue: "135,000,000",
     year: "2018",
     status: "completed",
@@ -801,7 +721,7 @@ const educationalProjects: YamasProject[] = [
     client: "وزارة التعليم",
     clientEn: "Ministry of Education (MOE)",
     location: "نجران ،المنطقة الجنوبية ",
-    locationEn: "Najran, South",
+    locationEn: "Najran, Southern Area",
     contractValue: "123,971,700",
     year: "2018",
     status: "completed",
@@ -838,7 +758,7 @@ const commercialProjects: YamasProject[] = [
     client: "شركة مياهنا",
     clientEn: "Miahona Company",
     location: "الرياض، المنطقة الوسطى",
-    locationEn: "Riyadh",
+    locationEn: "Riyadh, Central Area",
     contractValue: "12,000,000",
     year: "2025",
     status: "completed",
@@ -858,10 +778,9 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/Miahona/12.jpg",
       "/images/projects/Commercial Projects/Miahona/13.jpg",
     ],
-    description:
-      "أعمال التشطيب والتجهيز لمبنى إدارة شركة مياهنا، إحدى شركات مجموعة المهيدب القابضة",
-    descriptionEn:
-      "Finishing and preparation works for Miyahuna Company administration building, one of Al-Muhaidib Holding Group companies",
+    // ✅ إصلاح: "Miyahuna" → "Miahona"
+    description: "أعمال التشطيب والتجهيز لمبنى إدارة شركة مياهنا، إحدى شركات مجموعة المهيدب القابضة",
+    descriptionEn: "Finishing and preparation works for Miahona Company administration building, one of Al-Muhaidib Holding Group companies",
     scope: [
       "أعمال التشطيبات الداخلية",
       "تجهيز المكاتب",
@@ -902,7 +821,7 @@ const commercialProjects: YamasProject[] = [
     description:
       "تصميم وإنشاء مول تجاري فاخر على مستوى راقي بمساحة 16,000  متر مربع، يشمل ستريب مول مع هايبر ماركت ومواقف لأكثر من 15,000 مركبة",
     descriptionEn:
-      "Design and construction of luxury shopping mall on podium level with 5,000 sqm area, including strip mall with hypermarket and parking for over 15,000 vehicles",
+      "Design and construction of luxury shopping mall on podium level with 16,000 sqm area, including strip mall with hypermarket and parking for over 15,000 vehicles",
     scope: [
       "هايبر ماركت",
       "محلات تجارية ",
@@ -930,7 +849,7 @@ const commercialProjects: YamasProject[] = [
     client: "شركة الجميح للسيارات",
     clientEn: "Al Jomaih Automotive Company",
     location: "الرياض ، المنطقة الوسطى",
-    locationEn: "Riyadh",
+    locationEn: "Riyadh, Central Area",
     contractValue: "35,000,000",
     year: "2024",
     status: "completed",
@@ -953,14 +872,12 @@ const commercialProjects: YamasProject[] = [
       "مناطق خدمة العملاء",
       "اعمال ديكور",
       "MEP",
-      
     ],
     scopeEn: [
       "Modern showroom",
       "Customer service areas",
-      "Decore",
+      "Decoration works",
       "MEP",
-    
     ],
     area: "8,500 م²",
     features: ["صالة عرض فاخرة", "علامة تجارية جديدة", "مرافق متكاملة"],
@@ -974,8 +891,9 @@ const commercialProjects: YamasProject[] = [
     categoryEn: "Commercial Projects",
     client: "شركة الجميح للسيارات",
     clientEn: "Al Jomaih Automotive Company (JMC)",
-    location: "الدمام ، المنطقة الغربية",
-    locationEn: "Eastern Area",
+    // ✅ إصلاح: العربي كان "الغربية" والصح "الشرقية"
+    location: "الدمام ، المنطقة الشرقية",
+    locationEn: "Dammam, Eastern Area",
     contractValue: "35,000,000",
     year: "2024",
     status: "completed",
@@ -1026,23 +944,26 @@ const towersProjects: YamasProject[] = [
     description:
       "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62  موقف سيارات ومركز رياضي في مجلس عام و  ريسبيشن استقبال",
     descriptionEn:
-      "Premium residential building of 15 floors with total built-up area of 22,295 sqm, including 62 apartments and 100 parking spaces",
+      "Premium residential building of 15 floors with total built-up area of 18,000 sqm, including 62 parking spaces, sports center, community lounge and reception",
+    // ✅ إصلاح: إزالة السطر الفاضي وتصحيح الأرقام لتطابق العربي
     scope: [
       "62 موقف سيارات سكنية فاخرة",
-      "",
+      "مركز رياضي ومجلس عام وريسبيشن",
       "مرافق متكاملة",
       "تصميم معماري عصري",
       "أنظمة MEP متطورة",
     ],
     scopeEn: [
-      "62 luxury residential apartments",
-      "100 parking spaces",
+      "62 parking spaces",
+      "Sports center, community lounge and reception",
       "Complete facilities",
       "Modern architectural design",
       "Advanced MEP systems",
     ],
     area: "18,000 م²",
-    features: ["15 طابق", "62 شقة", "", "تصميم عصري"],
+    // ✅ إصلاح: إزالة السطر الفاضي من features
+    features: ["15 طابق", "62 موقف سيارات", "مركز رياضي", "تصميم عصري"],
+    featuresEn: ["15 Floors", "62 Parking Spaces", "Sports Center", "Modern Design"],
   },
     {
     id: "afoner-elforsan",
@@ -1066,7 +987,7 @@ const towersProjects: YamasProject[] = [
       "/images/projects/Housing Projects/shofa/4.jpg",
     ],
     description: "تطوير مجمع سكني متكامل الاستخدامات في الرياض، يشمل مباني سكنية 3 ابراج على مساحه 10,762 م² بتكلفة 18 مليون 500 يوجد جزء تجاري داخلي ٨٦٧ متر و جزء تجاري خارجي ٢٨٢ متر",
-    descriptionEn: "Development of a high-quality mixed-use residential community in Riyadh, including residential and commercial buildings with turnkey finishes",
+    descriptionEn: "Development of a high-quality mixed-use residential community in Riyadh, including 3 residential towers on 10,762 sqm with internal commercial area of 867 sqm and external commercial area of 282 sqm",
     scope: [
       "أعمال الهيكل الإنشائي",
       "أعمال التشطيبات المعمارية",
@@ -1120,9 +1041,9 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Rima2/2.png",
     ],
     description:
-      "  مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 22,295 متر مربع، يشمل 62 موقف سيارات ومركز رياضي في مجلس عام و  ريسبيشن استقبال",
+      "مبنى سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 19،000 متر مربع، يشمل 62 موقف سيارات ومركز رياضي في مجلس عام و  ريسبيشن استقبال",
     descriptionEn:
-      "Premium residential building of 15 floors with total built-up area of 22,295 sqm, including 62 apartments and 100 parking spaces",
+      "Premium residential building of 15 floors with total built-up area of 22,295 sqm, including 62 parking spaces, sports center, community lounge and reception",
     scope: [
       "62 شقة سكنية فاخرة",
       "100 موقف سيارات",
@@ -1140,7 +1061,6 @@ const towersProjects: YamasProject[] = [
     area: "19,000 م²",
     features: ["15 طابق", "62 شقة", "100 موقف", "تصميم عصري"],
   },
-  // CONTINUATION - باقي الأبراج والمشاريع الحكومية والصناعية
 
   {
     id: "elbaha-tower",
@@ -1159,8 +1079,7 @@ const towersProjects: YamasProject[] = [
     mainImage: "",
     images: [],
     description: "إنشاء برج سكني وتجاري في مدينة الباحة",
-    descriptionEn:
-      "Construction of residential and commercial tower in Al-Baha city",
+    descriptionEn: "Construction of residential and commercial tower in Al-Baha city",
     scope: [
       "وحدات سكنية",
       "محلات تجارية",
@@ -1186,7 +1105,7 @@ const towersProjects: YamasProject[] = [
     client: "قطاع خاص",
     clientEn: "Private Sector",
     location: "ابها ، المنطقة الجنوبية ",
-    locationEn: "Khamis Mushait, Abha",
+    locationEn: "Khamis Mushait, Abha, Southern Area",
     contractValue: "85,000,000",
     year: "2025",
     status: "completed",
@@ -1204,8 +1123,7 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Khames/10.jpg",
     ],
     description: "إنشاء 23 أبراج سكنية ، كل برج مكون من 7 أدوار",
-    descriptionEn:
-      "Construction of 23 residential and commercial towers, each tower consisting of 7 floors",
+    descriptionEn: "Construction of 23 residential towers, each tower consisting of 7 floors",
     scope: [
       "5 أبراج",
       "7 أدوار لكل برج",
@@ -1236,15 +1154,14 @@ const governmentProjects: YamasProject[] = [
     client: "وزارة المالية",
     clientEn: "Ministry of Finance (MOF)",
     location: "جدة ، المنطقة الغربية",
-    locationEn: "Jeddah",
+    locationEn: "Jeddah, Western Area",
     contractValue: "80,000,000",
     year: "2019",
     status: "completed",
     mainImage: "",
     images: [],
     description: "إنشاء مبنى المحكمة الإدارية في مدينة جدة",
-    descriptionEn:
-      "Construction of Administrative Court building in Jeddah city",
+    descriptionEn: "Construction of Administrative Court building in Jeddah city",
     scope: [
       "قاعات المحاكم",
       "المكاتب الإدارية",
@@ -1260,98 +1177,24 @@ const governmentProjects: YamasProject[] = [
       "Safety & security systems",
     ],
   },
-  // {
-  //   id: "maintenance-building",
-  //   title: "مبنى الصيانة",
-  //   titleEn: "Maintenance Building",
-  //   category: "government",
-  //   categoryAr: "مشاريع حكومية",
-  //   categoryEn: "Government Projects",
-  //   client: "وزارة التعليم",
-  //   clientEn: "Ministry of Education (MOE)",
-  //   location: "المملكة العربية السعودية",
-  //   locationEn: "Saudi Arabia",
-  //   contractValue: "9,937,570",
-  //   year: "2019",
-  //   status: "completed",
-  //   mainImage: "",
-  //   images: [],
-  //   description: "إنشاء مبنى الصيانة",
-  //   descriptionEn: "Construction of maintenance building",
-  //   scope: [
-  //     "ورش الصيانة",
-  //     "المخازن",
-  //     "المكاتب الإدارية",
-  //     "المرافق الخدمية",
-  //     "أنظمة MEP",
-  //   ],
-  //   scopeEn: [
-  //     "Maintenance workshops",
-  //     "Warehouses",
-  //     "Administrative offices",
-  //     "Service facilities",
-  //     "MEP systems",
-  //   ],
-  // },
-  {
-    id: "mosque-jazan",
-    title: "مسجد الاطباء ",
-    titleEn: "Mosque",
-    category: "government",
-    categoryAr: "مشاريع حكومية",
-    categoryEn: "Government Projects",
-    client: "جمعية أعمر",
-    clientEn: "Ministry of Higher Education (MOHE)",
-    location: "الدمام ،المنطقه الشرقيه ",
-    locationEn: "Aldmam",
-    contractValue: "4000,000",
-    year: "2025",
-    status: "ongoing",
-    mainImage: "/images/projects/Government Projects/Mosque/1.png",
-    images: [
-      "/images/projects/Government Projects/Mosque/1.png",
-      "/images/projects/Government Projects/Mosque/2.png",
-      "/images/projects/Government Projects/Mosque/3.png",
-      "/images/projects/Government Projects/Mosque/4.png",
-      "/images/projects/Government Projects/Mosque/5.png",
-      "/images/projects/Government Projects/Mosque/6.png",
-    ],
-    description: "مشروع خيري مسجد  يتسع الى 390 مصلي وسكن امام ومؤذن",
-    descriptionEn: "Construction of mosque in Jazan",
-    scope: [
-      "صالة الصلاة الرئيسية",
-      "لاند اسكيب",
-      "المآذن",
-      "حدائق ومحلات تجارية",
-      "نطاق العمل كامل",
-    ],
-    scopeEn: [
-      "Main prayer hall",
-      "Facilities",
-      "Minarets",
-      "Finishing works",
-      "External works",
-    ],
-  },
   {
     id: "utilities-complex-king-khalid",
     title: "جامعه الملك خالد ",
-    titleEn: "Construction of Utilities Complex - King Khalid",
+    titleEn: "Construction of Utilities Complex - King Khalid University",
     category: "government",
     categoryAr: "مشاريع حكومية",
     categoryEn: "Government Projects",
     client: "وزارة التعليم العالي",
     clientEn: "Ministry of Higher Education (MOHE)",
     location: "ابها ، المنطقة الجنوبية",
-    locationEn: "Saudi Arabia",
+    locationEn: "Abha, Southern Area",
     contractValue: "5,145,371",
     year: "2019",
     status: "completed",
     mainImage: "",
     images: [],
     description: "إنشاء مجمع المرافق بجامعة الملك خالد",
-    descriptionEn:
-      "Construction of utilities complex at King Khalid University",
+    descriptionEn: "Construction of utilities complex at King Khalid University",
     scope: [
       "مباني المرافق",
       "البنية التحتية",
@@ -1381,7 +1224,7 @@ const industrialProjects: YamasProject[] = [
     client: "ناصر الهاجري ",
     clientEn: "Nasser Al Hajri (NSH)",
     location: "الدمام ، المنطقة الشرقية",
-    locationEn: "Eastern Area",
+    locationEn: "Dammam, Eastern Area",
     contractValue: "35,000,000",
     year: "2020",
     status: "completed",
@@ -1414,8 +1257,49 @@ const sortProjectsByDate = (projects: YamasProject[]): YamasProject[] => {
     return yearB - yearA;
   });
 };
+
 const charitableProjects: YamasProject[] = [
-  // هتضيف المشاريع هنا لما تكون موجودة
+  {
+    id: "mosque-jazan",
+    title: "مسجد الاطباء ",
+    titleEn: "Mosque",
+    category: "charitable",
+    categoryAr: "مشاريع خيرية",
+    categoryEn: "Charitable Projects",
+    client: "جمعية أعمر",
+    clientEn: "Aamar Association",
+    location: "الدمام ،المنطقه الشرقيه ",
+    locationEn: "Dammam, Eastern Area",
+    // ✅ إصلاح: "4000,000" → "4,000,000"
+    contractValue: "4,000,000",
+    year: "2025",
+    status: "ongoing",
+    mainImage: "/images/projects/Government Projects/Mosque/1.png",
+    images: [
+      "/images/projects/Government Projects/Mosque/1.png",
+      "/images/projects/Government Projects/Mosque/2.png",
+      "/images/projects/Government Projects/Mosque/3.png",
+      "/images/projects/Government Projects/Mosque/4.png",
+      "/images/projects/Government Projects/Mosque/5.png",
+      "/images/projects/Government Projects/Mosque/6.png",
+    ],
+    description: "مشروع خيري مسجد  يتسع الى 390 مصلي وسكن امام ومؤذن",
+    descriptionEn: "Charitable project: mosque accommodating 390 worshippers with imam and muezzin residence",
+    scope: [
+      "صالة الصلاة الرئيسية",
+      "لاند اسكيب",
+      "المآذن",
+      "حدائق ومحلات تجارية",
+      "نطاق العمل كامل",
+    ],
+    scopeEn: [
+      "Main prayer hall",
+      "Landscaping",
+      "Minarets",
+      "Gardens and commercial shops",
+      "Full scope of works",
+    ],
+  },
 ];
 
 // 🏗️ تجميع البيانات مع الترتيب
@@ -1425,8 +1309,7 @@ export const projectCategories: ProjectCategory[] = [
     nameAr: "مشاريع الرعاية الصحية",
     nameEn: "Healthcare Projects",
     description: "مستشفيات ومراكز طبية ",
-    descriptionEn:
-      "Advanced hospitals, medical centers and vaccination centers",
+    descriptionEn: "Advanced hospitals, medical centers and vaccination centers",
     icon: "🏥",
     color: "#DC2626",
     projects: sortProjectsByDate(healthcareProjects),
@@ -1471,14 +1354,12 @@ export const projectCategories: ProjectCategory[] = [
     color: "#2563EB",
     projects: sortProjectsByDate(educationalProjects),
   },
-
   {
     id: "government",
     nameAr: "المشاريع الحكومية",
     nameEn: "Government Projects",
     description: "مشاريع حكومية ومرافق عامة ومباني إدارية",
-    descriptionEn:
-      "Government projects, public facilities and administrative buildings",
+    descriptionEn: "Government projects, public facilities and administrative buildings",
     icon: "🏛️",
     color: "#F59E0B",
     projects: sortProjectsByDate(governmentProjects),
@@ -1493,17 +1374,16 @@ export const projectCategories: ProjectCategory[] = [
     color: "#64748B",
     projects: sortProjectsByDate(industrialProjects),
   },
-  
-    {
-  id: "charitable",
-  nameAr: "المشاريع الخيرية",
-  nameEn: "Charitable Projects",
-  description: "المشاريع الخيرية والمساهمة المجتمعية",
-  descriptionEn: "Charitable and community contribution projects",
-  icon: "🤝",
-  color: "#10B981",
-  projects: sortProjectsByDate(charitableProjects), // الآن هتكون مصفوفة فارغة
-},
+  {
+    id: "charitable",
+    nameAr: "المشاريع الخيرية",
+    nameEn: "Charitable Projects",
+    description: "المشاريع الخيرية والمساهمة المجتمعية",
+    descriptionEn: "Charitable and community contribution projects",
+    icon: "🤝",
+    color: "#10B981",
+    projects: sortProjectsByDate(charitableProjects),
+  },
 ];
 
 // 🎯 دوال مساعدة
@@ -1530,8 +1410,7 @@ export const getCategoryStats = () => {
   return projectCategories.map((cat) => ({
     ...cat,
     totalProjects: cat.projects.length,
-    completedProjects: cat.projects.filter((p) => p.status === "completed")
-      .length,
+    completedProjects: cat.projects.filter((p) => p.status === "completed").length,
     ongoingProjects: cat.projects.filter((p) => p.status === "ongoing").length,
     totalValue: cat.projects.reduce(
       (sum, p) => sum + parseFloat(p.contractValue.replace(/,/g, "")),
@@ -1549,8 +1428,7 @@ export const getCompanyStats = () => {
 
   return {
     totalProjects: allProjects.length,
-    completedProjects: allProjects.filter((p) => p.status === "completed")
-      .length,
+    completedProjects: allProjects.filter((p) => p.status === "completed").length,
     ongoingProjects: allProjects.filter((p) => p.status === "ongoing").length,
     totalValue: totalValue,
     totalValueFormatted: totalValue.toLocaleString("ar-SA"),
