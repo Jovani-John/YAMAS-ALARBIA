@@ -4,14 +4,16 @@ export interface YamasProject {
   id: string;
   title: string;
   titleEn: string;
-  category:
-    | "healthcare"
-    | "housing"
-    | "educational"
-    | "commercial"
-    | "industrial"
-    | "government"
-    | "towers";
+category:
+  | "healthcare"
+  | "housing"
+  | "educational"
+  | "commercial"
+  | "industrial"
+  | "government"
+  | "towers"
+  | "charitable";
+    
   categoryAr: string;
   categoryEn: string;
   client: string;
