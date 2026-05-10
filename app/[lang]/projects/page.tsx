@@ -19,8 +19,9 @@ const translations = {
     currency: 'ريال سعودي',
     stats: {
       projects: 'مشروع',
-      completed: 'مكتمل',
-      ongoing: 'قيد التنفيذ',
+completed: 'مكتمل',
+ongoing: 'قيد التنفيذ',
+development: 'قيد التطوير',
       million: 'مليون'
     },
     hero: {
@@ -139,13 +140,13 @@ const SimpleProjectsList = ({
                     </div>
                   )}
 
-                  <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full ${
-                    project.status === 'completed'
-                      ? 'bg-emerald-50 text-emerald-700'
-                      : project.status === 'development'
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'bg-amber-50 text-amber-700'
-                  }`}>
+<div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
+  project.status === 'completed'
+    ? 'bg-emerald-500/20 border-emerald-400/30'
+    : project.status === 'development'
+    ? 'bg-blue-500/20 border-blue-400/30' 
+    : 'bg-amber-500/20 border-amber-400/30'
+}`}>
                     {project.status === 'completed' ? (
                       <FiCheckCircle className="text-sm" />
                     ) : (
@@ -333,7 +334,8 @@ const CategorySection = ({
   const stats = {
     total: category.projects.length,
     completed: category.projects.filter(p => p.status === 'completed').length,
-    ongoing: category.projects.filter(p => p.status === 'ongoing' || p.status === 'development').length,
+    ongoing: category.projects.filter(p => p.status === 'ongoing').length,
+development: category.projects.filter(p => p.status === 'development').length,
     totalValue: category.projects.reduce((sum, p) => 
       sum + parseFloat(p.contractValue.replace(/,/g, '')), 0
     )
@@ -376,39 +378,44 @@ const CategorySection = ({
               </motion.p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
-            >
-              <div className="bg-white rounded-xl p-4 shadow-md border-t-4" style={{ borderColor: '#49A799' }}>
-                <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>
-                  {t.stats.projects}
-                </div>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
-                <div className="text-2xl font-bold text-gray-900">{stats.completed}</div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>
-                  {t.stats.completed}
-                </div>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
-                <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>
-                  {t.stats.ongoing}
-                </div>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-[#49A799]">
-                <div className="text-xl font-bold text-gray-900">
-                  {(stats.totalValue / 1000000).toFixed(1)}{t.stats.million}
-                </div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>
-                  {t.currency}
-                </div>
-              </div>
-            </motion.div>
+<motion.div
+  initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
+  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
+  transition={{ delay: 0.4, duration: 0.6 }}
+  className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6" // غيرنا الـ 4 لـ 5 هنا
+>
+  {/* إجمالي المشاريع */}
+  <div className="bg-white rounded-xl p-4 shadow-md border-t-4" style={{ borderColor: '#49A799' }}>
+    <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
+    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.projects}</div>
+  </div>
+
+  {/* مكتمل */}
+  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
+    <div className="text-2xl font-bold text-gray-900">{stats.completed}</div>
+    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.completed}</div>
+  </div>
+
+  {/* قيد التنفيذ */}
+  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
+    <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
+    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.ongoing}</div>
+  </div>
+
+  {/* قيد التطوير - المربع الجديد الخاص بمشروع أرسيليا */}
+  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">
+    <div className="text-2xl font-bold text-gray-900">{stats.development}</div>
+    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.development}</div>
+  </div>
+
+  {/* الميزانية الإجمالية */}
+  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-[#49A799]">
+    <div className="text-xl font-bold text-gray-900">
+      {(stats.totalValue / 1000000).toFixed(1)}{t.stats.million}
+    </div>
+    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.currency}</div>
+  </div>
+</motion.div>
           </div>
         </motion.div>
 

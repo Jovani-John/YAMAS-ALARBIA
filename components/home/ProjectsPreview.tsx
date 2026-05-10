@@ -130,12 +130,12 @@ export default function ProjectsSection() {
           <motion.p className="text-xs sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-2 font-bold text-[#49A799]">
             {data.subtitle}
           </motion.p>
-          <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-1 sm:mb-2 px-4">
-            <span className="block mb-1 text-gray-900">{firstLine}</span>
-            <span className="block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent">
-              {secondLine}
-            </span>
-          </motion.h2>
+<motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.3] mb-1 sm:mb-2 px-4">
+  <span className="block mb-2 text-gray-900">{firstLine}</span>
+  <span className="inline-block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent py-2">
+    {secondLine}
+  </span>
+</motion.h2>
           <motion.div className="mt-2">
             <div className="h-1 w-24 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] mx-auto rounded-full" />
           </motion.div>

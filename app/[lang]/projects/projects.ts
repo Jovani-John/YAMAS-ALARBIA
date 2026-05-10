@@ -988,7 +988,7 @@ const towersProjects: YamasProject[] = [
       "/images/projects/Housing Projects/shofa/3.jpg",
       "/images/projects/Housing Projects/shofa/4.jpg",
     ],
-    description: "تطوير مجمع سكني متكامل الاستخدامات في الرياض، يشمل مباني سكنية 3 ابراج على مساحه 10,762 م² بتكلفة 18 مليون 500 يوجد جزء تجاري داخلي ٨٦٧ متر و جزء تجاري خارجي ٢٨٢ متر",
+    description: "تطوير مجمع سكني متكامل الاستخدامات في الرياض، يشمل مباني سكنية 3 ابراج على مساحه 1,149 م² بتكلفة 18 مليون 500 يوجد جزء تجاري داخلي ٨٦٧ متر و جزء تجاري خارجي ٢٨٢ متر",
     descriptionEn: "Development of a high-quality mixed-use residential community in Riyadh, including 3 residential towers on 10,762 sqm with internal commercial area of 867 sqm and external commercial area of 282 sqm",
     scope: [
       "أعمال الهيكل الإنشائي",
@@ -1005,7 +1005,7 @@ const towersProjects: YamasProject[] = [
       "Project Management & Coordination",
       "Technical Office & Shop Drawings",
     ],
-    area: "10,762 م²",
+    area: "1,149 م²",
     features: [
       "مبنيين (B01) + مبنى واحد (B02)",
       "أرضي + 4 أدوار متكررة + سطح (بنتهاوس)",

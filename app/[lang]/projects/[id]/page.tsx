@@ -311,19 +311,28 @@ export default function ProjectDetailPage() {
                 >
                   {isRTL ? project.categoryAr : project.categoryEn}
                 </span>
-                <div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full ${
-                  project.status === 'completed'
-                    ? 'bg-emerald-500/20 border border-emerald-400/30'
-                    : 'bg-amber-500/20 border border-amber-400/30'
-                }`}>
-                  {project.status === 'completed' ? (
-                    <FiCheckCircle className="text-emerald-300" />
-                  ) : (
-                    <FiClock className="text-amber-300" />
-                  )}
-                  <span className="text-sm font-medium text-white">
-                    {project.status === 'completed' ? t.completed : t.ongoing}
-                  </span>
+<div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full ${
+  project.status === 'completed' 
+    ? 'bg-emerald-500/20 border border-emerald-400/30' 
+    : project.status === 'development'
+    ? 'bg-blue-500/20 border border-blue-400/30' // اللون الأزرق الجديد
+    : 'bg-amber-500/20 border border-amber-400/30'
+}`}>
+{project.status === 'completed' ? (
+  <FiCheckCircle className="text-emerald-300" />
+) : project.status === 'development' ? (
+  <FiTrendingUp className="text-blue-300" /> // أيقونة السهم للأزرق
+) : (
+  <FiClock className="text-amber-300" />
+)}
+
+<span className="text-sm font-medium text-white">
+  {project.status === 'completed' 
+    ? t.completed 
+    : project.status === 'development' 
+    ? t.development 
+    : t.ongoing}
+</span>
                 </div>
               </div>
 
