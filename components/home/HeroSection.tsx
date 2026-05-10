@@ -134,11 +134,12 @@ export default function HeroSection() {
 
   return (
     <>
-      <section ref={heroPlaceholderRef} className="h-screen relative mt-20" />
+      <section ref={heroPlaceholderRef} className="h-screen relative" />
+
 
       <motion.section
         style={{ opacity, scale }}
-        className="fixed top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden z-10"
+        className="fixed top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden z-10 pt-20"
       >
         {/* Background Video */}
         <div className="absolute inset-0">
