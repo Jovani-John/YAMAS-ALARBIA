@@ -272,7 +272,7 @@ export default function ProjectDetailPage() {
             alt={isRTL ? project.title : project.titleEn}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </motion.div>
 
         {/* Back Button */}

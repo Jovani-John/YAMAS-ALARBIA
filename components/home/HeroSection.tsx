@@ -8,7 +8,7 @@ import { HiArrowDown } from 'react-icons/hi';
 // Memoized Stats Component
 const StatsSection = memo(({ currentLang }: { currentLang: string }) => {
   const stats = [
-    { number: '21', label: currentLang === 'ar' ? 'مشروع منجز' : 'Projects' },
+    { number: '21+', label: currentLang === 'ar' ? 'مشاريع مكتملة' : 'Projects' },
     { number: '24/7', label: currentLang === 'ar' ? 'دعم مستمر' : 'Outgoing Support' },
     { number: '100%', label: currentLang === 'ar' ? 'ثقة الشركات' : 'Business Client Satisfaction' },
   ];

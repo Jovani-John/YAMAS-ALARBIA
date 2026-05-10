@@ -49,6 +49,8 @@ export default function ContactPage() {
     phone: '',
     subject: '',
     clientType: '',
+    companyName: '', // اسم الشركة
+    institutionName: '', // اسم المؤسسة
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -72,7 +74,9 @@ export default function ContactPage() {
         selectType: 'اختر نوع العميل',
         company: 'شركة',
         institution: 'مؤسسة',
-        businessman: '',
+        businessman: 'رجل أعمال',
+        companyName: 'اسم الشركة',
+        institutionName: 'اسم المؤسسة',
         message: 'رسالتك',
         submit: 'إرسال الرسالة',
         sending: 'جاري الإرسال...'
@@ -112,6 +116,8 @@ export default function ContactPage() {
         company: 'Company',
         institution: 'Institution',
         businessman: 'Businessman',
+        companyName: 'Company Name',
+        institutionName: 'Institution Name',
         message: 'Your Message',
         submit: 'Send Message',
         sending: 'Sending...'
@@ -142,8 +148,20 @@ export default function ContactPage() {
   const t = content[currentLang as keyof typeof content];
 
   const handleSubmit = async () => {
+    // التحقق من الحقول المطلوبة
     if (!formData.name || !formData.email || !formData.subject) {
       toast.error(t.toast.error);
+      return;
+    }
+
+    // التحقق من اسم الشركة/المؤسسة حسب نوع العميل
+    if (formData.clientType === 'company' && !formData.companyName) {
+      toast.error('يرجى إدخال اسم الشركة');
+      return;
+    }
+    
+    if (formData.clientType === 'institution' && !formData.institutionName) {
+      toast.error('يرجى إدخال اسم المؤسسة');
       return;
     }
 
@@ -157,6 +175,14 @@ export default function ContactPage() {
       formDataToSend.append('phone', formData.phone);
       formDataToSend.append('subject', formData.subject);
       formDataToSend.append('clientType', formData.clientType);
+      
+      // إضافة اسم الشركة أو المؤسسة حسب الاختيار
+      if (formData.clientType === 'company') {
+        formDataToSend.append('companyName', formData.companyName);
+      } else if (formData.clientType === 'institution') {
+        formDataToSend.append('institutionName', formData.institutionName);
+      }
+      
       formDataToSend.append('message', formData.message);
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -174,6 +200,8 @@ export default function ContactPage() {
           phone: '',
           subject: '',
           clientType: '',
+          companyName: '',
+          institutionName: '',
           message: ''
         });
       } else {
@@ -480,6 +508,57 @@ export default function ContactPage() {
                     <option value="businessman">{t.form.businessman}</option>
                   </motion.select>
                 </motion.div>
+
+                {/* Dynamic Field: Company Name or Institution Name */}
+                {formData.clientType === 'company' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <label className="block text-sm text-gray-700 mb-2 font-medium">
+                      {t.form.companyName} *
+                    </label>
+                    <motion.input
+                      type="text"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField('companyName')}
+                      onBlur={() => setFocusedField(null)}
+                      animate={focusedField === 'companyName' ? { boxShadow: '0 0 0 3px rgba(73, 167, 153, 0.2)' } : {}}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#49A799] focus:outline-none transition-all"
+                      placeholder={isRTL ? 'أدخل اسم الشركة' : 'Enter company name'}
+                    />
+                  </motion.div>
+                )}
+
+                {formData.clientType === 'institution' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <label className="block text-sm text-gray-700 mb-2 font-medium">
+                      {t.form.institutionName} *
+                    </label>
+                    <motion.input
+                      type="text"
+                      name="institutionName"
+                      value={formData.institutionName}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField('institutionName')}
+                      onBlur={() => setFocusedField(null)}
+                      animate={focusedField === 'institutionName' ? { boxShadow: '0 0 0 3px rgba(73, 167, 153, 0.2)' } : {}}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#49A799] focus:outline-none transition-all"
+                      placeholder={isRTL ? 'أدخل اسم المؤسسة' : 'Enter institution name'}
+                    />
+                  </motion.div>
+                )}
 
                 <motion.div
                   variants={itemVariants}

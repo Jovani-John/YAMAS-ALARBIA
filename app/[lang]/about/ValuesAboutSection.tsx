@@ -10,7 +10,6 @@ interface Value {
   description: string;
 }
 
-// إزالة isRTL من الـ props إذا لم يكن مستخدماً
 interface ValuesSectionProps {
   data: {
     title: string;
@@ -39,11 +38,10 @@ const ValueCard = memo(({ value, index }: { value: Value; index: number }) => {
           boxShadow: '0 25px 50px -12px rgba(73, 167, 153, 0.25)'
         }}
         transition={{ duration: 0.3 }}
-        className="relative bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 shadow-lg border border-gray-100 h-full overflow-hidden"
+        className="relative bg-white rounded-3xl p-8 shadow-lg border border-gray-100 h-full overflow-hidden"
       >
-        {/* Background Decoration */}
         <motion.div
-          className="absolute -top-20 -right-20 w-40 h-40 bg-linear-to-br from-[#49A799]/10 to-[#3A8A7E]/10 rounded-full blur-3xl"
+          className="absolute -top-20 -right-20 w-40 h-40 bg-[#49A799]/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -51,73 +49,28 @@ const ValueCard = memo(({ value, index }: { value: Value; index: number }) => {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut" as const
+            ease: "easeInOut"
           }}
         />
 
-        {/* Icon Container */}
         <motion.div
-          className="relative w-16 h-16 bg-linear-to-br from-[#49A799] to-[#3A8A7E] rounded-2xl flex items-center justify-center mb-6 shadow-xl"
-          whileHover={{ 
-            scale: 1.15, 
-            rotate: 360,
-            boxShadow: '0 20px 40px rgba(73, 167, 153, 0.4)'
-          }}
+          className="relative w-16 h-16 bg-gradient-to-br from-[#49A799] to-[#3A8A7E] rounded-2xl flex items-center justify-center mb-6 shadow-xl"
+          whileHover={{ scale: 1.15, rotate: 360 }}
           transition={{ duration: 0.6, type: 'spring', stiffness: 200 }}
         >
-          <motion.div
-            animate={{
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut" as const
-            }}
-          >
-            <value.icon className="w-8 h-8 text-white" />
-          </motion.div>
-
-          {/* Icon Glow */}
-          <motion.div
-            className="absolute inset-0 bg-white rounded-2xl"
-            animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0, 0.3, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut" as const
-            }}
-          />
+          <value.icon className="w-8 h-8 text-white" />
         </motion.div>
         
-        {/* Title */}
-        <motion.h3 
-          className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#49A799] transition-colors relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
-        >
+        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#49A799] transition-colors relative">
           {value.title}
-        </motion.h3>
+        </h3>
         
-        {/* Description */}
-        <motion.p 
-          className="text-gray-600 leading-relaxed relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-        >
+        <p className="text-gray-600 leading-relaxed relative font-medium">
           {value.description}
-        </motion.p>
+        </p>
 
-        {/* Bottom Accent Line */}
         <motion.div
-          className="absolute bottom-0 left-0 h-1 bg-linear-to-r from-[#49A799] to-[#3A8A7E] rounded-full"
+          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: '100%' }}
           viewport={{ once: true }}
@@ -130,16 +83,13 @@ const ValueCard = memo(({ value, index }: { value: Value; index: number }) => {
 
 ValueCard.displayName = 'ValueCard';
 
-// إزالة variants واستخدام animate مباشرة
 const ValuesSection = memo(({ data }: ValuesSectionProps) => {
   return (
-    <section className="py-24 md:py-32 bg-linear-to-b from-white via-gray-50 to-white relative overflow-hidden">
-      {/* Static Background Elements - بدون حركة تسبب الهزة */}
+    /* تم تقليل الـ padding العلوي إلى pt-4 والغينا الـ md:pt لتبدأ من الأعلى تماماً */
+    <section className="pt-4 pb-24 md:pb-32 bg-white relative overflow-hidden">
+      
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-linear-to-br from-[#49A799]/10 to-[#3A8A7E]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-linear-to-tr from-[#49A799]/10 to-[#33364D]/10 rounded-full blur-3xl" />
-        
-        {/* Static Pattern */}
+        <div className="absolute top-0 left-10 w-72 h-72 bg-[#49A799]/5 rounded-full blur-3xl" />
         <div 
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -150,67 +100,42 @@ const ValuesSection = memo(({ data }: ValuesSectionProps) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
+        {/* تم تقليل الهامش السفلي mb-12 لتقريب الكروت من العنوان */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          {/* Title with Reveal */}
-          <div className="overflow-hidden mb-6">
+          {/* إزالة الـ overflow-hidden والـ y: 100 لجعل العنوان يظهر في مكانه فوراً */}
+          <div className="mb-4">
             <motion.h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-black"
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, type: 'spring', stiffness: 100 }}
+              transition={{ duration: 0.6 }}
             >
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-gray-900 via-[#49A799] to-gray-900">
-                {data.title}
-              </span>
+              {data.title}
             </motion.h2>
           </div>
 
-          {/* Subtitle with Lines */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
             className="flex items-center justify-center gap-4"
           >
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="h-1 w-16 bg-linear-to-r from-transparent via-[#49A799] to-[#49A799] rounded-full"
-            />
+            <div className="h-1 w-12 md:w-20 bg-gradient-to-l from-[#49A799] to-transparent rounded-full" />
             <p className="text-xl md:text-2xl text-[#49A799] font-bold">
               {data.subtitle}
             </p>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="h-1 w-16 bg-linear-to-r from-[#49A799] via-[#49A799] to-transparent rounded-full"
-            />
+            <div className="h-1 w-12 md:w-20 bg-gradient-to-r from-[#49A799] to-transparent rounded-full" />
           </motion.div>
-
-          {/* Decorative Element */}
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
-            className="mt-8 mx-auto w-3 h-3 bg-[#49A799] rounded-full"
-          />
         </motion.div>
 
-        {/* Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.items.map((value, index) => (
             <ValueCard key={index} value={value} index={index} />

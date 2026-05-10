@@ -6,12 +6,11 @@ import {
   HiStar,
   HiShieldCheck,
   HiDocumentDownload,
-  HiCheckCircle // أيقونة إضافية للخطوات
+  HiCheckCircle 
 } from 'react-icons/hi';
 import { IconType } from 'react-icons';
 
 interface TimelineItem {
-  // تم إخفاء أو حذف الـ year من الاستخدام في الواجهة
   year?: string; 
   title: string;
   description: string;
@@ -21,7 +20,6 @@ interface CertificateType {
   id: string;
   name: string;
   standard: string;
-  // تم إخفاء الـ year هنا أيضاً
   year?: string; 
   description: string;
   driveLink: string;
@@ -58,23 +56,24 @@ const TimelineItemComponent = memo(({
       transition={{ delay: index * 0.15, duration: 0.6 }}
       className={`flex gap-8 items-center ${isEven ? '' : 'flex-row-reverse'}`}
     >
-      <div className={`flex-1 ${isEven ? 'text-right' : 'text-left'}`}>
+      <div className="flex-1">
         <motion.div
-          className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+          /* تم تثبيت النص ليكون من اليمين text-right ودعم الاتجاه rtl */
+          className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 text-right dir-rtl"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          {/* تم استبدال السنة بأيقونة أو كلمة "محطة" أو "خطوة" */}
-          <div className={`flex items-center gap-2 mb-4 ${isEven ? 'justify-end' : 'justify-start'}`}>
+          {/* محاذاة شارة المرحلة لليمين دائماً */}
+          <div className="flex items-center gap-2 mb-4 justify-start flex-row-reverse">
             <span className="inline-block px-4 py-1 bg-[#49A799]/10 text-[#49A799] rounded-full text-sm font-bold">
-               {index + 1} المرحلة
+               المرحلة {index + 1}
             </span>
           </div>
           
           <h3 className="text-2xl font-bold text-gray-900 mb-3">
             {item.title}
           </h3>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-600 leading-relaxed font-medium">
             {item.description}
           </p>
         </motion.div>
@@ -115,16 +114,15 @@ const CertificateCard = memo(({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group"
+      className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group text-right"
       whileHover={{ y: -5 }}
     >
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex items-center gap-4">
+      <div className="flex items-start justify-between mb-6 flex-row-reverse">
+        <div className="flex items-center gap-4 flex-row-reverse">
           <div className="w-16 h-16 bg-linear-to-br from-[#49A799] to-[#3A8A7E] rounded-xl flex items-center justify-center">
             <IconComponent className="w-8 h-8 text-white" />
           </div>
           <div>
-            {/* تم حذف وسم السنة من هنا */}
             <h3 className="text-xl font-bold text-gray-900">{certificate.name}</h3>
           </div>
         </div>
@@ -136,7 +134,7 @@ const CertificateCard = memo(({
         <p className="text-lg font-bold text-gray-900">{certificate.standard}</p>
       </div>
       
-      <p className="text-gray-600 mb-6 leading-relaxed">
+      <p className="text-gray-600 mb-6 leading-relaxed font-medium">
         {certificate.description}
       </p>
       
@@ -144,7 +142,7 @@ const CertificateCard = memo(({
         href={certificate.driveLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold group"
+        className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold group flex-row-reverse"
       >
         <HiDocumentDownload className="w-5 h-5" />
         <span>عرض وثيقة الاعتماد</span>
@@ -158,7 +156,7 @@ CertificateCard.displayName = 'CertificateCard';
 const TimelineSection = memo(({ data }: TimelineSectionProps) => {
   return (
     <>
-      <section className="py-24 bg-linear-to-br from-gray-50 to-white relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -189,7 +187,7 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
       </section>
 
       {data.certificates && data.certificates.items && (
-        <section className="py-24 bg-linear-to-b from-white to-gray-50 relative overflow-hidden">
+        <section className="py-24 bg-gray-50 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -204,7 +202,7 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
                 شهادات الجودة والاعتمادات الدولية
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
                 نفتخر بحصولنا على شهادات ISO الدولية التي تؤكد التزامنا بأعلى المعايير العالمية في الجودة والسلامة والاستدامة
               </p>
             </motion.div>
@@ -220,20 +218,20 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="mt-16 bg-linear-to-r from-[#49A799]/10 to-[#3A8A7E]/10 rounded-2xl p-8 border border-[#49A799]/20"
+              className="mt-16 bg-[#49A799]/5 rounded-2xl p-8 border border-[#49A799]/20 text-right"
             >
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div>
+              <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
+                <div className="text-right">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     تحتاج إلى نسخ معتمدة؟
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 font-medium">
                     اتصل بقسم الجودة والامتثال للحصول على نسخ معتمدة من جميع الشهادات
                   </p>
                 </div>
                 <a
                   href="mailto:quality@yamas.com.sa"
-                  className="px-8 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold"
+                  className="px-8 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:shadow-lg transition-all duration-300 font-semibold"
                 >
                   تواصل مع قسم الجودة
                 </a>

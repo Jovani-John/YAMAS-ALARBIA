@@ -33,6 +33,7 @@ const brands = [
   { name: 'Bosch', logo: '/images/Brands/20.png' },
   { name: 'ABB', logo: '/images/Brands/21.png' },
   { name: 'Schneider Electric', logo: '/images/Brands/22.png' },
+  { name: 'YE3MR', logo: '/images/Brands/23.png' },
 ];
 
 export default function BrandsSlider() {

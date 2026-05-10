@@ -30,12 +30,9 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
       className="relative h-full"
     >
       <div className="bg-white rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden group h-full">
-        {/* الحشوات الخلفية للزينة */}
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#49A799]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         <div className={`relative z-10 flex ${isRTL ? 'flex-row-reverse' : 'flex-row'} h-full min-h-[280px]`}>
-          
-          {/* صورة المسؤول - مقاس موحد واحترافي */}
           <div className="w-1/3 md:w-40 lg:w-48 flex-shrink-0 relative">
             <div className="h-full relative overflow-hidden">
               {message.image ? (
@@ -49,17 +46,12 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
                   <span className="text-4xl font-bold text-[#49A799]">{message.name.charAt(0)}</span>
                 </div>
               )}
-              {/* تدرج ظلي خفيف على الصورة من الأسفل */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              
-              {/* نقطة الحالة المتصلة */}
               <div className={`absolute bottom-4 ${isRTL ? 'left-4' : 'right-4'} w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm`} />
             </div>
           </div>
 
-          {/* محتوى الرسالة - ترتيب منسق */}
           <div className="flex-1 p-6 md:p-8 flex flex-col justify-center relative">
-            {/* أيقونة الاقتباس في الزاوية */}
             <div className={`absolute top-6 ${isRTL ? 'left-6' : 'right-6'}`}>
                 <div className="w-10 h-10 rounded-xl bg-[#49A799]/10 flex items-center justify-center">
                     <FaQuoteLeft className="w-4 h-4 text-[#49A799]" />
@@ -74,7 +66,6 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
                 {message.title}
               </p>
               
-              {/* خط فاصل قصير ملون */}
               <div className={`h-1 w-12 bg-[#49A799] rounded-full mb-4 ${isRTL ? 'ml-auto' : 'mr-auto'}`} />
 
               <p className="text-gray-600 leading-relaxed text-sm md:text-base font-medium italic">
@@ -91,7 +82,6 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
 MessageCard.displayName = 'MessageCard';
 
 const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
-  // نصوص محسنة لمهندس معاذ ومهندس أحمد بناءً على الهوية الجديدة
   const enhancedMessages = [
     {
       ...data.messages[0],
@@ -113,17 +103,16 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      {/* خلفية جمالية خفيفة */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: `radial-gradient(#49A799 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* رأس القسم */}
+        {/* رأس القسم مع التعديلات الجديدة للمسافات */}
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-block px-6 py-2 bg-[#49A799] text-white rounded-full text-sm font-bold mb-4 shadow-md"
+            className="inline-block px-6 py-2 bg-[#49A799] text-white rounded-full text-sm font-bold mt-12 mb-8 shadow-md"
           >
             {data.title}
           </motion.span>
@@ -141,7 +130,6 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
           </div>
         </div>
 
-        {/* شبكة الرسائل */}
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           {enhancedMessages.map((msg, idx) => (
             <MessageCard key={idx} message={msg} index={idx} isRTL={isRTL} />
@@ -154,4 +142,4 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
 
 ManagementMessage.displayName = 'ManagementMessage';
 
-export default ManagementMessage;
+export default ManagementMessage;     
