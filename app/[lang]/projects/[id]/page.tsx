@@ -18,6 +18,7 @@ const translations = {
       back: 'رجوع',
       completed: 'مكتمل',
       ongoing: 'قيد التنفيذ',
+      development: 'قيد التطوير', // تم إضافة الترجمة هنا
       client: 'العميل',
       contractValue: 'القيمة التعاقدية',
       year: 'السنة',
@@ -35,6 +36,7 @@ const translations = {
       back: 'Back',
       completed: 'Completed',
       ongoing: 'Ongoing',
+      development: 'Under Development', // تم إضافة الترجمة هنا
       client: 'Client',
       contractValue: 'Contract Value',
       year: 'Year',
@@ -84,7 +86,6 @@ const ImageLightbox = ({
         className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
         onClick={onClose}
       >
-        {/* Close Button */}
         <motion.button
           initial={{ scale: 0, rotate: -90 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -95,7 +96,6 @@ const ImageLightbox = ({
           <FiX size={24} />
         </motion.button>
 
-        {/* Navigation Buttons */}
         <button
           onClick={(e) => { e.stopPropagation(); isRTL ? onNext() : onPrev(); }}
           className={`absolute ${isRTL ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 z-50 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all`}
@@ -109,7 +109,6 @@ const ImageLightbox = ({
           {isRTL ? <FiChevronLeft size={24} /> : <FiChevronRight size={24} />}
         </button>
 
-        {/* Image */}
         <motion.div
           key={currentIndex}
           initial={{ scale: 0.9, opacity: 0 }}
@@ -126,7 +125,6 @@ const ImageLightbox = ({
           />
         </motion.div>
 
-        {/* Counter */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -141,7 +139,6 @@ const ImageLightbox = ({
 
 // ===== RELATED PROJECTS COMPONENT =====
 const RelatedProjects = ({ currentProject, isRTL, t }: { currentProject: YamasProject, isRTL: boolean, t: any }) => {
-  // جلب المشاريع المشابهة
   const category = projectCategories.find(cat => cat.id === currentProject.category);
   const relatedProjects = category?.projects
     .filter(p => p.id !== currentProject.id)
@@ -311,28 +308,28 @@ export default function ProjectDetailPage() {
                 >
                   {isRTL ? project.categoryAr : project.categoryEn}
                 </span>
-<div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full ${
-  project.status === 'completed' 
-    ? 'bg-emerald-500/20 border border-emerald-400/30' 
-    : project.status === 'development'
-    ? 'bg-blue-500/20 border border-blue-400/30' // اللون الأزرق الجديد
-    : 'bg-amber-500/20 border border-amber-400/30'
-}`}>
-{project.status === 'completed' ? (
-  <FiCheckCircle className="text-emerald-300" />
-) : project.status === 'development' ? (
-  <FiTrendingUp className="text-blue-300" /> // أيقونة السهم للأزرق
-) : (
-  <FiClock className="text-amber-300" />
-)}
+                <div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full ${
+                  project.status === 'completed' 
+                    ? 'bg-emerald-500/20 border border-emerald-400/30' 
+                    : project.status === 'development'
+                    ? 'bg-blue-500/20 border border-blue-400/30' 
+                    : 'bg-amber-500/20 border border-amber-400/30'
+                }`}>
+                  {project.status === 'completed' ? (
+                    <FiCheckCircle className="text-emerald-300" />
+                  ) : project.status === 'development' ? (
+                    <FiTrendingUp className="text-blue-300" />
+                  ) : (
+                    <FiClock className="text-amber-300" />
+                  )}
 
-<span className="text-sm font-medium text-white">
-  {project.status === 'completed' 
-    ? t.completed 
-    : project.status === 'development' 
-    ? t.development 
-    : t.ongoing}
-</span>
+                  <span className="text-sm font-medium text-white">
+                    {project.status === 'completed' 
+                      ? t.completed 
+                      : project.status === 'development' 
+                      ? t.development 
+                      : t.ongoing}
+                  </span>
                 </div>
               </div>
 
