@@ -76,12 +76,13 @@ export default function Footer() {
     { name: currentContent.links.contact, href: `/${currentLang}/contact` },
   ];
 
+  // ✅ تم إصلاح الـ variants (إزالة array الـ ease)
   const columnVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, delay: custom * 0.2, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, delay: custom * 0.2, ease: "easeOut" }, // ✅ changed from array to string
     }),
   };
 
