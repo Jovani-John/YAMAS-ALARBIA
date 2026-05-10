@@ -76,13 +76,13 @@ export default function Footer() {
     { name: currentContent.links.contact, href: `/${currentLang}/contact` },
   ];
 
-  // ✅ تم إصلاح الـ variants (إزالة array الـ ease)
+  // ✅ الإصلاح: إضافة "as const" لقيم ease في جميع الـ variants
   const columnVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, delay: custom * 0.2, ease: "easeOut" }, // ✅ changed from array to string
+      transition: { duration: 0.6, delay: custom * 0.2, ease: "easeOut" as const },
     }),
   };
 
@@ -91,7 +91,7 @@ export default function Footer() {
     visible: (custom: number) => ({
       opacity: 1,
       scale: 1,
-      transition: { type: "spring", stiffness: 260, damping: 20, delay: 0.3 + custom * 0.08 },
+      transition: { type: "spring" as const, stiffness: 260, damping: 20, delay: 0.3 + custom * 0.08 },
     }),
   };
 
@@ -100,7 +100,7 @@ export default function Footer() {
     visible: (custom: number) => ({
       opacity: 1,
       x: 0,
-      transition: { duration: 0.4, delay: 0.4 + custom * 0.08, ease: "easeOut" },
+      transition: { duration: 0.4, delay: 0.4 + custom * 0.08, ease: "easeOut" as const },
     }),
   };
 
@@ -109,7 +109,7 @@ export default function Footer() {
     visible: (custom: number) => ({
       opacity: 1,
       x: 0,
-      transition: { duration: 0.4, delay: 0.6 + custom * 0.1, ease: "easeOut" },
+      transition: { duration: 0.4, delay: 0.6 + custom * 0.1, ease: "easeOut" as const },
     }),
   };
 
