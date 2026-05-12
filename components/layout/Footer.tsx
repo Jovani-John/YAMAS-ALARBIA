@@ -41,7 +41,7 @@ export default function Footer() {
       links: { home: "الرئيسية", about: "نبذة عنا", projects: "أعمالنا", contact: "تواصل معنا" },
       contactInfo: "معلومات التواصل",
       followUs: "تابعنا على منصات التواصل الاجتماعي",
-      rights: "جميع الحقوق محفوظة ©  شركة يماس العربية للمقاولات ",
+      rights: "جميع الحقوق محفوظة © 2026 شركة يماس العربية للمقاولات",
     },
     en: {
       vision: "Yamas Al Arabia Construction Company - Leaders in construction and urban development in Saudi Arabia",
@@ -63,7 +63,7 @@ export default function Footer() {
       links: { home: "Home", about: "About Us", projects: "Our Work", contact: "Contact Us" },
       contactInfo: "Contact Information",
       followUs: "Follow us on social media",
-      rights: "All Rights Reserved © 2025 Yamas Al Arabia Construction",
+      rights: "All Rights Reserved © 2026 Yamas Al Arabia Construction",
     }
   } as const;
 
@@ -76,7 +76,11 @@ export default function Footer() {
     { name: currentContent.links.contact, href: `/${currentLang}/contact` },
   ];
 
-  // ✅ الإصلاح: إضافة "as const" لقيم ease في جميع الـ variants
+  // تجميع أيقونات السوشيال ميديا: أول 4 أيقونات و剩下的 3
+  const socialEntries = Object.entries(SOCIAL_LINKS);
+  const firstRowIcons = socialEntries.slice(0, 4);
+  const secondRowIcons = socialEntries.slice(4, 7);
+
   const columnVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (custom: number) => ({
@@ -104,15 +108,6 @@ export default function Footer() {
     }),
   };
 
-  const contactItemVariants = {
-    hidden: { opacity: 0, x: isRTL ? 20 : -20 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.4, delay: 0.6 + custom * 0.1, ease: "easeOut" as const },
-    }),
-  };
-
   return (
     <footer 
       className="relative bg-gradient-to-br from-[#49A799] via-[#3d9184] to-[#2d6b61] text-gray-900 overflow-hidden" 
@@ -127,7 +122,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
           
-          {/* Column 1: Company Info + Enlarged Logo */}
+          {/* Column 1: Company Info + Social Icons */}
           <motion.div 
             custom={0} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}
             className="lg:col-span-1"
@@ -138,7 +133,7 @@ export default function Footer() {
                 alt="Yamas Al Arabia Construction"
                 width="240"
                 height="96"
-                className="h-20 md:h-28 w-auto object-contain brightness-0 mb-6"
+                className="h-20 md:h-28 w-auto object-contain brightness-0"
                 loading="lazy"
               />
             </div>
@@ -146,40 +141,71 @@ export default function Footer() {
               {currentContent.vision}
             </p>
             <p className="text-gray-900 text-base mb-4 font-semibold">{currentContent.followUs}</p>
-            <div className="flex flex-wrap gap-3">
-              {Object.entries(SOCIAL_LINKS).map(([platform, url], index) => {
-                const socialConfig = {
-                  instagram: { Icon: FaInstagram, bg: 'bg-[#E4405F]' },
-                  facebook: { Icon: FaFacebook, bg: 'bg-[#1877F2]' },
-                  x: { Icon: FaXTwitter, bg: 'bg-[#000000]' },
-                  linkedin: { Icon: FaLinkedin, bg: 'bg-[#0A66C2]' },
-                  whatsapp: { Icon: FaWhatsapp, bg: 'bg-[#25D366]' },
-                  tiktok: { Icon: FaTiktok, bg: 'bg-[#000000]' },
-                  snapchat: { Icon: FaSnapchat, bg: 'bg-[#FFFC00]' },
-                }[platform as keyof typeof SOCIAL_LINKS];
-                if (!socialConfig) return null;
-                const { Icon, bg } = socialConfig;
-                return (
-                  <motion.a
-                    key={platform} href={url} target="_blank" rel="noopener noreferrer" custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={socialVariants}
-                    whileHover={{ scale: 1.15, rotate: 5, y: -5 }} whileTap={{ scale: 0.9 }}
-                    className={`w-12 h-12 rounded-lg ${bg} flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}
-                  >
-                    <Icon className={`text-xl ${platform === 'snapchat' ? 'text-black' : 'text-white'}`} />
-                  </motion.a>
-                );
-              })}
+            
+            {/* أيقونات السوشيال ميديا: 4 في الصف الأول و 3 تحتها */}
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-wrap gap-3">
+                {firstRowIcons.map(([platform, url], index) => {
+                  const socialConfig = {
+                    instagram: { Icon: FaInstagram, bg: 'bg-[#E4405F]' },
+                    facebook: { Icon: FaFacebook, bg: 'bg-[#1877F2]' },
+                    x: { Icon: FaXTwitter, bg: 'bg-[#000000]' },
+                    linkedin: { Icon: FaLinkedin, bg: 'bg-[#0A66C2]' },
+                    whatsapp: { Icon: FaWhatsapp, bg: 'bg-[#25D366]' },
+                    tiktok: { Icon: FaTiktok, bg: 'bg-[#000000]' },
+                    snapchat: { Icon: FaSnapchat, bg: 'bg-[#FFFC00]' },
+                  }[platform as keyof typeof SOCIAL_LINKS];
+                  if (!socialConfig) return null;
+                  const { Icon, bg } = socialConfig;
+                  return (
+                    <motion.a
+                      key={platform} href={url} target="_blank" rel="noopener noreferrer" custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={socialVariants}
+                      whileHover={{ scale: 1.15, rotate: 5, y: -5 }} whileTap={{ scale: 0.9 }}
+                      className={`w-12 h-12 rounded-lg ${bg} flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}
+                    >
+                      <Icon className={`text-xl ${platform === 'snapchat' ? 'text-black' : 'text-white'}`} />
+                    </motion.a>
+                  );
+                })}
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {secondRowIcons.map(([platform, url], index) => {
+                  const socialConfig = {
+                    instagram: { Icon: FaInstagram, bg: 'bg-[#E4405F]' },
+                    facebook: { Icon: FaFacebook, bg: 'bg-[#1877F2]' },
+                    x: { Icon: FaXTwitter, bg: 'bg-[#000000]' },
+                    linkedin: { Icon: FaLinkedin, bg: 'bg-[#0A66C2]' },
+                    whatsapp: { Icon: FaWhatsapp, bg: 'bg-[#25D366]' },
+                    tiktok: { Icon: FaTiktok, bg: 'bg-[#000000]' },
+                    snapchat: { Icon: FaSnapchat, bg: 'bg-[#FFFC00]' },
+                  }[platform as keyof typeof SOCIAL_LINKS];
+                  if (!socialConfig) return null;
+                  const { Icon, bg } = socialConfig;
+                  return (
+                    <motion.a
+                      key={platform} href={url} target="_blank" rel="noopener noreferrer" custom={index + 4} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={socialVariants}
+                      whileHover={{ scale: 1.15, rotate: 5, y: -5 }} whileTap={{ scale: 0.9 }}
+                      className={`w-12 h-12 rounded-lg ${bg} flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300`}
+                    >
+                      <Icon className={`text-xl ${platform === 'snapchat' ? 'text-black' : 'text-white'}`} />
+                    </motion.a>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
 
-          {/* Column 2: Quick Links */}
-          <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}>
-            <h4 className="text-xl font-bold mb-4 text-gray-900">{currentContent.quickLinks}</h4>
+          {/* Column 2: Quick Links - مع إضافة padding-top للمحاذاة مع نهاية اللوجو */}
+          <motion.div 
+            custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}
+            className="lg:col-span-1 pt-8 lg:pt-12"  // ✅ إضافة padding-top للمحاذاة
+          >
+            <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{currentContent.quickLinks}</h4>
             <div className="w-12 h-1 bg-gray-900/30 rounded-full mb-6" />
             <ul className="space-y-3">
               {QUICK_LINKS.map((link, index) => (
                 <motion.li key={link.name} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={linkVariants}>
-                  <a href={link.href} className="text-gray-900 hover:text-white transition-all flex items-center gap-3 group text-base font-medium">
+                  <a href={link.href} className="text-gray-900 hover:text-white transition-all flex items-center gap-3 group text-base md:text-lg font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-gray-900 group-hover:bg-white transition-all" />
                     {link.name}
                   </a>
@@ -188,30 +214,33 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Column 3: Contact Info */}
-          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}>
-            <h4 className="text-xl font-bold mb-4 text-gray-900">{currentContent.contactInfo}</h4>
+          {/* Column 3: Contact Info - مع إضافة padding-top للمحاذاة مع نهاية اللوجو */}
+          <motion.div 
+            custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}
+            className="lg:col-span-1 pt-8 lg:pt-12"  // ✅ إضافة padding-top للمحاذاة
+          >
+            <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{currentContent.contactInfo}</h4>
             <div className="w-12 h-1 bg-gray-900/30 rounded-full mb-6" />
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaPhone className="text-gray-900" /></div>
+                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaPhone className="text-gray-900 text-base" /></div>
                 <div>
-                  <p className="font-bold text-sm text-gray-900">{currentContent.ourPhone}</p>
-                  <a href={`tel:${currentContent.phone2.replace(/\s/g, '')}`} className="text-gray-800 text-sm block mt-1 font-medium" dir="ltr">{currentContent.phone2}</a>
+                  <p className="font-bold text-base text-gray-900">{currentContent.ourPhone}</p>
+                  <a href={`tel:${currentContent.phone2.replace(/\s/g, '')}`} className="text-gray-800 text-sm md:text-base block mt-1 font-medium" dir="ltr">{currentContent.phone2}</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaEnvelope className="text-gray-900" /></div>
+                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaEnvelope className="text-gray-900 text-base" /></div>
                 <div>
-                  <p className="font-bold text-sm text-gray-900">{currentContent.ourEmail}</p>
-                  <a href={`mailto:${currentContent.email}`} className="text-gray-800 text-sm font-medium">{currentContent.email}</a>
+                  <p className="font-bold text-base text-gray-900">{currentContent.ourEmail}</p>
+                  <a href={`mailto:${currentContent.email}`} className="text-gray-800 text-sm md:text-base font-medium">{currentContent.email}</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><span className="text-gray-900 text-xs font-bold">CR</span></div>
+                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><span className="text-gray-900 text-sm font-bold">CR</span></div>
                 <div>
-                  <p className="font-bold text-sm text-gray-900">{currentContent.crNumber}</p>
-                  <p className="text-gray-800 text-sm font-medium" dir="ltr">{currentContent.cr}</p>
+                  <p className="font-bold text-base text-gray-900">{currentContent.crNumber}</p>
+                  <p className="text-gray-800 text-sm md:text-base font-medium" dir="ltr">{currentContent.cr}</p>
                 </div>
               </div>
             </div>
@@ -220,7 +249,7 @@ export default function Footer() {
 
         {/* Offices Section */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}>
-          <h4 className="text-2xl font-bold mb-8 text-gray-900 text-center">{currentContent.offices}</h4>
+          <h4 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-gray-900 text-center">{currentContent.offices}</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[currentContent.office1, currentContent.office2, currentContent.office3, currentContent.office4].map((office, idx) => (
               <motion.div 
@@ -228,17 +257,18 @@ export default function Footer() {
                 className="bg-white/15 backdrop-blur-md p-5 rounded-2xl border border-white/20 shadow-sm hover:shadow-xl transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <FaMapMarkerAlt className="text-gray-900" />
-                  <h5 className="font-bold text-gray-900 text-sm">{office.title}</h5>
+                  <FaMapMarkerAlt className="text-gray-900 text-base" />
+                  <h5 className="font-bold text-gray-900 text-base md:text-lg">{office.title}</h5>
                 </div>
-                <p className="text-gray-800 text-xs leading-relaxed font-medium">{office.address}</p>
+                <p className="text-gray-800 text-xs md:text-sm leading-relaxed font-medium">{office.address}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
+        {/* Footer Bottom */}
         <div className="mt-12 pt-8 border-t border-gray-900/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-900 text-sm font-bold text-center md:text-left">{currentContent.rights}</p>
+          <p className="text-gray-900 text-sm md:text-base font-bold text-center md:text-left">{currentContent.rights}</p>
         </div>
       </div>
     </footer>

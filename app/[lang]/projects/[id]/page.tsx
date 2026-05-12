@@ -18,7 +18,7 @@ const translations = {
       back: 'رجوع',
       completed: 'مكتمل',
       ongoing: 'قيد التنفيذ',
-      development: 'قيد التطوير', // تم إضافة الترجمة هنا
+      development: 'قيد التطوير',
       client: 'العميل',
       contractValue: 'القيمة التعاقدية',
       year: 'السنة',
@@ -36,7 +36,7 @@ const translations = {
       back: 'Back',
       completed: 'Completed',
       ongoing: 'Ongoing',
-      development: 'Under Development', // تم إضافة الترجمة هنا
+      development: 'Under Development',
       client: 'Client',
       contractValue: 'Contract Value',
       year: 'Year',
@@ -277,7 +277,7 @@ export default function ProjectDetailPage() {
           initial={{ x: isRTL ? 20 : -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className={`absolute top-24 ${isRTL ? 'right-4 sm:right-6 lg:right-8' : 'left-4 sm:left-6 lg:left-8'} z-20`}
+          className={`absolute top-32 ${isRTL ? 'right-4 sm:right-6 lg:right-8' : 'left-4 sm:left-6 lg:left-8'} z-20`}
         >
           <Link href={`/${lang}/projects`}>
             <button className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-full hover:bg-white/20 transition-all group">
@@ -365,19 +365,19 @@ export default function ProjectDetailPage() {
         </motion.div>
       </section>
 
-      {/* Project Info Cards */}
+      {/* Project Info Cards - المعدلة */}
       <section className="py-12 sm:py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto -mt-20 relative z-10">
             
-            {/* Client */}
+            {/* Client - تم التعديل: إضافة text-center و justify-center و bold للاسم */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-[#49A799]"
+              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-[#49A799] text-center"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-3 justify-center">
                 <div className="w-12 h-12 bg-[#49A799]/10 rounded-xl flex items-center justify-center">
                   <FiUser className="text-[#49A799]" size={24} />
                 </div>
@@ -389,21 +389,21 @@ export default function ProjectDetailPage() {
                 </h3>
               </div>
               <p 
-                className="text-gray-600"
+                className="text-gray-900 font-bold text-lg"
                 style={{ fontFamily: 'Alexandria, sans-serif' }}
               >
                 {isRTL ? project.client : (project.clientEn || project.client)}
               </p>
             </motion.div>
 
-            {/* Contract Value */}
+            {/* Contract Value - تم التعديل: إضافة text-center و justify-center */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-emerald-500"
+              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-emerald-500 text-center"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-3 justify-center">
                 <div className="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center">
                   <FiDollarSign className="text-emerald-500" size={24} />
                 </div>
@@ -422,14 +422,14 @@ export default function ProjectDetailPage() {
               </p>
             </motion.div>
 
-            {/* Year */}
+            {/* Year - تم التعديل: إضافة text-center و justify-center */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-blue-500"
+              className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-blue-500 text-center"
             >
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-3 justify-center">
                 <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
                   <FiCalendar className="text-blue-500" size={24} />
                 </div>

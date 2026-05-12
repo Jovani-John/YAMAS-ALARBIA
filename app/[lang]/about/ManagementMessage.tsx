@@ -68,7 +68,14 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
               
               <div className={`h-1 w-12 bg-[#49A799] rounded-full mb-4 ${isRTL ? 'ml-auto' : 'mr-auto'}`} />
 
-              <p className="text-gray-600 leading-relaxed text-sm md:text-base font-medium italic">
+              {/* ✅ تم التعديل هنا: إزالة italic وإضافة bold و text-justify للسمتريه */}
+              <p 
+                className="text-gray-600 leading-relaxed text-sm md:text-base font-bold"
+                style={{ 
+                  textAlign: "justify",
+                  textAlignLast: isRTL ? "right" : "left"
+                }}
+              >
                 "{message.message}"
               </p>
             </div>
@@ -85,7 +92,7 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
   const enhancedMessages = [
     {
       ...data.messages[0],
-      name: isRTL ? "أ. معاذ آل كلثم" : "Mr. Moath Al-Kaltham",
+      name: isRTL ? "أ. معاذ آل كلثم" : "Mr. Mouth Al-Kaltham",
       title: isRTL ? "المدير العام" : "General Manager",
       message: isRTL 
         ? "في شركة يماس العربية للمقاولات، نؤمن بأن التميز لا يتحقق فقط بتنفيذ المشاريع، بل ببناء جسور الثقة وتحقيق الجودة المستدامة. منذ التأسيس، وضعنا نصب أعيننا أن نكون شريكاً موثوقاً في التنمية، ومساهماً فاعلاً في بناء مستقبل عمراني يليق بطموحات وطننا."
@@ -93,7 +100,7 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
     },
     {
       ...data.messages[1],
-      name: isRTL ? "مهندس أحمد النجار" : "Eng. Ahmed Al-Najjar",
+      name: isRTL ? "مهندس أحمد النجار" : "Eng. Ahmed Al-Nagar",
       title: isRTL ? "المدير التنفيذي" : "Executive Director",
       message: isRTL 
         ? "التميز في التنفيذ ليس خياراً، بل هو التزام نعيشه كل يوم. نحن نجمع بين الخبرة الهندسية العميقة والتقنيات الحديثة لضمان تسليم مشاريع بأعلى معايير الجودة والسلامة. فريقنا المتخصص يعمل بشغف لتحويل كل تصميم هندسي إلى واقع ملموس يفوق توقعات عملائنا."
@@ -107,7 +114,7 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
            style={{ backgroundImage: `radial-gradient(#49A799 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        {/* رأس القسم مع التعديلات الجديدة للمسافات */}
+        {/* رأس القسم */}
         <div className="text-center mb-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -142,4 +149,4 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
 
 ManagementMessage.displayName = 'ManagementMessage';
 
-export default ManagementMessage;     
+export default ManagementMessage;

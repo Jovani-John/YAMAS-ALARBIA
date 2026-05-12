@@ -2,6 +2,7 @@
 
 import { memo } from 'react';
 import { motion } from 'framer-motion';
+import { useParams } from 'next/navigation';
 import { 
   HiStar,
   HiShieldCheck,
@@ -40,11 +41,13 @@ interface TimelineSectionProps {
 const TimelineItemComponent = memo(({ 
   item, 
   index, 
-  isLast 
+  isLast,
+  isRTL 
 }: { 
   item: TimelineItem; 
   index: number; 
   isLast: boolean;
+  isRTL: boolean;
 }) => {
   const isEven = index % 2 === 0;
   
@@ -55,18 +58,17 @@ const TimelineItemComponent = memo(({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: index * 0.15, duration: 0.6 }}
       className={`flex gap-8 items-center ${isEven ? '' : 'flex-row-reverse'}`}
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
       <div className="flex-1">
         <motion.div
-          /* تم تثبيت النص ليكون من اليمين text-right ودعم الاتجاه rtl */
-          className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 text-right dir-rtl"
+          className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 ${isRTL ? 'text-right' : 'text-left'}`}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
-          {/* محاذاة شارة المرحلة لليمين دائماً */}
-          <div className="flex items-center gap-2 mb-4 justify-start flex-row-reverse">
+          <div className={`flex items-center gap-2 mb-4 ${isRTL ? 'justify-start flex-row-reverse' : 'justify-start'}`}>
             <span className="inline-block px-4 py-1 bg-[#49A799]/10 text-[#49A799] rounded-full text-sm font-bold">
-               المرحلة {index + 1}
+              {isRTL ? `المرحلة ${index + 1}` : `Stage ${index + 1}`}
             </span>
           </div>
           
@@ -101,10 +103,12 @@ TimelineItemComponent.displayName = 'TimelineItemComponent';
 
 const CertificateCard = memo(({ 
   certificate, 
-  index 
+  index,
+  isRTL 
 }: { 
   certificate: CertificateType; 
-  index: number; 
+  index: number;
+  isRTL: boolean;
 }) => {
   const IconComponent = certificate.icon || HiShieldCheck;
   
@@ -114,11 +118,12 @@ const CertificateCard = memo(({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group text-right"
+      className={`bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group ${isRTL ? 'text-right' : 'text-left'}`}
       whileHover={{ y: -5 }}
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
-      <div className="flex items-start justify-between mb-6 flex-row-reverse">
-        <div className="flex items-center gap-4 flex-row-reverse">
+      <div className={`flex items-start justify-between mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <div className={`flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
           <div className="w-16 h-16 bg-linear-to-br from-[#49A799] to-[#3A8A7E] rounded-xl flex items-center justify-center">
             <IconComponent className="w-8 h-8 text-white" />
           </div>
@@ -130,7 +135,9 @@ const CertificateCard = memo(({
       </div>
       
       <div className="mb-6">
-        <h4 className="text-sm font-semibold text-gray-500 mb-2">المعيار الدولي</h4>
+        <h4 className="text-sm font-semibold text-gray-500 mb-2">
+          {isRTL ? 'المعيار الدولي' : 'International Standard'}
+        </h4>
         <p className="text-lg font-bold text-gray-900">{certificate.standard}</p>
       </div>
       
@@ -142,10 +149,10 @@ const CertificateCard = memo(({
         href={certificate.driveLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold group flex-row-reverse"
+        className={`inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:from-[#3A8A7E] hover:to-[#2E6D63] transition-all duration-300 font-semibold group ${isRTL ? 'flex-row-reverse' : ''}`}
       >
         <HiDocumentDownload className="w-5 h-5" />
-        <span>عرض وثيقة الاعتماد</span>
+        <span>{isRTL ? 'عرض وثيقة الاعتماد' : 'View Certificate'}</span>
       </a>
     </motion.div>
   );
@@ -154,16 +161,20 @@ const CertificateCard = memo(({
 CertificateCard.displayName = 'CertificateCard';
 
 const TimelineSection = memo(({ data }: TimelineSectionProps) => {
+  const params = useParams();
+  const currentLang = params?.lang as string || 'ar';
+  const isRTL = currentLang === 'ar';
+
   return (
     <>
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
         <div className="max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-20"
+            className={`text-center mb-20 ${isRTL ? '' : ''}`}
           >
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
               {data.title}
@@ -180,6 +191,7 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
                 item={item} 
                 index={index} 
                 isLast={index === data.items.length - 1}
+                isRTL={isRTL}
               />
             ))}
           </div>
@@ -187,7 +199,7 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
       </section>
 
       {data.certificates && data.certificates.items && (
-        <section className="py-24 bg-gray-50 relative overflow-hidden">
+        <section className="py-24 bg-gray-50 relative overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -197,19 +209,21 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
               className="text-center mb-16"
             >
               <span className="inline-block px-4 py-2 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-full text-sm font-bold mb-4">
-                الاعتمادات
+                {isRTL ? 'الاعتمادات' : 'Certifications'}
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-                شهادات الجودة والاعتمادات الدولية
+                {isRTL ? 'شهادات الجودة والاعتمادات الدولية' : 'Quality Certificates & International Accreditations'}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-                نفتخر بحصولنا على شهادات ISO الدولية التي تؤكد التزامنا بأعلى المعايير العالمية في الجودة والسلامة والاستدامة
+                {isRTL 
+                  ? 'نفتخر بحصولنا على شهادات ISO الدولية التي تؤكد التزامنا بأعلى المعايير العالمية في الجودة والسلامة والاستدامة'
+                  : 'We are proud to have obtained international ISO certificates that confirm our commitment to the highest global standards in quality, safety, and sustainability'}
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {data.certificates.items.map((cert, index) => (
-                <CertificateCard key={cert.id} certificate={cert} index={index} />
+                <CertificateCard key={cert.id} certificate={cert} index={index} isRTL={isRTL} />
               ))}
             </div>
 
@@ -218,22 +232,25 @@ const TimelineSection = memo(({ data }: TimelineSectionProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="mt-16 bg-[#49A799]/5 rounded-2xl p-8 border border-[#49A799]/20 text-right"
+              className="mt-16 bg-[#49A799]/5 rounded-2xl p-8 border border-[#49A799]/20"
+              dir={isRTL ? 'rtl' : 'ltr'}
             >
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
-                <div className="text-right">
+              <div className={`flex flex-col md:flex-row items-center justify-between gap-6 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+                <div className={isRTL ? 'text-right' : 'text-left'}>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    تحتاج إلى نسخ معتمدة؟
+                    {isRTL ? 'تحتاج إلى نسخ معتمدة؟' : 'Need Certified Copies?'}
                   </h3>
                   <p className="text-gray-600 font-medium">
-                    اتصل بقسم الجودة والامتثال للحصول على نسخ معتمدة من جميع الشهادات
+                    {isRTL 
+                      ? 'اتصل بقسم الجودة والامتثال للحصول على نسخ معتمدة من جميع الشهادات'
+                      : 'Contact our Quality & Compliance department for certified copies of all certificates'}
                   </p>
                 </div>
                 <a
                   href="mailto:quality@yamas.com.sa"
                   className="px-8 py-3 bg-linear-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl hover:shadow-lg transition-all duration-300 font-semibold"
                 >
-                  تواصل مع قسم الجودة
+                  {isRTL ? 'تواصل مع قسم الجودة' : 'Contact Quality Dept'}
                 </a>
               </div>
             </motion.div>

@@ -49,8 +49,8 @@ export default function ContactPage() {
     phone: '',
     subject: '',
     clientType: '',
-    companyName: '', // اسم الشركة
-    institutionName: '', // اسم المؤسسة
+    companyName: '',
+    institutionName: '',
     message: ''
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +74,6 @@ export default function ContactPage() {
         selectType: 'اختر نوع العميل',
         company: 'شركة',
         institution: 'مؤسسة',
-        businessman: 'رجل أعمال',
         companyName: 'اسم الشركة',
         institutionName: 'اسم المؤسسة',
         message: 'رسالتك',
@@ -115,7 +114,6 @@ export default function ContactPage() {
         selectType: 'Select Client Type',
         company: 'Company',
         institution: 'Institution',
-        businessman: 'Businessman',
         companyName: 'Company Name',
         institutionName: 'Institution Name',
         message: 'Your Message',
@@ -148,20 +146,18 @@ export default function ContactPage() {
   const t = content[currentLang as keyof typeof content];
 
   const handleSubmit = async () => {
-    // التحقق من الحقول المطلوبة
     if (!formData.name || !formData.email || !formData.subject) {
       toast.error(t.toast.error);
       return;
     }
 
-    // التحقق من اسم الشركة/المؤسسة حسب نوع العميل
     if (formData.clientType === 'company' && !formData.companyName) {
-      toast.error('يرجى إدخال اسم الشركة');
+      toast.error(isRTL ? 'يرجى إدخال اسم الشركة' : 'Please enter company name');
       return;
     }
     
     if (formData.clientType === 'institution' && !formData.institutionName) {
-      toast.error('يرجى إدخال اسم المؤسسة');
+      toast.error(isRTL ? 'يرجى إدخال اسم المؤسسة' : 'Please enter institution name');
       return;
     }
 
@@ -176,7 +172,6 @@ export default function ContactPage() {
       formDataToSend.append('subject', formData.subject);
       formDataToSend.append('clientType', formData.clientType);
       
-      // إضافة اسم الشركة أو المؤسسة حسب الاختيار
       if (formData.clientType === 'company') {
         formDataToSend.append('companyName', formData.companyName);
       } else if (formData.clientType === 'institution') {
@@ -267,7 +262,6 @@ export default function ContactPage() {
         style={{ scale: heroScale, opacity: heroOpacity }}
         className="relative h-[70vh] flex items-center justify-center overflow-hidden"
       >
-        {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-[#33364D] via-[#49A799] to-[#3A8A7E]" />
           <motion.div
@@ -287,7 +281,6 @@ export default function ContactPage() {
           />
         </div>
 
-        {/* Floating Shapes */}
         <motion.div
           variants={floatingVariants}
           animate="animate"
@@ -338,7 +331,6 @@ export default function ContactPage() {
           </motion.p>
         </motion.div>
 
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -357,7 +349,6 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <div className="container mx-auto px-4 py-20 relative">
-        {/* Decorative Elements */}
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 0.05, scale: 1 }}
@@ -377,7 +368,6 @@ export default function ContactPage() {
             variants={itemVariants}
             className="bg-white p-8 md:p-12 relative overflow-hidden"
           >
-            {/* Background Pattern */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#49A799]/5 rounded-full blur-3xl" />
             
             <div className="relative z-10">
@@ -401,11 +391,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <motion.div
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                    whileFocus={{ scale: 1.02 }}
-                  >
+                  <motion.div variants={itemVariants}>
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.name} *
                     </label>
@@ -422,10 +408,7 @@ export default function ContactPage() {
                     />
                   </motion.div>
 
-                  <motion.div
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                  >
+                  <motion.div variants={itemVariants}>
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.email} *
                     </label>
@@ -444,10 +427,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <motion.div
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                  >
+                  <motion.div variants={itemVariants}>
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.phone}
                     </label>
@@ -464,10 +444,7 @@ export default function ContactPage() {
                     />
                   </motion.div>
 
-                  <motion.div
-                    variants={itemVariants}
-                    whileHover={{ scale: 1.02 }}
-                  >
+                  <motion.div variants={itemVariants}>
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.subject} *
                     </label>
@@ -485,11 +462,8 @@ export default function ContactPage() {
                   </motion.div>
                 </div>
 
-                {/* Client Type Selection */}
-                <motion.div
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                >
+                {/* Client Type Selection - بدون businessman */}
+                <motion.div variants={itemVariants}>
                   <label className="block text-sm text-gray-700 mb-2 font-medium">
                     {t.form.clientType}
                   </label>
@@ -505,7 +479,6 @@ export default function ContactPage() {
                     <option value="">{t.form.selectType}</option>
                     <option value="company">{t.form.company}</option>
                     <option value="institution">{t.form.institution}</option>
-                    <option value="businessman">{t.form.businessman}</option>
                   </motion.select>
                 </motion.div>
 
@@ -516,7 +489,6 @@ export default function ContactPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    whileHover={{ scale: 1.02 }}
                   >
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.companyName} *
@@ -541,7 +513,6 @@ export default function ContactPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    whileHover={{ scale: 1.02 }}
                   >
                     <label className="block text-sm text-gray-700 mb-2 font-medium">
                       {t.form.institutionName} *
@@ -560,10 +531,7 @@ export default function ContactPage() {
                   </motion.div>
                 )}
 
-                <motion.div
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div variants={itemVariants}>
                   <label className="block text-sm text-gray-700 mb-2 font-medium">
                     {t.form.message}
                   </label>
@@ -613,7 +581,6 @@ export default function ContactPage() {
             variants={itemVariants}
             className="bg-gradient-to-br from-[#33364D] via-[#33364D] to-[#49A799] p-8 md:p-12 flex flex-col justify-between text-white relative overflow-hidden"
           >
-            {/* Animated Background */}
             <motion.div
               animate={{
                 scale: [1, 1.2, 1],
@@ -657,15 +624,8 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-white/80 mb-1">{t.contactInfo.phone}</p>
                     <a 
-                      href={`tel:${t.contactInfo.phone1.replace(/\s/g, '')}`}
-                      className="text-lg font-semibold hover:text-white/80 transition-colors block"
-                      dir="ltr"
-                    >
-                      {t.contactInfo.phone1}
-                    </a>
-                    <a 
                       href={`tel:${t.contactInfo.phone2.replace(/\s/g, '')}`}
-                      className="text-lg font-semibold hover:text-white/80 transition-colors block mt-1"
+                      className="text-lg font-semibold hover:text-white/80 transition-colors block"
                       dir="ltr"
                     >
                       {t.contactInfo.phone2}

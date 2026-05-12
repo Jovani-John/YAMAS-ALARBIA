@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HiOfficeBuilding,
@@ -220,6 +221,9 @@ export default function ServicesTabsSection() {
   const currentContent = content[currentLang];
   const services = currentContent.services;
 
+  // رابط صفحة التواصل حسب اللغة
+  const contactPath = `/${currentLang}/contact`;
+
   const handleTabClick = (index: number) => {
     setDirection(index > activeTab ? 1 : -1);
     setActiveTab(index);
@@ -268,6 +272,14 @@ export default function ServicesTabsSection() {
   };
 
   const statsKeys: (keyof ServiceStats)[] = ["projects", "years", "clients"];
+
+  // دالة مساعدة لعرض الرقم مع علامة + إذا كان المفتاح هو projects
+  const formatStatValue = (key: keyof ServiceStats, value: number): string => {
+    if (key === "projects") {
+      return `+${value}`;
+    }
+    return value.toString();
+  };
 
   return (
     <section
@@ -346,7 +358,6 @@ export default function ServicesTabsSection() {
                     : "bg-white text-gray-700 hover:shadow-xl border-2 border-gray-100 hover:border-[#49A799]/30"
                 }`}
               >
-                {/* ✅ الأيقونة والنص دايمًا من الشمال في الـ tabs */}
                 <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3">
                   <motion.div
                     animate={activeTab === index ? { rotate: 360 } : { rotate: 0 }}
@@ -414,7 +425,7 @@ export default function ServicesTabsSection() {
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${services[activeTab].gradient} opacity-50 group-hover:opacity-60 transition-opacity duration-500`} />
 
-                    {/* Stats Overlay */}
+                    {/* Stats Overlay - مع إضافة علامة + بجانب عدد المشاريع */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
                       <div className="grid grid-cols-3 gap-4 text-white">
                         {statsKeys.map((key, i) => (
@@ -429,7 +440,7 @@ export default function ServicesTabsSection() {
                               className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1"
                               whileHover={{ scale: 1.2, color: "#49A799" }}
                             >
-                              {services[activeTab].stats[key]}
+                              {formatStatValue(key, services[activeTab].stats[key])}
                             </motion.div>
                             <div className="text-xs md:text-sm text-white/90 font-medium">
                               {currentContent.stats[key]}
@@ -507,21 +518,23 @@ export default function ServicesTabsSection() {
                       ))}
                     </div>
 
-                    {/* CTA Button */}
-                    <motion.button
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1, type: "spring" }}
-                      whileHover={{
-                        scale: 1.08,
-                        y: -5,
-                        boxShadow: "0 20px 40px rgba(73, 167, 153, 0.4)",
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-full md:w-auto px-8 py-4 bg-gradient-to-r ${services[activeTab].gradient} text-white rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-2xl transition-all`}
-                    >
-                      {currentContent.ctaButton}
-                    </motion.button>
+                    {/* CTA Button - Now using Link component for navigation */}
+                    <Link href={contactPath}>
+                      <motion.button
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1, type: "spring" }}
+                        whileHover={{
+                          scale: 1.08,
+                          y: -5,
+                          boxShadow: "0 20px 40px rgba(73, 167, 153, 0.4)",
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`w-full md:w-auto px-8 py-4 bg-gradient-to-r ${services[activeTab].gradient} text-white rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-2xl transition-all cursor-pointer`}
+                      >
+                        {currentContent.ctaButton}
+                      </motion.button>
+                    </Link>
                   </motion.div>
                 </div>
               </div>

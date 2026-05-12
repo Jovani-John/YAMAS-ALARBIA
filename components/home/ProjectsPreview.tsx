@@ -9,6 +9,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Project {
   id: number;
@@ -61,9 +62,9 @@ export default function ProjectsSection() {
       title: "أحدث المشاريع المعمارية والإنشائية",
       allProjects: "جميع المشاريع",
       projects: [
-        { id: 1, title: "ريما 1", subtitle: "الأبراج السكنية", titleEn: "RIMA 1", description: "برج سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 موقف سيارات", descriptionEn: "A luxury residential tower of 15 floors with a total built-up area of 18,000 square meters, including 62 residential apartments.", image: "/images/projects/buildings/Rima1/7.png", number: "01" },
+        { id: 1, title: "ريما 1", subtitle: "الأبراج السكنية", titleEn: "RIMA 1", description: "برج سكني راقي مكون من 15 طابق بمساحة بناء إجمالية 18,000 متر مربع، يشمل 62 شقة ب62 موقف سيارات", descriptionEn: "A luxury residential tower of 15 floors with a total built-up area of 18,000 square meters, including 62 residential apartments.", image: "/images/projects/buildings/Rima1/7.png", number: "01" },
         { id: 2, title: "جراند هايبر", subtitle: "مشاريع تجارية", titleEn: "Grand Hyper", description: "سوق تجاري يوفر تجربة تسوق فريدة مع تصميم معماري مبتكر، يشمل مساحات واسعة للمحلات التجارية وأنظمة حديثة.", descriptionEn: "A commercial market providing a unique shopping experience with innovative architectural design.", image: "/images/projects/Commercial Projects/GrandMall/1.jpg", number: "02" },
-        { id: 3, title: "دار القمره", subtitle: "مشاريع سكنية", titleEn: "Dar Al Qamrah", description: "مشروع سكني راقي يتميز بتصميم معماري فريد وموقع متميز، يوفر أعلى معايير الراحة والخصوصية.", descriptionEn: "An upscale residential project featuring a unique architectural design and distinguished location, providing the highest standards of comfort and privacy.", image: "/images/projects/Housing Projects/AJDAN/1.jpg", number: "03" },
+        { id: 3, title: "داره القمره", subtitle: "مشاريع سكنية", titleEn: "Dar Al Qamrah", description: "مشروع سكني راقي يتميز بتصميم معماري فريد وموقع متميز، يوفر أعلى معايير الراحة والخصوصية.", descriptionEn: "An upscale residential project featuring a unique architectural design and distinguished location, providing the highest standards of comfort and privacy.", image: "/images/projects/Housing Projects/AJDAN/1.jpg", number: "03" },
         { id: 4, title: "شركة مياهنا", subtitle: "مشاريع تجارية", titleEn: "Miahona Company", description: "المقر الرئيسي الجديد - مبنى إداري حديث يعكس الاحترافية والتميز، مصمم بأحدث المعايير الهندسية.", descriptionEn: "New Head Office - A modern administrative building reflecting professionalism and excellence.", image: "/images/projects/Commercial Projects/Miahona/12.jpg", number: "04" },
       ]
     },
@@ -130,23 +131,22 @@ export default function ProjectsSection() {
           <motion.p className="text-xs sm:text-sm md:text-base uppercase tracking-widest mb-1 sm:mb-2 font-bold text-[#49A799]">
             {data.subtitle}
           </motion.p>
-<motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.3] mb-1 sm:mb-2 px-4">
-  <span className="block mb-2 text-gray-900">{firstLine}</span>
-  <span className="inline-block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent py-2">
-    {secondLine}
-  </span>
-</motion.h2>
+          <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.3] mb-1 sm:mb-2 px-4">
+            <span className="block mb-2 text-gray-900">{firstLine}</span>
+            <span className="inline-block bg-gradient-to-r from-[#49A799] to-[#3A8A7E] bg-clip-text text-transparent py-2">
+              {secondLine}
+            </span>
+          </motion.h2>
           <motion.div className="mt-2">
             <div className="h-1 w-24 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] mx-auto rounded-full" />
           </motion.div>
         </motion.div>
       </section>
 
-      {/* سكشن المشاريع المصلح */}
+      {/* سكشن المشاريع */}
       <section
         ref={containerRef}
         className="relative bg-white w-full -mt-20 lg:-mt-32"
-        /* التعديل: طرح 100vh من الارتفاع الكلي لإزالة الفراغ بعد آخر مشروع */
         style={{ height: `calc(${(projects.length) * 100}vh - 100vh)` }}
       >
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
@@ -179,20 +179,42 @@ function ProjectCard({
   isPreloaded = false,
   currentLang,
 }: ProjectCardProps) {
-  const router = useRouter();
   const [imageLoaded, setImageLoaded] = useState(isPreloaded);
   const isRTL = currentLang === 'ar';
   const isFirst = index === 0;
   const isLast = index === totalProjects - 1;
 
-  // تعديل نطاق الشفافية لضمان بقاء المشروع الأخير ظاهراً
+  // ✅ حل المشكلة: نحدد opacity بناءً على active/inactive فقط
+  const [isActive, setIsActive] = useState(isFirst);
+  
+  useEffect(() => {
+    // نراقب التغير في الـ progress ونحدث isActive
+    const unsubscribe = progress.onChange((latest) => {
+      const start = range[0];
+      const end = range[1];
+      const isInRange = latest >= start && latest <= end;
+      setIsActive(isInRange);
+    });
+    
+    // تعيين القيمة الأولية
+    const initialProgress = progress.get();
+    const initialStart = range[0];
+    const initialEnd = range[1];
+    setIsActive(initialProgress >= initialStart && initialProgress <= initialEnd);
+    
+    return () => unsubscribe();
+  }, [progress, range]);
+
+  // ✅ استخدام isActive لتحديد الرؤية بدلاً من opacity المتغيرة بشكل مستمر
+  // لكن نحتاج opacity للأنيميشن، لذا نستخدمها مع pointer-events
+  
   const opacity = useTransform(
     progress,
     [range[0], range[0] + 0.05, range[1] - 0.05, range[1]],
     isFirst 
       ? [1, 1, 1, 0] 
       : isLast 
-        ? [0, 1, 1, 1] // المشروع الأخير لا يختفي في النهاية
+        ? [0, 1, 1, 1]
         : [0, 1, 1, 0]
   );
 
@@ -208,16 +230,22 @@ function ProjectCard({
     isLast ? [0.98, 1, 1, 1] : [0.98, 1, 1, 0.98]
   );
 
-  const handleExploreClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    router.push(`/${currentLang}/projects`);
-  };
+  const projectsLink = `/${currentLang}/projects`;
+
+  // ✅ الحل السحري: إضافة z-index ديناميكي و pointer-events فقط للعنصر النشط
+  const zIndex = isActive ? 50 : 0;
+  const pointerEvents = isActive ? "auto" : "none";
 
   return (
     <motion.div
       className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
-      style={{ opacity, scale, y }}
+      style={{ 
+        opacity, 
+        scale, 
+        y,
+        zIndex,
+        pointerEvents, // ✅ العناصر غير النشطة لا تستقبل أحداث النقر
+      }}
     >
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -247,11 +275,19 @@ function ProjectCard({
                 <span className="text-3xl md:text-4xl font-bold text-[#49A799]">{project.number}</span>
                 <span className="text-2xl font-light text-gray-500">/ {String(totalProjects).padStart(2, '0')}</span>
               </div>
-              <button onClick={handleExploreClick} className="group relative w-full sm:w-auto z-50 overflow-hidden rounded-lg shadow-lg" type="button">
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300">
-                  <span className="flex items-center justify-center gap-2 whitespace-nowrap">{isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}</span>
+              
+              {/* ✅ الزر الآن يعمل 100% من أول مرة */}
+              <Link href={projectsLink} className="w-full sm:w-auto">
+                <motion.div 
+                  whileHover={{ scale: 1.02 }} 
+                  whileTap={{ scale: 0.98 }} 
+                  className="relative border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300 rounded-lg cursor-pointer text-center"
+                >
+                  <span className="flex items-center justify-center gap-2 whitespace-nowrap">
+                    {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
+                  </span>
                 </motion.div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

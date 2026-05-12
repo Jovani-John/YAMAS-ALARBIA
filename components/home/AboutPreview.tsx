@@ -10,7 +10,7 @@ import {
   HiArrowRight,
   HiArrowLeft,
 } from "react-icons/hi";
-import { memo, useMemo, useRef, useState, useEffect } from "react";
+import { memo, useMemo, useRef } from "react";
 import { IconType } from "react-icons";
 
 // --- Components المكونات الفرعية ---
@@ -73,14 +73,14 @@ const StatCard = memo(({ stat, index }: { stat: StatType; index: number }) => {
 });
 StatCard.displayName = "StatCard";
 
-const FeatureItem = memo(({ feature, index }: { feature: string; index: number }) => {
+const FeatureItem = memo(({ feature, index, isRTL }: { feature: string; index: number; isRTL: boolean }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
+      initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="flex items-center gap-3 py-1"
+      className={`flex items-center gap-3 py-2 ${isRTL ? "flex-row-reverse justify-end" : ""}`}
     >
       <HiCheckCircle className="w-5 h-5 text-[#49A799] shrink-0" />
       <span className="text-gray-700 text-sm md:text-base font-medium">{feature}</span>
@@ -115,10 +115,10 @@ export default function AboutSection() {
           "تعد شركة يماس العربية للمقاولات من الشركات الرائدة في قطاع الإنشاءات، حيث نجمع بين الخبرة العميقة والابتكار الحديث. نحن ملتزمون بتقديم حلول هندسية متكاملة تلتزم بأعلى معايير الجودة والسلامة العالمية، لنكون الشريك الأول في بناء رؤيتكم وتحويلها إلى واقع ملموس.",
         cta: "اكتشف المزيد",
         stats: [
-          { icon: HiOfficeBuilding, number: "20+", label: "مشروع مكتمل" }, // تم التعديل هنا
+          { icon: HiOfficeBuilding, number: "20+", label: "مشروع مكتمل" },
           { icon: HiUserGroup, number: "24/7", label: "دعم مستمر" },
           { icon: HiGlobe, number: "4", label: "فروع دولية" },
-          { icon: HiCheckCircle, number: "100%", label: "إرضاء العملاء" }, // تم التعديل هنا
+          { icon: HiCheckCircle, number: "100%", label: "إرضاء العملاء" },
         ],
         features: [
           "فريق هندسي متخصص ذو خبرة واسعة",
@@ -132,7 +132,7 @@ export default function AboutSection() {
         title: "Yamas Al Arabia",
         titleHighlight: "Construction & Contracting",
         description:
-          "Yamas Al Arabia Construction is a leader in the building sector, blending deep expertise with modern innovation. We are committed to delivering integrated engineering solutions that adhere to the highest global standards of quality and safety.",
+          "Yamas Al Arabia Construction is a leader in the building sector, blending deep expertise with modern innovation. We are committed to delivering integrated engineering solutions that adhere to the highest global standards of quality and safety, to be the first partner in building your vision and turning it into tangible reality.",
         cta: "Discover More",
         stats: [
           { icon: HiOfficeBuilding, number: "20+", label: "Completed Projects" },
@@ -167,47 +167,109 @@ export default function AboutSection() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         style={{ opacity }}
       >
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
-          {/* نص القسم - ترتيب منسق */}
-          <div className="order-2 lg:order-1">
+          {/* القسم الأيمن (في RTL يصير أيسر) - النص والمحتوى */}
+          <div className={`order-2 lg:order-1 ${isRTL ? "text-right" : "text-left"}`}>
             <motion.span 
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               className="inline-block px-4 py-2 bg-[#49A799]/10 text-[#49A799] rounded-lg text-sm font-bold mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 bg-[#49A799]/10 text-[#49A799] rounded-lg text-sm font-bold mb-6"
             >
               {data.badge}
             </motion.span>
 
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
-              {data.title} <br />
-              <span className="text-[#49A799]">{data.titleHighlight}</span>
-            </h2>
-
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 max-w-2xl">
-              {data.description}
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-4 mb-10">
-              {data.features.map((f, i) => (
-                <FeatureItem key={i} feature={f} index={i} />
-              ))}
-            </div>
-
-            <motion.a
-              href={`/${currentLang}/about`}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#49A799] text-white rounded-xl font-bold shadow-lg hover:bg-[#3A8A7E] transition-colors"
+            {/* العنوان */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-6"
             >
-              {data.cta}
-              {isRTL ? <HiArrowLeft /> : <HiArrowRight />}
-            </motion.a>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.2] md:leading-[1.25]">
+                {isRTL ? (
+                  <>
+                    {data.title}
+                    <br />
+                    <span className="text-[#49A799]">{data.titleHighlight}</span>
+                  </>
+                ) : (
+                  <>
+                    {data.title}
+                    <br />
+                    <span className="text-[#49A799]">{data.titleHighlight}</span>
+                  </>
+                )}
+              </h2>
+            </motion.div>
+
+            {/* ✅ الوصف مع سيميتريه تامة - النص يطلع مربع */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-8"
+            >
+              <p 
+                className="text-gray-600 text-base md:text-lg leading-relaxed"
+                style={{ 
+                  textAlign: "justify", /* ✅ ده الحل السحري - بيخلي النص مربع ومتسق */
+                  textAlignLast: isRTL ? "right" : "left", /* السطر الأخير يبقى في جهته الصحيحة */
+                  wordSpacing: "normal",
+                  letterSpacing: "normal",
+                }}
+              >
+                {data.description}
+              </p>
+            </motion.div>
+
+            {/* المميزات (Features) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-10"
+            >
+              {data.features.map((f, i) => (
+                <FeatureItem key={i} feature={f} index={i} isRTL={isRTL} />
+              ))}
+            </motion.div>
+
+            {/* زر الـ CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className={`${isRTL ? "text-right" : "text-left"}`}
+            >
+              <motion.a
+                href={`/${currentLang}/about`}
+                whileHover={{ scale: 1.05, x: isRTL ? -5 : 5 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                {data.cta}
+                {isRTL ? <HiArrowLeft className="group-hover:-translate-x-1 transition" /> : <HiArrowRight className="group-hover:translate-x-1 transition" />}
+              </motion.a>
+            </motion.div>
           </div>
 
-          {/* الفيديو والإحصائيات */}
+          {/* القسم الأيسر (في RTL يصبح أيمن) - الفيديو والإحصائيات */}
           <div className="order-1 lg:order-2 space-y-6">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-gray-100">
+            {/* الفيديو */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-gradient-to-br from-gray-100 to-gray-200"
+            >
               <video
                 src="/videos/About.mp4"
                 autoPlay
@@ -216,14 +278,21 @@ export default function AboutSection() {
                 playsInline
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/10" />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </motion.div>
 
-            <div className="grid grid-cols-2 gap-4">
+            {/* الإحصائيات */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="grid grid-cols-2 gap-4"
+            >
               {data.stats.map((stat, i) => (
                 <StatCard key={i} stat={stat} index={i} />
               ))}
-            </div>
+            </motion.div>
           </div>
 
         </div>

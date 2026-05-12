@@ -84,7 +84,7 @@ export default function Navbar() {
                   src="/images/logo/logo.png"
                   alt={isRTL ? 'يماس العربية للمقاولات' : 'Yamas Construction'}
                   // تم تكبير اللوجو هنا من h-12 إلى h-16 (أو h-20 إذا أردت حجماً أضخم)
-                  className={`h-16 md:h-20 w-auto object-contain transition-all duration-300 ${
+                  className={`h-24 md:h-28 w-auto object-contain transition-all duration-300 ${
                     isScrolled ? '' : 'brightness-0 invert'
                   }`}
                 />

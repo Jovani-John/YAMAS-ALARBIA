@@ -19,9 +19,9 @@ const translations = {
     currency: 'ريال سعودي',
     stats: {
       projects: 'مشروع',
-completed: 'مكتمل',
-ongoing: 'قيد التنفيذ',
-development: 'قيد التطوير',
+      completed: 'مكتمل',
+      ongoing: 'قيد التنفيذ',
+      development: 'قيد التطوير',
       million: 'مليون'
     },
     hero: {
@@ -65,6 +65,31 @@ development: 'قيد التطوير',
   }
 };
 
+// ===== دالة الترتيب =====
+const sortProjectsByPriorityAndYear = (projects: YamasProject[]): YamasProject[] => {
+  const statusOrder = {
+    'ongoing': 1,      // قيد التنفيذ أولاً في نفس السنة
+    'completed': 2,    // المكتمل ثانياً
+    'development': 3   // قيد التطوير ثالثاً
+  };
+  
+  return [...projects].sort((a, b) => {
+    // تحويل السنة إلى رقم (مع التعامل مع القيم الفارغة)
+    const yearA = typeof a.year === 'number' ? a.year : Number(a.year) || 0;
+    const yearB = typeof b.year === 'number' ? b.year : Number(b.year) || 0;
+    
+    // أولاً: الترتيب حسب السنة (الأحدث أولاً) - دي الأولوية الأساسية
+    if (yearB !== yearA) {
+      return yearB - yearA;
+    }
+    
+    // ثانياً: لو السنة متساوية، نرتب حسب الحالة
+    const statusDiff = (statusOrder[a.status as keyof typeof statusOrder] || 99) - 
+                       (statusOrder[b.status as keyof typeof statusOrder] || 99);
+    return statusDiff;
+  });
+};
+
 // ===== SIMPLE PROJECTS LIST =====
 const SimpleProjectsList = ({ 
   projects, 
@@ -100,7 +125,7 @@ const SimpleProjectsList = ({
 
       <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
         <div className="divide-y divide-gray-100">
-          {projects.map((project, index) => (
+          {sortProjectsByPriorityAndYear(projects).map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
@@ -140,13 +165,13 @@ const SimpleProjectsList = ({
                     </div>
                   )}
 
-<div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
-  project.status === 'completed'
-    ? 'bg-emerald-500/20 border-emerald-400/30'
-    : project.status === 'development'
-    ? 'bg-blue-500/20 border-blue-400/30' 
-    : 'bg-amber-500/20 border-amber-400/30'
-}`}>
+                  <div className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
+                    project.status === 'completed'
+                      ? 'bg-emerald-500/20 border-emerald-400/30'
+                      : project.status === 'development'
+                      ? 'bg-blue-500/20 border-blue-400/30' 
+                      : 'bg-amber-500/20 border-amber-400/30'
+                  }`}>
                     {project.status === 'completed' ? (
                       <FiCheckCircle className="text-sm" />
                     ) : (
@@ -328,14 +353,15 @@ const CategorySection = ({
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-150px" });
 
-  const projectsWithImages = category.projects.filter(p => p.mainImage && p.mainImage !== '');
-  const projectsWithoutImages = category.projects.filter(p => !p.mainImage || p.mainImage === '');
+  const allSortedProjects = sortProjectsByPriorityAndYear(category.projects);
+  const projectsWithImages = allSortedProjects.filter(p => p.mainImage && p.mainImage !== '');
+  const projectsWithoutImages = allSortedProjects.filter(p => !p.mainImage || p.mainImage === '');
 
   const stats = {
     total: category.projects.length,
     completed: category.projects.filter(p => p.status === 'completed').length,
     ongoing: category.projects.filter(p => p.status === 'ongoing').length,
-development: category.projects.filter(p => p.status === 'development').length,
+    development: category.projects.filter(p => p.status === 'development').length,
     totalValue: category.projects.reduce((sum, p) => 
       sum + parseFloat(p.contractValue.replace(/,/g, '')), 0
     )
@@ -378,44 +404,44 @@ development: category.projects.filter(p => p.status === 'development').length,
               </motion.p>
             </div>
 
-<motion.div
-  initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
-  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
-  transition={{ delay: 0.4, duration: 0.6 }}
-  className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6" // غيرنا الـ 4 لـ 5 هنا
->
-  {/* إجمالي المشاريع */}
-  <div className="bg-white rounded-xl p-4 shadow-md border-t-4" style={{ borderColor: '#49A799' }}>
-    <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
-    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.projects}</div>
-  </div>
+            <motion.div
+              initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6"
+            >
+              {/* إجمالي المشاريع */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4" style={{ borderColor: '#49A799' }}>
+                <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.projects}</div>
+              </div>
 
-  {/* مكتمل */}
-  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
-    <div className="text-2xl font-bold text-gray-900">{stats.completed}</div>
-    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.completed}</div>
-  </div>
+              {/* مكتمل */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
+                <div className="text-2xl font-bold text-gray-900">{stats.completed}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.completed}</div>
+              </div>
 
-  {/* قيد التنفيذ */}
-  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
-    <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
-    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.ongoing}</div>
-  </div>
+              {/* قيد التنفيذ */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
+                <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.ongoing}</div>
+              </div>
 
-  {/* قيد التطوير - المربع الجديد الخاص بمشروع أرسيليا */}
-  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">
-    <div className="text-2xl font-bold text-gray-900">{stats.development}</div>
-    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.development}</div>
-  </div>
+              {/* قيد التطوير */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">
+                <div className="text-2xl font-bold text-gray-900">{stats.development}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.development}</div>
+              </div>
 
-  {/* الميزانية الإجمالية */}
-  <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-[#49A799]">
-    <div className="text-xl font-bold text-gray-900">
-      {(stats.totalValue / 1000000).toFixed(1)}{t.stats.million}
-    </div>
-    <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.currency}</div>
-  </div>
-</motion.div>
+              {/* الميزانية الإجمالية */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-[#49A799]">
+                <div className="text-xl font-bold text-gray-900">
+                  {(stats.totalValue / 1000000).toFixed(1)}{t.stats.million}
+                </div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.currency}</div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
 
