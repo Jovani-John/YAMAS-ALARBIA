@@ -180,34 +180,32 @@ function ProjectCard({
   currentLang,
 }: ProjectCardProps) {
   const [imageLoaded, setImageLoaded] = useState(isPreloaded);
+  const router = useRouter(); // ✅ إضافة router
   const isRTL = currentLang === 'ar';
   const isFirst = index === 0;
   const isLast = index === totalProjects - 1;
 
-  // ✅ حل المشكلة: نحدد opacity بناءً على active/inactive فقط
   const [isActive, setIsActive] = useState(isFirst);
   
   useEffect(() => {
-    // نراقب التغير في الـ progress ونحدث isActive
+    const getActive = (latest: number) => {
+      // ✅ الكارت الأول: نشط طالما لم نتجاوز نهايته (يحل مشكلة القيمة السالبة بسبب negative margin)
+      if (isFirst) return latest <= range[1];
+      // ✅ الكارت الأخير: نشط من بداية range لآخر الصفحة
+      if (isLast) return latest >= range[0];
+      return latest >= range[0] && latest <= range[1];
+    };
+
     const unsubscribe = progress.onChange((latest) => {
-      const start = range[0];
-      const end = range[1];
-      const isInRange = latest >= start && latest <= end;
-      setIsActive(isInRange);
+      setIsActive(getActive(latest));
     });
-    
-    // تعيين القيمة الأولية
-    const initialProgress = progress.get();
-    const initialStart = range[0];
-    const initialEnd = range[1];
-    setIsActive(initialProgress >= initialStart && initialProgress <= initialEnd);
-    
+
+    setIsActive(getActive(progress.get()));
+
     return () => unsubscribe();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress, range]);
 
-  // ✅ استخدام isActive لتحديد الرؤية بدلاً من opacity المتغيرة بشكل مستمر
-  // لكن نحتاج opacity للأنيميشن، لذا نستخدمها مع pointer-events
-  
   const opacity = useTransform(
     progress,
     [range[0], range[0] + 0.05, range[1] - 0.05, range[1]],
@@ -231,8 +229,6 @@ function ProjectCard({
   );
 
   const projectsLink = `/${currentLang}/projects`;
-
-  // ✅ الحل السحري: إضافة z-index ديناميكي و pointer-events فقط للعنصر النشط
   const zIndex = isActive ? 50 : 0;
   const pointerEvents = isActive ? "auto" : "none";
 
@@ -244,7 +240,7 @@ function ProjectCard({
         scale, 
         y,
         zIndex,
-        pointerEvents, // ✅ العناصر غير النشطة لا تستقبل أحداث النقر
+        pointerEvents,
       }}
     >
       <div className="w-full max-w-7xl mx-auto">
@@ -275,19 +271,18 @@ function ProjectCard({
                 <span className="text-3xl md:text-4xl font-bold text-[#49A799]">{project.number}</span>
                 <span className="text-2xl font-light text-gray-500">/ {String(totalProjects).padStart(2, '0')}</span>
               </div>
-              
-              {/* ✅ الزر الآن يعمل 100% من أول مرة */}
-              <Link href={projectsLink} className="w-full sm:w-auto">
-                <motion.div 
-                  whileHover={{ scale: 1.02 }} 
-                  whileTap={{ scale: 0.98 }} 
-                  className="relative border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300 rounded-lg cursor-pointer text-center"
-                >
-                  <span className="flex items-center justify-center gap-2 whitespace-nowrap">
-                    {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
-                  </span>
-                </motion.div>
-              </Link>
+
+              {/* ✅ التعديل الوحيد: استبدال Link+motion.div بـ button + router.push */}
+              <button
+                type="button"
+                onClick={() => router.push(projectsLink)}
+                style={{ pointerEvents: "auto", position: "relative", zIndex: 100, touchAction: "manipulation" }}
+                className="w-full sm:w-auto border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300 rounded-lg cursor-pointer text-center"
+              >
+                <span className="flex items-center justify-center gap-2 whitespace-nowrap">
+                  {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
+                </span>
+              </button>
             </div>
           </div>
         </div>
