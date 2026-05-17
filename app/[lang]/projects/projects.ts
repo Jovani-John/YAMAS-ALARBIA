@@ -86,7 +86,7 @@ const healthcareProjects: YamasProject[] = [
       "Electromechanical systems ensuring a safe and advanced operating environment",
       "Medical gas systems"
     ],
-    area: "1,500 م²",
+    area: "3200 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -201,7 +201,7 @@ const healthcareProjects: YamasProject[] = [
       "Electromechanical systems",
       "Medical systems and equipment"
     ],
-    area: "1,500 م²",
+    area: "6700 م²",
   },
   // ✅ باقي كما هو (لم يرد في Word)
   {
@@ -543,12 +543,12 @@ const educationalProjects: YamasProject[] = [
     category: "educational",
     categoryAr: "مشاريع تعليمية",
     categoryEn: "Educational Projects",
-    client: "وزارة التعليم",
+    client: "وزارةالتربية و التعليم",
     clientEn: "Ministry of Education (MOE)",
     location: "جدة، المنطقة الغربية",
     locationEn: "Jeddah, Western Area",
-    contractValue: "69,988,169",
-    year: "2019",
+    contractValue: "16,000,000",
+    year: "2021",
     status: "completed",
     mainImage: "/images/projects/Education/Banen/6.png",
     images: [
@@ -565,7 +565,7 @@ const educationalProjects: YamasProject[] = [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام والملاعب"
     ],
     scopeEn: [
       "Construction works",
@@ -573,6 +573,7 @@ const educationalProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping"
     ],
+    area: "9800 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -1166,6 +1167,8 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/Mosque/4.png",
       "/images/projects/Government Projects/Mosque/5.png",
       "/images/projects/Government Projects/Mosque/6.png",
+      "/images/projects/Government Projects/Mosque/7.png",
+      "/images/projects/Government Projects/Mosque/8.png",
     ],
     description: "تنفيذ مسجد يتسع لـ 390 مصلياً وفق تصميم معماري مدروس، مع مرافق متكاملة تشمل سكن الإمام والمؤذن وأعمال تنسيق الموقع العام.",
     descriptionEn: "Execution of a mosque accommodating 390 worshippers according to a studied architectural design, with integrated facilities including residence for the imam and muezzin and general site landscaping works.",
@@ -1185,16 +1188,16 @@ const charitableProjects: YamasProject[] = [
     {
     id: "shi5a-kalsem",
     title: "مسجد شيخه ال كلثم",
-    titleEn: "Mosque",
+    titleEn: "Mosque Shikia El Kalsem",
     category: "charitable",
     categoryAr: "مشاريع خيرية",
     categoryEn: "Charitable Projects",
     client: "",
     clientEn: "",
     location: "طريق ميناء الملك عبد عبد العزيز ",
-    locationEn: "TARMEM",
+    locationEn: "Way of king Abdel Aziz",
     contractValue: "0",
-    year: "",
+    year: "2021",
     status: "ongoing",
     mainImage: "/images/projects/Government Projects/MOSQUEELSHIQA/1.jpeg",
     images: [
@@ -1203,10 +1206,10 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/MOSQUEELSHIQA/3.png",
       "/images/projects/Government Projects/MOSQUEELSHIQA/4.png",
       "/images/projects/Government Projects/MOSQUEELSHIQA/5.png",
-      "/images/projects/Government Projects/MOSQUEELSHIQA/5.png",
     ],
-    description:" مسجد شيخه ال كلثم.",
-    descriptionEn: "",
+description: "مسجد الشيخة الكلثم — أعمال صيانة وتجديد شاملة للمسجد والحمامات، تشمل تحسين التشطيبات، رفع الكفاءة، وتطوير المرافق والخدمات العامة.",
+
+descriptionEn: "Sheikha Al Kulthum Mosque — Comprehensive maintenance and renovation works for the mosque and bathrooms, including upgraded finishes, improved facilities, and enhanced overall infrastructure.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
