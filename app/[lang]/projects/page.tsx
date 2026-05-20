@@ -415,6 +415,11 @@ const CategorySection = ({
                 <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
                 <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.projects}</div>
               </div>
+                            {/* قيد التنفيذ */}
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
+                <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.ongoing}</div>
+              </div>
 
               {/* مكتمل */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
@@ -422,11 +427,7 @@ const CategorySection = ({
                 <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.completed}</div>
               </div>
 
-              {/* قيد التنفيذ */}
-              <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
-                <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.status.ongoing}</div>
-              </div>
+
 
               {/* قيد التطوير */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">

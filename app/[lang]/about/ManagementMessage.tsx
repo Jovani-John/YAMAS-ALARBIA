@@ -2,7 +2,6 @@
 
 import { memo } from 'react';
 import { motion } from 'framer-motion';
-import { FaQuoteLeft } from 'react-icons/fa';
 
 interface Message {
   name: string;
@@ -32,7 +31,7 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
       <div className="bg-white rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden group h-full">
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-[#49A799]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
-        <div className={`relative z-10 flex ${isRTL ? 'flex-row-reverse' : 'flex-row'} h-full min-h-[280px]`}>
+        <div className={`relative z-10 flex ${isRTL ? 'flex-row-reverse' : 'flex-row'} h-full`}>
           <div className="w-1/3 md:w-40 lg:w-48 flex-shrink-0 relative">
             <div className="h-full relative overflow-hidden">
               {message.image ? (
@@ -51,32 +50,25 @@ const MessageCard = memo(({ message, index, isRTL }: { message: Message; index: 
             </div>
           </div>
 
-          <div className="flex-1 p-6 md:p-8 flex flex-col justify-center relative">
-            <div className={`absolute top-6 ${isRTL ? 'left-6' : 'right-6'}`}>
-                <div className="w-10 h-10 rounded-xl bg-[#49A799]/10 flex items-center justify-center">
-                    <FaQuoteLeft className="w-4 h-4 text-[#49A799]" />
-                </div>
-            </div>
-
+          <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
             <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
               <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-1">
                 {message.name}
               </h3>
-              <p className="text-[#49A799] font-bold text-sm md:text-base mb-4">
+              <p className="text-[#49A799] font-semibold text-sm md:text-base mb-3">
                 {message.title}
               </p>
               
-              <div className={`h-1 w-12 bg-[#49A799] rounded-full mb-4 ${isRTL ? 'ml-auto' : 'mr-auto'}`} />
+              <div className={`h-0.5 w-12 bg-[#49A799] rounded-full mb-5 ${isRTL ? 'ml-auto' : 'mr-auto'}`} />
 
-              {/* ✅ تم التعديل هنا: إزالة italic وإضافة bold و text-justify للسمتريه */}
               <p 
-                className="text-gray-600 leading-relaxed text-sm md:text-base font-bold"
+                className="text-gray-700 leading-loose text-sm md:text-base"
                 style={{ 
                   textAlign: "justify",
                   textAlignLast: isRTL ? "right" : "left"
                 }}
               >
-                "{message.message}"
+                {message.message}
               </p>
             </div>
           </div>
@@ -92,15 +84,15 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
   const enhancedMessages = [
     {
       ...data.messages[0],
-      name: isRTL ? "أ. معاذ آل كلثم" : "Mr. Mouth Al-Kaltham",
+      name: isRTL ? "أ. معاذ بن إبراهيم آل كلثم" : "Mr. Mouth Bn Ibrahim Al-Kaltham",
       title: isRTL ? "المدير العام" : "General Manager",
       message: isRTL 
-        ? "في شركة يماس العربية للمقاولات، نؤمن بأن التميز لا يتحقق فقط بتنفيذ المشاريع، بل ببناء جسور الثقة وتحقيق الجودة المستدامة. منذ التأسيس، وضعنا نصب أعيننا أن نكون شريكاً موثوقاً في التنمية، ومساهماً فاعلاً في بناء مستقبل عمراني يليق بطموحات وطننا."
+        ? "في شركة يماس العربية للمقاولات، نؤمن بأن التميز لا يتحقق فقط بتنفيذ المشاريع، بل ببناء جسور الثقة وتحقيق الجودة المستدامة. منذ التأسيس، وضعنا نصب أعيننا أن نكون شريكاً موثوقاً في التنمية، ومساهماً فاعلاً في بناء مستقبل عمراني يليق بطموحات وطننا." 
         : "At Yamas Al Arabia, we believe excellence isn't just about completing projects, but building trust and achieving sustainable quality. Since our inception, we have aimed to be a reliable partner in development and an active contributor to an urban future that matches our nation's ambitions."
     },
     {
       ...data.messages[1],
-      name: isRTL ? "مهندس أحمد النجار" : "Eng. Ahmed Al-Nagar",
+      name: isRTL ? "م. أحمد بن عثمان النجار" : "Eng. Ahmed Bn Othman Al-Nagar",
       title: isRTL ? "المدير التنفيذي" : "Executive Director",
       message: isRTL 
         ? "التميز في التنفيذ ليس خياراً، بل هو التزام نعيشه كل يوم. نحن نجمع بين الخبرة الهندسية العميقة والتقنيات الحديثة لضمان تسليم مشاريع بأعلى معايير الجودة والسلامة. فريقنا المتخصص يعمل بشغف لتحويل كل تصميم هندسي إلى واقع ملموس يفوق توقعات عملائنا."
@@ -127,7 +119,7 @@ const ManagementMessage = memo(({ data, isRTL }: ManagementMessageProps) => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-black text-gray-900"
+            className="text-3xl md:text-4xl font-black text-gray-900"
           >
             {data.subtitle}
           </motion.h2>

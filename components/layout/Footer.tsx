@@ -76,7 +76,6 @@ export default function Footer() {
     { name: currentContent.links.contact, href: `/${currentLang}/contact` },
   ];
 
-  // تجميع أيقونات السوشيال ميديا: أول 4 أيقونات و剩下的 3
   const socialEntries = Object.entries(SOCIAL_LINKS);
   const firstRowIcons = socialEntries.slice(0, 4);
   const secondRowIcons = socialEntries.slice(4, 7);
@@ -142,7 +141,6 @@ export default function Footer() {
             </p>
             <p className="text-gray-900 text-base mb-4 font-semibold">{currentContent.followUs}</p>
             
-            {/* أيقونات السوشيال ميديا: 4 في الصف الأول و 3 تحتها */}
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-3">
                 {firstRowIcons.map(([platform, url], index) => {
@@ -195,10 +193,10 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Column 2: Quick Links - مع إضافة padding-top للمحاذاة مع نهاية اللوجو */}
+          {/* Column 2: Quick Links */}
           <motion.div 
             custom={1} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}
-            className="lg:col-span-1 pt-8 lg:pt-12"  // ✅ إضافة padding-top للمحاذاة
+            className="lg:col-span-1 pt-8 lg:pt-12"
           >
             <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{currentContent.quickLinks}</h4>
             <div className="w-12 h-1 bg-gray-900/30 rounded-full mb-6" />
@@ -214,35 +212,48 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Column 3: Contact Info - مع إضافة padding-top للمحاذاة مع نهاية اللوجو */}
+          {/* Column 3: Contact Info - تم تعديل المربعات هنا */}
           <motion.div 
             custom={2} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={columnVariants}
-            className="lg:col-span-1 pt-8 lg:pt-12"  // ✅ إضافة padding-top للمحاذاة
+            className="lg:col-span-1 pt-8 lg:pt-12"
           >
             <h4 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{currentContent.contactInfo}</h4>
             <div className="w-12 h-1 bg-gray-900/30 rounded-full mb-6" />
             <div className="space-y-4">
+              
+              {/* Phone Item */}
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaPhone className="text-gray-900 text-base" /></div>
+                <div className="w-11 h-11 flex-shrink-0 bg-white/20 rounded-lg border border-gray-900/10 flex items-center justify-center">
+                  <FaPhone className="text-gray-900 text-base" />
+                </div>
                 <div>
                   <p className="font-bold text-base text-gray-900">{currentContent.ourPhone}</p>
                   <a href={`tel:${currentContent.phone2.replace(/\s/g, '')}`} className="text-gray-800 text-sm md:text-base block mt-1 font-medium" dir="ltr">{currentContent.phone2}</a>
                 </div>
               </div>
+              
+              {/* Email Item */}
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><FaEnvelope className="text-gray-900 text-base" /></div>
+                <div className="w-11 h-11 flex-shrink-0 bg-white/20 rounded-lg border border-gray-900/10 flex items-center justify-center">
+                  <FaEnvelope className="text-gray-900 text-base" />
+                </div>
                 <div>
                   <p className="font-bold text-base text-gray-900">{currentContent.ourEmail}</p>
                   <a href={`mailto:${currentContent.email}`} className="text-gray-800 text-sm md:text-base font-medium">{currentContent.email}</a>
                 </div>
               </div>
+              
+              {/* CR Item */}
               <div className="flex items-start gap-4">
-                <div className="bg-white/20 p-2.5 rounded-lg border border-gray-900/10"><span className="text-gray-900 text-sm font-bold">CR</span></div>
+                <div className="w-11 h-11 flex-shrink-0 bg-white/20 rounded-lg border border-gray-900/10 flex items-center justify-center">
+                  <span className="text-gray-900 text-xs font-bold tracking-tighter">CR</span>
+                </div>
                 <div>
                   <p className="font-bold text-base text-gray-900">{currentContent.crNumber}</p>
                   <p className="text-gray-800 text-sm md:text-base font-medium" dir="ltr">{currentContent.cr}</p>
                 </div>
               </div>
+
             </div>
           </motion.div>
         </div>

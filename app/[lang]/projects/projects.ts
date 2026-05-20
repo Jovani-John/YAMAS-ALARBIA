@@ -1240,6 +1240,36 @@ const sortProjectsByDate = (projects: YamasProject[]): YamasProject[] => {
 // PROJECT CATEGORIES EXPORT
 // ============================================
 export const projectCategories: ProjectCategory[] = [
+    {
+    id: "housing",
+    nameAr: "المشاريع السكنية",
+    nameEn: "Housing Projects",
+    description: "مجمعات سكنية فاخرة ومتكاملة وفلل راقية",
+    descriptionEn: "Luxury integrated residential complexes and upscale villas",
+    icon: "🏘️",
+    color: "#059669",
+    projects: sortProjectsByDate(housingProjects),
+  },
+    {
+    id: "towers",
+    nameAr: "مشاريع الأبراج",
+    nameEn: "Towers Projects",
+    description: "أبراج سكنية وتجارية متعددة الأدوار",
+    descriptionEn: "Multi-story residential and commercial towers",
+    icon: "🏗️",
+    color: "#EC4899",
+    projects: sortProjectsByDate(towersProjects),
+  },
+    {
+    id: "commercial",
+    nameAr: "المشاريع التجارية",
+    nameEn: "Commercial Projects",
+    description: "مولات ومراكز أعمال ومكاتب إدارية",
+    descriptionEn: "Malls, business centers and administrative offices",
+    icon: "🏢",
+    color: "#7C3AED",
+    projects: sortProjectsByDate(commercialProjects),
+  },
   {
     id: "healthcare",
     nameAr: "المشاريع الصحية",
@@ -1250,36 +1280,9 @@ export const projectCategories: ProjectCategory[] = [
     color: "#DC2626",
     projects: sortProjectsByDate(healthcareProjects),
   },
-  {
-    id: "housing",
-    nameAr: "المشاريع السكنية",
-    nameEn: "Housing Projects",
-    description: "مجمعات سكنية فاخرة ومتكاملة وفلل راقية",
-    descriptionEn: "Luxury integrated residential complexes and upscale villas",
-    icon: "🏘️",
-    color: "#059669",
-    projects: sortProjectsByDate(housingProjects),
-  },
-  {
-    id: "towers",
-    nameAr: "مشاريع الأبراج",
-    nameEn: "Towers Projects",
-    description: "أبراج سكنية وتجارية متعددة الأدوار",
-    descriptionEn: "Multi-story residential and commercial towers",
-    icon: "🏗️",
-    color: "#EC4899",
-    projects: sortProjectsByDate(towersProjects),
-  },
-  {
-    id: "commercial",
-    nameAr: "المشاريع التجارية",
-    nameEn: "Commercial Projects",
-    description: "مولات ومراكز أعمال ومكاتب إدارية",
-    descriptionEn: "Malls, business centers and administrative offices",
-    icon: "🏢",
-    color: "#7C3AED",
-    projects: sortProjectsByDate(commercialProjects),
-  },
+
+
+
   {
     id: "educational",
     nameAr: "المشاريع التعليمية",

@@ -46,7 +46,7 @@ export const aboutContent = {
       ],
     },
     stats: [
-      { icon: HiOfficeBuilding, number: '+21', label: 'مشاريع مكتملة' },
+      { icon: HiOfficeBuilding, number: '+2', label: 'مشاريع مكتملة' },
       { icon: HiUserGroup, number: '24 ساعه', label: ' دعم مستمر' },
       { icon: HiGlobe, number: '4', label: 'فروع دولية' },
       { icon: HiCheckCircle, number: '9', label: 'المشاريع قيد التنفيذ' },

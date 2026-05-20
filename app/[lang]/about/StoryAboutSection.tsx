@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; 
 import { HiPlay, HiPause } from 'react-icons/hi';
 
 interface StorySectionProps {
@@ -49,7 +49,6 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
     }
   };
 
-  // النصوص الجديدة بدون أرقام أو تواريخ
   const cleanDescription = isRTL 
     ? "بدأت يماس العربية للمقاولات رحلتها برؤية واضحة: أن نكون الشريك الأكثر موثوقية في تحويل الأحلام إلى واقع ملموس. من خلال العمل الدؤوب، نجحنا في بناء سمعة قوية تقوم على الجودة والابتكار والالتزام."
     : "Yamas Al Arabia for Contracting began its journey with a clear vision: to be the most reliable partner in turning dreams into reality. Through diligent work, we have succeeded in building a strong reputation based on quality, innovation, and commitment.";
@@ -58,7 +57,8 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
     ? "اليوم، نفخر بأننا أحد أبرز الشركات الرائدة في مجال المقاولات والإنشاءات، مع محفظة مشاريع متنوعة تشمل كافة القطاعات الحيوية. نحن نؤمن بأن كل مشروع هو فرصة لتقديم قيمة استثنائية لعملائنا وللمجتمع."
     : "Today, we are proud to be one of the leading companies in the field of contracting and construction, with a diverse portfolio of projects. We believe every project is an opportunity to provide exceptional value to our clients and the community.";
 
-  const containerVariants = {
+  // ✅ تحديد النوع بشكل صريح كـ Variants لمنع أي تعارض في TypeScript
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -69,7 +69,8 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
     }
   };
 
-  const itemVariants = {
+  // ✅ تحديد النوع بشكل صريح كـ Variants وإضافة as const للـ ease
+  const itemVariants: Variants = {
     hidden: { y: 40, opacity: 0 },
     visible: {
       y: 0,
@@ -85,6 +86,7 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
     <section 
       ref={sectionRef}
       className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden"
+      dir={isRTL ? 'rtl' : 'ltr'}
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 sm:w-72 sm:h-72 bg-gradient-to-br from-[#49A799]/10 to-[#3A8A7E]/10 rounded-full blur-xl" />
@@ -126,35 +128,47 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* النصوص */}
           <motion.div
             initial={{ opacity: 0, x: isRTL ? 60 : -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" as const }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-8"
           >
-            <motion.div className="relative">
-              <div className={`absolute ${isRTL ? '-right-3 sm:-right-4' : '-left-3 sm:-left-4'} top-0 w-0.5 sm:w-1 h-full bg-gradient-to-b from-[#49A799] to-transparent rounded-full`} />
-              <p className={`text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed sm:leading-loose ${isRTL ? 'pr-4 sm:pr-6' : 'pl-4 sm:pl-6'}`}>
+            {/* النص الأول */}
+            <div className="relative">
+              <div className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-0 w-1 h-full bg-gradient-to-b from-[#49A799] to-transparent rounded-full`} />
+              <p 
+                className={`text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed text-justify ${
+                  isRTL ? 'pr-6' : 'pl-6'
+                }`}
+              >
                 {cleanDescription}
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div className="relative">
-              <div className={`absolute ${isRTL ? '-right-3 sm:-right-4' : '-left-3 sm:-left-4'} top-0 w-0.5 sm:w-1 h-full bg-gradient-to-b from-[#49A799] to-transparent rounded-full`} />
-              <p className={`text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed sm:leading-loose ${isRTL ? 'pr-4 sm:pr-6' : 'pl-4 sm:pl-6'}`}>
+            {/* النص الثاني */}
+            <div className="relative">
+              <div className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-0 w-1 h-full bg-gradient-to-b from-[#49A799] to-transparent rounded-full`} />
+              <p 
+                className={`text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed text-justify ${
+                  isRTL ? 'pr-6' : 'pl-6'
+                }`}
+              >
                 {cleanDescription2}
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
+          {/* الفيديو */}
           <motion.div
             initial={{ opacity: 0, x: isRTL ? -60 : 60, scale: 0.95 }}
             animate={isInView ? { opacity: 1, x: 0, scale: 1 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" as const }}
             className="relative group"
           >
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg sm:shadow-2xl h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] xl:h-[500px]">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-gray-900 aspect-[4/3] sm:aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/10]">
               <video
                 ref={videoRef}
                 src="/videos/About.mp4"
@@ -164,19 +178,21 @@ const StorySection = memo(({ data, isRTL }: StorySectionProps) => {
                 loop
                 playsInline
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-              <motion.button
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
+              
+              {/* زر التحكم في الفيديو */}
+              <button
                 onClick={togglePlay}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm p-4 rounded-full border border-white/30 z-10"
+                className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm p-2.5 rounded-full hover:bg-black/70 transition-all duration-300 z-10 opacity-0 group-hover:opacity-100"
+                aria-label={isPlaying ? 'Pause' : 'Play'}
               >
-                {isPlaying ? <HiPause className="text-white text-2xl" /> : <HiPlay className="text-white text-2xl" />}
-              </motion.button>
+                {isPlaying ? (
+                  <HiPause className="text-white text-lg" />
+                ) : (
+                  <HiPlay className="text-white text-lg" />
+                )}
+              </button>
             </div>
-
-            <motion.div className={`absolute -bottom-4 ${isRTL ? '-right-4' : '-left-4'} bg-[#49A799] text-white px-6 py-4 rounded-xl shadow-lg z-20`}>
-              <div className="text-3xl font-black">24/7</div>
-              <div className="text-xs font-medium">{isRTL ? 'دعم مستمر' : 'Support'}</div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
