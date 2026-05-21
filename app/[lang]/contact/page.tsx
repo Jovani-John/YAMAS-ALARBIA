@@ -31,14 +31,12 @@ const SOCIAL_LINKS = {
 // ─── Branch coordinates (exact GPS for each office address) ──────────────────
 const BRANCHES = {
   riyadh: {
-    // Northern Ring Road ∩ Abu Bakr Al-Siddiq, Al-Wadi, Riyadh
-    lat: 24.7521,
-    lng: 46.6871,
+    lat: 24.76,
+    lng: 46.6970,
   },
   khobar: {
-    // King Fahd Ibn Abd-Alaziz Road, Al-Rakah Al-Janubiyah, Al-Khobar
-    lat: 26.2363,
-    lng: 50.2047,
+    lat: 26.33,
+    lng: 50.204,
   },
 } as const;
 
@@ -249,7 +247,7 @@ export default function ContactPage() {
       <div className="h-[400px] md:h-[500px]">
         <MapContainer
           center={[lat, lng]}
-          zoom={16}
+          zoom={17}
           scrollWheelZoom={false}
           style={{ height: '100%', width: '100%' }}
         >

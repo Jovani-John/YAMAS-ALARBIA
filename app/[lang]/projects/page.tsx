@@ -427,8 +427,6 @@ const CategorySection = ({
                 <div className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>{t.stats.completed}</div>
               </div>
 
-
-
               {/* قيد التطوير */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">
                 <div className="text-2xl font-bold text-gray-900">{stats.development}</div>
@@ -614,22 +612,27 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
+            {/* المشاريع الإجمالية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {totalStats.projects}
+                {totalStats.projects}+
               </div>
               <div className="text-sm text-white/90 font-medium" style={{ fontFamily: 'Alexandria, sans-serif' }}>
                 {t.hero.stats.totalProjects}
               </div>
             </div>
+
+            {/* المشاريع المكتملة */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {totalStats.completed}
+                {totalStats.completed}+
               </div>
               <div className="text-sm text-white/90 font-medium" style={{ fontFamily: 'Alexandria, sans-serif' }}>
                 {t.hero.stats.completed}
               </div>
             </div>
+
+            {/* المشاريع الجارية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
                 {totalStats.ongoing}
@@ -638,6 +641,8 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
                 {t.hero.stats.ongoing}
               </div>
             </div>
+
+            {/* القيمة الإجمالية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
                 {(totalStats.totalValue / 1000000000).toFixed(1)}{t.hero.stats.billion}
