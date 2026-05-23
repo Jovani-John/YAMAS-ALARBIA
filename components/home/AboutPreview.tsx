@@ -115,7 +115,7 @@ export default function AboutSection() {
           "تعد شركة يماس العربية للمقاولات من الشركات الرائدة في قطاع الإنشاءات، حيث نجمع بين الخبرة العميقة والابتكار الحديث. نحن ملتزمون بتقديم حلول هندسية متكاملة تلتزم بأعلى معايير الجودة والسلامة العالمية، لنكون الشريك الأول في بناء رؤيتكم وتحويلها إلى واقع ملموس.",
         cta: "اكتشف المزيد",
         stats: [
-          { icon: HiOfficeBuilding, number: "20+", label: "مشروع مكتمل" },
+          { icon: HiOfficeBuilding, number: "21+", label: "مشروع مكتمل" },
           { icon: HiUserGroup, number: "24/7", label: "دعم مستمر" },
           { icon: HiGlobe, number: "4", label: "فروع دولية" },
           { icon: HiCheckCircle, number: "100%", label: "إرضاء العملاء" },
@@ -135,7 +135,7 @@ export default function AboutSection() {
           "Yamas Al Arabia Construction is a leader in the building sector, blending deep expertise with modern innovation. We are committed to delivering integrated engineering solutions that adhere to the highest global standards of quality and safety, to be the first partner in building your vision and turning it into tangible reality.",
         cta: "Discover More",
         stats: [
-          { icon: HiOfficeBuilding, number: "20+", label: "Completed Projects" },
+          { icon: HiOfficeBuilding, number: "21+", label: "Completed Projects" },
           { icon: HiUserGroup, number: "24/7", label: "Constant Support" },
           { icon: HiGlobe, number: "4", label: "Global Branches" },
           { icon: HiCheckCircle, number: "100%", label: "Client Satisfaction" },

@@ -8,7 +8,7 @@ import { HiArrowDown } from 'react-icons/hi';
 // Memoized Stats Component
 const StatsSection = memo(({ currentLang }: { currentLang: string }) => {
   const stats = [
-    { number: '20+', label: currentLang === 'ar' ? 'مشاريع مكتملة' : 'Projects' },
+    { number: '2+', label: currentLang === 'ar' ? 'مشاريع مكتملة' : 'Projects' },
     { number: '24/7', label: currentLang === 'ar' ? 'دعم مستمر' : 'Outgoing Support' },
     { number: '100%', label: currentLang === 'ar' ? 'ثقة الشركات' : 'Business Client Satisfaction' },
   ];
@@ -242,9 +242,9 @@ export default function HeroSection() {
               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               className="flex flex-col items-center gap-2 text-white/80 cursor-pointer hover:text-white transition-colors"
             >
-              <span className="text-sm font-light tracking-wider">
+              {/* <span className="text-sm font-light tracking-wider">
                 {currentLang === 'ar' ? 'اكتشف المزيد' : 'Discover More'}
-              </span>
+              </span> */}
               <HiArrowDown className="text-2xl" />
             </motion.div>
           </motion.div>

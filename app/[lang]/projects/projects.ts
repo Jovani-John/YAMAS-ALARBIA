@@ -20,7 +20,7 @@ export interface YamasProject {
   clientEn?: string;
   location: string;
   locationEn: string;
-  contractValue: string;
+  contractValue?: string;
   year: string;
   status: "completed" | "ongoing" | "development";
   mainImage: string;
@@ -258,9 +258,9 @@ const housingProjects: YamasProject[] = [
     status: "ongoing",
     mainImage: "/images/projects/Housing Projects/Al-FursanFacade/3.png",
     images: [
+      "/images/projects/Housing Projects/Al-FursanFacade/3.png",
       "/images/projects/Housing Projects/Al-FursanFacade/1.png",
       "/images/projects/Housing Projects/Al-FursanFacade/2.png",
-      "/images/projects/Housing Projects/Al-FursanFacade/3.png",
       "/images/projects/Housing Projects/Al-FursanFacade/4.png",
       "/images/projects/Housing Projects/Al-FursanFacade/5.png",
       "/images/projects/Housing Projects/Al-FursanFacade/6.png",
@@ -299,12 +299,12 @@ const housingProjects: YamasProject[] = [
     images: [
       "/images/projects/Housing Projects/Arceilia/2.png",
       "/images/projects/Housing Projects/Arceilia/5.png",
-      "/images/projects/Housing Projects/Arceilia/6.png",
       "/images/projects/Housing Projects/Arceilia/7.png",
+      "/images/projects/Housing Projects/Arceilia/15.png",
       "/images/projects/Housing Projects/Arceilia/8.png",
+      "/images/projects/Housing Projects/Arceilia/6.png",
       "/images/projects/Housing Projects/Arceilia/9.png",
       "/images/projects/Housing Projects/Arceilia/10.png",
-      "/images/projects/Housing Projects/Arceilia/15.png",
       "/images/projects/Housing Projects/Arceilia/18.png",
       "/images/projects/Housing Projects/Arceilia/19.png",
     ],
@@ -340,15 +340,15 @@ const housingProjects: YamasProject[] = [
     mainImage: "/images/projects/Housing Projects/AJDAN/1.jpg",
     images: [
       "/images/projects/Housing Projects/AJDAN/1.jpg",
-      "/images/projects/Housing Projects/AJDAN/16.png",
-      // "/images/projects/Housing Projects/AJDAN/5.jpg",
+      "/images/projects/Housing Projects/AJDAN/8.jpg",
+      "/images/projects/Housing Projects/AJDAN/9.jpg",
       "/images/projects/Housing Projects/AJDAN/14.png",
       "/images/projects/Housing Projects/AJDAN/15.png",
+      "/images/projects/Housing Projects/AJDAN/16.png",
+      // "/images/projects/Housing Projects/AJDAN/5.jpg",
       // "/images/projects/Housing Projects/AJDAN/4.jpg",
-      "/images/projects/Housing Projects/AJDAN/8.jpg",
       "/images/projects/Housing Projects/AJDAN/12.png",
       "/images/projects/Housing Projects/AJDAN/13.png",
-      "/images/projects/Housing Projects/AJDAN/9.jpg",
     ],
     description: "تنفيذ مشروع سكني متكامل يضم 220 فيلا فاخرة بتصاميم حديثة موزعة على أدوار متعددة، مع أعمال بناء وتشطيبات وأنظمة هندسية متكاملة. يبرز المشروع خبرة في تطوير مجتمعات سكنية راقية تجمع بين جودة التنفيذ وتكامل العناصر المعمارية والخدمية.",
     descriptionEn: "Execution of an integrated residential project comprising 220 luxury villas with modern designs distributed over multiple floors, including construction, finishing, and integrated engineering systems. The project highlights expertise in developing upscale residential communities combining execution quality with integrated architectural and service elements.",
@@ -382,10 +382,10 @@ const housingProjects: YamasProject[] = [
     mainImage: "/images/projects/Housing Projects/Fulwa/3.jfif",
     images: [
       "/images/projects/Housing Projects/Fulwa/1.png",
-      "/images/projects/Housing Projects/Fulwa/2.png",
       "/images/projects/Housing Projects/Fulwa/3.jfif",
       "/images/projects/Housing Projects/Fulwa/4.jfif",
       "/images/projects/Housing Projects/Fulwa/5.jfif",
+      "/images/projects/Housing Projects/Fulwa/2.png",
     ],
     description: "تنفيذ مشروع سكني واسع النطاق يضم 439 فيلا فاخرة وفق معايير روشن، بتصاميم حديثة تمتد على مساحات مدروسة تعكس جودة التخطيط والتنفيذ. يجسد المشروع نموذجاً متكاملاً للتطوير السكني الراقي، مع اهتمام بالتفاصيل المعمارية وتطبيق أعلى معايير الجودة في البناء والتشطيبات.",
     descriptionEn: "Execution of a large-scale residential project comprising 439 luxury villas according to Roshn standards, with modern designs extending over well-studied areas reflecting planning and execution quality. The project embodies an integrated model for upscale residential development, with attention to architectural details and application of highest quality standards in construction and finishes.",
@@ -703,6 +703,11 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/GrandMall/2.jpeg",
       "/images/projects/Commercial Projects/GrandMall/3.jpeg",
       "/images/projects/Commercial Projects/GrandMall/4.jpeg",
+      "/images/projects/Commercial Projects/GrandMall/5.png",
+      "/images/projects/Commercial Projects/GrandMall/6.png",
+      "/images/projects/Commercial Projects/GrandMall/7.png",
+      "/images/projects/Commercial Projects/GrandMall/8.png",
+      "/images/projects/Commercial Projects/GrandMall/9.png",
     ],
     description: "تطوير وجهة تجارية متكاملة بمساحة 16,000 م² تضم هايبر ماركت ومحلات متعددة، مع بنية خدمية متقدمة تشمل مواقف ضخمة ومحطة كهرباء مستقلة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
     descriptionEn: "Development of an integrated commercial destination with area of 16,000 sqm, including a hypermarket and multiple shops, with advanced service structure including massive parking and independent electrical substation. The project embodies high executive capability in managing and operating major commercial projects efficiently and in an organized manner enhancing user experience.",
@@ -734,7 +739,7 @@ const commercialProjects: YamasProject[] = [
     clientEn: "Miahona Company",
     location: "الرياض، المنطقة الوسطى",
     locationEn: "Riyadh, Central Area",
-    contractValue: "12,000,000",
+    contractValue: "5,000,000",
     year: "2025",
     status: "completed",
     mainImage: "/images/projects/Commercial Projects/Miahona/1.jpg",
@@ -765,6 +770,7 @@ const commercialProjects: YamasProject[] = [
       "Electromechanical systems",
       "Interior furnishing works"
     ],
+    area: "5,200 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -902,6 +908,13 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Rima1/2.jpg",
       "/images/projects/buildings/Rima1/3.jpg",
       "/images/projects/buildings/Rima1/7.png",
+      // "/images/projects/buildings/Rima1/4.png",
+      "/images/projects/buildings/Rima1/5.png",
+      "/images/projects/buildings/Rima1/6.png",
+      "/images/projects/buildings/Rima1/8.png",
+      "/images/projects/buildings/Rima1/9.png",
+      "/images/projects/buildings/Rima1/10.png",
+      "/images/projects/buildings/Rima1/11.png",
     ],
     description: "تنفيذ برج سكني مكوّن من 15 طابقاً بتصميم عصري، يضم مرافق متكاملة تشمل مواقف سيارات، مركزاً رياضياً، ومساحات استقبال وخدمات. يجسد المشروع مستوى متقدماً في تطوير المباني السكنية متعددة الأدوار، مع اهتمام بجودة التفاصيل وتكامل المرافق لتعزيز تجربة السكن.",
     descriptionEn: "Execution of a residential tower of 15 floors with modern design, including integrated facilities such as parking, a sports center, and reception and service areas. The project embodies an advanced level in developing multi-story residential buildings, with attention to quality of details and integration of facilities to enhance the living experience.",
@@ -941,10 +954,10 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Rima2/3.jpg",
       "/images/projects/buildings/Rima2/4.jpg",
       "/images/projects/buildings/Rima2/5.jpg",
-      "/images/projects/buildings/Rima2/6.png",
-      "/images/projects/buildings/Rima2/7.png",
-      "/images/projects/buildings/Rima2/8.png",
-      "/images/projects/buildings/Rima2/9.png",
+      // "/images/projects/buildings/Rima2/6.png",
+      // "/images/projects/buildings/Rima2/7.png",
+      // "/images/projects/buildings/Rima2/8.png",
+      // "/images/projects/buildings/Rima2/9.png",
     ],
     description: "تطوير برج سكني متكامل بارتفاع 15 طابقاً، يجمع بين الوحدات السكنية الفاخرة ومواقف السيارات، بالإضافة إلى  استقبال ومجلس ضمن تصميم مدروس. يعبر المشروع عن نهج متقدم في تنفيذ الأبراج السكنية مع التركيز على كفاءة توزيع المساحات وجودة التنفيذ في جميع التفاصيل.",
     descriptionEn: "Development of an integrated residential tower of 15 floors, combining luxury residential units and parking, in addition to a reception hall and a majlis within a studied design. The project expresses an advanced approach in executing residential towers, focusing on efficiency of space distribution and execution quality in all details.",
@@ -1004,6 +1017,7 @@ const towersProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping"
     ],
+    area: "24,000 م²",
   },
   // ✅ باقي كما هو (لم يرد في Word)
   {
@@ -1015,14 +1029,14 @@ const towersProjects: YamasProject[] = [
     categoryEn: "Towers Projects",
     client: "قطاع خاص",
     clientEn: "Private Sector",
-    location: "الباحة، منطقة الباحة",
+    location: "الباحة، منطقة الجنوبية",
     locationEn: "Al-Baha, Al-Baha Region",
     contractValue: "85,000,000",
     year: "2019",
     status: "completed",
     mainImage: "",
     images: [],
-    description: "إنشاء برج سكني وتجاري في مدينة الباحة",
+    description: "إنشاء برج سكني وتجاري",
     descriptionEn: "Construction of residential and commercial tower in Al-Baha city",
     scope: [
       "وحدات سكنية",
@@ -1157,7 +1171,7 @@ const charitableProjects: YamasProject[] = [
     category: "charitable",
     categoryAr: "مشاريع خيرية",
     categoryEn: "Charitable Projects",
-    client: "جمعية أعمر",
+    client: "جمعية يعمر للعناية بالمساجد",
     clientEn: "Aamar Association",
     location: "الدمام، المنطقة الشرقية",
     locationEn: "Dammam, Eastern Area",
@@ -1174,8 +1188,11 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/Mosque/6.png",
       "/images/projects/Government Projects/Mosque/7.png",
       "/images/projects/Government Projects/Mosque/8.png",
+      "/images/projects/Government Projects/Mosque/9.png",
+      "/images/projects/Government Projects/Mosque/10.png",
+      "/images/projects/Government Projects/Mosque/11.png",
     ],
-    description: "تنفيذ مسجد يتسع لـ 390 مصلياً وفق تصميم معماري مدروس، مع مرافق متكاملة تشمل سكن الإمام والمؤذن وأعمال تنسيق الموقع العام.",
+    description: "تنفيذ مسجد يتسع لـ 390 مصلياً وفق تصميم معماري مدروس، مع مرافق متكاملة وأعمال تنسيق الموقع العام.",
     descriptionEn: "Execution of a mosque accommodating 390 worshippers according to a studied architectural design, with integrated facilities including residence for the imam and muezzin and general site landscaping works.",
     scope: [
       "الأعمال الإنشائية",
@@ -1189,20 +1206,20 @@ const charitableProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping"
     ],
+     area: "3776 م²",
   },
     {
     id: "shi5a-kalsem",
-    title: "مسجد شيخه ال كلثم",
+    title: "مسجد شيخة بنت على ال كلثم",
     titleEn: "Mosque Shikia El Kalsem",
     category: "charitable",
     categoryAr: "مشاريع خيرية",
     categoryEn: "Charitable Projects",
-    client: "",
+    client: "جمعية يعمر للعناية بالمسجد",
     clientEn: "",
-    location: "طريق ميناء الملك عبد عبد العزيز ",
+    location: "الدمام ، المنطقة الشرقية",
     locationEn: "Way of king Abdel Aziz",
-    contractValue: "0",
-    year: "2021",
+    year: "2026",
     status: "ongoing",
     mainImage: "/images/projects/Government Projects/MOSQUEELSHIQA/1.jpeg",
     images: [
@@ -1212,14 +1229,12 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/MOSQUEELSHIQA/4.png",
       "/images/projects/Government Projects/MOSQUEELSHIQA/5.png",
     ],
-description: "مسجد الشيخة الكلثم — أعمال صيانة وتجديد شاملة للمسجد والحمامات، تشمل تحسين التشطيبات، رفع الكفاءة، وتطوير المرافق والخدمات العامة.",
+description: "شيخة بنت على ال كلثم — أعمال صيانة وتجديد  للمسجد والحمامات، تشمل تحسين التشطيبات، رفع الكفاءة، وتطوير المرافق والخدمات العامة.",
 
 descriptionEn: "Sheikha Al Kulthum Mosque — Comprehensive maintenance and renovation works for the mosque and bathrooms, including upgraded finishes, improved facilities, and enhanced overall infrastructure.",
     scope: [
-      "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
     ],
     scopeEn: [
       "Construction works",
@@ -1247,7 +1262,7 @@ const sortProjectsByDate = (projects: YamasProject[]): YamasProject[] => {
 export const projectCategories: ProjectCategory[] = [
     {
     id: "housing",
-    nameAr: "المشاريع السكنية",
+    nameAr: "مشاريع السكنية",
     nameEn: "Housing Projects",
     description: "مجمعات سكنية فاخرة ومتكاملة وفلل راقية",
     descriptionEn: "Luxury integrated residential complexes and upscale villas",
@@ -1358,19 +1373,19 @@ export const getCategoryStats = () => {
     totalProjects: cat.projects.length,
     completedProjects: cat.projects.filter((p) => p.status === "completed").length,
     ongoingProjects: cat.projects.filter((p) => p.status === "ongoing").length,
-    totalValue: cat.projects.reduce(
-      (sum, p) => sum + parseFloat(p.contractValue.replace(/,/g, "")),
-      0
-    ),
+totalValue: cat.projects.reduce(
+  (sum, p) => sum + (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
+  0
+),
   }));
 };
 
 export const getCompanyStats = () => {
   const allProjects = getAllProjects();
   const totalValue = allProjects.reduce(
-    (sum, p) => sum + parseFloat(p.contractValue.replace(/,/g, "")),
-    0
-  );
+  (sum, p) => sum + (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
+  0
+);
 
   return {
     totalProjects: allProjects.length,

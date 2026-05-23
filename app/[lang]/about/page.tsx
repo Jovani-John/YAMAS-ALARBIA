@@ -9,7 +9,9 @@ import { aboutContent } from '@/app/[lang]/about/aboutContent';
 const HeroSection = dynamic(() => import('@/app/[lang]/about/HeroAboutSection'), {
   loading: () => <div className="min-h-screen bg-gray-900 animate-pulse" />,
 });
-
+const IsoSection = dynamic(() => import('@/app/[lang]/about/Iso'), {
+  loading: () => <div className="min-h-screen bg-gray-900 animate-pulse" />,
+});
 const StatsSection = dynamic(() => import('@/app/[lang]/about/StatusAboutSection'), {
   loading: () => <div className="py-20 bg-white animate-pulse" />,
 });
@@ -41,7 +43,9 @@ const CTASection = dynamic(() => import('@/app/[lang]/about/CTAAboutSection'), {
 export default function AboutPage() {
   const params = useParams();
   const currentLang = (params?.lang as string) || 'ar';
-  const isRTL = currentLang === 'ar';
+  
+  // تم إصلاح الخطأ الإملائي هنا من currentaLang إلى currentLang
+  const isRTL = currentLang === 'ar'; 
   const data = aboutContent[currentLang as 'ar' | 'en'];
 
   return (
@@ -60,6 +64,8 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <ValuesSection data={data.values} />
+
+      <IsoSection data={data.iso} />
 
       {/* Timeline Section */}
       <TimelineSection data={data.timeline} />

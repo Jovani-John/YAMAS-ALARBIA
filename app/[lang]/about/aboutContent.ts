@@ -34,7 +34,7 @@ export const aboutContent = {
         {
           name: 'أ.معاذ ال كلثم',
           title: 'المدير العام',
-          message:'في شركة يماس العربية للمقاولات، نؤمن بأن التميّز في قطاع المقاولات لا يتحقق فقط بتنفيذ المشاريع، بل ببناء الثقة، وتحقيق الجودة، والوفاء بالالتزامات.منذ تأسيس الشركة، وضعنا نصب أعيننا أن نكون شريكًا موثوقًا في التنمية، ومساهمًا فاعلًا في بناء مستقبل عمراني يليق بطموحات وطننا.',
+          message: 'في شركة يماس العربية للمقاولات، نؤمن بأن التميّز في قطاع المقاولات لا يتحقق فقط بتنفيذ المشاريع، بل ببناء الثقة، وتحقيق الجودة، والوفاء بالالتزامات.منذ تأسيس الشركة، وضعنا نصب أعيننا أن نكون شريكًا موثوقًا في التنمية، ومساهمًا فاعلًا في بناء مستقبل عمراني يليق بطموحات وطننا.',
           image: '/images/team/1-1.png',
         },
         {
@@ -170,6 +170,41 @@ export const aboutContent = {
         },
       ],
     },
+    // ========== قسم ISO الجديد ==========
+    iso: {
+      certificates: [
+        {
+          id: 'iso-9001',
+          standard: 'ISO 9001:2015',
+          titleAr: 'نظام إدارة الجودة',
+          titleEn: 'Quality Management System',
+          color: '#49A799',
+          borderColor: 'border-[#49A799]',
+          imageUrl: '/images/iso/1.png',
+        },
+        {
+          id: 'iso-14001',
+          standard: 'ISO 14001:2015',
+          titleAr: 'نظام الإدارة البيئية',
+          titleEn: 'Environmental Management System',
+          color: '#2563EB',
+          borderColor: 'border-blue-600',
+          imageUrl: '/images/iso/2.png',
+        },
+        {
+          id: 'iso-45001',
+          standard: 'ISO 45001:2018',
+          titleAr: 'نظام إدارة الصحة والسلامة المهنية',
+          titleEn: 'Occupational Health & Safety Management System',
+          color: '#DC2626',
+          borderColor: 'border-red-600',
+          imageUrl: '/images/iso/3.png',
+        },
+      ],
+      certifyingBody: 'AMERICO QUALITY STANDARDS REGISTECH PVT. LTD',
+      accreditation: 'معتمدة من UAF و IAF الدوليتين',
+    },
+    // ========== نهاية قسم ISO ==========
     certificates: {
       title: 'شهاداتنا المعتمدة',
       subtitle: 'ضمان الجودة والامتثال الدولي',
@@ -402,6 +437,41 @@ export const aboutContent = {
         },
       ],
     },
+    // ========== قسم ISO الجديد ==========
+    iso: {
+      certificates: [
+        {
+          id: 'iso-9001',
+          standard: 'ISO 9001:2015',
+          titleAr: 'Quality Management System',
+          titleEn: 'Quality Management System',
+          color: '#49A799',
+          borderColor: 'border-[#49A799]',
+          imageUrl: '/images/iso/1.png',
+        },
+        {
+          id: 'iso-14001',
+          standard: 'ISO 14001:2015',
+          titleAr: 'Environmental Management System',
+          titleEn: 'Environmental Management System',
+          color: '#2563EB',
+          borderColor: 'border-blue-600',
+          imageUrl: '/images/iso/2.png',
+        },
+        {
+          id: 'iso-45001',
+          standard: 'ISO 45001:2018',
+          titleAr: 'Occupational Health & Safety Management System',
+          titleEn: 'Occupational Health & Safety Management System',
+          color: '#DC2626',
+          borderColor: 'border-red-600',
+          imageUrl: '/images/iso/3.png',
+        },
+      ],
+      certifyingBody: 'AMERICO QUALITY STANDARDS REGISTECH PVT. LTD',
+      accreditation: 'Accredited by UAF & IAF International',
+    },
+    // ========== نهاية قسم ISO ==========
     certificates: {
       title: 'Our Certifications',
       subtitle: 'International Quality and Compliance Assurance',

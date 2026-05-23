@@ -140,9 +140,9 @@ const ImageLightbox = ({
 // ===== RELATED PROJECTS COMPONENT =====
 const RelatedProjects = ({ currentProject, isRTL, t }: { currentProject: YamasProject, isRTL: boolean, t: any }) => {
   const category = projectCategories.find(cat => cat.id === currentProject.category);
-  const relatedProjects = category?.projects
-    .filter(p => p.id !== currentProject.id)
-    .slice(0, 3) || [];
+ const relatedProjects = category?.projects
+  .filter(p => p.id !== currentProject.id && p.mainImage && p.mainImage !== '')
+  .slice(0, 3) || [];
 
   if (relatedProjects.length === 0) return null;
 
@@ -415,8 +415,10 @@ export default function ProjectDetailPage() {
                 </h3>
               </div>
               <p className="text-2xl font-bold text-gray-900">
-                {parseFloat(project.contractValue.replace(/,/g, '')).toLocaleString()}
-              </p>
+{project.contractValue && project.contractValue !== "0"
+  ? parseFloat((project.contractValue ?? "0").replace(/,/g, '')).toLocaleString()
+  : '-'
+}              </p>
               <p className="text-sm text-gray-600" style={{ fontFamily: 'Alexandria, sans-serif' }}>
                 {t.currency}
               </p>

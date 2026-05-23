@@ -28,6 +28,12 @@ const SOCIAL_LINKS = {
   snapchat:  'https://www.snapchat.com/@yamasalarabia',
 } as const;
 
+// ─── Google Maps links ────────────────────────────────────────────────────────
+const GOOGLE_MAPS_LINKS = {
+  riyadh: 'https://maps.app.goo.gl/kJ9nUifbdgczE9hx8',
+  khobar: 'https://maps.app.goo.gl/SAkPDYZH4Gpt6EzL8',
+} as const;
+
 // ─── Branch coordinates (exact GPS for each office address) ──────────────────
 const BRANCHES = {
   riyadh: {
@@ -57,14 +63,10 @@ const getCustomIcon = () => {
           <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#1a1a1a" flood-opacity="0.35"/>
         </filter>
       </defs>
-      <!-- body -->
       <path d="M20 0C10.6 0 3 7.8 3 17.4c0 12.3 17 33 17 33s17-20.7 17-33C37 7.8 29.4 0 20 0z"
             fill="url(#pinGrad)" filter="url(#shadow)"/>
-      <!-- inner white circle -->
       <circle cx="20" cy="17" r="8" fill="white" opacity="0.95"/>
-      <!-- brand dot -->
       <circle cx="20" cy="17" r="4.5" fill="#2E7A71"/>
-      <!-- subtle shine -->
       <ellipse cx="16" cy="12" rx="3.5" ry="2" fill="white" opacity="0.25"/>
     </svg>`;
 
@@ -72,7 +74,7 @@ const getCustomIcon = () => {
     className: '',
     html: svgPin,
     iconSize:    [40, 52],
-    iconAnchor:  [20, 52],   // tip of the pin
+    iconAnchor:  [20, 52],
     popupAnchor: [0, -54],
   });
 };
@@ -90,7 +92,6 @@ export default function ContactPage() {
   const [isLoading,    setIsLoading]    = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  // Custom icon instance (hydrated once on client)
   const [customIcon, setCustomIcon] = useState<ReturnType<typeof getCustomIcon>>();
   useEffect(() => { setCustomIcon(getCustomIcon()); }, []);
 
@@ -220,7 +221,7 @@ export default function ContactPage() {
   const socialConfig = {
     instagram: { Icon: FaInstagram, color: 'from-purple-500 to-pink-500' },
     facebook:  { Icon: FaFacebook,  color: 'from-blue-600 to-blue-700'   },
-    x:         { Icon: FaXTwitter,  color: 'from-gray-800 to-black'       },
+    x:         { Icon: FaXTwitter,  color: 'from-gray-800 to-black'        },
     linkedin:  { Icon: FaLinkedin,  color: 'from-blue-700 to-blue-800'    },
     whatsapp:  { Icon: FaWhatsapp,  color: 'from-green-500 to-green-600'  },
     tiktok:    { Icon: FaTiktok,    color: 'from-gray-900 to-black'        },
@@ -256,7 +257,15 @@ export default function ContactPage() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           />
           {customIcon && (
-            <Marker position={[lat, lng]} icon={customIcon}>
+            <Marker
+              position={[lat, lng]}
+              icon={customIcon}
+              eventHandlers={{
+                click: () => {
+                  window.open(GOOGLE_MAPS_LINKS[branch], '_blank', 'noopener,noreferrer');
+                },
+              }}
+            >
               <Popup>
                 <strong style={{ color: '#2E7A71' }}>{label}</strong>
               </Popup>
@@ -349,7 +358,7 @@ export default function ContactPage() {
                 {/* Row 1 */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    { field: 'name',  label: t.form.name,  type: 'text',  required: true },
+                    { field: 'name',   label: t.form.name,  type: 'text',  required: true },
                     { field: 'email', label: t.form.email, type: 'email', required: true },
                   ].map(({ field, label, type, required }) => (
                     <motion.div key={field} variants={itemVariants}>
