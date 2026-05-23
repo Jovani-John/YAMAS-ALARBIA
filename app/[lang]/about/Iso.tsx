@@ -155,8 +155,8 @@ export default function ISOSection({ lang = 'ar', data }: ISOSectionProps) {
               >
                 {isRTL ? (
                   <>
-                    جودة مضمونة{' '}
-                    <span className="text-[#49A799]">عالمياً</span>
+                 امتياذ مٌعتمد{' '}
+                    <span className="text-[#49A799]">في الجودة</span>
                   </>
                 ) : (
                   <>
