@@ -463,6 +463,7 @@ const housingProjects: YamasProject[] = [
       "Electrical, mechanical & plumbing works",
       "Landscaping & external works",
     ],
+    area: "161200 م²",
   },
   // ✅ باقي كما هو
   // {
@@ -841,6 +842,31 @@ const commercialProjects: YamasProject[] = [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems"
+    ],
+  },
+    {
+    id: "banda",
+    title: "مشروع بندة تسليم مفتاح ",
+    titleEn: "Banda Taslem Moftah",
+    category: "commercial",
+    categoryAr: "مشاريع تجارية",
+    categoryEn: "Commercial Projects",
+    client: "",
+    clientEn: "",
+    location: "مدينة تبوك",
+    locationEn: "Tobok",
+    contractValue: "25,000,000",
+    year: "2019",
+    status: "completed",
+    mainImage: "",
+    images: [],
+    description: "",
+    descriptionEn: "",
+    scope: [
+
+    ],
+    scopeEn: [
+
     ],
   },
 ];
