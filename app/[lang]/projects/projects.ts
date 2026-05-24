@@ -858,15 +858,27 @@ const commercialProjects: YamasProject[] = [
     contractValue: "25,000,000",
     year: "2019",
     status: "completed",
-    mainImage: "",
-    images: [],
-    description: "",
+    mainImage: "/images/projects/Commercial Projects/Banda/1.jfif",
+    images: [
+      "/images/projects/Commercial Projects/Banda/1.jfif",
+      "/images/projects/Commercial Projects/Banda/2.jfif",
+      "/images/projects/Commercial Projects/Banda/3.jfif",
+      "/images/projects/Commercial Projects/Banda/4.jfif",
+    ],
+description: "تطوير وجهة تجارية متكاملة مع بنية خدمية متقدمة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
     descriptionEn: "",
     scope: [
-
+      "أعمال التشطيبات الداخلية والخارجية",
+      "الأنظمة الكهروميكانيكية",
+      "أعمال الموقع العام واللاند سكيب",
+      "أعمال التجهيزات والمعدات الداخلية"
     ],
     scopeEn: [
-
+      "Construction works",
+      "Interior and exterior finishing works",
+      "Electromechanical systems",
+      "General site works and landscaping",
+      "Interior equipment and fittings works"
     ],
   },
 ];
