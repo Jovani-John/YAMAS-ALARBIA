@@ -73,20 +73,32 @@ const StatCard = memo(({ stat, index }: { stat: StatType; index: number }) => {
 });
 StatCard.displayName = "StatCard";
 
-const FeatureItem = memo(({ feature, index, isRTL }: { feature: string; index: number; isRTL: boolean }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className={`flex items-center gap-3 py-2 ${isRTL ? "flex-row-reverse justify-end" : ""}`}
-    >
-      <HiCheckCircle className="w-5 h-5 text-[#49A799] shrink-0" />
-      <span className="text-gray-700 text-sm md:text-base font-medium">{feature}</span>
-    </motion.div>
-  );
-});
+const FeatureItem = memo(
+  ({
+    feature,
+    index,
+    isRTL,
+  }: {
+    feature: string;
+    index: number;
+    isRTL: boolean;
+  }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className={`flex items-center gap-3 py-2 ${isRTL ? "flex-row-reverse justify-end" : ""}`}
+      >
+        <HiCheckCircle className="w-5 h-5 text-[#49A799] shrink-0" />
+        <span className="text-gray-700 text-sm md:text-base font-medium">
+          {feature}
+        </span>
+      </motion.div>
+    );
+  },
+);
 FeatureItem.displayName = "FeatureItem";
 
 // --- Main Component المكون الرئيسي ---
@@ -115,7 +127,7 @@ export default function AboutSection() {
           "تعد شركة يماس العربية للمقاولات من الشركات الرائدة في قطاع الإنشاءات، حيث نجمع بين الخبرة العميقة والابتكار الحديث. نحن ملتزمون بتقديم حلول هندسية متكاملة تلتزم بأعلى معايير الجودة والسلامة العالمية، لنكون الشريك الأول في بناء رؤيتكم وتحويلها إلى واقع ملموس.",
         cta: "اكتشف المزيد",
         stats: [
-          { icon: HiOfficeBuilding, number: "22+", label: "مشروع مكتمل" },
+          { icon: HiOfficeBuilding, number: "23+", label: "مشروع مكتمل" },
           { icon: HiUserGroup, number: "24/7", label: "دعم مستمر" },
           { icon: HiGlobe, number: "4", label: "فروع دولية" },
           { icon: HiCheckCircle, number: "100%", label: "إرضاء العملاء" },
@@ -135,7 +147,7 @@ export default function AboutSection() {
           "Yamas Al Arabia Construction is a leader in the building sector, blending deep expertise with modern innovation. We are committed to delivering integrated engineering solutions that adhere to the highest global standards of quality and safety, to be the first partner in building your vision and turning it into tangible reality.",
         cta: "Discover More",
         stats: [
-          { icon: HiOfficeBuilding, number: "22+", label: "Completed Projects" },
+          { icon: HiOfficeBuilding, number: "", label: "Completed Projects" },
           { icon: HiUserGroup, number: "24/7", label: "Constant Support" },
           { icon: HiGlobe, number: "4", label: "Global Branches" },
           { icon: HiCheckCircle, number: "100%", label: "Client Satisfaction" },
@@ -163,15 +175,16 @@ export default function AboutSection() {
         className="absolute -top-24 -left-24 w-96 h-96 bg-[#49A799]/5 rounded-full blur-3xl"
       />
 
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         style={{ opacity }}
       >
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          
           {/* القسم الأيمن (في RTL يصير أيسر) - النص والمحتوى */}
-          <div className={`order-2 lg:order-1 ${isRTL ? "text-right" : "text-left"}`}>
-            <motion.span 
+          <div
+            className={`order-2 lg:order-1 ${isRTL ? "text-right" : "text-left"}`}
+          >
+            <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -194,13 +207,17 @@ export default function AboutSection() {
                   <>
                     {data.title}
                     <br />
-                    <span className="text-[#49A799]">{data.titleHighlight}</span>
+                    <span className="text-[#49A799]">
+                      {data.titleHighlight}
+                    </span>
                   </>
                 ) : (
                   <>
                     {data.title}
                     <br />
-                    <span className="text-[#49A799]">{data.titleHighlight}</span>
+                    <span className="text-[#49A799]">
+                      {data.titleHighlight}
+                    </span>
                   </>
                 )}
               </h2>
@@ -214,11 +231,14 @@ export default function AboutSection() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-8"
             >
-              <p 
+              <p
                 className="text-gray-600 text-base md:text-lg leading-relaxed"
-                style={{ 
-                  textAlign: "justify", /* ✅ ده الحل السحري - بيخلي النص مربع ومتسق */
-                  textAlignLast: isRTL ? "right" : "left", /* السطر الأخير يبقى في جهته الصحيحة */
+                style={{
+                  textAlign:
+                    "justify" /* ✅ ده الحل السحري - بيخلي النص مربع ومتسق */,
+                  textAlignLast: isRTL
+                    ? "right"
+                    : "left" /* السطر الأخير يبقى في جهته الصحيحة */,
                   wordSpacing: "normal",
                   letterSpacing: "normal",
                 }}
@@ -255,7 +275,11 @@ export default function AboutSection() {
                 className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#49A799] to-[#3A8A7E] text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 {data.cta}
-                {isRTL ? <HiArrowLeft className="group-hover:-translate-x-1 transition" /> : <HiArrowRight className="group-hover:translate-x-1 transition" />}
+                {isRTL ? (
+                  <HiArrowLeft className="group-hover:-translate-x-1 transition" />
+                ) : (
+                  <HiArrowRight className="group-hover:translate-x-1 transition" />
+                )}
               </motion.a>
             </motion.div>
           </div>
@@ -294,7 +318,6 @@ export default function AboutSection() {
               ))}
             </motion.div>
           </div>
-
         </div>
       </motion.div>
     </section>

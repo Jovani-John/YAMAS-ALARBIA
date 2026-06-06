@@ -72,19 +72,21 @@ const healthcareProjects: YamasProject[] = [
       "/images/projects/Healthcare/OneDaySurgery/4.png",
       "/images/projects/Healthcare/OneDaySurgery/5.png",
     ],
-    description: "تنفيذ مبنى جراحة اليوم الواحد وفق أعلى المعايير الهندسية والطبية، متضمناً تجهيز غرف العمليات وغرف الإفاقة ووفقا للمعايير الطبيه وكذلك معايير SABAHI. يشمل المشروع الأعمال الإنشائية وأعمال التشطيبات والأنظمة الكهروميكانيكية وأنظمة الغازات الطبية.",
-    descriptionEn: "Execution of a one-day surgery building according to the highest engineering and medical standards, including preparation of operating rooms and recovery rooms according to medical standards and SABAHI standards. The project includes construction works, finishing works, electromechanical systems, and medical gas systems.",
+    description:
+      "تنفيذ مبنى جراحة اليوم الواحد وفق أعلى المعايير الهندسية والطبية، متضمناً تجهيز غرف العمليات وغرف الإفاقة ووفقا للمعايير الطبيه وكذلك معايير SABAHI. يشمل المشروع الأعمال الإنشائية وأعمال التشطيبات والأنظمة الكهروميكانيكية وأنظمة الغازات الطبية.",
+    descriptionEn:
+      "Execution of a one-day surgery building according to the highest engineering and medical standards, including preparation of operating rooms and recovery rooms according to medical standards and SABAHI standards. The project includes construction works, finishing works, electromechanical systems, and medical gas systems.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات",
       "الأنظمة الكهروميكانيكية بما يضمن بيئة تشغيل آمنة ومتطورة",
-      "أنظمة الغازات الطبية"
+      "أنظمة الغازات الطبية",
     ],
     scopeEn: [
       "Construction works",
       "Finishing works",
       "Electromechanical systems ensuring a safe and advanced operating environment",
-      "Medical gas systems"
+      "Medical gas systems",
     ],
     area: "3200 م²",
   },
@@ -111,19 +113,21 @@ const healthcareProjects: YamasProject[] = [
       "/images/projects/Healthcare/Constructionof100Bed/4.png",
       "/images/projects/Healthcare/Constructionof100Bed/5.png",
     ],
-    description: "إنشاء وتجهيز منشأة صحية متكاملة بطاقة استيعابية 100 سرير، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم متطلبات بيئة الرعاية الطبية الحديثة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات، الأنظمة الكهروميكانيكية، وأنظمة الغازات الطبية.",
-    descriptionEn: "Construction and equipping of an integrated healthcare facility with capacity of 100 beds, including interior works and operating systems supporting modern medical care environment requirements. The project includes: construction works, finishing works, electromechanical systems, and medical gas systems.",
+    description:
+      "إنشاء وتجهيز منشأة صحية متكاملة بطاقة استيعابية 100 سرير، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم متطلبات بيئة الرعاية الطبية الحديثة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات، الأنظمة الكهروميكانيكية، وأنظمة الغازات الطبية.",
+    descriptionEn:
+      "Construction and equipping of an integrated healthcare facility with capacity of 100 beds, including interior works and operating systems supporting modern medical care environment requirements. The project includes: construction works, finishing works, electromechanical systems, and medical gas systems.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات",
       "الأنظمة الكهروميكانيكية",
-      "أنظمة الغازات الطبية"
+      "أنظمة الغازات الطبية",
     ],
     scopeEn: [
       "Construction works",
       "Finishing works",
       "Electromechanical systems",
-      "Medical gas systems"
+      "Medical gas systems",
     ],
     area: "1,500 م²",
   },
@@ -149,19 +153,20 @@ const healthcareProjects: YamasProject[] = [
       "/images/projects/Healthcare/vaccine-center-64-bed/3.png",
       "/images/projects/Healthcare/vaccine-center-64-bed/4.png",
     ],
-    description: "إنشاء مركز تطعيم متكامل يضم 64 غرفة، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم الكفاءة العالية واستمرارية الخدمة. يعكس المشروع قدرة تنفيذية على إدارة كثافة التشغيل وتقديم خدمات صحية بجودة وسرعة وفق المعايير المعتمدة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات، الأنظمة الكهروميكانيكية، وأنظمة الغازات الطبية.",
-    descriptionEn: "Construction of an integrated vaccination center comprising 64 rooms, including interior works and operating systems supporting high efficiency and service continuity. The project reflects executive capability in managing operational density and delivering quality health services quickly according to approved standards. The project includes: construction works, finishing works, electromechanical systems, and medical gas systems.",
+    description:
+      "إنشاء مركز تطعيم متكامل يضم 64 غرفة، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم الكفاءة العالية واستمرارية الخدمة. يعكس المشروع قدرة تنفيذية على إدارة كثافة التشغيل وتقديم خدمات صحية بجودة وسرعة وفق المعايير المعتمدة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات،الكهروميكانيكية .",
+    descriptionEn:
+      "Construction of an integrated vaccination center comprising 64 rooms, including interior works and operating systems supporting high efficiency and service continuity. The project reflects executive capability in managing operational density and delivering quality health services quickly according to approved standards. The project includes: construction works, finishing works, electromechanical systems, and medical gas systems.",
     scope: [
-      "الأعمال الإنشائية",
+      "الأعمال المعارية",
       "أعمال التشطيبات",
       "الأنظمة الكهروميكانيكية",
-      "أنظمة الغازات الطبية"
     ],
     scopeEn: [
       "Construction works",
       "Finishing works",
       "Electromechanical systems",
-      "Medical gas systems"
+      "Medical gas systems",
     ],
     area: "1,250 م²",
   },
@@ -187,19 +192,20 @@ const healthcareProjects: YamasProject[] = [
       "/images/projects/Healthcare/AbhaHospital300Beds/3.png",
       "/images/projects/Healthcare/AbhaHospital300Beds/4.png",
     ],
-    description: "تنفيذ مشروع مستشفى متكامل بسعة 300 سرير، يشمل أعمال إنشائية وتشطيبات داخلية وأنظمة تشغيل متطورة تلبي متطلبات المرافق الصحية الحديثة. يعكس المشروع خبرة متقدمة في إدارة وتنفيذ المشاريع الطبية الكبرى وفق أعلى معايير الجودة والكفاءة التشغيلية. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات، الأنظمة الكهروميكانيكية، والأنظمة والمعدات الطبية.",
-    descriptionEn: "Execution of an integrated hospital project with capacity of 300 beds, including construction works, interior finishes, and advanced operating systems meeting modern healthcare facility requirements. The project reflects advanced expertise in managing and executing major medical projects according to highest quality and operational efficiency standards. The project includes: construction works, finishing works, electromechanical systems, and medical systems and equipment.",
+    description:
+      "تنفيذ مشروع مستشفى متكامل بسعة 300 سرير، يشمل أعمال إنشائية وتشطيبات داخلية وأنظمة تشغيل متطورة تلبي متطلبات المرافق الصحية الحديثة. يعكس المشروع خبرة متقدمة في إدارة وتنفيذ المشاريع الطبية الكبرى وفق أعلى معايير الجودة والكفاءة التشغيلية. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات، الأنظمة الكهروميكانيكية.",
+    descriptionEn:
+      "Execution of an integrated hospital project with capacity of 300 beds, including construction works, interior finishes, and advanced operating systems meeting modern healthcare facility requirements. The project reflects advanced expertise in managing and executing major medical projects according to highest quality and operational efficiency standards. The project includes: construction works, finishing works, electromechanical systems, and medical systems and equipment.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات",
       "الأنظمة الكهروميكانيكية",
-      "الأنظمة والمعدات الطبية"
     ],
     scopeEn: [
       "Construction works",
       "Finishing works",
       "Electromechanical systems",
-      "Medical systems and equipment"
+      "Medical systems and equipment",
     ],
     area: "6700 م²",
   },
@@ -266,17 +272,19 @@ const housingProjects: YamasProject[] = [
       "/images/projects/Housing Projects/Al-FursanFacade/6.png",
       "/images/projects/Housing Projects/Al-FursanFacade/7.png",
     ],
-    description: "تنفيذ مشروع سكني متكامل يضم 67 فيلا بتصميمين معماريين مختلفين، مع أعمال بناء وتشطيبات عالية الجودة وأنظمة تشغيل متكاملة. يعكس المشروع مستوى متقدم في تطوير المجتمعات السكنية وفق معايير حديثة تلبي متطلبات جودة الحياة.",
-    descriptionEn: "Execution of an integrated residential project comprising 67 villas with two different architectural designs, including high-quality construction, finishes, and integrated operating systems. The project reflects an advanced level in developing residential communities according to modern standards meeting quality of life requirements.",
+    description:
+      "تنفيذ مشروع سكني متكامل يضم 67 فيلا بتصميمين معماريين مختلفين، مع أعمال بناء وتشطيبات عالية الجودة وأنظمة تشغيل متكاملة. يعكس المشروع مستوى متقدم في تطوير المجتمعات السكنية وفق معايير حديثة تلبي متطلبات جودة الحياة.",
+    descriptionEn:
+      "Execution of an integrated residential project comprising 67 villas with two different architectural designs, including high-quality construction, finishes, and integrated operating systems. The project reflects an advanced level in developing residential communities according to modern standards meeting quality of life requirements.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية"
+      "الأنظمة الكهروميكانيكية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
-      "Electromechanical systems"
+      "Electromechanical systems",
     ],
     area: "22,000 م²",
   },
@@ -308,17 +316,19 @@ const housingProjects: YamasProject[] = [
       "/images/projects/Housing Projects/Arceilia/18.png",
       "/images/projects/Housing Projects/Arceilia/19.png",
     ],
-    description: "تنفيذ مشروع سكني فاخر يضم 32 فيلا بأربعة تصاميم معمارية أنيقة، مع تشطيبات عالية الجودة وأنظمة تشغيل متكاملة. يعكس المشروع مستوى متقدم في تنفيذ الوحدات السكنية الراقية بما يواكب معايير الفخامة والتميز.",
-    descriptionEn: "Execution of a luxury residential project comprising 32 villas with four elegant architectural designs, with high-quality finishes and integrated operating systems. The project reflects an advanced level in executing upscale residential units in line with luxury and distinction standards.",
+    description:
+      "تنفيذ مشروع سكني فاخر يضم 32 فيلا بأربعة تصاميم معمارية أنيقة، مع تشطيبات عالية الجودة وأنظمة تشغيل متكاملة. يعكس المشروع مستوى متقدم في تنفيذ الوحدات السكنية الراقية بما يواكب معايير الفخامة والتميز.",
+    descriptionEn:
+      "Execution of a luxury residential project comprising 32 villas with four elegant architectural designs, with high-quality finishes and integrated operating systems. The project reflects an advanced level in executing upscale residential units in line with luxury and distinction standards.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية"
+      "الأنظمة الكهروميكانيكية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
-      "Electromechanical systems"
+      "Electromechanical systems",
     ],
     area: "10,000 م²",
   },
@@ -350,17 +360,19 @@ const housingProjects: YamasProject[] = [
       "/images/projects/Housing Projects/AJDAN/12.png",
       "/images/projects/Housing Projects/AJDAN/13.png",
     ],
-    description: "تنفيذ مشروع سكني متكامل يضم 220 فيلا فاخرة بتصاميم حديثة موزعة على أدوار متعددة، مع أعمال بناء وتشطيبات وأنظمة هندسية متكاملة. يبرز المشروع خبرة في تطوير مجتمعات سكنية راقية تجمع بين جودة التنفيذ وتكامل العناصر المعمارية والخدمية.",
-    descriptionEn: "Execution of an integrated residential project comprising 220 luxury villas with modern designs distributed over multiple floors, including construction, finishing, and integrated engineering systems. The project highlights expertise in developing upscale residential communities combining execution quality with integrated architectural and service elements.",
+    description:
+      "تنفيذ مشروع سكني متكامل يضم 220 فيلا فاخرة بتصاميم حديثة موزعة على أدوار متعددة، مع أعمال بناء وتشطيبات وأنظمة هندسية متكاملة. يبرز المشروع خبرة في تطوير مجتمعات سكنية راقية تجمع بين جودة التنفيذ وتكامل العناصر المعمارية والخدمية.",
+    descriptionEn:
+      "Execution of an integrated residential project comprising 220 luxury villas with modern designs distributed over multiple floors, including construction, finishing, and integrated engineering systems. The project highlights expertise in developing upscale residential communities combining execution quality with integrated architectural and service elements.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية"
+      "الأنظمة الكهروميكانيكية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
-      "Electromechanical systems"
+      "Electromechanical systems",
     ],
     area: "300,000 م²",
   },
@@ -381,23 +393,25 @@ const housingProjects: YamasProject[] = [
     status: "development",
     mainImage: "/images/projects/Housing Projects/Fulwa/3.jfif",
     images: [
-      "/images/projects/Housing Projects/Fulwa/1.png",
+      // "/images/projects/Housing Projects/Fulwa/1.png",
       "/images/projects/Housing Projects/Fulwa/3.jfif",
       "/images/projects/Housing Projects/Fulwa/4.jfif",
       "/images/projects/Housing Projects/Fulwa/5.jfif",
       "/images/projects/Housing Projects/Fulwa/2.png",
     ],
-    description: "تنفيذ مشروع سكني واسع النطاق يضم 439 فيلا فاخرة وفق معايير روشن، بتصاميم حديثة تمتد على مساحات مدروسة تعكس جودة التخطيط والتنفيذ. يجسد المشروع نموذجاً متكاملاً للتطوير السكني الراقي، مع اهتمام بالتفاصيل المعمارية وتطبيق أعلى معايير الجودة في البناء والتشطيبات.",
-    descriptionEn: "Execution of a large-scale residential project comprising 439 luxury villas according to Roshn standards, with modern designs extending over well-studied areas reflecting planning and execution quality. The project embodies an integrated model for upscale residential development, with attention to architectural details and application of highest quality standards in construction and finishes.",
+    description:
+      "تنفيذ مشروع سكني واسع النطاق يضم 439 فيلا فاخرة وفق معايير روشن، بتصاميم حديثة تمتد على مساحات مدروسة تعكس جودة التخطيط والتنفيذ. يجسد المشروع نموذجاً متكاملاً للتطوير السكني الراقي، مع اهتمام بالتفاصيل المعمارية وتطبيق أعلى معايير الجودة في البناء والتشطيبات.",
+    descriptionEn:
+      "Execution of a large-scale residential project comprising 439 luxury villas according to Roshn standards, with modern designs extending over well-studied areas reflecting planning and execution quality. The project embodies an integrated model for upscale residential development, with attention to architectural details and application of highest quality standards in construction and finishes.",
     scope: [
       "الأعمال الإنشائية من البريكاست",
       "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية"
+      "الأنظمة الكهروميكانيكية",
     ],
     scopeEn: [
       "Precast construction works",
       "Interior and exterior finishing works",
-      "Electromechanical systems"
+      "Electromechanical systems",
     ],
     area: "153,650 م²",
   },
@@ -418,8 +432,10 @@ const housingProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح  حسب مواصفات وجودة شركة أرامكو السعودية ، بمساحة بناء 59,600 متر مربع",
-    descriptionEn: "Finishing works for 149 luxury villas with ground, first, and roof floors at NHC level, 59,600 sqm built-up area",
+    description:
+      "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح  حسب مواصفات وجودة شركة أرامكو السعودية ، بمساحة بناء 59,600 متر مربع",
+    descriptionEn:
+      "Finishing works for 149 luxury villas with ground, first, and roof floors at NHC level, 59,600 sqm built-up area",
     scope: [
       "تصميم وتنفيذ أعمال التشطيبات الفاخرة",
       "الأعمال الكهربائية والميكانيكية",
@@ -454,7 +470,7 @@ const housingProjects: YamasProject[] = [
       "أعمال البناء",
       "أعمال التشطيبات",
       "الأعمال الكهربائية والميكانيكية",
-      "Landscaping",
+      "لاند سكيب",
     ],
     scopeEn: [
       "Design & execution",
@@ -519,26 +535,28 @@ const educationalProjects: YamasProject[] = [
     location: "الظهران، المنطقة الشرقية",
     locationEn: "Dhahran, Eastern Area",
     contractValue: "13,000,000",
-    year: "2026",
+    year: "2025",
     status: "completed",
     mainImage: "/images/projects/Education/KingFahdUniversity/1.png",
     images: [
       "/images/projects/Education/KingFahdUniversity/1.png",
       "/images/projects/Education/KingFahdUniversity/2.png",
     ],
-    description: "تنفيذ أعمال صيانة وترميم شاملة لخمسة مبانٍ، مع تحديث الأنظمة الهندسية والتشطيبات بما يواكب المعايير الحديثة. يجسد المشروع دقة في إعادة إحياء المباني ورفع كفاءتها لتواكب أعلى مستويات الأداء والاستدامة.",
-    descriptionEn: "Execution of comprehensive maintenance and restoration works for five buildings, updating engineering systems and finishes in line with modern standards. The project embodies precision in reviving buildings and raising their efficiency to meet highest levels of performance and sustainability.",
+    description:
+      "تنفيذ أعمال صيانة وترميم شاملة لخمسة مبانٍ، مع تحديث الأنظمة الهندسية والتشطيبات بما يواكب المعايير الحديثة. يجسد المشروع دقة في إعادة إحياء المباني ورفع كفاءتها لتواكب أعلى مستويات الأداء والاستدامة.",
+    descriptionEn:
+      "Execution of comprehensive maintenance and restoration works for five buildings, updating engineering systems and finishes in line with modern standards. The project embodies precision in reviving buildings and raising their efficiency to meet highest levels of performance and sustainability.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
   // ✅ محدث من ملف Word
@@ -563,21 +581,23 @@ const educationalProjects: YamasProject[] = [
       "/images/projects/Education/Banen/3.png",
       "/images/projects/Education/Banen/4.png",
       "/images/projects/Education/Banen/5.png",
-      "/images/projects/Education/Banen/7.png"
+      "/images/projects/Education/Banen/7.png",
     ],
-    description: "تصميم وتنفيذ مجمع تعليمي يعكس رؤية معمارية حديثة، من خلال توزيع مدروس للكتل والممرات يحقق كفاءة الحركة وتكامل الفراغات التعليمية. يبرز المشروع كبيئة تعليمية متوازنة تجمع بين الوظيفة والجمال المعماري، مع اهتمام بالتفاصيل وجودة التنفيذ.",
-    descriptionEn: "Design and execution of an educational complex reflecting a modern architectural vision, through a studied distribution of blocks and corridors achieving movement efficiency and integration of educational spaces. The project stands out as a balanced educational environment combining function and architectural beauty, with attention to detail and execution quality.",
+    description:
+      "تصميم وتنفيذ مجمع تعليمي يعكس رؤية معمارية حديثة، من خلال توزيع مدروس . يبرز المشروع كبيئة تعليمية متوازنة تجمع بين الوظيفة والجمال المعماري، مع اهتمام بالتفاصيل وجودة التنفيذ.",
+    descriptionEn:
+      "Design and execution of an educational complex reflecting a modern architectural vision, through a studied distribution of blocks and corridors achieving movement efficiency and integration of educational spaces. The project stands out as a balanced educational environment combining function and architectural beauty, with attention to detail and execution quality.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام والملاعب"
+      "أعمال الموقع العام والملاعب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "9800 م²",
   },
@@ -598,19 +618,21 @@ const educationalProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "تنفيذ مبنى أكاديمي متكامل لكلية الطب وفق أعلى المعايير، ليواكب متطلبات التعليم الطبي الحديث ويعزز بيئة تعليمية متقدمة.",
-    descriptionEn: "Execution of an integrated academic building for the Faculty of Medicine according to highest standards, to keep pace with modern medical education requirements and enhance an advanced educational environment.",
+    description:
+      "تنفيذ مبنى أكاديمي متكامل لكلية الطب وفق أعلى المعايير، ليواكب متطلبات التعليم الطبي الحديث ويعزز بيئة تعليمية متقدمة.",
+    descriptionEn:
+      "Execution of an integrated academic building for the Faculty of Medicine according to highest standards, to keep pace with modern medical education requirements and enhance an advanced educational environment.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
   // ✅ محدث من ملف Word
@@ -630,19 +652,21 @@ const educationalProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "إنشاء مبنى تعليمي حديث لكلية العلوم، يعكس جودة التنفيذ ودقة التصميم في دعم العملية التعليمية والبحثية.",
-    descriptionEn: "Construction of a modern educational building for the College of Science, reflecting execution quality and design precision in supporting the educational and research process.",
+    description:
+      "إنشاء مبنى تعليمي حديث لكلية العلوم، يعكس جودة التنفيذ ودقة التصميم في دعم العملية التعليمية والبحثية.",
+    descriptionEn:
+      "Construction of a modern educational building for the College of Science, reflecting execution quality and design precision in supporting the educational and research process.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
   // ✅ محدث من ملف Word
@@ -662,19 +686,21 @@ const educationalProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "تطوير مبنى أكاديمي متخصص لكلية الصيدلة، بتجهيزات متكاملة تواكب متطلبات التعليم والتطبيق العملي في المجال الطبي.",
-    descriptionEn: "Development of a specialized academic building for the College of Pharmacy, with integrated equipment meeting requirements of education and practical application in the medical field.",
+    description:
+      "تطوير مبنى أكاديمي متخصص لكلية الصيدلة، بتجهيزات متكاملة تواكب متطلبات التعليم والتطبيق العملي في المجال الطبي.",
+    descriptionEn:
+      "Development of a specialized academic building for the College of Pharmacy, with integrated equipment meeting requirements of education and practical application in the medical field.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
 ];
@@ -703,28 +729,30 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/GrandMall/1.jpeg",
       "/images/projects/Commercial Projects/GrandMall/2.jpeg",
       "/images/projects/Commercial Projects/GrandMall/3.jpeg",
-      "/images/projects/Commercial Projects/GrandMall/4.jpeg",
+      // "/images/projects/Commercial Projects/GrandMall/4.jpeg",
       "/images/projects/Commercial Projects/GrandMall/5.png",
       "/images/projects/Commercial Projects/GrandMall/6.png",
       "/images/projects/Commercial Projects/GrandMall/7.png",
       "/images/projects/Commercial Projects/GrandMall/8.png",
       "/images/projects/Commercial Projects/GrandMall/9.png",
     ],
-    description: "تطوير وجهة تجارية متكاملة بمساحة 16,000 م² تضم هايبر ماركت ومحلات متعددة، مع بنية خدمية متقدمة تشمل مواقف ضخمة ومحطة كهرباء مستقلة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
-    descriptionEn: "Development of an integrated commercial destination with area of 16,000 sqm, including a hypermarket and multiple shops, with advanced service structure including massive parking and independent electrical substation. The project embodies high executive capability in managing and operating major commercial projects efficiently and in an organized manner enhancing user experience.",
+    description:
+      "تطوير وجهة تجارية متكاملة بمساحة 16,000 م² تضم هايبر ماركت ومحلات متعددة، مع بنية خدمية متقدمة تشمل مواقف ضخمة ومحطة كهرباء مستقلة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
+    descriptionEn:
+      "Development of an integrated commercial destination with area of 16,000 sqm, including a hypermarket and multiple shops, with advanced service structure including massive parking and independent electrical substation. The project embodies high executive capability in managing and operating major commercial projects efficiently and in an organized manner enhancing user experience.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
       "أعمال الموقع العام واللاند سكيب",
-      "أعمال التجهيزات والمعدات الداخلية"
+      "أعمال التجهيزات والمعدات الداخلية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
       "General site works and landscaping",
-      "Interior equipment and fittings works"
+      "Interior equipment and fittings works",
     ],
     area: "16,000 م²",
   },
@@ -759,17 +787,19 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/Miahona/12.jpg",
       "/images/projects/Commercial Projects/Miahona/13.jpg",
     ],
-    description: "تهيئة مقر إداري حديث من خلال أعمال تشطيبات متقنة وتجهيزات متكاملة تشمل الأنظمة الفنية والتأثيث بما يعكس طابعاً مؤسسياً احترافياً. يقدم المشروع بيئة عمل عصرية مدعومة بحلول هندسية دقيقة تعزز كفاءة الأداء وجودة الاستخدام اليومي.",
-    descriptionEn: "Preparation of a modern administrative headquarters through meticulous finishing works and integrated equipment including technical systems and furnishing, reflecting a professional institutional character. The project offers a contemporary work environment supported by precise engineering solutions enhancing performance efficiency and quality of daily use.",
+    description:
+      "تهيئة مقر إداري حديث من خلال أعمال تشطيبات متقنة وتجهيزات متكاملة تشمل الأنظمة الفنية والتأثيث بما يعكس طابعاً مؤسسياً احترافياً. يقدم المشروع بيئة عمل عصرية مدعومة بحلول هندسية دقيقة تعزز كفاءة الأداء وجودة الاستخدام اليومي.",
+    descriptionEn:
+      "Preparation of a modern administrative headquarters through meticulous finishing works and integrated equipment including technical systems and furnishing, reflecting a professional institutional character. The project offers a contemporary work environment supported by precise engineering solutions enhancing performance efficiency and quality of daily use.",
     scope: [
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الفرش الداخلي"
+      "أعمال الفرش الداخلي",
     ],
     scopeEn: [
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "Interior furnishing works"
+      "Interior furnishing works",
     ],
     area: "5,200 م²",
   },
@@ -798,19 +828,21 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/Aljumaih/6.png",
       "/images/projects/Commercial Projects/Aljumaih/7.png",
     ],
-    description: "تطوير صالة عرض متكاملة لعلامة INEOS بمساحة 8,500 م²، بتصميم يعزز إبراز الهوية البصرية ويوفر تجربة عرض متميزة للعملاء. يجسد المشروع مستوى عالٍ من الإتقان في تنفيذ المساحات التجارية مع دمج الحلول الهندسية والتشطيبات الراقية لدعم حضور العلامة في السوق.",
-    descriptionEn: "Development of an integrated showroom for the INEOS brand with area of 8,500 sqm, with a design enhancing visual identity and providing a distinctive display experience for customers. The project embodies a high level of mastery in executing commercial spaces, integrating engineering solutions and premium finishes to support the brand's market presence.",
+    description:
+      "تطوير صالة عرض متكاملة لعلامة INEOS بمساحة 8,500 م²، بتصميم يعزز إبراز الهوية البصرية ويوفر تجربة عرض متميزة للعملاء. يجسد المشروع مستوى عالٍ من الإتقان في تنفيذ المساحات التجارية مع دمج الحلول الهندسية والتشطيبات الراقية لدعم حضور العلامة في السوق.",
+    descriptionEn:
+      "Development of an integrated showroom for the INEOS brand with area of 8,500 sqm, with a design enhancing visual identity and providing a distinctive display experience for customers. The project embodies a high level of mastery in executing commercial spaces, integrating engineering solutions and premium finishes to support the brand's market presence.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "8,500 م²",
   },
@@ -818,7 +850,8 @@ const commercialProjects: YamasProject[] = [
   {
     id: "aljomaih-maintenance",
     title: "تجديد مركز صيانة وكالة الجميح للسيارات ",
-    titleEn: "Al Jomaih Maintenance Center Renewal - Integrated Maintenance Center",
+    titleEn:
+      "Al Jomaih Maintenance Center Renewal - Integrated Maintenance Center",
     category: "commercial",
     categoryAr: "مشاريع تجارية",
     categoryEn: "Commercial Projects",
@@ -831,39 +864,41 @@ const commercialProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "إعادة تأهيل مركز الصيانة من خلال تطوير بيئة العمل وتجهيزها بأنظمة حديثة تدعم كفاءة التشغيل وجودة التنفيذ. يعكس المشروع تحسيناً ملموساً في أداء الخدمات وسرعة الإنجاز مع تقديم تجربة أكثر احترافية للعملاء.",
-    descriptionEn: "Rehabilitation of the maintenance center by developing the work environment and equipping it with modern systems supporting operational efficiency and execution quality. The project reflects tangible improvement in service performance and completion speed, providing a more professional experience for customers.",
+    description:
+      "إعادة تأهيل مركز الصيانة من خلال تطوير بيئة العمل وتجهيزها بأنظمة حديثة تدعم كفاءة التشغيل وجودة التنفيذ. يعكس المشروع تحسيناً ملموساً في أداء الخدمات وسرعة الإنجاز مع تقديم تجربة أكثر احترافية للعملاء.",
+    descriptionEn:
+      "Rehabilitation of the maintenance center by developing the work environment and equipping it with modern systems supporting operational efficiency and execution quality. The project reflects tangible improvement in service performance and completion speed, providing a more professional experience for customers.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية"
+      "الأنظمة الكهروميكانيكية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
-      "Electromechanical systems"
+      "Electromechanical systems",
     ],
   },
-    {
+  {
     id: "banda",
     title: "مشروع بندة ",
     titleEn: "Banda Taslem Moftah",
     category: "commercial",
     categoryAr: "مشاريع تجارية",
     categoryEn: "Commercial Projects",
-    client: "",
-    clientEn: "",
-    location: "مدينة تبوك",
+    client: "قطاع خاص",
+    clientEn: "private",
+    location: "تبوك ، المنطقة الشمالية",
     locationEn: "Tobok",
     contractValue: "25,000,000",
     year: "2019",
     status: "completed",
-    mainImage: "/images/projects/Commercial Projects/Banda/1.jfif",
+    mainImage: "/images/projects/Commercial Projects/Banda/2.jfif",
     images: [
       "/images/projects/Commercial Projects/Banda/1.jfif",
       "/images/projects/Commercial Projects/Banda/2.jfif",
-      "/images/projects/Commercial Projects/Banda/8.jpg",
-      "/images/projects/Commercial Projects/Banda/17.jpg",
+      // "/images/projects/Commercial Projects/Banda/8.jpg",
+      // "/images/projects/Commercial Projects/Banda/17.jpg",
       "/images/projects/Commercial Projects/Banda/21.jpg",
       "/images/projects/Commercial Projects/Banda/20.jpg",
       "/images/projects/Commercial Projects/Banda/18.jpg",
@@ -872,31 +907,33 @@ const commercialProjects: YamasProject[] = [
       "/images/projects/Commercial Projects/Banda/6.jpg",
       // "/images/projects/Commercial Projects/Banda/5.jpg",
       // "/images/projects/Commercial Projects/Banda/4.jfif",
-      "/images/projects/Commercial Projects/Banda/9.jpg",
+      // "/images/projects/Commercial Projects/Banda/9.jpg",
       "/images/projects/Commercial Projects/Banda/10.jpg",
       // "/images/projects/Commercial Projects/Banda/11.jpg",
       // "/images/projects/Commercial Projects/Banda/12.jpg",
       "/images/projects/Commercial Projects/Banda/13.jpg",
       "/images/projects/Commercial Projects/Banda/14.jpg",
-      "/images/projects/Commercial Projects/Banda/16.jpg",
-      "/images/projects/Commercial Projects/Banda/19.jpg",
+      // "/images/projects/Commercial Projects/Banda/16.jpg",
+      // "/images/projects/Commercial Projects/Banda/19.jpg",
       // "/images/projects/Commercial Projects/Banda/7.jpg",
     ],
-description: "تطوير وجهة تجارية متكاملة مع بنية خدمية متقدمة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
+    description:
+      "تطوير وجهة تجارية متكاملة مع بنية خدمية متقدمة. يجسد المشروع قدرة تنفيذية عالية في إدارة وتشغيل المشاريع التجارية الكبرى بكفاءة وتنظيم يعزز تجربة المستخدم.",
     descriptionEn: "",
     scope: [
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
       "أعمال الموقع العام واللاند سكيب",
-      "أعمال التجهيزات والمعدات الداخلية"
+      "أعمال التجهيزات والمعدات الداخلية",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
       "General site works and landscaping",
-      "Interior equipment and fittings works"
+      "Interior equipment and fittings works",
     ],
+     area: "16,000 م²",
   },
 ];
 
@@ -930,27 +967,29 @@ const towersProjects: YamasProject[] = [
       "/images/projects/Housing Projects/shofa/7.jpeg",
       "/images/projects/Housing Projects/shofa/8.jpeg",
       "/images/projects/Housing Projects/shofa/9.jpeg",
-      "/images/projects/Housing Projects/shofa/10.jpeg",
-      "/images/projects/Housing Projects/shofa/11.jpeg",
-      "/images/projects/Housing Projects/shofa/12.jpeg",
-      "/images/projects/Housing Projects/shofa/13.jpeg",
-      "/images/projects/Housing Projects/shofa/14.jpeg",
-      "/images/projects/Housing Projects/shofa/15.jpeg",
+      // "/images/projects/Housing Projects/shofa/10.jpeg",
+      // "/images/projects/Housing Projects/shofa/11.jpeg",
+      // "/images/projects/Housing Projects/shofa/12.jpeg",
+      // "/images/projects/Housing Projects/shofa/13.jpeg",
+      // "/images/projects/Housing Projects/shofa/14.jpeg",
+      // "/images/projects/Housing Projects/shofa/15.jpeg",
       "/images/projects/Housing Projects/shofa/16.jpeg",
     ],
-    description: "تطوير مجمع متعدد الاستخدامات يضم ثلاثة أبراج سكنية مع مساحات تجارية داخلية وخارجية، ضمن تخطيط متكامل يعزز كفاءة استغلال المساحة وجودة التنفيذ. يعكس المشروع قدرة على إدارة وتنفيذ مشاريع متكاملة بدءاً من الهيكل الإنشائي وحتى التشطيبات والأنظمة، وفق رؤية حديثة تجمع بين السكن والاستثمار.",
-    descriptionEn: "Development of a mixed-use complex comprising three residential towers with internal and external commercial areas, within an integrated plan enhancing space utilization efficiency and execution quality. The project reflects the ability to manage and execute integrated projects from the structural shell to finishes and systems, according to a modern vision combining housing and investment.",
+    description:
+      "تطوير مجمع متعدد الاستخدامات يضم ثلاثة أبراج سكنية مع مساحات تجارية داخلية وخارجية، ضمن تخطيط متكامل يعزز كفاءة استغلال المساحة وجودة التنفيذ. يعكس المشروع قدرة على إدارة وتنفيذ مشاريع متكاملة بدءاً من الهيكل الإنشائي وحتى التشطيبات والأنظمة، وفق رؤية حديثة تجمع بين السكن والاستثمار.",
+    descriptionEn:
+      "Development of a mixed-use complex comprising three residential towers with internal and external commercial areas, within an integrated plan enhancing space utilization efficiency and execution quality. The project reflects the ability to manage and execute integrated projects from the structural shell to finishes and systems, according to a modern vision combining housing and investment.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "10,762 م²",
   },
@@ -983,19 +1022,21 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Rima1/10.png",
       "/images/projects/buildings/Rima1/11.png",
     ],
-    description: "تنفيذ برج سكني مكوّن من 15 طابقاً بتصميم عصري، يضم مرافق متكاملة تشمل مواقف سيارات، مركزاً رياضياً، ومساحات استقبال وخدمات. يجسد المشروع مستوى متقدماً في تطوير المباني السكنية متعددة الأدوار، مع اهتمام بجودة التفاصيل وتكامل المرافق لتعزيز تجربة السكن.",
-    descriptionEn: "Execution of a residential tower of 15 floors with modern design, including integrated facilities such as parking, a sports center, and reception and service areas. The project embodies an advanced level in developing multi-story residential buildings, with attention to quality of details and integration of facilities to enhance the living experience.",
+    description:
+      "تنفيذ برج سكني مكوّن من 15 طابقاً بتصميم عصري، يضم مرافق متكاملة تشمل مواقف سيارات، مركزاً رياضياً، ومساحات استقبال وخدمات. يجسد المشروع مستوى متقدماً في تطوير المباني السكنية متعددة الأدوار، مع اهتمام بجودة التفاصيل وتكامل المرافق لتعزيز تجربة السكن.",
+    descriptionEn:
+      "Execution of a residential tower of 15 floors with modern design, including integrated facilities such as parking, a sports center, and reception and service areas. The project embodies an advanced level in developing multi-story residential buildings, with attention to quality of details and integration of facilities to enhance the living experience.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "18,000 م²",
   },
@@ -1026,19 +1067,21 @@ const towersProjects: YamasProject[] = [
       // "/images/projects/buildings/Rima2/8.png",
       // "/images/projects/buildings/Rima2/9.png",
     ],
-    description: "تطوير برج سكني متكامل بارتفاع 15 طابقاً، يجمع بين الوحدات السكنية الفاخرة ومواقف السيارات، بالإضافة إلى  استقبال ومجلس ضمن تصميم مدروس. يعبر المشروع عن نهج متقدم في تنفيذ الأبراج السكنية مع التركيز على كفاءة توزيع المساحات وجودة التنفيذ في جميع التفاصيل.",
-    descriptionEn: "Development of an integrated residential tower of 15 floors, combining luxury residential units and parking, in addition to a reception hall and a majlis within a studied design. The project expresses an advanced approach in executing residential towers, focusing on efficiency of space distribution and execution quality in all details.",
+    description:
+      "تطوير برج سكني متكامل بارتفاع 15 طابقاً، يجمع بين الوحدات السكنية الفاخرة ومواقف السيارات، بالإضافة إلى  استقبال ومجلس ضمن تصميم مدروس. يعبر المشروع عن نهج متقدم في تنفيذ الأبراج السكنية مع التركيز على كفاءة توزيع المساحات وجودة التنفيذ في جميع التفاصيل.",
+    descriptionEn:
+      "Development of an integrated residential tower of 15 floors, combining luxury residential units and parking, in addition to a reception hall and a majlis within a studied design. The project expresses an advanced approach in executing residential towers, focusing on efficiency of space distribution and execution quality in all details.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "19,000 م²",
   },
@@ -1055,14 +1098,14 @@ const towersProjects: YamasProject[] = [
     location: "خميس مشيط، المنطقة الجنوبية",
     locationEn: "Khamis Mushait, Southern Area",
     contractValue: "85,000,000",
-    year: "2025",
+    year: "2020",
     status: "completed",
     mainImage: "/images/projects/buildings/Khames/1.jpg",
     images: [
       "/images/projects/buildings/Khames/1.jpg",
       "/images/projects/buildings/Khames/2.jpg",
       "/images/projects/buildings/Khames/3.jpg",
-      "/images/projects/buildings/Khames/4.jpg",
+      // "/images/projects/buildings/Khames/4.jpg",
       "/images/projects/buildings/Khames/5.jpg",
       "/images/projects/buildings/Khames/6.jpg",
       "/images/projects/buildings/Khames/7.jpg",
@@ -1070,19 +1113,21 @@ const towersProjects: YamasProject[] = [
       "/images/projects/buildings/Khames/9.jpg",
       "/images/projects/buildings/Khames/10.jpg",
     ],
-    description: "تنفيذ مجموعة أبراج بارتفاع 7 أدوار لكل برج، تضم وحدات سكنية وتجارية مع مواقف سيارات ضمن تخطيط متكامل. يعكس المشروع تكاملاً في الاستخدامات مع كفاءة في توزيع المساحات وجودة تنفيذ متناسقة.",
-    descriptionEn: "Execution of a group of towers, each rising to 7 floors, comprising residential and commercial units with parking within an integrated plan. The project reflects integration of uses with efficiency in space distribution and consistent execution quality.",
+    description:
+      "تنفيذ مجموعة أبراج بارتفاع 7 أدوار لكل برج، تضم وحدات سكنية وتجارية مع مواقف سيارات ضمن تخطيط متكامل. يعكس المشروع تكاملاً في الاستخدامات مع كفاءة في توزيع المساحات وجودة تنفيذ متناسقة.",
+    descriptionEn:
+      "Execution of a group of towers, each rising to 7 floors, comprising residential and commercial units with parking within an integrated plan. The project reflects integration of uses with efficiency in space distribution and consistent execution quality.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
     area: "24,000 م²",
   },
@@ -1104,7 +1149,8 @@ const towersProjects: YamasProject[] = [
     mainImage: "",
     images: [],
     description: "إنشاء برج سكني وتجاري",
-    descriptionEn: "Construction of residential and commercial tower in Al-Baha city",
+    descriptionEn:
+      "Construction of residential and commercial tower in Al-Baha city",
     scope: [
       "وحدات سكنية",
       "محلات تجارية",
@@ -1143,15 +1189,14 @@ const governmentProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "تنفيذ مبنى حكومي متكامل للمحكمة الإدارية وفق أعلى المعايير، بتصميم يعزز الكفاءة الوظيفية وانسيابية الحركة مع تشطيبات دقيقة تعكس الطابع الرسمي.",
-    descriptionEn: "Execution of an integrated government building for the Administrative Court according to highest standards, with a design enhancing functional efficiency and smooth movement with precise finishes reflecting the official character.",
-    scope: [
-      "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
-    ],
+    description:
+      "تنفيذ مبنى حكومي متكامل للمحكمة الإدارية وفق أعلى المعايير، بتصميم يعزز الكفاءة الوظيفية وانسيابية الحركة مع تشطيبات دقيقة تعكس الطابع الرسمي.",
+    descriptionEn:
+      "Execution of an integrated government building for the Administrative Court according to highest standards, with a design enhancing functional efficiency and smooth movement with precise finishes reflecting the official character.",
+    scope: ["الأنظمة الكهروميكانيكية", "أعمال الموقع العام واللاند سكيب"],
     scopeEn: [
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
   // ✅ محدث من ملف Word
@@ -1171,19 +1216,21 @@ const governmentProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "إنشاء مجمع مرافق متكامل داخل الحرم الجامعي، يجمع بين جودة التنفيذ ودقة التخطيط لتلبية متطلبات التشغيل ودعم بيئة تعليمية متكاملة.",
-    descriptionEn: "Construction of an integrated utilities complex within the university campus, combining execution quality and planning precision to meet operational requirements and support an integrated educational environment.",
+    description:
+      "إنشاء مجمع مرافق متكامل داخل الحرم الجامعي، يجمع بين جودة التنفيذ ودقة التخطيط لتلبية متطلبات التشغيل ودعم بيئة تعليمية متكاملة.",
+    descriptionEn:
+      "Construction of an integrated utilities complex within the university campus, combining execution quality and planning precision to meet operational requirements and support an integrated educational environment.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
 ];
@@ -1209,19 +1256,21 @@ const industrialProjects: YamasProject[] = [
     status: "completed",
     mainImage: "",
     images: [],
-    description: "تنفيذ مصنع متكامل وفق متطلبات التشغيل الصناعي، مع أعمال إنشائية وتشطيبات وأنظمة هندسية تدعم كفاءة الإنتاج. يجسد المشروع قدرة تنفيذية في تطوير المنشآت الصناعية مع الالتزام بمعايير الجودة والدقة في جميع مراحل التنفيذ.",
-    descriptionEn: "Execution of an integrated factory according to industrial operation requirements, with construction works, finishes, and engineering systems supporting production efficiency. The project embodies executive capability in developing industrial facilities while adhering to quality standards and precision at all execution stages.",
+    description:
+      "تنفيذ مصنع متكامل وفق متطلبات التشغيل الصناعي، مع أعمال إنشائية وتشطيبات وأنظمة هندسية تدعم كفاءة الإنتاج. يجسد المشروع قدرة تنفيذية في تطوير المنشآت الصناعية مع الالتزام بمعايير الجودة والدقة في جميع مراحل التنفيذ.",
+    descriptionEn:
+      "Execution of an integrated factory according to industrial operation requirements, with construction works, finishes, and engineering systems supporting production efficiency. The project embodies executive capability in developing industrial facilities while adhering to quality standards and precision at all execution stages.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
 ];
@@ -1259,23 +1308,25 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/Mosque/10.png",
       "/images/projects/Government Projects/Mosque/11.png",
     ],
-    description: "تنفيذ مسجد يتسع لـ 390 مصلياً وفق تصميم معماري مدروس، مع مرافق متكاملة وأعمال تنسيق الموقع العام.",
-    descriptionEn: "Execution of a mosque accommodating 390 worshippers according to a studied architectural design, with integrated facilities including residence for the imam and muezzin and general site landscaping works.",
+    description:
+      "تنفيذ مسجد يتسع لـ 390 مصلياً وفق تصميم معماري مدروس، مع مرافق متكاملة وأعمال تنسيق الموقع العام.",
+    descriptionEn:
+      "Execution of a mosque accommodating 390 worshippers according to a studied architectural design, with integrated facilities including residence for the imam and muezzin and general site landscaping works.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
       "الأنظمة الكهروميكانيكية",
-      "أعمال الموقع العام واللاند سكيب"
+      "أعمال الموقع العام واللاند سكيب",
     ],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
-     area: "3776 م²",
+    area: "3776 م²",
   },
-    {
+  {
     id: "shi5a-kalsem",
     title: "مسجد شيخة بنت على ال كلثم",
     titleEn: "Mosque Shikia El Kalsem",
@@ -1287,7 +1338,7 @@ const charitableProjects: YamasProject[] = [
     location: "الدمام ، المنطقة الشرقية",
     locationEn: "Way of king Abdel Aziz",
     year: "2026",
-    status: "ongoing",
+    status: "completed",
     mainImage: "/images/projects/Government Projects/MOSQUEELSHIQA/1.jpeg",
     images: [
       "/images/projects/Government Projects/MOSQUEELSHIQA/1.jpeg",
@@ -1296,18 +1347,17 @@ const charitableProjects: YamasProject[] = [
       "/images/projects/Government Projects/MOSQUEELSHIQA/4.png",
       "/images/projects/Government Projects/MOSQUEELSHIQA/5.png",
     ],
-description: "شيخة بنت على ال كلثم — أعمال صيانة وتجديد  للمسجد والحمامات، تشمل تحسين التشطيبات، رفع الكفاءة، وتطوير المرافق والخدمات العامة.",
+    description:
+      "شيخة بنت على ال كلثم — أعمال صيانة وتجديد  المسجد ومصلى النساء تشمل دورة المياة وتحسين التشطيبات ورفع الكفاءة، وتطوير المرافق والخدمات العامة.",
 
-descriptionEn: "Sheikha Al Kulthum Mosque — Comprehensive maintenance and renovation works for the mosque and bathrooms, including upgraded finishes, improved facilities, and enhanced overall infrastructure.",
-    scope: [
-      "أعمال التشطيبات الداخلية والخارجية",
-      "الأنظمة الكهروميكانيكية",
-    ],
+    descriptionEn:
+      "Sheikha Al Kulthum Mosque — Comprehensive maintenance and renovation works for the mosque and bathrooms, including upgraded finishes, improved facilities, and enhanced overall infrastructure.",
+    scope: ["أعمال التشطيبات الداخلية والخارجية", "الأنظمة الكهروميكانيكية"],
     scopeEn: [
       "Construction works",
       "Interior and exterior finishing works",
       "Electromechanical systems",
-      "General site works and landscaping"
+      "General site works and landscaping",
     ],
   },
 ];
@@ -1327,7 +1377,7 @@ const sortProjectsByDate = (projects: YamasProject[]): YamasProject[] => {
 // PROJECT CATEGORIES EXPORT
 // ============================================
 export const projectCategories: ProjectCategory[] = [
-    {
+  {
     id: "housing",
     nameAr: "مشاريع السكنية",
     nameEn: "Housing Projects",
@@ -1337,7 +1387,7 @@ export const projectCategories: ProjectCategory[] = [
     color: "#059669",
     projects: sortProjectsByDate(housingProjects),
   },
-    {
+  {
     id: "towers",
     nameAr: "مشاريع الأبراج",
     nameEn: "Towers Projects",
@@ -1347,7 +1397,7 @@ export const projectCategories: ProjectCategory[] = [
     color: "#EC4899",
     projects: sortProjectsByDate(towersProjects),
   },
-    {
+  {
     id: "commercial",
     nameAr: "المشاريع التجارية",
     nameEn: "Commercial Projects",
@@ -1367,8 +1417,6 @@ export const projectCategories: ProjectCategory[] = [
     color: "#DC2626",
     projects: sortProjectsByDate(healthcareProjects),
   },
-
-
 
   {
     id: "educational",
@@ -1395,7 +1443,8 @@ export const projectCategories: ProjectCategory[] = [
     nameAr: "المشاريع الحكومية",
     nameEn: "Government Projects",
     description: "مشاريع حكومية ومرافق عامة ومباني إدارية",
-    descriptionEn: "Government projects, public facilities and administrative buildings",
+    descriptionEn:
+      "Government projects, public facilities and administrative buildings",
     icon: "🏛️",
     color: "#F59E0B",
     projects: sortProjectsByDate(governmentProjects),
@@ -1429,7 +1478,7 @@ export const getProjectsByCategory = (categoryId: string): YamasProject[] => {
 };
 
 export const getProjectsByStatus = (
-  status: "completed" | "ongoing" | "development"
+  status: "completed" | "ongoing" | "development",
 ): YamasProject[] => {
   return getAllProjects().filter((p) => p.status === status);
 };
@@ -1438,25 +1487,31 @@ export const getCategoryStats = () => {
   return projectCategories.map((cat) => ({
     ...cat,
     totalProjects: cat.projects.length,
-    completedProjects: cat.projects.filter((p) => p.status === "completed").length,
+    completedProjects: cat.projects.filter((p) => p.status === "completed")
+      .length,
     ongoingProjects: cat.projects.filter((p) => p.status === "ongoing").length,
-totalValue: cat.projects.reduce(
-  (sum, p) => sum + (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
-  0
-),
+    totalValue: cat.projects.reduce(
+      (sum, p) =>
+        sum +
+        (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
+      0,
+    ),
   }));
 };
 
 export const getCompanyStats = () => {
   const allProjects = getAllProjects();
   const totalValue = allProjects.reduce(
-  (sum, p) => sum + (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
-  0
-);
+    (sum, p) =>
+      sum +
+      (p.contractValue ? parseFloat(p.contractValue.replace(/,/g, "")) : 0),
+    0,
+  );
 
   return {
     totalProjects: allProjects.length,
-    completedProjects: allProjects.filter((p) => p.status === "completed").length,
+    completedProjects: allProjects.filter((p) => p.status === "completed")
+      .length,
     ongoingProjects: allProjects.filter((p) => p.status === "ongoing").length,
     totalValue: totalValue,
     totalValueFormatted: totalValue.toLocaleString("ar-SA"),

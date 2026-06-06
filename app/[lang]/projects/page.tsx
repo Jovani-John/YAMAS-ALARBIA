@@ -83,24 +83,15 @@ const translations = {
 const sortProjectsByPriorityAndYear = (
   projects: YamasProject[],
 ): YamasProject[] => {
-  const statusOrder = {
-    ongoing: 1,
-    completed: 2,
-    development: 3,
-  };
-
+  const statusOrder = { ongoing: 1, completed: 2, development: 3 };
   return [...projects].sort((a, b) => {
     const yearA = typeof a.year === "number" ? a.year : Number(a.year) || 0;
     const yearB = typeof b.year === "number" ? b.year : Number(b.year) || 0;
-
-    if (yearB !== yearA) {
-      return yearB - yearA;
-    }
-
-    const statusDiff =
+    if (yearB !== yearA) return yearB - yearA;
+    return (
       (statusOrder[a.status as keyof typeof statusOrder] || 99) -
-      (statusOrder[b.status as keyof typeof statusOrder] || 99);
-    return statusDiff;
+      (statusOrder[b.status as keyof typeof statusOrder] || 99)
+    );
   });
 };
 
@@ -174,14 +165,12 @@ const SimpleProjectsList = ({
                       {isRTL ? project.location : project.locationEn}
                     </span>
                   </div>
-
                   {project.year && (
                     <div className="flex items-center gap-1.5 text-gray-600">
                       <FiCalendar className="text-[#49A799]" />
                       <span>{project.year}</span>
                     </div>
                   )}
-
                   <div
                     className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
                       project.status === "completed"
@@ -248,10 +237,7 @@ const ProjectCard = ({
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
           </div>
 
-          {/* Status Badge */}
-          <div
-            className={`absolute top-4 z-10 ${isRTL ? "left-4" : "right-4"}`}
-          >
+          <div className={`absolute top-4 z-10 ${isRTL ? "left-4" : "right-4"}`}>
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -286,8 +272,6 @@ const ProjectCard = ({
           </div>
 
           <div className="absolute inset-0 p-6 flex flex-col justify-end">
-
-            {/* Contract Value Badge - يظهر بس لو القيمة موجودة ومش صفر */}
             {project.contractValue && project.contractValue !== "0" && (
               <motion.div
                 initial={{ x: isRTL ? -20 : 20, opacity: 0 }}
@@ -397,11 +381,9 @@ const CategorySection = ({
     total: category.projects.length,
     completed: category.projects.filter((p) => p.status === "completed").length,
     ongoing: category.projects.filter((p) => p.status === "ongoing").length,
-    development: category.projects.filter((p) => p.status === "development")
-      .length,
+    development: category.projects.filter((p) => p.status === "development").length,
     totalValue: category.projects.reduce(
-      (sum, p) =>
-        sum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")),
+      (sum, p) => sum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")),
       0,
     ),
   };
@@ -410,7 +392,7 @@ const CategorySection = ({
     <section
       ref={sectionRef}
       id={category.id}
-      className="py-16 sm:py-20 lg:py-24 scroll-mt-24"
+      className="py-16 sm:py-20 lg:py-24 scroll-mt-36"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -429,7 +411,6 @@ const CategorySection = ({
                   {isRTL ? category.nameAr : category.nameEn}
                 </h2>
               </div>
-
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -451,72 +432,25 @@ const CategorySection = ({
               transition={{ delay: 0.4, duration: 0.6 }}
               className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6"
             >
-              {/* إجمالي المشاريع */}
-              <div
-                className="bg-white rounded-xl p-4 shadow-md border-t-4"
-                style={{ borderColor: "#49A799" }}
-              >
-                <div className="text-2xl font-bold text-gray-900">
-                  {stats.total}
-                </div>
-                <div
-                  className="text-sm text-gray-600"
-                  style={{ fontFamily: "Alexandria, sans-serif" }}
-                >
-                  {t.stats.projects}
-                </div>
+              <div className="bg-white rounded-xl p-4 shadow-md border-t-4" style={{ borderColor: "#49A799" }}>
+                <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.stats.projects}</div>
               </div>
-              {/* قيد التنفيذ */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-amber-500">
-                <div className="text-2xl font-bold text-gray-900">
-                  {stats.ongoing}
-                </div>
-                <div
-                  className="text-sm text-gray-600"
-                  style={{ fontFamily: "Alexandria, sans-serif" }}
-                >
-                  {t.status.ongoing}
-                </div>
+                <div className="text-2xl font-bold text-gray-900">{stats.ongoing}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.status.ongoing}</div>
               </div>
-
-              {/* مكتمل */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-emerald-500">
-                <div className="text-2xl font-bold text-gray-900">
-                  {stats.completed}
-                </div>
-                <div
-                  className="text-sm text-gray-600"
-                  style={{ fontFamily: "Alexandria, sans-serif" }}
-                >
-                  {t.stats.completed}
-                </div>
+                <div className="text-2xl font-bold text-gray-900">{stats.completed}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.stats.completed}</div>
               </div>
-
-              {/* قيد التطوير */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-blue-500">
-                <div className="text-2xl font-bold text-gray-900">
-                  {stats.development}
-                </div>
-                <div
-                  className="text-sm text-gray-600"
-                  style={{ fontFamily: "Alexandria, sans-serif" }}
-                >
-                  {t.status.development}
-                </div>
+                <div className="text-2xl font-bold text-gray-900">{stats.development}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.status.development}</div>
               </div>
-
-              {/* الميزانية الإجمالية */}
               <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-[#49A799]">
-                <div className="text-xl font-bold text-gray-900">
-                  {(stats.totalValue / 1000000).toFixed(1)}
-                  {t.stats.million}
-                </div>
-                <div
-                  className="text-sm text-gray-600"
-                  style={{ fontFamily: "Alexandria, sans-serif" }}
-                >
-                  {t.currency}
-                </div>
+                <div className="text-xl font-bold text-gray-900">{(stats.totalValue / 1000000).toFixed(1)}{t.stats.million}</div>
+                <div className="text-sm text-gray-600" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.currency}</div>
               </div>
             </motion.div>
           </div>
@@ -525,22 +459,12 @@ const CategorySection = ({
         {projectsWithImages.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {projectsWithImages.map((project, idx) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={idx}
-                isRTL={isRTL}
-                t={t}
-              />
+              <ProjectCard key={project.id} project={project} index={idx} isRTL={isRTL} t={t} />
             ))}
           </div>
         )}
 
-        <SimpleProjectsList
-          projects={projectsWithoutImages}
-          isRTL={isRTL}
-          t={t}
-        />
+        <SimpleProjectsList projects={projectsWithoutImages} isRTL={isRTL} t={t} />
       </div>
     </section>
   );
@@ -556,58 +480,73 @@ const StickyNav = ({
   activeCategory: string;
   isRTL: boolean;
 }) => {
+  const navRef = useRef<HTMLDivElement>(null);
+  const [isSticky, setIsSticky] = useState(false);
+  const [navTop, setNavTop] = useState(0);
+
+  useEffect(() => {
+    if (navRef.current) {
+      setNavTop(navRef.current.offsetTop);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > navTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [navTop]);
+
   const scrollToCategory = (categoryId: string) => {
     const element = document.getElementById(categoryId);
     if (element) {
-      const offset = 100;
+      const offset = 120;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="sticky top-20 z-40 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="flex items-center gap-3 py-4 overflow-x-auto scrollbar-hide"
-          style={{ direction: isRTL ? "rtl" : "ltr" }}
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => scrollToCategory(cat.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap transition-all duration-300 ${
-                activeCategory === cat.id
-                  ? "bg-[#49A799] text-white shadow-lg scale-105"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-              style={{ fontFamily: "Alexandria, sans-serif" }}
-            >
-              <span className="font-medium text-sm">
-                {isRTL ? cat.nameAr : cat.nameEn}
-              </span>
-              <span
-                className={`text-xs px-2 py-0.5 rounded-full ${
-                  activeCategory === cat.id ? "bg-white/20" : "bg-gray-200"
+    <>
+      <div ref={navRef} style={{ height: isSticky ? "60px" : "0" }} />
+      <nav
+        className={`z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm transition-all duration-300 ${
+isSticky ? "fixed top-[72px] left-0 right-0" : "relative"        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="flex items-center gap-3 py-4 overflow-x-auto scrollbar-hide"
+            style={{ direction: isRTL ? "rtl" : "ltr" }}
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => scrollToCategory(cat.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap transition-all duration-300 ${
+                  activeCategory === cat.id
+                    ? "bg-[#49A799] text-white shadow-lg scale-105"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
+                style={{ fontFamily: "Alexandria, sans-serif" }}
               >
-                {cat.projects.length}
-              </span>
-            </button>
-          ))}
+                <span className="font-medium text-sm">
+                  {isRTL ? cat.nameAr : cat.nameEn}
+                </span>
+                <span
+                  className={`text-xs px-2 py-0.5 rounded-full ${
+                    activeCategory === cat.id ? "bg-white/20" : "bg-gray-200"
+                  }`}
+                >
+                  {cat.projects.length}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-    </motion.nav>
+      </nav>
+    </>
   );
 };
 
@@ -624,32 +563,18 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const totalStats = {
-    projects: projectCategories.reduce(
-      (sum, cat) => sum + cat.projects.length,
-      0,
-    ),
+    projects: projectCategories.reduce((sum, cat) => sum + cat.projects.length, 0),
     completed: projectCategories.reduce(
-      (sum, cat) =>
-        sum + cat.projects.filter((p) => p.status === "completed").length,
-      0,
+      (sum, cat) => sum + cat.projects.filter((p) => p.status === "completed").length, 0,
     ),
     ongoing: projectCategories.reduce(
-      (sum, cat) =>
-        sum +
-        cat.projects.filter(
-          (p) => p.status === "ongoing" || p.status === "development",
-        ).length,
-      0,
+      (sum, cat) => sum + cat.projects.filter((p) => p.status === "ongoing" || p.status === "development").length, 0,
     ),
     totalValue: projectCategories.reduce(
       (sum, cat) =>
-        sum +
-        cat.projects.reduce(
-          (pSum, p) =>
-            pSum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")),
-          0,
-        ),
-      0,
+        sum + cat.projects.reduce(
+          (pSum, p) => pSum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")), 0,
+        ), 0,
     ),
   };
 
@@ -682,10 +607,7 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
         >
           <div className="inline-block mb-8">
             <div className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
-              <span
-                className="text-white font-semibold text-lg"
-                style={{ fontFamily: "Alexandria, sans-serif" }}
-              >
+              <span className="text-white font-semibold text-lg" style={{ fontFamily: "Alexandria, sans-serif" }}>
                 {t.hero.subtitle}
               </span>
             </div>
@@ -717,57 +639,23 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
-            {/* المشاريع الإجمالية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {totalStats.projects}+
-              </div>
-              <div
-                className="text-sm text-white/90 font-medium"
-                style={{ fontFamily: "Alexandria, sans-serif" }}
-              >
-                {t.hero.stats.totalProjects}
-              </div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.projects}+</div>
+              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.totalProjects}</div>
             </div>
-
-            {/* المشاريع المكتملة */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {totalStats.completed}+
-              </div>
-              <div
-                className="text-sm text-white/90 font-medium"
-                style={{ fontFamily: "Alexandria, sans-serif" }}
-              >
-                {t.hero.stats.completed}
-              </div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.completed}+</div>
+              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.completed}</div>
             </div>
-
-            {/* المشاريع الجارية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {totalStats.ongoing}
-              </div>
-              <div
-                className="text-sm text-white/90 font-medium"
-                style={{ fontFamily: "Alexandria, sans-serif" }}
-              >
-                {t.hero.stats.ongoing}
-              </div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.ongoing}</div>
+              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.ongoing}</div>
             </div>
-
-            {/* القيمة الإجمالية */}
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
               <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                {(totalStats.totalValue / 1000000000).toFixed(1)}
-                {t.hero.stats.billion}
+                {(totalStats.totalValue / 1000000000).toFixed(1)}{t.hero.stats.billion}
               </div>
-              <div
-                className="text-sm text-white/90 font-medium"
-                style={{ fontFamily: "Alexandria, sans-serif" }}
-              >
-                {t.currency}
-              </div>
+              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.currency}</div>
             </div>
           </motion.div>
         </motion.div>
@@ -783,9 +671,7 @@ export default function YamasProjectsPage() {
   const isRTL = lang === "ar";
   const t = translations[lang as keyof typeof translations];
 
-  const [activeCategory, setActiveCategory] = useState(
-    projectCategories[0]?.id || "",
-  );
+  const [activeCategory, setActiveCategory] = useState(projectCategories[0]?.id || "");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -800,9 +686,7 @@ export default function YamasProjectsPage() {
         return rect.top <= 150 && rect.bottom >= 150;
       });
 
-      if (current) {
-        setActiveCategory(current.id);
-      }
+      if (current) setActiveCategory(current.id);
     };
 
     window.addEventListener("scroll", handleScroll);

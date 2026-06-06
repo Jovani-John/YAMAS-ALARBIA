@@ -46,7 +46,7 @@ export const aboutContent = {
       ],
     },
     stats: [
-      { icon: HiOfficeBuilding, number: '+2', label: 'مشاريع مكتملة' },
+      { icon: HiOfficeBuilding, number: '+23', label: 'مشاريع مكتملة' },
       { icon: HiUserGroup, number: '24 ساعه', label: ' دعم مستمر' },
       { icon: HiGlobe, number: '4', label: 'فروع دولية' },
       { icon: HiCheckCircle, number: '9', label: 'المشاريع قيد التنفيذ' },
@@ -180,7 +180,7 @@ export const aboutContent = {
           titleEn: 'Quality Management System',
           color: '#49A799',
           borderColor: 'border-[#49A799]',
-          imageUrl: '/images/iso/1.png',
+          imageUrl: '/images/iso/3.png',
         },
         {
           id: 'iso-14001',
@@ -198,7 +198,7 @@ export const aboutContent = {
           titleEn: 'Occupational Health & Safety Management System',
           color: '#DC2626',
           borderColor: 'border-red-600',
-          imageUrl: '/images/iso/3.png',
+          imageUrl: '/images/iso/1.png',
         },
       ],
       certifyingBody: 'AMERICO QUALITY STANDARDS REGISTECH PVT. LTD',
@@ -312,10 +312,10 @@ export const aboutContent = {
       ],
     },
     stats: [
-      { icon: HiOfficeBuilding, number: '30+', label: 'Completed Projects' },
+      { icon: HiOfficeBuilding, number: '23+', label: 'Completed Projects' },
       { icon: HiUserGroup, number: '24 HOUR', label: 'Outgoing Support' },
       { icon: HiGlobe, number: '4', label: 'International Branches' },
-      { icon: HiCheckCircle, number: '100%', label: 'Ongoing projects' },
+      { icon: HiCheckCircle, number: '9+', label: 'Ongoing projects' },
     ],
     story: {
       title: 'Our Story',
@@ -447,7 +447,7 @@ export const aboutContent = {
           titleEn: 'Quality Management System',
           color: '#49A799',
           borderColor: 'border-[#49A799]',
-          imageUrl: '/images/iso/1.png',
+          imageUrl: '/images/iso/3.png',
         },
         {
           id: 'iso-14001',
@@ -456,7 +456,7 @@ export const aboutContent = {
           titleEn: 'Environmental Management System',
           color: '#2563EB',
           borderColor: 'border-blue-600',
-          imageUrl: '/images/iso/2.png',
+          imageUrl: '/images/iso/1.png',
         },
         {
           id: 'iso-45001',
@@ -465,7 +465,7 @@ export const aboutContent = {
           titleEn: 'Occupational Health & Safety Management System',
           color: '#DC2626',
           borderColor: 'border-red-600',
-          imageUrl: '/images/iso/3.png',
+          imageUrl: '/images/iso/1.png',
         },
       ],
       certifyingBody: 'AMERICO QUALITY STANDARDS REGISTECH PVT. LTD',
@@ -483,7 +483,7 @@ export const aboutContent = {
           standard: 'ISO 9001:2015',
           year: '2024',
           description: 'Confirms our commitment to the highest quality standards in all construction and management operations',
-          driveLink: 'https://drive.google.com/file/d/YOUR_FILE_ID_1/view',
+          driveLink: 'https://drive.google.com/file/d/YOUR_FILE_ID_3/view',
           icon: HiBadgeCheck,
         },
         {
@@ -501,7 +501,7 @@ export const aboutContent = {
           standard: 'ISO 45001:2018',
           year: '2024',
           description: 'Ensuring a safe and healthy work environment for all employees and stakeholders',
-          driveLink: 'https://drive.google.com/file/d/YOUR_FILE_ID_3/view',
+          driveLink: 'https://drive.google.com/file/d/YOUR_FILE_ID_1/view',
           icon: HiShieldCheck,
         },
         {

@@ -22,7 +22,7 @@ const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/yamas_alarabia',
   facebook:  'https://www.facebook.com/profile.php?id=61555224520417',
   x:         'https://x.com/yamas_alarabia',
-  linkedin:  'https://www.linkedin.com/company/yamasarabia/',
+  linkedin:  'https://www.linkedin.com/company/yamas-al-arabia-construction-contracting/',
   whatsapp:  'https://wa.me/966500029933',
   tiktok:    'https://www.tiktok.com/@yamas_alarabia',
   snapchat:  'https://www.snapchat.com/@yamasalarabia',
@@ -36,14 +36,14 @@ const GOOGLE_MAPS_LINKS = {
 
 // ─── Branch coordinates (exact GPS for each office address) ──────────────────
 const BRANCHES = {
-  riyadh: {
-    lat: 24.76,
-    lng: 46.6970,
-  },
-  khobar: {
-    lat: 26.33,
-    lng: 50.204,
-  },
+riyadh: {
+  lat: 24.7790,   // ← جنوباً
+  lng: 46.6875,   // ← غرباً شوية
+},
+khobar: {
+  lat: 26.34000,   // ← شمالاً كثيراً
+  lng: 50.2000,   // ← شرقاً
+},
 } as const;
 
 // ─── Custom branded SVG marker (client-side only) ────────────────────────────
@@ -117,9 +117,8 @@ export default function ContactPage() {
         phone2: '+966 50 002 9933', email: 'البريد الإلكتروني',
         emailValue: 'info@yamas.com.sa', address: 'العنوان',
         riyadhAddress:
-          'RAWA2938، طريق الدائري الشمالي تقاطع أبو بكر الصديق، حي الوادي، الرياض | المربع 6 - الدور الأول - مكتب 93',
-        khobarAddress:
-          'EAD6389، طريق الملك فهد بن عبدالعزيز، الراكه الجنوبية، الخبر | برج ناصر الهاجري - الدور السادس - مكتب 604',
+          'RAWA2938، طريق الدائري الشمالي تقاطع أبو بكر الصديق، حي الوادي، الرياض | المربع 6 - الدور الأول مكتب 93',
+       khobarAddress: 'EAD6389، طريق الملك فهد بن عبدالعزيز، الراكه الجنوبية، الخبر | برج ناصر الهاجري - الدور السادس\nمكتب 604',
         follow: 'تابعنا على',
       },
       toast: {
@@ -148,8 +147,7 @@ export default function ContactPage() {
         emailValue: 'info@yamas.com.sa', address: 'Address',
         riyadhAddress:
           'RAWA2938, Northern Ring Branch Cross Abu Bakr Al Siddiq Road, Al Wadi Dist., Riyadh | Block 6 – 1st Floor – Office 93',
-        khobarAddress:
-          'EAD6389, King Fahad Ibn Abdulaziz Road, Al Rakah Al Janubiyah Dist., Al Khobar | Nasser Al-Hajri Tower – 6th Floor – Office 604',
+      khobarAddress: 'EAD6389, King Fahad Ibn Abdulaziz Road, Al Rakah Al Janubiyah Dist., Al Khobar | Nasser Al-Hajri Tower – 6th Floor\nOffice 604',
         follow: 'Follow Us',
       },
       toast: {
@@ -248,7 +246,7 @@ export default function ContactPage() {
       <div className="h-[400px] md:h-[500px]">
         <MapContainer
           center={[lat, lng]}
-          zoom={17}
+          zoom={13}
           scrollWheelZoom={false}
           style={{ height: '100%', width: '100%' }}
         >
@@ -524,7 +522,7 @@ export default function ContactPage() {
                     </motion.div>
                     <div>
                       <p className="text-sm text-white/80 mb-1">{label}</p>
-                      <p className="text-base font-semibold leading-relaxed">{value}</p>
+                      <p className="text-base font-semibold leading-relaxed whitespace-pre-line">{value}</p>
                     </div>
                   </motion.div>
                 ))}
