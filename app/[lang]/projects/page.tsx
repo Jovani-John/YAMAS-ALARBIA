@@ -20,7 +20,6 @@ import {
   type ProjectCategory,
 } from "@/app/[lang]/projects/projects";
 
-// ===== مشاريع الترجمة =====
 const translations = {
   ar: {
     status: {
@@ -39,8 +38,7 @@ const translations = {
     hero: {
       subtitle: "كود البناء السعودي",
       title: "مشاريع يماس العربية",
-      description:
-        "مشاريع رائدة في بناء مستقبل المملكة بتقنيات حديثة وتصاميم مبتكرة",
+      description: "مشاريع رائدة في بناء مستقبل المملكة بتقنيات حديثة وتصاميم مبتكرة",
       stats: {
         totalProjects: "المشاريع الإجمالية",
         completed: "مشاريع مكتملة",
@@ -66,8 +64,7 @@ const translations = {
     hero: {
       subtitle: "Saudi Construction Epic",
       title: "YAMAS ALARBIA Projects",
-      description:
-        "Pioneering projects in building the future of the Kingdom with modern technologies and innovative designs",
+      description: "Pioneering projects in building the future of the Kingdom with modern technologies and innovative designs",
       stats: {
         totalProjects: "Total Projects",
         completed: "Completed Projects",
@@ -79,10 +76,7 @@ const translations = {
   },
 };
 
-// ===== دالة الترتيب =====
-const sortProjectsByPriorityAndYear = (
-  projects: YamasProject[],
-): YamasProject[] => {
+const sortProjectsByPriorityAndYear = (projects: YamasProject[]): YamasProject[] => {
   const statusOrder = { ongoing: 1, completed: 2, development: 3 };
   return [...projects].sort((a, b) => {
     const yearA = typeof a.year === "number" ? a.year : Number(a.year) || 0;
@@ -134,18 +128,17 @@ const SimpleProjectsList = ({
             <motion.div
               key={project.id}
               initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
-              animate={
-                isInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: isRTL ? 20 : -20 }
-              }
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? 20 : -20 }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
               className="p-4 hover:bg-gray-50 transition-colors duration-200"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="flex-1">
+              {/* الصف الرئيسي: الاسم+الوصف يسار، البيانات يمين */}
+              <div className="flex flex-row items-start justify-between gap-4">
+
+                {/* الاسم والوصف */}
+                <div className="flex flex-col gap-1">
                   <h4
-                    className="text-lg font-semibold text-gray-900 mb-1"
+                    className="text-lg font-semibold text-gray-900"
                     style={{ fontFamily: "Alexandria, sans-serif" }}
                   >
                     {isRTL ? project.title : project.titleEn}
@@ -158,19 +151,41 @@ const SimpleProjectsList = ({
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-sm">
-                  <div className="flex items-center gap-1.5 text-gray-600">
+                {/* المنطقة + العام + المساحة + القيمة + الحالة */}
+                <div className="flex flex-wrap items-end justify-end gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 text-gray-600 text-sm">
                     <FiMapPin className="text-[#49A799]" />
                     <span style={{ fontFamily: "Alexandria, sans-serif" }}>
                       {isRTL ? project.location : project.locationEn}
                     </span>
                   </div>
+
                   {project.year && (
-                    <div className="flex items-center gap-1.5 text-gray-600">
+                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
                       <FiCalendar className="text-[#49A799]" />
                       <span>{project.year}</span>
                     </div>
                   )}
+
+                  {project.area && (
+                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                      <FiLayers className="text-[#49A799]" />
+                      <span>{project.area}</span>
+                    </div>
+                  )}
+
+                  {project.contractValue && project.contractValue !== "0" && (
+                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                      <FiTrendingUp className="text-[#49A799]" />
+                      <span>
+                        {parseFloat(
+                          (project.contractValue ?? "0").replace(/,/g, ""),
+                        ).toLocaleString()}{" "}
+                        {t.currency}
+                      </span>
+                    </div>
+                  )}
+
                   <div
                     className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
                       project.status === "completed"
@@ -194,6 +209,7 @@ const SimpleProjectsList = ({
                     </span>
                   </div>
                 </div>
+
               </div>
             </motion.div>
           ))}
@@ -255,9 +271,7 @@ const ProjectCard = ({
               ) : (
                 <FiClock
                   className={`text-sm ${
-                    project.status === "development"
-                      ? "text-blue-300"
-                      : "text-amber-300"
+                    project.status === "development" ? "text-blue-300" : "text-amber-300"
                   }`}
                 />
               )}
@@ -275,11 +289,7 @@ const ProjectCard = ({
             {project.contractValue && project.contractValue !== "0" && (
               <motion.div
                 initial={{ x: isRTL ? -20 : 20, opacity: 0 }}
-                animate={
-                  isInView
-                    ? { x: 0, opacity: 1 }
-                    : { x: isRTL ? -20 : 20, opacity: 0 }
-                }
+                animate={isInView ? { x: 0, opacity: 1 } : { x: isRTL ? -20 : 20, opacity: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
                 className="mb-3"
               >
@@ -370,12 +380,8 @@ const CategorySection = ({
   const isInView = useInView(sectionRef, { once: true, margin: "-150px" });
 
   const allSortedProjects = sortProjectsByPriorityAndYear(category.projects);
-  const projectsWithImages = allSortedProjects.filter(
-    (p) => p.mainImage && p.mainImage !== "",
-  );
-  const projectsWithoutImages = allSortedProjects.filter(
-    (p) => !p.mainImage || p.mainImage === "",
-  );
+  const projectsWithImages = allSortedProjects.filter((p) => p.mainImage && p.mainImage !== "");
+  const projectsWithoutImages = allSortedProjects.filter((p) => !p.mainImage || p.mainImage === "");
 
   const stats = {
     total: category.projects.length,
@@ -383,17 +389,12 @@ const CategorySection = ({
     ongoing: category.projects.filter((p) => p.status === "ongoing").length,
     development: category.projects.filter((p) => p.status === "development").length,
     totalValue: category.projects.reduce(
-      (sum, p) => sum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")),
-      0,
+      (sum, p) => sum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")), 0,
     ),
   };
 
   return (
-    <section
-      ref={sectionRef}
-      id={category.id}
-      className="py-16 sm:py-20 lg:py-24 scroll-mt-36"
-    >
+    <section ref={sectionRef} id={category.id} className="py-16 sm:py-20 lg:py-24 scroll-mt-36">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -424,11 +425,7 @@ const CategorySection = ({
 
             <motion.div
               initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
-              animate={
-                isInView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: isRTL ? -30 : 30 }
-              }
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isRTL ? -30 : 30 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6"
             >
@@ -513,7 +510,8 @@ const StickyNav = ({
       <div ref={navRef} style={{ height: isSticky ? "60px" : "0" }} />
       <nav
         className={`z-50 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-sm transition-all duration-300 ${
-isSticky ? "fixed top-[72px] left-0 right-0" : "relative"        }`}
+          isSticky ? "fixed top-[72px] left-0 right-0" : "relative"
+        }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -571,10 +569,9 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
       (sum, cat) => sum + cat.projects.filter((p) => p.status === "ongoing" || p.status === "development").length, 0,
     ),
     totalValue: projectCategories.reduce(
-      (sum, cat) =>
-        sum + cat.projects.reduce(
-          (pSum, p) => pSum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")), 0,
-        ), 0,
+      (sum, cat) => sum + cat.projects.reduce(
+        (pSum, p) => pSum + parseFloat((p.contractValue ?? "0").replace(/,/g, "")), 0,
+      ), 0,
     ),
   };
 

@@ -221,7 +221,7 @@ const healthcareProjects: YamasProject[] = [
     clientEn: "Ministry of Health (MOH)",
     location: "حائل، المنطقة الشمالية",
     locationEn: "Hail, Hail Region",
-    contractValue: "4,645,377",
+    contractValue: "1,250,000",
     year: "2020",
     status: "completed",
     mainImage: "",
@@ -240,7 +240,39 @@ const healthcareProjects: YamasProject[] = [
       "MEP systems",
       "Medical facilities",
     ],
+    area: "1500 م²",
   },
+  // {
+  //   id: "Nile-hospital-200",
+  //   title: "مستشفى النيل",
+  //   titleEn: "Nile Hospital",
+  //   category: "healthcare",
+  //   categoryAr: "مشاريع الصحية",
+  //   categoryEn: "Healthcare",
+  //   client: "وزارة الصحة",
+  //   clientEn: "Ministry of Health (MOH)",
+  //   location: "حائل، المنطقة الشمالية",
+  //   locationEn: "Hail, Hail Region",
+  //   contractValue: "1,250,000",
+  //   year: "2020",
+  //   status: "completed",
+  //   mainImage: "",
+  //   images: [],
+  //   description: "إنشاء مستشفى بطاقة 200 سرير",
+  //   descriptionEn: "Construction of 200-bed hospital in Hail city",
+  //   scope: [
+  //     "مبنى المستشفى الرئيسي",
+  //     "أقسام طبية متعددة",
+  //     "أعمال أنظمة MEP",
+  //     "المرافق الطبية",
+  //   ],
+  //   scopeEn: [
+  //     "Main hospital building",
+  //     "Multiple medical departments",
+  //     "MEP systems",
+  //     "Medical facilities",
+  //   ],
+  // },
 ];
 
 // ============================================
@@ -433,7 +465,7 @@ const housingProjects: YamasProject[] = [
     mainImage: "",
     images: [],
     description:
-      "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح  حسب مواصفات وجودة شركة أرامكو السعودية ، بمساحة بناء 59,600 متر مربع",
+      "أعمال التشطيب لـ 149 فيلا فاخرة بدور أرضي وأول وسطح  حسب مواصفات وجودة شركة أرامكو السعودية",
     descriptionEn:
       "Finishing works for 149 luxury villas with ground, first, and roof floors at NHC level, 59,600 sqm built-up area",
     scope: [
@@ -534,7 +566,7 @@ const educationalProjects: YamasProject[] = [
     clientEn: "King Fahd University of Petroleum and Minerals (KFUPM)",
     location: "الظهران، المنطقة الشرقية",
     locationEn: "Dhahran, Eastern Area",
-    contractValue: "13,000,000",
+    contractValue: "95,000,000",
     year: "2025",
     status: "completed",
     mainImage: "/images/projects/Education/KingFahdUniversity/1.png",
@@ -558,6 +590,7 @@ const educationalProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "14000 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -613,7 +646,7 @@ const educationalProjects: YamasProject[] = [
     clientEn: "Ministry of Higher Education (MOHE)",
     location: "نجران، المنطقة الجنوبية",
     locationEn: "Najran, Southern Area",
-    contractValue: "22,336,554",
+    contractValue: "65,000,000",
     year: "2019",
     status: "completed",
     mainImage: "",
@@ -634,6 +667,7 @@ const educationalProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "14000 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -668,6 +702,7 @@ const educationalProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "12500 م²",
   },
   // ✅ محدث من ملف Word
   {
@@ -702,6 +737,7 @@ const educationalProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "1500م²",
   },
 ];
 
@@ -859,13 +895,13 @@ const commercialProjects: YamasProject[] = [
     clientEn: "Al Jomaih Automotive Company",
     location: "الدمام، المنطقة الشرقية",
     locationEn: "Dammam, Eastern Area",
-    contractValue: "35,000,000",
+    contractValue: "2,500,000",
     year: "2024",
     status: "completed",
     mainImage: "",
     images: [],
     description:
-      "إعادة تأهيل مركز الصيانة من خلال تطوير بيئة العمل وتجهيزها بأنظمة حديثة تدعم كفاءة التشغيل وجودة التنفيذ. يعكس المشروع تحسيناً ملموساً في أداء الخدمات وسرعة الإنجاز مع تقديم تجربة أكثر احترافية للعملاء.",
+      "إعادة تأهيل مركز الصيانة من خلال تطوير بيئة العمل وتجهيزها بأنظمة حديثة تدعم كفاءة التشغيل وجودة التنفيذ.",
     descriptionEn:
       "Rehabilitation of the maintenance center by developing the work environment and equipping it with modern systems supporting operational efficiency and execution quality. The project reflects tangible improvement in service performance and completion speed, providing a more professional experience for customers.",
     scope: [
@@ -878,6 +914,7 @@ const commercialProjects: YamasProject[] = [
       "Interior and exterior finishing works",
       "Electromechanical systems",
     ],
+     area: "20,000 م²",
   },
   {
     id: "banda",
@@ -1165,6 +1202,7 @@ const towersProjects: YamasProject[] = [
       "MEP systems",
       "Common facilities",
     ],
+     area: "24,000 م²",
   },
 ];
 
@@ -1176,7 +1214,7 @@ const governmentProjects: YamasProject[] = [
   {
     id: "admin-court-jeddah",
     title: "مبنى المحكمة الإدارية ",
-    titleEn: "Administrative Court Building - Jeddah",
+    titleEn: "Administrative Court Building",
     category: "government",
     categoryAr: "مشاريع حكومية",
     categoryEn: "Government Projects",
@@ -1185,25 +1223,26 @@ const governmentProjects: YamasProject[] = [
     location: "جدة، المنطقة الغربية",
     locationEn: "Jeddah, Western Area",
     contractValue: "80,000,000",
-    year: "2019",
+    year: "2017",
     status: "completed",
     mainImage: "",
     images: [],
     description:
       "تنفيذ مبنى حكومي متكامل للمحكمة الإدارية وفق أعلى المعايير، بتصميم يعزز الكفاءة الوظيفية وانسيابية الحركة مع تشطيبات دقيقة تعكس الطابع الرسمي.",
     descriptionEn:
-      "Execution of an integrated government building for the Administrative Court according to highest standards, with a design enhancing functional efficiency and smooth movement with precise finishes reflecting the official character.",
+      "Execution of an integrated government building for the Administrative Court according to highest standards.",
     scope: ["الأنظمة الكهروميكانيكية", "أعمال الموقع العام واللاند سكيب"],
     scopeEn: [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "22000 م²",  
   },
   // ✅ محدث من ملف Word
   {
     id: "utilities-complex-king-khalid",
     title: "جامعة الملك خالد ",
-    titleEn: "King Khalid University - Utilities Complex",
+    titleEn: "King Khalid University",
     category: "government",
     categoryAr: "مشاريع حكومية",
     categoryEn: "Government Projects",
@@ -1219,7 +1258,7 @@ const governmentProjects: YamasProject[] = [
     description:
       "إنشاء مجمع مرافق متكامل داخل الحرم الجامعي، يجمع بين جودة التنفيذ ودقة التخطيط لتلبية متطلبات التشغيل ودعم بيئة تعليمية متكاملة.",
     descriptionEn:
-      "Construction of an integrated utilities complex within the university campus, combining execution quality and planning precision to meet operational requirements and support an integrated educational environment.",
+      "Construction of an integrated utilities complex within the university campus.",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
@@ -1251,15 +1290,15 @@ const industrialProjects: YamasProject[] = [
     clientEn: "Nasser Al Hajri (NSH)",
     location: "الدمام، المنطقة الشرقية",
     locationEn: "Dammam, Eastern Area",
-    contractValue: "35,000,000",
+    contractValue: "30,000,000",
     year: "2020",
     status: "completed",
     mainImage: "",
     images: [],
     description:
-      "تنفيذ مصنع متكامل وفق متطلبات التشغيل الصناعي، مع أعمال إنشائية وتشطيبات وأنظمة هندسية تدعم كفاءة الإنتاج. يجسد المشروع قدرة تنفيذية في تطوير المنشآت الصناعية مع الالتزام بمعايير الجودة والدقة في جميع مراحل التنفيذ.",
+      "تنفيذ مصنع متكامل وفق متطلبات التشغيل الصناعي، مع أعمال إنشائية وتشطيبات وأنظمة هندسية تدعم كفاءة الإنتاج.",
     descriptionEn:
-      "Execution of an integrated factory according to industrial operation requirements, with construction works, finishes, and engineering systems supporting production efficiency. The project embodies executive capability in developing industrial facilities while adhering to quality standards and precision at all execution stages.",
+      "Execution of an integrated factory according to industrial operation requirements",
     scope: [
       "الأعمال الإنشائية",
       "أعمال التشطيبات الداخلية والخارجية",
@@ -1272,6 +1311,7 @@ const industrialProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "60000 م²",
   },
 ];
 
