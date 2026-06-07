@@ -202,7 +202,7 @@ export default function AboutSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-6"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.2] md:leading-[1.25]">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.5] md:leading-[1.25]">
                 {isRTL ? (
                   <>
                     {data.title}

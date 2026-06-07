@@ -273,16 +273,22 @@ function ProjectCard({
               </div>
 
               {/* ✅ التعديل الوحيد: استبدال Link+motion.div بـ button + router.push */}
-              <button
-                type="button"
-                onClick={() => router.push(projectsLink)}
-                style={{ pointerEvents: "auto", position: "relative", zIndex: 100, touchAction: "manipulation" }}
-                className="w-full sm:w-auto border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] px-8 py-3 text-base font-bold transition-colors duration-300 rounded-lg cursor-pointer text-center"
-              >
-                <span className="flex items-center justify-center gap-2 whitespace-nowrap">
-                  {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
-                </span>
-              </button>
+                <button
+                  type="button"
+                  onClick={() => router.push(projectsLink)}
+                  style={{ pointerEvents: "auto", position: "relative", zIndex: 100, touchAction: "manipulation" }}
+className="border-2 border-[#49A799] bg-[#49A799] hover:bg-white text-white hover:text-[#49A799] transition-colors duration-300 cursor-pointer flex items-center justify-center
+  w-12 h-12 rounded-full sm:w-auto sm:h-auto sm:rounded-lg sm:px-8 sm:py-3"
+>
+  {/* موبايل: أيقونة فقط */}
+  <svg className="sm:hidden w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d={isRTL ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"} />
+  </svg>
+  {/* ديسكتوب: نص */}
+  <span className="hidden sm:flex items-center gap-2 font-bold text-base whitespace-nowrap">
+    {isRTL ? "استكشف المشروع" : "EXPLORE PROJECT"}
+  </span>
+                </button>
             </div>
           </div>
         </div>

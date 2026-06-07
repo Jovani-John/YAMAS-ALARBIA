@@ -132,28 +132,50 @@ const SimpleProjectsList = ({
               transition={{ delay: index * 0.1, duration: 0.4 }}
               className="p-4 hover:bg-gray-50 transition-colors duration-200"
             >
-              {/* الصف الرئيسي: الاسم+الوصف يسار، البيانات يمين */}
-              <div className="flex flex-row items-start justify-between gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
 
-                {/* الاسم والوصف */}
+                {/* الاسم + بيانات الموبايل */}
                 <div className="flex flex-col gap-1">
                   <h4
-                    className="text-lg font-semibold text-gray-900"
+                    className="text-base sm:text-lg font-semibold text-gray-900"
                     style={{ fontFamily: "Alexandria, sans-serif" }}
                   >
                     {isRTL ? project.title : project.titleEn}
                   </h4>
-                  <p
-                    className="text-sm text-gray-600 line-clamp-1"
-                    style={{ fontFamily: "Alexandria, sans-serif" }}
-                  >
-                    {isRTL ? project.description : project.descriptionEn}
-                  </p>
+
+                  {/* موبايل فقط: العام + المكان + القيمة */}
+                  <div className="flex flex-wrap items-center gap-2 sm:hidden text-xs text-gray-500 mt-1">
+                    {project.year && (
+                      <div className="flex items-center gap-1">
+                        <FiCalendar className="text-[#49A799]" />
+                        <span>{project.year}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-1">
+                      <FiMapPin className="text-[#49A799]" />
+                      <span style={{ fontFamily: "Alexandria, sans-serif" }}>
+                        {isRTL ? project.location : project.locationEn}
+                      </span>
+                    </div>
+                    {project.contractValue && project.contractValue !== "0" && (
+                      <div className="flex items-center gap-1">
+                        <FiTrendingUp className="text-[#49A799]" />
+                        <span>
+                          {parseFloat(
+                            (project.contractValue ?? "0").replace(/,/g, ""),
+                          ).toLocaleString()}{" "}
+                          {t.currency}
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                {/* المنطقة + العام + المساحة + القيمة + الحالة */}
-                <div className="flex flex-wrap items-end justify-end gap-2 shrink-0">
-                  <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                {/* البيانات الكاملة — ديسكتوب + الحالة دايماً */}
+                <div className="flex flex-wrap items-center gap-2 sm:justify-end sm:shrink-0">
+
+                  {/* تخفي في الموبايل */}
+                  <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
                     <FiMapPin className="text-[#49A799]" />
                     <span style={{ fontFamily: "Alexandria, sans-serif" }}>
                       {isRTL ? project.location : project.locationEn}
@@ -161,21 +183,21 @@ const SimpleProjectsList = ({
                   </div>
 
                   {project.year && (
-                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
                       <FiCalendar className="text-[#49A799]" />
                       <span>{project.year}</span>
                     </div>
                   )}
 
                   {project.area && (
-                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
                       <FiLayers className="text-[#49A799]" />
                       <span>{project.area}</span>
                     </div>
                   )}
 
                   {project.contractValue && project.contractValue !== "0" && (
-                    <div className="flex items-center gap-1.5 text-gray-600 text-sm">
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
                       <FiTrendingUp className="text-[#49A799]" />
                       <span>
                         {parseFloat(
@@ -186,8 +208,9 @@ const SimpleProjectsList = ({
                     </div>
                   )}
 
+                  {/* الحالة — تظهر دايماً */}
                   <div
-                    className={`flex items-center gap-2 px-4 py-1.5 backdrop-blur-md rounded-full border ${
+                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs ${
                       project.status === "completed"
                         ? "bg-emerald-500/20 border-emerald-400/30"
                         : project.status === "development"
@@ -196,11 +219,11 @@ const SimpleProjectsList = ({
                     }`}
                   >
                     {project.status === "completed" ? (
-                      <FiCheckCircle className="text-sm" />
+                      <FiCheckCircle className="text-xs" />
                     ) : (
-                      <FiClock className="text-sm" />
+                      <FiClock className="text-xs" />
                     )}
-                    <span className="text-xs font-medium">
+                    <span className="font-medium">
                       {project.status === "completed"
                         ? t.status.completed
                         : project.status === "development"
@@ -600,11 +623,11 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto pt-24 sm:pt-28 lg:pt-0"
         >
-          <div className="inline-block mb-8">
-            <div className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
-              <span className="text-white font-semibold text-lg" style={{ fontFamily: "Alexandria, sans-serif" }}>
+          <div className="inline-block mb-6 sm:mb-8">
+            <div className="px-4 sm:px-6 py-2 sm:py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+              <span className="text-sm sm:text-base lg:text-lg text-white font-semibold" style={{ fontFamily: "Alexandria, sans-serif" }}>
                 {t.hero.subtitle}
               </span>
             </div>
@@ -614,7 +637,7 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
             style={{ fontFamily: "Alexandria, sans-serif" }}
           >
             {t.hero.title}
@@ -624,7 +647,7 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto"
             style={{ fontFamily: "Alexandria, sans-serif" }}
           >
             {t.hero.description}
@@ -634,25 +657,25 @@ const ProjectsHero = ({ isRTL, t }: { isRTL: boolean; t: any }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.projects}+</div>
-              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.totalProjects}</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">{totalStats.projects}+</div>
+              <div className="text-xs sm:text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.totalProjects}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.completed}+</div>
-              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.completed}</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">{totalStats.completed}+</div>
+              <div className="text-xs sm:text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.completed}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{totalStats.ongoing}</div>
-              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.ongoing}</div>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">{totalStats.ongoing}</div>
+              <div className="text-xs sm:text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.hero.stats.ongoing}</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-white/40 transition-all duration-300">
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
                 {(totalStats.totalValue / 1000000000).toFixed(1)}{t.hero.stats.billion}
               </div>
-              <div className="text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.currency}</div>
+              <div className="text-xs sm:text-sm text-white/90 font-medium" style={{ fontFamily: "Alexandria, sans-serif" }}>{t.currency}</div>
             </div>
           </motion.div>
         </motion.div>

@@ -72,7 +72,7 @@ export default function Navbar() {
         dir={isRTL ? 'rtl' : 'ltr'}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-20">
             
             {/* Logo Section */}
             <motion.div
@@ -84,12 +84,13 @@ export default function Navbar() {
                   src="/images/logo/logo.png"
                   alt={isRTL ? 'يماس العربية للمقاولات' : 'Yamas Construction'}
                   // تم تكبير اللوجو هنا من h-12 إلى h-16 (أو h-20 إذا أردت حجماً أضخم)
-                  className={`h-12 md:h-16 lg:h-20 xl:h-24 w-auto object-contain transition-all duration-300 ${
+                  className={`h-24 md:h-28 w-auto object-contain transition-all duration-300 ${
                     isScrolled ? '' : 'brightness-0 invert'
                   }`}
                 />
               </a>
             </motion.div>
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {links.map((link, index) => (
