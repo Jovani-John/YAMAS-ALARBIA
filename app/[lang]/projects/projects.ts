@@ -154,7 +154,7 @@ const healthcareProjects: YamasProject[] = [
       "/images/projects/Healthcare/vaccine-center-64-bed/4.png",
     ],
     description:
-      "إنشاء مركز تطعيم متكامل يضم 64 غرفة، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم الكفاءة العالية واستمرارية الخدمة. يعكس المشروع قدرة تنفيذية على إدارة كثافة التشغيل وتقديم خدمات صحية بجودة وسرعة وفق المعايير المعتمدة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات،الكهروميكانيكية .",
+      "إنشاء مركز تطعيم متكامل يضم 64 غرفة، مع تنفيذ أعمال داخلية وأنظمة تشغيل تدعم الكفاءة العالية واستمرارية الخدمة. يعكس المشروع قدرة تنفيذية على إدارة كثافة التشغيل وتقديم خدمات صحية بجودة وسرعة وفق المعايير المعتمدة. يشمل المشروع: الأعمال الإنشائية، أعمال التشطيبات،الأنظمة الكهروميكانيكية .",
     descriptionEn:
       "Construction of an integrated vaccination center comprising 64 rooms, including interior works and operating systems supporting high efficiency and service continuity. The project reflects executive capability in managing operational density and delivering quality health services quickly according to approved standards. The project includes: construction works, finishing works, electromechanical systems, and medical gas systems.",
     scope: [
@@ -1250,7 +1250,7 @@ const governmentProjects: YamasProject[] = [
     clientEn: "Ministry of Higher Education (MOHE)",
     location: "أبها، المنطقة الجنوبية",
     locationEn: "Abha, Southern Area",
-    contractValue: "5,145,371",
+    contractValue: "95,000,000",
     year: "2019",
     status: "completed",
     mainImage: "",
@@ -1271,7 +1271,9 @@ const governmentProjects: YamasProject[] = [
       "Electromechanical systems",
       "General site works and landscaping",
     ],
+    area: "14000 م²",  
   },
+  
 ];
 
 // ============================================

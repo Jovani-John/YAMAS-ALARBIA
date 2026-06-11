@@ -135,7 +135,7 @@ const SimpleProjectsList = ({
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
 
                 {/* الاسم + بيانات الموبايل */}
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 flex-1 min-w-0">
                   <h4
                     className="text-base sm:text-lg font-semibold text-gray-900"
                     style={{ fontFamily: "Alexandria, sans-serif" }}
@@ -147,19 +147,19 @@ const SimpleProjectsList = ({
                   <div className="flex flex-wrap items-center gap-2 sm:hidden text-xs text-gray-500 mt-1">
                     {project.year && (
                       <div className="flex items-center gap-1">
-                        <FiCalendar className="text-[#49A799]" />
+                        <FiCalendar className="text-[#49A799] shrink-0" />
                         <span>{project.year}</span>
                       </div>
                     )}
                     <div className="flex items-center gap-1">
-                      <FiMapPin className="text-[#49A799]" />
-                      <span style={{ fontFamily: "Alexandria, sans-serif" }}>
+                      <FiMapPin className="text-[#49A799] shrink-0" />
+                      <span style={{ fontFamily: "Alexandria, sans-serif" }} className="truncate">
                         {isRTL ? project.location : project.locationEn}
                       </span>
                     </div>
                     {project.contractValue && project.contractValue !== "0" && (
                       <div className="flex items-center gap-1">
-                        <FiTrendingUp className="text-[#49A799]" />
+                        <FiTrendingUp className="text-[#49A799] shrink-0" />
                         <span>
                           {parseFloat(
                             (project.contractValue ?? "0").replace(/,/g, ""),
@@ -171,34 +171,36 @@ const SimpleProjectsList = ({
                   </div>
                 </div>
 
-                {/* البيانات الكاملة — ديسكتوب + الحالة دايماً */}
-                <div className="flex flex-wrap items-center gap-2 sm:justify-end sm:shrink-0">
-
-                  {/* تخفي في الموبايل */}
-                  <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
-                    <FiMapPin className="text-[#49A799]" />
-                    <span style={{ fontFamily: "Alexandria, sans-serif" }}>
+                {/* البيانات الكاملة — ديسكتوب + الحالة دايماً - مع محاذاة عمودية */}
+                <div className="flex flex-wrap items-center gap-3 sm:justify-end sm:shrink-0">
+                  {/* الموقع */}
+                  <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm min-w-[100px]">
+                    <FiMapPin className="text-[#49A799] shrink-0 w-4" />
+                    <span style={{ fontFamily: "Alexandria, sans-serif" }} className="truncate">
                       {isRTL ? project.location : project.locationEn}
                     </span>
                   </div>
 
+                  {/* السنة */}
                   {project.year && (
-                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
-                      <FiCalendar className="text-[#49A799]" />
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm min-w-[70px]">
+                      <FiCalendar className="text-[#49A799] shrink-0 w-4" />
                       <span>{project.year}</span>
                     </div>
                   )}
 
+                  {/* المساحة */}
                   {project.area && (
-                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
-                      <FiLayers className="text-[#49A799]" />
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm min-w-[80px]">
+                      <FiLayers className="text-[#49A799] shrink-0 w-4" />
                       <span>{project.area}</span>
                     </div>
                   )}
 
+                  {/* القيمة */}
                   {project.contractValue && project.contractValue !== "0" && (
-                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm">
-                      <FiTrendingUp className="text-[#49A799]" />
+                    <div className="hidden sm:flex items-center gap-1.5 text-gray-600 text-sm min-w-[120px]">
+                      <FiTrendingUp className="text-[#49A799] shrink-0 w-4" />
                       <span>
                         {parseFloat(
                           (project.contractValue ?? "0").replace(/,/g, ""),
@@ -208,9 +210,9 @@ const SimpleProjectsList = ({
                     </div>
                   )}
 
-                  {/* الحالة — تظهر دايماً */}
+                  {/* الحالة — تظهر دايماً مع عرض ثابت */}
                   <div
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs ${
+                    className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs min-w-[110px] justify-center ${
                       project.status === "completed"
                         ? "bg-emerald-500/20 border-emerald-400/30"
                         : project.status === "development"
@@ -219,11 +221,11 @@ const SimpleProjectsList = ({
                     }`}
                   >
                     {project.status === "completed" ? (
-                      <FiCheckCircle className="text-xs" />
+                      <FiCheckCircle className="text-xs shrink-0" />
                     ) : (
-                      <FiClock className="text-xs" />
+                      <FiClock className="text-xs shrink-0" />
                     )}
-                    <span className="font-medium">
+                    <span className="font-medium whitespace-nowrap">
                       {project.status === "completed"
                         ? t.status.completed
                         : project.status === "development"
@@ -504,19 +506,20 @@ const StickyNav = ({
   const [isSticky, setIsSticky] = useState(false);
   const [navTop, setNavTop] = useState(0);
 
-  useEffect(() => {
-    if (navRef.current) {
-      setNavTop(navRef.current.offsetTop);
-    }
-  }, []);
+useEffect(() => {
+  if (navRef.current) {
+    const navbarHeight = 90; // ارتفاع الناف بار
+    setNavTop(navRef.current.offsetTop - navbarHeight);
+  }
+}, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > navTop);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [navTop]);
+useEffect(() => {
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > navTop);
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [navTop]);
 
   const scrollToCategory = (categoryId: string) => {
     const element = document.getElementById(categoryId);
